@@ -4,6 +4,7 @@ import process from 'node:process';
 
 const appId = 3863760;
 const count = 16;
+const strict = process.argv.includes('--strict');
 const outputPath = path.resolve(import.meta.dirname, '..', 'src', 'data', 'steam-news.generated.json');
 const apiUrl = new URL('https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/');
 apiUrl.search = new URLSearchParams({
@@ -131,13 +132,21 @@ function excerpt(blocks, maxLength = 220) {
   return `${candidate.slice(0, sentenceEnd >= 100 ? sentenceEnd + 1 : maxLength).trim()}…`;
 }
 
-async function hasExistingData() {
+async function readExistingData() {
   try {
     const existing = JSON.parse(await readFile(outputPath, 'utf8'));
-    return Array.isArray(existing.items) && existing.items.length > 0;
+    return Array.isArray(existing.items) && existing.items.length > 0 ? existing : null;
   } catch {
-    return false;
+    return null;
   }
+}
+
+function comparableData(data) {
+  return JSON.stringify({
+    appId: data.appId,
+    storeUrl: data.storeUrl,
+    items: data.items,
+  });
 }
 
 try {
@@ -171,12 +180,18 @@ try {
     }),
   };
 
-  await writeFile(outputPath, `${JSON.stringify(generated, null, 2)}\n`, 'utf8');
-  console.log(`Updated ${generated.items.length} Steam announcements in ${outputPath}`);
+  const existing = await readExistingData();
+  if (existing && comparableData(existing) === comparableData(generated)) {
+    console.log(`Steam announcements are already current (${generated.items.length} items).`);
+  } else {
+    await writeFile(outputPath, `${JSON.stringify(generated, null, 2)}\n`, 'utf8');
+    console.log(`Updated ${generated.items.length} Steam announcements in ${outputPath}`);
+  }
 } catch (error) {
   const detail = error instanceof Error ? error.message : String(error);
-  if (await hasExistingData()) {
+  if (await readExistingData()) {
     console.warn(`Steam announcements were not refreshed; keeping existing data. ${detail}`);
+    if (strict) process.exitCode = 1;
   } else {
     console.error(`Steam announcements are unavailable and no existing data was found. ${detail}`);
     process.exitCode = 1;

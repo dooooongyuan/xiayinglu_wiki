@@ -136,3 +136,16 @@ npm.cmd ci
 npm.cmd run build
 npm.cmd run deploy:dry-run
 ```
+
+## Steam 公告自动同步
+
+`.github/workflows/update-steam-news.yml` 每天约在北京时间 09:17 检查一次 Steam 官方公告，也可以在 GitHub Actions 页面手动运行。只有公告列表或正文发生变化时才会提交 `wiki/src/data/steam-news.generated.json`；该提交会继续触发 Cloudflare Workers Builds，将新公告发布到 Wiki。
+
+本地手动检查可运行：
+
+```powershell
+cd E:\xiayinglu\wiki
+npm.cmd run news:update -- --strict
+```
+
+`--strict` 用于自动化任务：Steam API 暂时不可用时保留现有公告，同时让任务失败并留下可见日志，避免误以为同步成功。
