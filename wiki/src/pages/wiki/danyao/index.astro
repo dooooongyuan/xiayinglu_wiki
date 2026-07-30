@@ -1,10 +1,10 @@
 ---
-import { Activity, FlaskConical, HeartPulse, Search, Sparkles, Waves } from '@lucide/astro';
+import { Activity, FlaskConical, HeartPulse, Search, Sparkles, WavesHorizontal } from '@lucide/astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import DanyaoCard from '../../../components/DanyaoCard.astro';
 import { danyaoAttributes, danyaoCategories, danyaoData, danyaoEntries, danyaoQualities, danyaoQualityLabels } from '../../../data/danyao';
 
-const categoryIcons = { 内劲: Waves, 属性: Activity, 恢复: HeartPulse, 功能: Sparkles };
+const categoryIcons = { 内劲: WavesHorizontal, 属性: Activity, 恢复: HeartPulse, 功能: Sparkles };
 ---
 
 <BaseLayout title="丹药图鉴" description={`侠影录当前版本已整理 ${danyaoData.counts.entries} 种丹药，包含恢复、临时增益与永久属性培养。`}>

@@ -108,3 +108,31 @@ docker run -d --name xiayinglu-wiki --restart unless-stopped -p 8080:80 xiayingl
 5. 开启 HTTPS 后重新用最终 `https://` 域名构建并上传，保证 canonical URL、RSS、Sitemap 和 `robots.txt` 一致。
 
 纯静态部署不支持访客直接在线编辑。修订流程是通过 Git 仓库提交内容变更，再重新构建发布；收藏和最近浏览保存在各访客浏览器的本地存储中。
+
+## Cloudflare Workers Builds
+
+站点使用 Workers Static Assets 部署，不需要 Astro SSR 适配器或 Worker 入口文件。在 Cloudflare Dashboard 中连接本仓库后填写：
+
+```text
+Git repository: dooooongyuan/xiayinglu_wiki
+Production branch: main
+Root directory: /wiki
+Build command: npm run build
+Deploy command: npm run deploy
+```
+
+构建环境使用 Node.js 22，并设置正式站点地址：
+
+```text
+NODE_VERSION=22
+SITE_URL=https://你的正式域名
+```
+
+`SITE_URL` 会写入 canonical URL、Sitemap、RSS 和 `robots.txt`，必须与最终对外域名一致。本地验证 Cloudflare 部署包时运行：
+
+```powershell
+cd E:\xiayinglu\wiki
+npm.cmd ci
+npm.cmd run build
+npm.cmd run deploy:dry-run
+```
