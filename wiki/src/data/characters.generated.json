@@ -1,0 +1,4077 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T07:51:16.871557+00:00",
+  "gameVersion": "2026-07-28-1101",
+  "counts": {
+    "entries": 202,
+    "portraits": 57,
+    "relations": 15,
+    "roles": {
+      "主要人物": 46,
+      "剧情人物": 3,
+      "江湖人物": 124,
+      "普通 NPC": 29
+    }
+  },
+  "entries": [
+    {
+      "slug": "npc-54067300",
+      "name": "了心",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11051.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁",
+        "菩提禅院"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁、菩提禅院等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15140000",
+      "name": "了相",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11112.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "神机山庄",
+        "菩提禅院"
+      ],
+      "levelMin": 55,
+      "levelMax": 55,
+      "description": "可在中军营地地图、神机山庄、菩提禅院等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52737700",
+      "name": "了空",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11111.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "菩提禅院"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在菩提禅院等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53250900",
+      "name": "了虚",
+      "traditionalName": "了虛",
+      "aliases": [],
+      "portrait": "/game/characters/11110.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁",
+        "菩提禅院"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 8,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557300",
+      "name": "何穗妍",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11144.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15050000",
+      "name": "冷雪",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11053.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52942300",
+      "name": "冷青瓷",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11117.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 26,
+      "levelMax": 36,
+      "description": "可在凌云寨、神机山庄、苍影阁等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15230000",
+      "name": "净尘",
+      "traditionalName": "淨塵",
+      "aliases": [],
+      "portrait": "/game/characters/11028.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "丐帮",
+        "中军营地地图",
+        "天鉴府",
+        "神机山庄",
+        "菩提禅院"
+      ],
+      "levelMin": 22,
+      "levelMax": 22,
+      "description": "可在丐帮、中军营地地图、天鉴府等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 9,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53250600",
+      "name": "凌箫",
+      "traditionalName": "淩簫",
+      "aliases": [],
+      "portrait": "/game/characters/11123.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "神机山庄"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15130000",
+      "name": "剑痴",
+      "traditionalName": "劍癡",
+      "aliases": [],
+      "portrait": "/game/characters/11015.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53658500",
+      "name": "吴不知",
+      "traditionalName": "吳不知",
+      "aliases": [],
+      "portrait": "/game/characters/11119.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "丐帮"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在丐帮等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15100000",
+      "name": "呼延葬",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/10002.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 55,
+      "levelMax": 55,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15160000",
+      "name": "地劫",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11065.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 10,
+      "levelMax": 10,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15120000",
+      "name": "地煞",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11012.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 20,
+      "levelMax": 20,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15170000",
+      "name": "地狂",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11066.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 22,
+      "levelMax": 22,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15330000",
+      "name": "地缚",
+      "traditionalName": "地縛",
+      "aliases": [],
+      "portrait": "/game/characters/11067.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15310000",
+      "name": "天罪",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11015.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53044400",
+      "name": "孙不二",
+      "traditionalName": "孫不二",
+      "aliases": [],
+      "portrait": "/game/characters/11081.png",
+      "gender": "男",
+      "faction": "灵素谷",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "与灵素谷相关的人物。可在灵素谷等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 1
+    },
+    {
+      "slug": "npc-53044300",
+      "name": "孙玉麟",
+      "traditionalName": "孫玉麟",
+      "aliases": [],
+      "portrait": "/game/characters/11082.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15090000",
+      "name": "宁毅",
+      "traditionalName": "寧毅",
+      "aliases": [],
+      "portrait": "/game/characters/11121.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "神机山庄"
+      ],
+      "levelMin": 39,
+      "levelMax": 39,
+      "description": "可在天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15030000",
+      "name": "崇黑虎",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11116.png",
+      "gender": "男",
+      "faction": "凌云寨",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "与凌云寨相关的人物。可在凌云寨等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763500",
+      "name": "影娘",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11144.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15020000",
+      "name": "徐中鹤",
+      "traditionalName": "徐中鶴",
+      "aliases": [],
+      "portrait": "/game/characters/11016.png",
+      "gender": "男",
+      "faction": "黑风寨",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 8,
+      "levelMax": 8,
+      "description": "与黑风寨相关的人物。可在天鉴府等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15010000",
+      "name": "朴藏机",
+      "traditionalName": "樸藏機",
+      "aliases": [],
+      "portrait": "/game/characters/10005.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "神机山庄"
+      ],
+      "levelMin": 10,
+      "levelMax": 10,
+      "description": "可在天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 3
+    },
+    {
+      "slug": "npc-53351400",
+      "name": "李尘舟",
+      "traditionalName": "李塵舟",
+      "aliases": [],
+      "portrait": "/game/characters/10000.png",
+      "gender": "男",
+      "faction": "苍影阁",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "《侠影录》中由玩家操控的主角，与苍影阁关系密切。玩家将以李尘舟的身份踏入江湖，在探索、战斗与抉择中推动故事发展。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 7
+    },
+    {
+      "slug": "npc-15220000",
+      "name": "林放",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11114.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 22,
+      "levelMax": 22,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52123700",
+      "name": "楚千绝",
+      "traditionalName": "楚千絕",
+      "aliases": [],
+      "portrait": "/game/characters/11065.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 18,
+      "levelMax": 18,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53350500",
+      "name": "江知白",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11080.png",
+      "gender": "男",
+      "faction": "灵素谷",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "灵素谷",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "与灵素谷相关的人物。可在中军营地地图、天鉴府、灵素谷等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 10,
+      "isMentionedOnly": false,
+      "relationCount": 2
+    },
+    {
+      "slug": "npc-20008000",
+      "name": "沈砚秋",
+      "traditionalName": "沈硯秋",
+      "aliases": [],
+      "portrait": "/game/characters/11062.png",
+      "gender": "女",
+      "faction": "苍影阁",
+      "locations": [
+        "灵素谷",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "江湖人称“慧心”，是苍影阁的智囊、军师兼情报总管。她容貌清丽、气质温婉，体态纤细，常着素雅衣裙，周身萦绕着书卷气与药草香，眼眸中藏着聪慧与淡淡的忧郁。她博闻强记、心思缜密，精通情报分析、策略谋划、医药毒理与江湖典故，是组织的“活典籍”。她温柔善良、多愁善感，见不得同门受苦，心有所属却从不表露，默默在背后出谋划策、调理其身体，自身武功不高，却以智慧为团队保驾护航。",
+      "role": "主要人物",
+      "instanceCount": 16,
+      "isMentionedOnly": false,
+      "relationCount": 3
+    },
+    {
+      "slug": "npc-53249200",
+      "name": "燕九",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11120.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "丐帮",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 40,
+      "levelMax": 40,
+      "description": "可在丐帮、天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 6,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53760300",
+      "name": "祝红",
+      "traditionalName": "祝紅",
+      "aliases": [],
+      "portrait": "/game/characters/11063.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊",
+        "神机山庄"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53249100",
+      "name": "童百战",
+      "traditionalName": "童百戰",
+      "aliases": [],
+      "portrait": "/game/characters/11118.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "丐帮",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在丐帮、天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 7,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53760400",
+      "name": "花弄影",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11126.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "惊鸿坊",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、天鉴府、惊鸿坊等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53761900",
+      "name": "苏夜",
+      "traditionalName": "蘇夜",
+      "aliases": [],
+      "portrait": "/game/characters/11166.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53249800",
+      "name": "范先秋",
+      "traditionalName": "範先秋",
+      "aliases": [],
+      "portrait": "/game/characters/11124.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、天鉴府、神机山庄等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 7,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53863000",
+      "name": "范星野",
+      "traditionalName": "範星野",
+      "aliases": [],
+      "portrait": "/game/characters/11125.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "神机山庄",
+        "神机山庄后院",
+        "苍影阁"
+      ],
+      "levelMin": 35,
+      "levelMax": 35,
+      "description": "出身书香武学世家，身姿俊朗，气质清雅，身着月白长衫，腰佩玉柄长剑，自带温润气度。他精于机关巧术与符文之道，手艺精湛，尤擅打造精巧实用的防身兵器与机关装置，秉持“匠心铸技、侠义立身”的准则。 他虽温文尔雅，却有坚定风骨，不徇私情、不媚俗，既坚守武学传承，又不拘泥于成规，虽无张扬姿态，却以精湛技艺与赤诚之心，在江湖中留下“巧匠神手”的美名，是兼具技艺与道义的江湖才俊。",
+      "role": "主要人物",
+      "instanceCount": 6,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52839300",
+      "name": "萧无极",
+      "traditionalName": "蕭無極",
+      "aliases": [],
+      "portrait": "/game/characters/10004.png",
+      "gender": "男",
+      "faction": "天鉴府",
+      "locations": [
+        "中军营地地图",
+        "天鉴府"
+      ],
+      "levelMin": 50,
+      "levelMax": 50,
+      "description": "与天鉴府相关的人物。可在中军营地地图、天鉴府等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15110000",
+      "name": "萧清雪",
+      "traditionalName": "蕭清雪",
+      "aliases": [],
+      "portrait": "/game/characters/10001.png",
+      "gender": "女",
+      "faction": "天鉴府",
+      "locations": [
+        "丐帮",
+        "中军营地地图",
+        "天鉴府",
+        "灵素谷",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 1,
+      "levelMax": 55,
+      "description": "被称为“玄霜飞鸿”，天鉴府四大神捕之一，执掌肃正府纪，专司稽查内部枉法渎职之事。她容貌清丽绝尘，一袭白衣纤尘不染，承袭太华山水玲珑陆心月之术，气质清冷出尘。神情冷若冰霜，不苟言笑，目光锐利如冰刃，仿佛能洞穿人心，衣着打理得一丝不苟，每一处细节都彰显着律法的肃穆与无情。她铁面无私，秉持法理至上，不徇私情，手握监察重权，令天鉴府众人敬畏，亦是少数能制衡府中强权的存在，行事隐秘难测，背后似藏着不为人知的隐秘过往与身份。",
+      "role": "主要人物",
+      "instanceCount": 29,
+      "isMentionedOnly": false,
+      "relationCount": 2
+    },
+    {
+      "slug": "npc-15150000",
+      "name": "薛万嗔",
+      "traditionalName": "薛萬嗔",
+      "aliases": [],
+      "portrait": "/game/characters/11084.png",
+      "gender": "男",
+      "faction": "灵素谷",
+      "locations": [
+        "灵素谷",
+        "苍影阁"
+      ],
+      "levelMin": 55,
+      "levelMax": 55,
+      "description": "与灵素谷相关的人物。可在灵素谷、苍影阁等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 6,
+      "isMentionedOnly": false,
+      "relationCount": 1
+    },
+    {
+      "slug": "npc-56217700",
+      "name": "裴冷荷",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11063.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊决斗场"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊决斗场等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51917900",
+      "name": "解军",
+      "traditionalName": "解軍",
+      "aliases": [],
+      "portrait": "/game/characters/11010.png",
+      "gender": "男",
+      "faction": "潇湘剑阁",
+      "locations": [
+        "惊鸿坊",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "潇湘剑阁内门弟子，柳残星昔日师弟，二十出头，相貌端正，眼神明亮，既带着年轻人的澄澈锐气，也藏着几分未经世事的纯粹。他勤学笃实，身手在同辈中颇为出众，深受掌门沈胜舟熏陶，恪守尊师重道之道，心怀赤诚侠义，始终以行侠仗义、护持宗门为念。性情耿直坦荡，爱憎分明，待人赤诚，对救过自己性命的人感念至深，将报恩之心刻在心上，从不推诿敷衍。历经大师兄离世、掌门被擒、剑阁衰败的接连重创后，他迅速褪去青涩稚气，在挫折中沉淀成长，虽背负着宗门复兴的沉重压力，却愈发坚定沉稳，始终坚守本心，是最可靠的盟友与助力。",
+      "role": "主要人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 2
+    },
+    {
+      "slug": "npc-10000006",
+      "name": "谢孤鸿",
+      "traditionalName": "謝孤鴻",
+      "aliases": [],
+      "portrait": "/game/characters/11015.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15080000",
+      "name": "赫连勃",
+      "traditionalName": "赫連勃",
+      "aliases": [],
+      "portrait": "/game/characters/10002.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 55,
+      "levelMax": 55,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "主要人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15070000",
+      "name": "陆心月",
+      "traditionalName": "陸心月",
+      "aliases": [],
+      "portrait": "/game/characters/11122.png",
+      "gender": "女",
+      "faction": "太华山",
+      "locations": [
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "与太华山相关的人物。可在神机山庄、苍影阁等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 1
+    },
+    {
+      "slug": "npc-51917800",
+      "name": "雷啸川",
+      "traditionalName": "雷嘯川",
+      "aliases": [],
+      "portrait": "/game/characters/11075.png",
+      "gender": "男",
+      "faction": "苍影阁",
+      "locations": [
+        "灵素谷",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 30,
+      "levelMax": 30,
+      "description": "江湖人称“奔雷”，是苍影阁核心战力与先锋，身材高大健硕，剑眉星目，脸上的神情直白外露，怒时须发皆张，乐时豪迈不羁，身上密布的伤疤皆是过往拼杀的印记。他武功高强，惯用双拳为刃，嫉恶如仇、性情刚烈，主张以暴制暴、快意恩仇，对仇敌恨之入骨。他忠诚重义，战斗时永远冲在最前，护佑同门，却也冲动直接、不善谋略，且因情感纠葛与李尘舟时有争执，常年在外漂泊，心结未开。",
+      "role": "主要人物",
+      "instanceCount": 6,
+      "isMentionedOnly": false,
+      "relationCount": 3
+    },
+    {
+      "slug": "npc-15040000",
+      "name": "齐云霄",
+      "traditionalName": "齊雲霄",
+      "aliases": [],
+      "portrait": "/game/characters/11115.png",
+      "gender": "男",
+      "faction": "凌云寨",
+      "locations": [
+        "中军营地地图",
+        "凌云寨",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "与凌云寨相关的人物。可在中军营地地图、凌云寨、天鉴府等地遇见。",
+      "role": "主要人物",
+      "instanceCount": 9,
+      "isMentionedOnly": false,
+      "relationCount": 1
+    },
+    {
+      "slug": "npc-900001",
+      "name": "柳残星",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "潇湘剑阁",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "潇湘剑阁人物，解军昔日师兄，也是李尘舟的挚友。",
+      "role": "剧情人物",
+      "instanceCount": 0,
+      "isMentionedOnly": true,
+      "relationCount": 2
+    },
+    {
+      "slug": "npc-900002",
+      "name": "沈胜舟",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "潇湘剑阁",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "潇湘剑阁掌门，解军受其熏陶并恪守其教诲。",
+      "role": "剧情人物",
+      "instanceCount": 0,
+      "isMentionedOnly": true,
+      "relationCount": 1
+    },
+    {
+      "slug": "npc-900003",
+      "name": "聂守渊",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "苍玄门",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "李尘舟的师父，曾带李尘舟拜会潇湘剑阁。",
+      "role": "剧情人物",
+      "instanceCount": 0,
+      "isMentionedOnly": true,
+      "relationCount": 1
+    },
+    {
+      "slug": "npc-53555600",
+      "name": "万欣",
+      "traditionalName": "萬欣",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557700",
+      "name": "万溪",
+      "traditionalName": "萬溪",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53555500",
+      "name": "万青",
+      "traditionalName": "萬青",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、天鉴府、惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713300",
+      "name": "丰卫",
+      "traditionalName": "豐衛",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53044100",
+      "name": "于秋",
+      "traditionalName": "於秋",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20009000",
+      "name": "云萝",
+      "traditionalName": "雲蘿",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53350900",
+      "name": "仇千易",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713700",
+      "name": "付庆阳",
+      "traditionalName": "付慶陽",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53559900",
+      "name": "何姑",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557100",
+      "name": "何槐",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53761800",
+      "name": "何欢颜",
+      "traditionalName": "何歡顏",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714900",
+      "name": "侯问天",
+      "traditionalName": "侯問天",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713400",
+      "name": "公孙誉",
+      "traditionalName": "公孫譽",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941100",
+      "name": "关大有",
+      "traditionalName": "關大有",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941000",
+      "name": "关小宝",
+      "traditionalName": "關小寶",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714300",
+      "name": "关杨",
+      "traditionalName": "關楊",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "神机山庄"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府、神机山庄等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714400",
+      "name": "关海天",
+      "traditionalName": "關海天",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "神机山庄"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府、神机山庄等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043500",
+      "name": "冉誉",
+      "traditionalName": "冉譽",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713200",
+      "name": "冯钰",
+      "traditionalName": "馮鈺",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763100",
+      "name": "刀疤",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51716000",
+      "name": "刘三",
+      "traditionalName": "劉三",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715000",
+      "name": "刘二姐",
+      "traditionalName": "劉二姐",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715300",
+      "name": "刘二毛",
+      "traditionalName": "劉二毛",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941600",
+      "name": "刘二胖",
+      "traditionalName": "劉二胖",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556000",
+      "name": "刘坡",
+      "traditionalName": "劉坡",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712900",
+      "name": "刘坤一",
+      "traditionalName": "劉坤一",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51717600",
+      "name": "刘坤山",
+      "traditionalName": "劉坤山",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53558200",
+      "name": "刘志松",
+      "traditionalName": "劉志松",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51717100",
+      "name": "刘能",
+      "traditionalName": "劉能",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941800",
+      "name": "刘闲",
+      "traditionalName": "劉閑",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762600",
+      "name": "初夏",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714200",
+      "name": "华诚",
+      "traditionalName": "華誠",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51716100",
+      "name": "卓凡",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53560000",
+      "name": "南宫嬴",
+      "traditionalName": "南宮嬴",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20002000",
+      "name": "卢峰",
+      "traditionalName": "盧峰",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁",
+        "苍影阁夜"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁、苍影阁夜等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714000",
+      "name": "历炼",
+      "traditionalName": "曆煉",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在中军营地地图、天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714100",
+      "name": "历邡",
+      "traditionalName": "曆邡",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在中军营地地图、天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557400",
+      "name": "呼哈纳刺",
+      "traditionalName": "呼哈納刺",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53044000",
+      "name": "唐梓嫣",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713900",
+      "name": "姑苏茂",
+      "traditionalName": "姑蘇茂",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52942100",
+      "name": "姜大平",
+      "traditionalName": "薑大平",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20013000",
+      "name": "婉清",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556600",
+      "name": "孟幽",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52940900",
+      "name": "安元",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712100",
+      "name": "安半山",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556300",
+      "name": "安易水",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714500",
+      "name": "官豪",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714800",
+      "name": "寒流影",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556500",
+      "name": "寒烟",
+      "traditionalName": "寒煙",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043900",
+      "name": "寒翎",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043800",
+      "name": "尘谷",
+      "traditionalName": "塵穀",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043700",
+      "name": "庄可卿",
+      "traditionalName": "莊可卿",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷、苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53558000",
+      "name": "徐绅",
+      "traditionalName": "徐紳",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53350600",
+      "name": "念如烟",
+      "traditionalName": "念如煙",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043600",
+      "name": "文谷雪",
+      "traditionalName": "文穀雪",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷、苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763200",
+      "name": "曹娘子",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715900",
+      "name": "李不快",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53350800",
+      "name": "李书竹",
+      "traditionalName": "李書竹",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20004000",
+      "name": "李凤儿",
+      "traditionalName": "李鳳兒",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁",
+        "苍影阁夜"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁、苍影阁夜等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53555300",
+      "name": "李卫",
+      "traditionalName": "李衛",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53555400",
+      "name": "李平",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557000",
+      "name": "李彦",
+      "traditionalName": "李彥",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715700",
+      "name": "李珏",
+      "traditionalName": "李玨",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712500",
+      "name": "李畅",
+      "traditionalName": "李暢",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713600",
+      "name": "李秋虎",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941900",
+      "name": "李芸姊",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941400",
+      "name": "李达",
+      "traditionalName": "李達",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762000",
+      "name": "李达桓",
+      "traditionalName": "李達桓",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712200",
+      "name": "李随风",
+      "traditionalName": "李隨風",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15210000",
+      "name": "松本一郎",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 10,
+      "levelMax": 22,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "江湖人物",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53560100",
+      "name": "柳如岩",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713000",
+      "name": "段扬风",
+      "traditionalName": "段揚風",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51721300",
+      "name": "段机玄",
+      "traditionalName": "段機玄",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712800",
+      "name": "段玉生",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20003000",
+      "name": "江笑尘",
+      "traditionalName": "江笑塵",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556400",
+      "name": "沐初彤",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713500",
+      "name": "游牧之",
+      "traditionalName": "遊牧之",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20006000",
+      "name": "燕衔芦",
+      "traditionalName": "燕銜蘆",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15060000",
+      "name": "狂枪",
+      "traditionalName": "狂槍",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556100",
+      "name": "王伟",
+      "traditionalName": "王偉",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712600",
+      "name": "王杨",
+      "traditionalName": "王楊",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53559800",
+      "name": "田雷",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712700",
+      "name": "白峰",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712400",
+      "name": "白浩",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043300",
+      "name": "石威",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043400",
+      "name": "石焱",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53760100",
+      "name": "祝绣",
+      "traditionalName": "祝繡",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941500",
+      "name": "祥云嫂",
+      "traditionalName": "祥雲嫂",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941700",
+      "name": "穆阳",
+      "traditionalName": "穆陽",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53044200",
+      "name": "筱筱",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15200000",
+      "name": "绝幽客",
+      "traditionalName": "絕幽客",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 22,
+      "levelMax": 22,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "江湖人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762800",
+      "name": "聂隐娘",
+      "traditionalName": "聶隱娘",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557500",
+      "name": "胡威",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20007000",
+      "name": "胡海山",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557600",
+      "name": "胡玲",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762100",
+      "name": "花颜",
+      "traditionalName": "花顏",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763000",
+      "name": "草原狼",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52942200",
+      "name": "蒋云",
+      "traditionalName": "蔣雲",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763400",
+      "name": "蒲云",
+      "traditionalName": "蒲雲",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763300",
+      "name": "蒲夜",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53350700",
+      "name": "薛晓梦",
+      "traditionalName": "薛曉夢",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在灵素谷等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762400",
+      "name": "蜜烟",
+      "traditionalName": "蜜煙",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53556200",
+      "name": "许波",
+      "traditionalName": "許波",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20010000",
+      "name": "谢藏锋",
+      "traditionalName": "謝藏鋒",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20011000",
+      "name": "谢裁云",
+      "traditionalName": "謝裁雲",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941300",
+      "name": "谷清扬",
+      "traditionalName": "穀清揚",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "凌云寨",
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、凌云寨、天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15180000",
+      "name": "贪狼",
+      "traditionalName": "貪狼",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 22,
+      "levelMax": 22,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20001000",
+      "name": "阮停桡",
+      "traditionalName": "阮停橈",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715600",
+      "name": "陆凌风",
+      "traditionalName": "陸淩風",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51712300",
+      "name": "陆峰",
+      "traditionalName": "陸峰",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53763600",
+      "name": "陆无双",
+      "traditionalName": "陸無雙",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53761700",
+      "name": "陈水音",
+      "traditionalName": "陳水音",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52942000",
+      "name": "霍星",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762900",
+      "name": "青眼狼",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714700",
+      "name": "韩广",
+      "traditionalName": "韓廣",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51714600",
+      "name": "韩飞",
+      "traditionalName": "韓飛",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53557200",
+      "name": "韩骁",
+      "traditionalName": "韓驍",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53251500",
+      "name": "项福",
+      "traditionalName": "項福",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、天鉴府、神机山庄等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 4,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52941200",
+      "name": "顾天",
+      "traditionalName": "顧天",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "凌云寨"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在凌云寨等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713800",
+      "name": "顾天安",
+      "traditionalName": "顧天安",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20005000",
+      "name": "顾野樵",
+      "traditionalName": "顧野樵",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51713100",
+      "name": "风振华",
+      "traditionalName": "風振華",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52838600",
+      "name": "黎勇",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52838700",
+      "name": "黎骁",
+      "traditionalName": "黎驍",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "江湖人物",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53249300",
+      "name": "丐帮弟子",
+      "traditionalName": "丐幫弟子",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "丐帮",
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在丐帮、天鉴府、神机山庄等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 24,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53760500",
+      "name": "佟掌柜",
+      "traditionalName": "佟掌櫃",
+      "aliases": [],
+      "portrait": "/game/characters/11168.png",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51717801",
+      "name": "侍卫",
+      "traditionalName": "侍衛",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715200",
+      "name": "刘铁匠",
+      "traditionalName": "劉鐵匠",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-10000005",
+      "name": "剑阁弟子",
+      "traditionalName": "劍閣弟子",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-56321500",
+      "name": "天鉴府兵",
+      "traditionalName": "天鑒府兵",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53250700",
+      "name": "太华弟子",
+      "traditionalName": "太華弟子",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府、神机山庄、苍影阁等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 6,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52736800",
+      "name": "守门武僧",
+      "traditionalName": "守門武僧",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "菩提禅院"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在菩提禅院等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53760200",
+      "name": "曲管事",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52840300",
+      "name": "曹管事",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715100",
+      "name": "李大壮",
+      "traditionalName": "李大壯",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53762700",
+      "name": "柳公子",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11125.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52736100",
+      "name": "武僧",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11028.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "苍影阁",
+        "菩提禅院"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府、苍影阁、菩提禅院等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 35,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-13000011",
+      "name": "江湖人",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11113.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府",
+        "惊鸿坊",
+        "惊鸿坊决斗场",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府、惊鸿坊、惊鸿坊决斗场等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 66,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-13000012",
+      "name": "江湖人甲",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "神机山庄"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在神机山庄等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 5,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53043601",
+      "name": "灵素弟子",
+      "traditionalName": "靈素弟子",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "天鉴府",
+        "灵素谷"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、天鉴府、灵素谷等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 13,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53250200",
+      "name": "灵素谷弟子",
+      "traditionalName": "靈素穀弟子",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "神机山庄"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在神机山庄等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52840400",
+      "name": "犯人",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 3,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52736101",
+      "name": "知客僧",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "菩提禅院"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在菩提禅院等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53248100",
+      "name": "神机山庄弟子",
+      "traditionalName": "神機山莊弟子",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "中军营地地图",
+        "神机山庄",
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在中军营地地图、神机山庄、苍影阁等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 27,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51926300",
+      "name": "神秘人",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "/game/characters/11085.png",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51721000",
+      "name": "苏大侠",
+      "traditionalName": "蘇大俠",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53251100",
+      "name": "菩提弟子",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "神机山庄"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在神机山庄等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-15190000",
+      "name": "蒙面人",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [],
+      "levelMin": 22,
+      "levelMax": 22,
+      "description": "游戏剧情与江湖事件中登场的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-52838500",
+      "name": "郑师爷",
+      "traditionalName": "鄭師爺",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-51715400",
+      "name": "钱大婶",
+      "traditionalName": "錢大嬸",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "天鉴府"
+      ],
+      "levelMin": 1,
+      "levelMax": 1,
+      "description": "可在天鉴府等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-20012000",
+      "name": "阿嬷",
+      "traditionalName": "阿嬤",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在苍影阁等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53558100",
+      "name": "雅女",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "女",
+      "faction": "未标明",
+      "locations": [
+        "惊鸿坊"
+      ],
+      "levelMin": 0,
+      "levelMax": 0,
+      "description": "可在惊鸿坊等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 1,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    },
+    {
+      "slug": "npc-53145700",
+      "name": "黑衣人",
+      "traditionalName": "",
+      "aliases": [],
+      "portrait": "",
+      "gender": "男",
+      "faction": "未标明",
+      "locations": [
+        "苍影阁夜"
+      ],
+      "levelMin": 19,
+      "levelMax": 19,
+      "description": "可在苍影阁夜等地遇见的人物。",
+      "role": "普通 NPC",
+      "instanceCount": 2,
+      "isMentionedOnly": false,
+      "relationCount": 0
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation-1",
+      "source": "npc-53351400",
+      "target": "npc-51917800",
+      "label": "师兄弟",
+      "type": "school",
+      "directed": false,
+      "evidenceIds": [
+        1001307,
+        1001762
+      ]
+    },
+    {
+      "id": "relation-2",
+      "source": "npc-53351400",
+      "target": "npc-20008000",
+      "label": "师兄妹",
+      "type": "school",
+      "directed": false,
+      "evidenceIds": [
+        1001815,
+        1001948
+      ]
+    },
+    {
+      "id": "relation-3",
+      "source": "npc-51917800",
+      "target": "npc-20008000",
+      "label": "同门",
+      "type": "school",
+      "directed": false,
+      "evidenceIds": [
+        1001783,
+        1001820
+      ]
+    },
+    {
+      "id": "relation-4",
+      "source": "npc-53351400",
+      "target": "npc-15110000",
+      "label": "红颜知己",
+      "type": "affection",
+      "directed": false,
+      "evidenceIds": [
+        1001872
+      ]
+    },
+    {
+      "id": "relation-5",
+      "source": "npc-53351400",
+      "target": "npc-900001",
+      "label": "挚友",
+      "type": "friendship",
+      "directed": false,
+      "evidenceIds": [
+        1000251
+      ]
+    },
+    {
+      "id": "relation-6",
+      "source": "npc-51917900",
+      "target": "npc-900001",
+      "label": "昔日师兄弟",
+      "type": "school",
+      "directed": false,
+      "evidenceIds": [
+        51917901
+      ]
+    },
+    {
+      "id": "relation-7",
+      "source": "npc-900002",
+      "target": "npc-51917900",
+      "label": "掌门与弟子",
+      "type": "mentorship",
+      "directed": true,
+      "evidenceIds": [
+        51917901
+      ]
+    },
+    {
+      "id": "relation-8",
+      "source": "npc-900003",
+      "target": "npc-53351400",
+      "label": "师徒",
+      "type": "mentorship",
+      "directed": true,
+      "evidenceIds": [
+        1000874
+      ]
+    },
+    {
+      "id": "relation-9",
+      "source": "npc-15070000",
+      "target": "npc-15110000",
+      "label": "师承",
+      "type": "mentorship",
+      "directed": true,
+      "evidenceIds": [
+        52124701
+      ]
+    },
+    {
+      "id": "relation-10",
+      "source": "npc-53350500",
+      "target": "npc-53044400",
+      "label": "师兄弟·决裂",
+      "type": "broken",
+      "directed": false,
+      "evidenceIds": [
+        1001601,
+        1001704
+      ]
+    },
+    {
+      "id": "relation-11",
+      "source": "npc-53350500",
+      "target": "npc-15150000",
+      "label": "同门师兄弟",
+      "type": "school",
+      "directed": false,
+      "evidenceIds": [
+        1001708
+      ]
+    },
+    {
+      "id": "relation-12",
+      "source": "npc-53351400",
+      "target": "npc-15010000",
+      "label": "师门血仇",
+      "type": "enmity",
+      "directed": false,
+      "evidenceIds": [
+        1001870
+      ]
+    },
+    {
+      "id": "relation-13",
+      "source": "npc-51917800",
+      "target": "npc-15010000",
+      "label": "师门血仇",
+      "type": "enmity",
+      "directed": false,
+      "evidenceIds": [
+        1001870
+      ]
+    },
+    {
+      "id": "relation-14",
+      "source": "npc-20008000",
+      "target": "npc-15010000",
+      "label": "师门血仇",
+      "type": "enmity",
+      "directed": false,
+      "evidenceIds": [
+        1001870
+      ]
+    },
+    {
+      "id": "relation-15",
+      "source": "npc-53351400",
+      "target": "npc-15040000",
+      "label": "联手约定",
+      "type": "alliance",
+      "directed": false,
+      "evidenceIds": [
+        1001870
+      ]
+    }
+  ]
+}

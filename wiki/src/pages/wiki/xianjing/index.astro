@@ -1,0 +1,119 @@
+---
+import { Coins, Search, SlidersHorizontal, Target } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TrapCard from '../../../components/TrapCard.astro';
+import { trapEffectTags, trapEntries, trapQualities, trapQualityLabels, trapsData } from '../../../data/traps';
+---
+
+<BaseLayout title="陷阱图鉴" description={`侠影录当前版本已整理 ${trapsData.counts.entries} 种可制作陷阱，包含品质、效果、配方与修习条件。`}>
+  <main class="traps-index" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/entries/#systems">百科目录</a></li><li>›</li><li aria-current="page">陷阱</li></ol>
+    <header class="index-header">
+      <div>
+        <p class="eyebrow">游戏数据图鉴 · {trapsData.gameVersion}</p>
+        <h1 class="page-heading" data-pagefind-meta="title">陷阱图鉴</h1>
+        <p class="page-lead">查询机关陷阱的实际效果、品质、打造材料、铜钱成本和修习节点前置关系。</p>
+      </div>
+      <div class="coverage"><Target size={23} /><strong>{trapsData.counts.entries}</strong><span>种陷阱</span><small>全部具备配方与独立图标</small></div>
+    </header>
+
+    <div class="filters" data-pagefind-ignore>
+      <label class="query-control"><Search size={18} /><span class="sr-only">筛选陷阱</span><input id="trap-query" type="search" placeholder="搜索名称、说明、效果或材料" autocomplete="off" /></label>
+      <label class="select-control"><span>品质</span><select id="trap-quality"><option value="">全部品质</option>{trapQualities.map((quality) => <option value={quality}>{trapQualityLabels[quality]} · {trapsData.counts.qualities[String(quality)] || 0}</option>)}</select></label>
+      <label class="select-control"><SlidersHorizontal size={15} /><span>效果</span><select id="trap-effect"><option value="">全部效果</option>{trapEffectTags.filter((tag) => trapsData.counts.effectTags[tag]).map((tag) => <option value={tag}>{tag} · {trapsData.counts.effectTags[tag]}</option>)}</select></label>
+      <label class="select-control"><Coins size={15} /><span>排序</span><select id="trap-sort"><option value="quality">品质由低到高</option><option value="quality-desc">品质由高到低</option><option value="cost">制作成本</option><option value="points">修习点数</option></select></label>
+      <span class="result-count">{trapsData.counts.entries} 条结果</span>
+    </div>
+
+    <div class="traps-grid" data-pagefind-ignore>
+      {trapEntries.map((entry, index) => (
+        <div
+          class="filter-item"
+          data-index={index}
+          data-search={[
+            entry.name,
+            entry.traditionalName,
+            entry.description,
+            entry.qualityLabel,
+            ...entry.effectTags,
+            ...entry.recipe.materials.map((material) => material.name),
+          ].join(' ')}
+          data-quality={entry.quality}
+          data-effects={`|${entry.effectTags.join('|')}|`}
+          data-cost={entry.recipe.costMoney}
+          data-points={entry.unlock.points}
+        ><TrapCard entry={entry} /></div>
+      ))}
+    </div>
+    <div class="empty-state" hidden>没有符合条件的陷阱。</div>
+  </main>
+</BaseLayout>
+
+<script>
+  const queryInput = document.querySelector<HTMLInputElement>('#trap-query');
+  const qualitySelect = document.querySelector<HTMLSelectElement>('#trap-quality');
+  const effectSelect = document.querySelector<HTMLSelectElement>('#trap-effect');
+  const sortSelect = document.querySelector<HTMLSelectElement>('#trap-sort');
+  const grid = document.querySelector<HTMLElement>('.traps-grid');
+  const items = [...document.querySelectorAll<HTMLElement>('.filter-item')];
+  const resultCount = document.querySelector<HTMLElement>('.result-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+
+  function applyFilters() {
+    const query = queryInput?.value.trim().toLocaleLowerCase('zh-CN') || '';
+    const quality = qualitySelect?.value || '';
+    const effect = effectSelect?.value || '';
+    let visible = 0;
+    items.forEach((item) => {
+      const search = item.dataset.search?.toLocaleLowerCase('zh-CN') || '';
+      const matches = (!query || search.includes(query))
+        && (!quality || item.dataset.quality === quality)
+        && (!effect || item.dataset.effects?.includes(`|${effect}|`));
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = `${visible} 条结果`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  function applySort() {
+    if (!grid) return;
+    const mode = sortSelect?.value || 'quality';
+    const ordered = [...items].sort((left, right) => {
+      const qualityDiff = Number(left.dataset.quality) - Number(right.dataset.quality);
+      if (mode === 'quality-desc') return -qualityDiff || Number(left.dataset.index) - Number(right.dataset.index);
+      if (mode === 'cost') return Number(left.dataset.cost) - Number(right.dataset.cost) || qualityDiff;
+      if (mode === 'points') return Number(left.dataset.points) - Number(right.dataset.points) || qualityDiff;
+      return qualityDiff || Number(left.dataset.index) - Number(right.dataset.index);
+    });
+    ordered.forEach((item) => grid.append(item));
+  }
+
+  [queryInput, qualitySelect, effectSelect].forEach((control) => control?.addEventListener('input', applyFilters));
+  sortSelect?.addEventListener('input', applySort);
+</script>
+
+<style>
+  .traps-index { width: min(100%, 1460px); margin: 0 auto; padding: 28px 36px 64px; }
+  .index-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 24px; }
+  .page-lead { max-width: 780px; }
+  .coverage { min-width: 220px; display: grid; grid-template-columns: 29px auto 1fr; align-items: baseline; gap: 0 7px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); }
+  .coverage > :global(svg) { grid-row: 1 / 3; align-self: center; color: var(--accent); }
+  .coverage strong { font-size: 1.45rem; line-height: 1; }
+  .coverage span { font-size: .82rem; }
+  .coverage small { grid-column: 2 / 4; margin-top: 4px; color: var(--text-soft); font-size: .7rem; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .query-control, .select-control { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .query-control { min-width: 280px; flex: 1; }
+  .select-control > span { color: var(--text-soft); font-size: .72rem; }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  .query-control input { width: 100%; }
+  select { cursor: pointer; }
+  .result-count { margin-left: auto; color: var(--text-soft); font-size: .78rem; }
+  .traps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+  .filter-item[hidden] { display: none; }
+  .empty-state { margin-top: 18px; }
+  @media (max-width: 1120px) { .traps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .traps-index { padding: 22px 16px 52px; } .index-header { display: block; } .coverage { width: max-content; margin-top: 18px; } .query-control { flex-basis: 100%; } .select-control { flex: 1; } .result-count { width: 100%; margin: 0; } }
+  @media (max-width: 650px) { .traps-grid { grid-template-columns: 1fr; } .select-control { min-width: calc(50% - 5px); } }
+</style>

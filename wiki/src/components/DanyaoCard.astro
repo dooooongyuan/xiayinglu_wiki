@@ -1,0 +1,45 @@
+---
+import { ArrowUpRight, Clock3, Infinity, Plus, Repeat2 } from '@lucide/astro';
+import type { DanyaoEntry } from '../data/danyao';
+import { danyaoHref } from '../data/danyao';
+
+interface Props { entry: DanyaoEntry; }
+const { entry } = Astro.props;
+const durationText = entry.isPermanent ? '永久生效' : entry.effect.durationSeconds ? `${entry.effect.durationSeconds} 秒` : '立即生效';
+---
+
+<article class="danyao-card" data-quality={entry.quality}>
+  <a class="card-link" href={danyaoHref(entry)} aria-label={`查看丹药：${entry.name}`}><span class="sr-only">查看{entry.name}</span></a>
+  <div class="icon-frame"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /></div>
+  <div class="card-copy">
+    <div class="card-meta"><span>{entry.category} · {entry.effect.attribute}</span><span class="quality-badge">{entry.qualityLabel}</span></div>
+    <div class="card-title"><h3>{entry.name}</h3><ArrowUpRight size={17} /></div>
+    <p>{entry.description}</p>
+    <div class="effect-line"><Plus size={15} /><strong>{entry.effect.attribute} {entry.effect.value}</strong><span>{durationText}</span></div>
+    <div class="card-foot">
+      {entry.isPermanent ? <span class="permanent"><Infinity size={14} />永久加点</span> : <span><Clock3 size={14} />冷却 {entry.useCooldownSeconds} 秒</span>}
+      {entry.useLimit && <span><Repeat2 size={14} />最多 {entry.useLimit} 次</span>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .danyao-card { position: relative; min-width: 0; min-height: 188px; display: grid; grid-template-columns: 104px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+  .danyao-card:hover { transform: translateY(-2px); border-color: var(--quality-color); box-shadow: var(--shadow); }
+  .card-link { position: absolute; z-index: 2; inset: 0; }
+  .card-link:focus-visible { outline-offset: -3px; }
+  .icon-frame { display: grid; place-items: center; border-right: 3px solid var(--quality-color); background: #111412; }
+  .icon-frame img { width: 100%; max-height: 150px; padding: 12px; object-fit: contain; }
+  .card-copy { min-width: 0; display: flex; flex-direction: column; padding: 13px 14px 11px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--accent); font-size: .68rem; font-weight: 750; }
+  .quality-badge { flex: 0 0 auto; padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 58%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--quality-color) 8%, transparent); color: var(--quality-color); }
+  .card-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-top: 4px; }
+  h3 { margin: 0; font-size: 1.08rem; line-height: 1.35; }
+  p { display: -webkit-box; margin: 5px 0 8px; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; color: var(--text-soft); font-size: .75rem; line-height: 1.5; }
+  .effect-line { display: flex; align-items: center; gap: 5px; margin-top: auto; color: var(--quality-color); font-size: .75rem; }
+  .effect-line span { margin-left: auto; color: var(--text-soft); font-size: .67rem; }
+  .card-foot { display: flex; flex-wrap: wrap; gap: 6px 13px; margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--text-soft); font-size: .66rem; }
+  .card-foot span { display: inline-flex; align-items: center; gap: 4px; }
+  .card-foot .permanent { color: var(--gold); }
+  @media (max-width: 480px) { .danyao-card { grid-template-columns: 92px minmax(0, 1fr); } .icon-frame img { padding: 9px; } .card-copy { padding-inline: 12px; } }
+</style>

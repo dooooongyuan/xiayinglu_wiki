@@ -1,0 +1,315 @@
+---
+import { Focus, LoaderCircle, Maximize2, RotateCcw, Search, ZoomIn, ZoomOut } from '@lucide/astro';
+import type { CharacterEntry, CharacterRelation } from '../data/characters';
+import { characterHref, relationLabels } from '../data/characters';
+import { characterPortraitThumbnail } from '../data/images';
+
+interface Props {
+  entries: CharacterEntry[];
+  relations: CharacterRelation[];
+  compact?: boolean;
+  focusSlug?: string;
+}
+
+const { entries, relations, compact = false, focusSlug = '' } = Astro.props;
+const relatedSlugs = new Set(relations.flatMap((relation) => [relation.source, relation.target]));
+const graphEntries = entries.filter((entry) => relatedSlugs.has(entry.slug));
+const factions = [...new Set(graphEntries.map((entry) => entry.faction))].sort((a, b) => a.localeCompare(b, 'zh-CN'));
+const graphData = {
+  focusSlug,
+  nodes: graphEntries.map((entry) => ({
+    id: entry.slug,
+    name: entry.name,
+    portrait: characterPortraitThumbnail(entry.portrait),
+    faction: entry.faction,
+    role: entry.role,
+    href: characterHref(entry),
+  })),
+  edges: relations.map((relation) => ({
+    id: relation.id,
+    source: relation.source,
+    target: relation.target,
+    label: relation.label,
+    type: relation.type,
+    directed: relation.directed ? 'yes' : 'no',
+  })),
+};
+---
+
+<section class:list={['relationship-graph', { compact }]} data-relationship-graph>
+  <div class="graph-toolbar" data-pagefind-ignore>
+    <label class="graph-search"><Search size={17} /><span class="sr-only">查找人物</span><input type="search" placeholder="查找并聚焦人物" autocomplete="off" /></label>
+    {!compact && <label class="graph-select"><span>关系</span><select data-relation-filter><option value="">全部关系</option>{Object.entries(relationLabels).map(([value, label]) => <option value={value}>{label}</option>)}</select></label>}
+    {!compact && <label class="graph-select"><span>势力</span><select data-faction-filter><option value="">全部势力</option>{factions.map((faction) => <option value={faction}>{faction}</option>)}</select></label>}
+    <div class="graph-actions">
+      <button type="button" data-zoom-in aria-label="放大关系图" title="放大"><ZoomIn size={18} /></button>
+      <button type="button" data-zoom-out aria-label="缩小关系图" title="缩小"><ZoomOut size={18} /></button>
+      <button type="button" data-fit aria-label="完整显示关系图" title="完整显示"><Maximize2 size={18} /></button>
+      <button type="button" data-reset aria-label="重新排列关系图" title="重新排列"><RotateCcw size={18} /></button>
+    </div>
+  </div>
+  <div class="graph-stage">
+    <div class="graph-canvas" role="img" aria-label="可拖拽和缩放的人物关系图"></div>
+    <div class="graph-loading" role="status" data-pagefind-ignore><LoaderCircle size={20} /><span>正在载入关系图…</span></div>
+    <aside class="node-inspector" aria-live="polite">
+      <Focus size={17} />
+      <div><small>当前人物</small><strong>点击图中人物</strong><span>可查看关系和人物详情</span></div>
+    </aside>
+  </div>
+  {!compact && <div class="graph-legend" data-pagefind-ignore>
+    {Object.entries(relationLabels).map(([type, label]) => <span data-type={type}><i></i>{label}</span>)}
+    <small>拖拽人物调整位置，滚轮或双指缩放，双击进入详情</small>
+  </div>}
+  <script is:inline type="application/json" class="graph-data" set:html={JSON.stringify(graphData)}></script>
+</section>
+
+<script>
+  import cytoscape, { type NodeSingular } from 'cytoscape';
+
+  const factionColors = ['#a84f3c', '#287c78', '#b27a2b', '#5c7394', '#7a6251', '#8a4f69', '#59704a', '#62606f'];
+
+  const nextFrame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+
+  async function waitForGraphSize(container: HTMLElement) {
+    for (let attempt = 0; attempt < 30; attempt += 1) {
+      if (container.clientWidth > 0 && container.clientHeight > 0) return true;
+      await nextFrame();
+    }
+    return false;
+  }
+
+  async function initializeGraph(root: HTMLElement, rootIndex: number) {
+    const dataElement = root.querySelector<HTMLScriptElement>('.graph-data');
+    const container = root.querySelector<HTMLElement>('.graph-canvas');
+    if (!dataElement || !container || root.dataset.graphState) return;
+    root.dataset.graphState = 'loading';
+    try {
+      await nextFrame();
+      if (!(await waitForGraphSize(container))) throw new Error('关系图容器没有可用尺寸');
+      container.dataset.ready = 'true';
+    const graph = JSON.parse(dataElement.textContent || '{}') as {
+      focusSlug: string;
+      nodes: Array<{ id: string; name: string; portrait: string; faction: string; role: string; href: string }>;
+      edges: Array<{ id: string; source: string; target: string; label: string; type: string; directed: string }>;
+    };
+    const rootStyle = getComputedStyle(root);
+    const textColor = rootStyle.getPropertyValue('--text').trim() || '#252a27';
+    const textSoft = rootStyle.getPropertyValue('--text-soft').trim() || '#69706c';
+    const surface = rootStyle.getPropertyValue('--surface').trim() || '#ffffff';
+    const accent = rootStyle.getPropertyValue('--accent').trim() || '#a84f3c';
+    const factionColor = new Map([...new Set(graph.nodes.map((node) => node.faction))].map((faction, index) => [faction, factionColors[index % factionColors.length]]));
+    const elements = [
+      ...graph.nodes.map((node) => ({ data: { ...node, color: factionColor.get(node.faction) } })),
+      ...graph.edges.map((edge) => ({ data: edge })),
+    ];
+    const cy = cytoscape({
+      container,
+      elements,
+      minZoom: 0.35,
+      maxZoom: 2.4,
+      wheelSensitivity: 0.18,
+      boxSelectionEnabled: false,
+      style: [
+        {
+          selector: 'node',
+          style: {
+            width: root.classList.contains('compact') ? 52 : 64,
+            height: root.classList.contains('compact') ? 52 : 64,
+            'background-color': 'data(color)',
+            'background-image': (element) => element.data('portrait') || 'none',
+            'background-fit': 'contain',
+            'border-width': 3,
+            'border-color': 'data(color)',
+            label: 'data(name)',
+            color: textColor,
+            'font-size': root.classList.contains('compact') ? 10 : 12,
+            'font-weight': 700,
+            'text-valign': 'bottom',
+            'text-margin-y': root.classList.contains('compact') ? 18 : 22,
+            'text-background-color': surface,
+            'text-background-opacity': 0.92,
+            'text-background-padding': 3 as never,
+            'overlay-opacity': 0,
+          },
+        },
+        { selector: 'node:selected', style: { 'border-width': 5, 'border-color': accent, 'z-index': 10 } },
+        {
+          selector: 'edge',
+          style: {
+            width: 2,
+            'line-color': '#8b928e',
+            'curve-style': 'bezier',
+            label: 'data(label)',
+            'font-size': 9,
+            color: textSoft,
+            'text-background-color': surface,
+            'text-background-opacity': 1,
+            'text-background-padding': 3 as never,
+            'text-rotation': 'autorotate',
+            'target-arrow-color': '#8b928e',
+            'target-arrow-shape': 'none',
+            'arrow-scale': 0.75,
+            'overlay-opacity': 0,
+          },
+        },
+        { selector: 'edge[directed = "yes"]', style: { 'target-arrow-shape': 'triangle' } },
+        { selector: 'edge[type = "mentorship"]', style: { 'line-color': '#b27a2b', 'target-arrow-color': '#b27a2b' } },
+        { selector: 'edge[type = "school"]', style: { 'line-color': '#5c7394', 'target-arrow-color': '#5c7394' } },
+        { selector: 'edge[type = "friendship"]', style: { 'line-color': '#287c78', 'target-arrow-color': '#287c78' } },
+        { selector: 'edge[type = "alliance"]', style: { 'line-color': '#59704a', 'target-arrow-color': '#59704a', 'line-style': 'dashed' } },
+        { selector: 'edge[type = "enmity"]', style: { 'line-color': '#a84f3c', 'target-arrow-color': '#a84f3c', 'line-style': 'dashed' } },
+        { selector: 'edge[type = "affection"]', style: { 'line-color': '#8a4f69', 'target-arrow-color': '#8a4f69' } },
+        { selector: 'edge[type = "broken"]', style: { 'line-color': '#62606f', 'target-arrow-color': '#62606f', 'line-style': 'dotted' } },
+        { selector: '.filtered', style: { display: 'none' } },
+        { selector: '.dimmed', style: { opacity: 0.16 } },
+        { selector: '.highlighted', style: { 'border-color': accent, 'border-width': 5, 'z-index': 20 } },
+      ],
+    });
+    const fitPadding = () => root.clientWidth < 560 ? 76 : 48;
+
+    const layout = () => cy.layout({
+      name: 'cose',
+      animate: false,
+      randomize: true,
+      fit: true,
+      padding: root.classList.contains('compact') ? 36 : 52,
+      nodeRepulsion: () => root.classList.contains('compact') ? 8200 : 11000,
+      idealEdgeLength: () => root.classList.contains('compact') ? 92 : 125,
+      componentSpacing: 70,
+    }).run();
+    layout();
+
+    const search = root.querySelector<HTMLInputElement>('.graph-search input');
+    const relationFilter = root.querySelector<HTMLSelectElement>('[data-relation-filter]');
+    const factionFilter = root.querySelector<HTMLSelectElement>('[data-faction-filter]');
+    const inspector = root.querySelector<HTMLElement>('.node-inspector');
+
+    const applyFilters = () => {
+      const relation = relationFilter?.value || '';
+      const faction = factionFilter?.value || '';
+      cy.elements().removeClass('filtered dimmed highlighted');
+      cy.edges().forEach((edge) => {
+        if (relation && edge.data('type') !== relation) edge.addClass('filtered');
+      });
+      cy.nodes().forEach((node) => {
+        if (faction && node.data('faction') !== faction) node.addClass('filtered');
+      });
+      cy.edges().forEach((edge) => {
+        if (edge.source().hasClass('filtered') || edge.target().hasClass('filtered')) edge.addClass('filtered');
+      });
+      const connected = cy.edges(':visible').connectedNodes();
+      cy.nodes(':visible').forEach((node) => {
+        if (relation && !connected.contains(node)) node.addClass('filtered');
+      });
+      cy.fit(cy.elements(':visible'), fitPadding());
+    };
+
+    const focusNode = (node: NodeSingular) => {
+      cy.elements().removeClass('dimmed highlighted');
+      const neighborhood = node.closedNeighborhood();
+      cy.elements(':visible').difference(neighborhood).addClass('dimmed');
+      node.addClass('highlighted');
+      cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.05), duration: 260 });
+      const edgeLabels = node.connectedEdges(':visible').map((edge) => edge.data('label'));
+      if (inspector) inspector.innerHTML = `<div><small>${node.data('faction')} · ${node.data('role')}</small><strong>${node.data('name')}</strong><span>${edgeLabels.length ? `${edgeLabels.length} 条明确关系：${[...new Set(edgeLabels)].join('、')}` : '暂无明确关系'}</span><a href="${node.data('href')}">查看人物详情</a></div>`;
+    };
+
+    cy.on('tap', 'node', (event) => focusNode(event.target));
+    cy.on('dbltap', 'node', (event) => { location.href = event.target.data('href'); });
+    cy.on('tap', (event) => {
+      if (event.target === cy) cy.elements().removeClass('dimmed highlighted');
+    });
+    search?.addEventListener('input', () => {
+      const query = search.value.trim().toLocaleLowerCase('zh-CN');
+      if (!query) { cy.elements().removeClass('dimmed highlighted'); return; }
+      const node = cy.nodes(':visible').filter((item) => String(item.data('name')).toLocaleLowerCase('zh-CN').includes(query))[0];
+      if (node) focusNode(node);
+    });
+    relationFilter?.addEventListener('input', applyFilters);
+    factionFilter?.addEventListener('input', applyFilters);
+    root.querySelector('[data-zoom-in]')?.addEventListener('click', () => cy.zoom({ level: Math.min(cy.zoom() * 1.2, 2.4), renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 } }));
+    root.querySelector('[data-zoom-out]')?.addEventListener('click', () => cy.zoom({ level: Math.max(cy.zoom() / 1.2, 0.35), renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 } }));
+    root.querySelector('[data-fit]')?.addEventListener('click', () => cy.fit(cy.elements(':visible'), fitPadding()));
+    root.querySelector('[data-reset]')?.addEventListener('click', () => { cy.elements().removeClass('filtered dimmed highlighted'); if (relationFilter) relationFilter.value = ''; if (factionFilter) factionFilter.value = ''; layout(); });
+
+    const initial = graph.focusSlug ? cy.getElementById(graph.focusSlug) : null;
+    if (initial?.length) setTimeout(() => focusNode(initial), 80 + rootIndex * 20);
+    new ResizeObserver(() => {
+      cy.resize();
+      if (container.clientWidth && container.clientHeight) cy.fit(cy.elements(':visible'), fitPadding());
+    }).observe(container);
+      await nextFrame();
+      cy.resize();
+      cy.fit(cy.elements(':visible'), fitPadding());
+      root.dataset.graphState = 'ready';
+    } catch (error) {
+      root.dataset.graphState = 'error';
+      const loading = root.querySelector<HTMLElement>('.graph-loading span');
+      if (loading) loading.textContent = '关系图载入失败，请刷新后重试';
+      console.error('人物关系图载入失败', error);
+    }
+  }
+
+  const graphRoots = [...document.querySelectorAll<HTMLElement>('[data-relationship-graph]')];
+  graphRoots.forEach((root, index) => {
+    root.addEventListener('relationship-graph:activate', () => void initializeGraph(root, index));
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const root = entry.target as HTMLElement;
+        observer.unobserve(root);
+        void initializeGraph(root, graphRoots.indexOf(root));
+      });
+    }, { rootMargin: '240px 0px' });
+    graphRoots.forEach((root) => observer.observe(root));
+  } else {
+    graphRoots.forEach((root, index) => void initializeGraph(root, index));
+  }
+</script>
+
+<style>
+  .relationship-graph { border: 1px solid var(--line); background: var(--surface); }
+  .graph-toolbar { min-height: 58px; display: flex; align-items: center; gap: 9px; padding: 9px 11px; border-bottom: 1px solid var(--line); }
+  .graph-search, .graph-select { min-height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .graph-search { min-width: 220px; flex: 1; }
+  .graph-search :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .graph-select span { color: var(--text-soft); font-size: .7rem; }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  input { width: 100%; }
+  select { cursor: pointer; }
+  .graph-actions { display: flex; gap: 4px; }
+  .graph-actions button { width: 38px; height: 38px; display: grid; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--text-soft); cursor: pointer; }
+  .graph-actions button:hover { border-color: var(--accent); color: var(--accent); }
+  .graph-stage { position: relative; height: 640px; background-color: var(--bg); background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 32px 32px; overflow: hidden; }
+  .graph-canvas { position: absolute; inset: 0; }
+  .graph-loading { position: absolute; z-index: 1; inset: 0; display: flex; align-items: center; justify-content: center; gap: 9px; background: color-mix(in srgb, var(--bg) 88%, transparent); color: var(--text-soft); font-size: .78rem; }
+  .graph-loading :global(svg) { color: var(--accent); animation: graph-loading-spin .85s linear infinite; }
+  .relationship-graph[data-graph-state='ready'] .graph-loading { display: none; }
+  .relationship-graph[data-graph-state='error'] .graph-loading :global(svg) { animation: none; }
+  @keyframes graph-loading-spin { to { transform: rotate(360deg); } }
+  .node-inspector { position: absolute; z-index: 2; right: 12px; bottom: 12px; width: min(260px, calc(100% - 24px)); display: flex; align-items: flex-start; gap: 9px; padding: 11px 12px; border: 1px solid var(--line-strong); background: color-mix(in srgb, var(--surface) 94%, transparent); box-shadow: var(--shadow); pointer-events: none; }
+  .node-inspector :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .node-inspector div { min-width: 0; display: grid; }
+  .node-inspector small, .node-inspector span { color: var(--text-soft); font-size: .66rem; }
+  .node-inspector strong { margin: 1px 0 3px; font-size: .84rem; }
+  .node-inspector a { margin-top: 5px; color: var(--accent); font-size: .7rem; font-weight: 750; pointer-events: auto; }
+  .graph-legend { min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px 12px; border-top: 1px solid var(--line); }
+  .graph-legend span { display: flex; align-items: center; gap: 6px; color: var(--text-soft); font-size: .68rem; }
+  .graph-legend i { width: 20px; height: 2px; background: #8b928e; }
+  .graph-legend [data-type="mentorship"] i { background: #b27a2b; }
+  .graph-legend [data-type="school"] i { background: #5c7394; }
+  .graph-legend [data-type="friendship"] i { background: #287c78; }
+  .graph-legend [data-type="alliance"] i { background: #59704a; }
+  .graph-legend [data-type="enmity"] i { background: #a84f3c; }
+  .graph-legend [data-type="affection"] i { background: #8a4f69; }
+  .graph-legend [data-type="broken"] i { background: #62606f; }
+  .graph-legend small { margin-left: auto; color: var(--text-soft); font-size: .65rem; }
+  .compact .graph-toolbar { padding: 7px; }
+  .compact .graph-select { display: none; }
+  .compact .graph-stage { height: 390px; }
+  .compact .node-inspector { display: none; }
+  @media (max-width: 760px) { .graph-toolbar { flex-wrap: wrap; } .graph-search { flex-basis: calc(100% - 174px); } .graph-select { flex: 1; } .graph-stage { height: 560px; } .graph-legend small { width: 100%; margin-left: 0; } }
+  @media (max-width: 560px) { .graph-search { flex-basis: 100%; } .graph-select { min-width: calc(50% - 5px); } .graph-actions { width: 100%; justify-content: flex-end; } .graph-stage { height: 520px; } .node-inspector { right: 8px; bottom: 8px; width: calc(100% - 16px); } .compact .graph-stage { height: 360px; } }
+</style>

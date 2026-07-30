@@ -1,0 +1,172 @@
+---
+import { Bookmark, Clock3, Trash2 } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { wuxueEntries, wuxueHref } from '../data/wuxue';
+import { equipmentEntries, equipmentHref } from '../data/equipment';
+import { danyaoEntries, danyaoHref } from '../data/danyao';
+import { materialEntries, materialHref } from '../data/materials';
+import { trapEntries, trapHref } from '../data/traps';
+import { zhuwenEntries, zhuwenHref } from '../data/zhuwen';
+import { characterEntries, characterHref } from '../data/characters';
+
+const generatedEntryMap = Object.fromEntries([
+  ...wuxueEntries.map((entry) => [`wuxue-${entry.id}`, [entry.name, wuxueHref(entry), '武学']]),
+  ...equipmentEntries.map((entry) => [`equipment-${entry.id}`, [entry.name, equipmentHref(entry), '装备']]),
+  ...danyaoEntries.map((entry) => [`danyao-${entry.id}`, [entry.name, danyaoHref(entry), '丹药']]),
+  ...materialEntries.map((entry) => [`cailiao-${entry.id}`, [entry.name, materialHref(entry), '材料']]),
+  ...trapEntries.map((entry) => [`xianjing-${entry.id}`, [entry.name, trapHref(entry), '陷阱']]),
+  ...zhuwenEntries.map((entry) => [`zhuwen-${entry.slug}`, [entry.name, zhuwenHref(entry), '铸纹']]),
+  ...characterEntries.map((entry) => [`character-${entry.slug}`, [entry.name, characterHref(entry), '人物']]),
+]);
+---
+
+<BaseLayout title="最近浏览" description="保存在当前浏览器中的最近浏览与收藏条目。" noindex>
+  <div class="page-wrap">
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li aria-current="page">最近浏览</li></ol>
+    <header><p class="eyebrow">个人工具</p><h1 class="page-heading">最近浏览</h1><p class="page-lead">记录只保存在当前浏览器，不会上传到服务器。</p></header>
+    <div class="personal-grid">
+      <section class="personal-panel">
+        <div class="panel-head">
+          <h2><Clock3 size={18} /><span>最近条目</span><span class="panel-count recent-count">0</span></h2>
+          <button class="panel-action clear-recent" type="button" aria-label="清空最近浏览" title="清空最近浏览"><Trash2 size={16} /></button>
+        </div>
+        <ol class="personal-list recent-list" aria-live="polite"><li class="empty-message"><strong>还没有浏览记录</strong><span>查看百科条目后会显示在这里。</span></li></ol>
+      </section>
+      <section class="personal-panel">
+        <div class="panel-head"><h2><Bookmark size={18} /><span>我的收藏</span><span class="panel-count bookmark-count">0</span></h2></div>
+        <ol class="personal-list bookmark-list" aria-live="polite"><li class="empty-message"><strong>还没有收藏条目</strong><span>可在详情页右上角加入收藏。</span></li></ol>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ generatedEntryMap }}>
+  const recent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]');
+  const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]');
+  const recentList = document.querySelector('.recent-list');
+  const bookmarkList = document.querySelector('.bookmark-list');
+  const recentCount = document.querySelector('.recent-count');
+  const bookmarkCount = document.querySelector('.bookmark-count');
+  const entryMap = {
+    wuxue: ['武学', '/wiki/wuxue/', '玩法系统'], zhuangbei: ['装备', '/wiki/zhuangbei/', '玩法系统'], danyao: ['丹药', '/wiki/danyao/', '玩法系统'], cailiao: ['材料', '/wiki/cailiao/', '物品'], xianjing: ['陷阱', '/wiki/xianjing/', '玩法系统'], zhuwen: ['铸纹', '/wiki/zhuwen/', '玩法系统'],
+    'resource-index': ['游戏资源索引', '/research/resource-index/', '资料'],
+    ...generatedEntryMap,
+  };
+
+  function formatVisitedAt(value) {
+    const timestamp = Number(value);
+    if (!Number.isFinite(timestamp)) return '浏览时间未知';
+    const elapsed = Math.max(0, Date.now() - timestamp);
+    const minute = 60 * 1000;
+    const hour = 60 * minute;
+    const day = 24 * hour;
+    if (elapsed < minute) return '刚刚浏览';
+    if (elapsed < hour) return `${Math.floor(elapsed / minute)} 分钟前`;
+    if (elapsed < day) return `${Math.floor(elapsed / hour)} 小时前`;
+    if (elapsed < 7 * day) return `${Math.floor(elapsed / day)} 天前`;
+    return new Intl.DateTimeFormat('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(timestamp));
+  }
+
+  function kindFor(slug, path) {
+    const mapped = entryMap[slug];
+    if (mapped?.[2]) return mapped[2];
+    if (path.startsWith('/characters/')) return '人物';
+    return '百科';
+  }
+
+  function appendItem(list, { slug = '', title, path, detail, kind }) {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    const copy = document.createElement('span');
+    const strong = document.createElement('strong');
+    const meta = document.createElement('span');
+    const kindLabel = document.createElement('span');
+    const detailLabel = document.createElement('span');
+    const arrow = document.createElement('span');
+    item.className = 'personal-item';
+    link.className = 'personal-link';
+    copy.className = 'entry-copy';
+    meta.className = 'entry-meta';
+    kindLabel.className = 'entry-kind';
+    detailLabel.className = 'entry-detail';
+    arrow.className = 'entry-arrow';
+    link.href = path;
+    strong.textContent = title;
+    kindLabel.textContent = kind || kindFor(slug, path);
+    detailLabel.textContent = detail;
+    arrow.textContent = '›';
+    arrow.setAttribute('aria-hidden', 'true');
+    meta.append(kindLabel, detailLabel);
+    copy.append(strong, meta);
+    link.append(copy, arrow);
+    item.append(link);
+    list.append(item);
+  }
+
+  function renderRecent() {
+    if (!recentList) return;
+    recentList.innerHTML = '';
+    if (!recent.length) {
+      recentList.innerHTML = '<li class="empty-message"><strong>还没有浏览记录</strong><span>查看百科条目后会显示在这里。</span></li>';
+    } else {
+      recent.forEach((item) => appendItem(recentList, { ...item, detail: formatVisitedAt(item.visitedAt) }));
+    }
+    if (recentCount) recentCount.textContent = String(recent.length);
+    document.querySelector('.clear-recent')?.toggleAttribute('disabled', recent.length === 0);
+  }
+
+  function renderBookmarks() {
+    if (!bookmarkList) return;
+    bookmarkList.innerHTML = '';
+    let rendered = 0;
+    bookmarks.forEach((slug) => {
+      const entry = entryMap[slug];
+      if (!entry) return;
+      appendItem(bookmarkList, { slug, title: entry[0], path: entry[1], kind: entry[2], detail: '已收藏' });
+      rendered += 1;
+    });
+    if (!rendered) bookmarkList.innerHTML = '<li class="empty-message"><strong>还没有收藏条目</strong><span>可在详情页右上角加入收藏。</span></li>';
+    if (bookmarkCount) bookmarkCount.textContent = String(rendered);
+  }
+
+  renderRecent();
+  renderBookmarks();
+
+  document.querySelector('.clear-recent')?.addEventListener('click', () => {
+    if (!recent.length || !confirm('清空最近浏览记录？')) return;
+    recent.length = 0;
+    localStorage.removeItem('xy-wiki-recent');
+    renderRecent();
+  });
+</script>
+
+<style>
+  .page-wrap { max-width: 1180px; }
+  .personal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 20px; margin-top: 30px; }
+  .personal-panel { overflow: hidden; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); box-shadow: 0 1px 2px rgb(20 28 23 / 4%); }
+  .panel-head { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 12px 9px 16px; border-bottom: 1px solid var(--line); }
+  .panel-head h2 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: .98rem; }
+  .panel-head :global(svg) { color: var(--text-soft); }
+  .panel-count { min-width: 24px; height: 22px; display: inline-grid; place-items: center; padding: 0 6px; border-radius: 11px; background: var(--surface-muted); color: var(--text-soft); font-size: .7rem; font-weight: 750; }
+  .panel-action { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 4px; background: transparent; color: var(--text-soft); cursor: pointer; }
+  .panel-action:hover { background: var(--surface-muted); color: var(--accent); }
+  .panel-action:disabled { opacity: .35; cursor: default; }
+  .personal-list { margin: 0; padding: 0; list-style: none; }
+  :global(.personal-item + .personal-item) { border-top: 1px solid var(--line); }
+  :global(.personal-link) { min-height: 70px; display: grid; grid-template-columns: minmax(0, 1fr) 28px; align-items: center; gap: 12px; padding: 12px 12px 12px 16px; color: var(--text); text-decoration: none; }
+  :global(.personal-link:hover) { background: var(--surface-muted); color: var(--text); }
+  :global(.personal-link:hover .entry-arrow) { color: var(--accent); transform: translateX(2px); }
+  :global(.entry-copy), :global(.entry-meta), :global(.empty-message strong), :global(.empty-message span) { display: block; }
+  :global(.entry-copy) { min-width: 0; }
+  :global(.entry-copy strong) { overflow: hidden; display: block; color: var(--text); font-size: .94rem; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+  :global(.entry-meta) { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 9px; margin-top: 7px; }
+  :global(.entry-kind) { padding: 2px 6px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); font-size: .68rem; font-weight: 750; line-height: 1.45; }
+  :global(.entry-detail) { color: var(--text-soft); font-size: .74rem; }
+  :global(.entry-arrow) { display: grid; place-items: center; color: var(--text-soft); font-size: 1.35rem; transition: color .15s ease, transform .15s ease; }
+  :global(.empty-message) { min-height: 116px; display: grid; place-items: center; align-content: center; gap: 5px; padding: 24px; color: var(--text-soft); text-align: center; }
+  :global(.empty-message strong) { color: var(--text); font-size: .88rem; }
+  :global(.empty-message span) { font-size: .76rem; }
+  @media (max-width: 760px) { .personal-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 420px) { .personal-grid { gap: 14px; margin-top: 24px; } :global(.personal-link) { min-height: 66px; padding-left: 14px; } }
+  @media (prefers-reduced-motion: reduce) { :global(.entry-arrow) { transition: none; } }
+</style>

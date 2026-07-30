@@ -1,0 +1,46 @@
+---
+import { ArrowUpRight, Boxes, FlaskConical, Hammer, MapPin, Sparkles } from '@lucide/astro';
+import type { MaterialEntry, MaterialUsageKind } from '../data/materials';
+import { materialHref } from '../data/materials';
+
+interface Props { entry: MaterialEntry; }
+const { entry } = Astro.props;
+const usageIcons: Record<MaterialUsageKind, typeof FlaskConical> = { 炼丹: FlaskConical, 打造: Hammer, 铸纹: Sparkles };
+---
+
+<article class="material-card" data-quality={entry.quality}>
+  <a class="card-link" href={materialHref(entry)} aria-label={`查看材料：${entry.name}`}><span class="sr-only">查看{entry.name}</span></a>
+  <div class="icon-frame"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /></div>
+  <div class="card-copy">
+    <div class="card-meta"><span>{entry.category}</span><span class="quality-badge">{entry.qualityLabel}</span></div>
+    <div class="card-title"><h3>{entry.name}</h3><ArrowUpRight size={17} /></div>
+    <p>{entry.description}</p>
+    <div class="usage-list">
+      {entry.usageKinds.length > 0 ? entry.usageKinds.map((kind) => {
+        const Icon = usageIcons[kind];
+        return <span><Icon size={13} />{kind}</span>;
+      }) : <span><Boxes size={13} />用途待定位</span>}
+    </div>
+    <div class="card-foot"><span><MapPin size={13} />{entry.acquisitionSources.length > 0 ? `${entry.acquisitionSources.length} 项已确认来源` : '来源待核对'}</span><span>堆叠 {entry.stackLimit || '未限制'}</span></div>
+  </div>
+</article>
+
+<style>
+  .material-card { position: relative; min-width: 0; min-height: 186px; display: grid; grid-template-columns: 96px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+  .material-card:hover { transform: translateY(-2px); border-color: var(--quality-color); box-shadow: var(--shadow); }
+  .card-link { position: absolute; z-index: 2; inset: 0; }
+  .card-link:focus-visible { outline-offset: -3px; }
+  .icon-frame { display: grid; place-items: center; border-right: 3px solid var(--quality-color); background: #111412; }
+  .icon-frame img { width: 100%; max-height: 142px; padding: 12px; object-fit: contain; }
+  .card-copy { min-width: 0; display: flex; flex-direction: column; padding: 12px 13px 10px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--accent); font-size: .68rem; font-weight: 750; }
+  .quality-badge { flex: 0 0 auto; padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 58%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--quality-color) 8%, transparent); color: var(--quality-color); }
+  .card-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-top: 4px; }
+  h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
+  p { display: -webkit-box; margin: 5px 0 8px; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; color: var(--text-soft); font-size: .74rem; line-height: 1.5; }
+  .usage-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; }
+  .usage-list span { display: inline-flex; align-items: center; gap: 4px; padding: 3px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 35%, var(--line)); border-radius: 3px; color: var(--quality-color); font-size: .65rem; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; padding-top: 7px; border-top: 1px solid var(--line); color: var(--text-soft); font-size: .64rem; }
+  .card-foot span { display: inline-flex; align-items: center; gap: 4px; }
+  @media (max-width: 420px) { .material-card { grid-template-columns: 86px minmax(0, 1fr); } .icon-frame img { padding: 9px; } .card-copy { padding-inline: 11px; } }
+</style>

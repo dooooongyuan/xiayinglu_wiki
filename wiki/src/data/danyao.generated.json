@@ -1,0 +1,5481 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-27T14:34:03.631105+00:00",
+  "gameVersion": "2026-07-27-842",
+  "counts": {
+    "entries": 78,
+    "categories": {
+      "内劲": 15,
+      "功能": 3,
+      "属性": 45,
+      "恢复": 15
+    },
+    "qualities": {
+      "1": 9,
+      "2": 9,
+      "3": 19,
+      "4": 19,
+      "5": 22
+    },
+    "attributes": {
+      "体": 3,
+      "减伤": 5,
+      "刚": 3,
+      "增伤": 5,
+      "念": 3,
+      "意": 3,
+      "攻击": 5,
+      "敏": 3,
+      "暴击": 5,
+      "暴击伤害": 6,
+      "柔": 3,
+      "武": 3,
+      "毒": 3,
+      "气势": 5,
+      "生命": 5,
+      "真气": 5,
+      "经脉点数": 1,
+      "速度": 1,
+      "防御": 5,
+      "阳": 3,
+      "阴": 3
+    },
+    "permanent": 33,
+    "special": 33
+  },
+  "entries": [
+    {
+      "id": 10116,
+      "name": "暖阳丹",
+      "traditionalName": "暖陽丹",
+      "description": "一缕精纯阳气自丹田升起，如冬日暖阳，驱散经脉中的寒意。",
+      "usageDescription": "使用后永久增加2点阳。",
+      "category": "内劲",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10116.png",
+      "iconSourceName": "yaopin_51",
+      "effect": {
+        "attributeCode": 81,
+        "attribute": "阳",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "一缕精纯阳气自丹田升起，如冬日暖阳，驱散经脉中的寒意。 使用后增加2点阳。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1042,
+            "name": "黄酒",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、红花 × 1、枸杞 × 1、黄酒 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由地狂、林放、烈刀王、金钱帮-林放掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10121,
+      "name": "寒息丹",
+      "traditionalName": "寒息丹",
+      "description": "内力流转间带上丝丝寒意，可令头脑冷静，平复躁动内息。",
+      "usageDescription": "使用后永久增加2点阴。",
+      "category": "内劲",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10121.png",
+      "iconSourceName": "yaopin_54",
+      "effect": {
+        "attributeCode": 82,
+        "attribute": "阴",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "内力流转间带上丝丝寒意，可令头脑冷静，平复躁动内息。 使用后增加2点阴。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、茯苓 × 1、甘草 × 1、晨露 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、冷雪、地煞、杀手、松本一郎等 6 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10126,
+      "name": "化力丹",
+      "traditionalName": "化力丹",
+      "description": "内力变得柔韧绵密，善于缠绕、渗透，可化去三成刚猛劲道。",
+      "usageDescription": "使用后永久增加2点柔。",
+      "category": "内劲",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10126.png",
+      "iconSourceName": "yaopin_57",
+      "effect": {
+        "attributeCode": 83,
+        "attribute": "柔",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "内力变得柔韧绵密，善于缠绕、渗透，可化去三成刚猛劲道。 使用后增加2点柔。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1043,
+            "name": "蜂蜜",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、茯苓 × 1、甘草 × 1、蜂蜜 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从剑阁遗骨宝箱、苍鹰探秘宝箱、血炎追踪宝箱中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10131,
+      "name": "铁骨丹",
+      "traditionalName": "鐵骨丹",
+      "description": "筋骨得到初步淬炼，抗击打能力提升，拳脚相交时反震力更强。",
+      "usageDescription": "使用后永久增加2点刚。",
+      "category": "内劲",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10131.png",
+      "iconSourceName": "yaopin_22",
+      "effect": {
+        "attributeCode": 84,
+        "attribute": "刚",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "筋骨得到初步淬炼，抗击打能力提升，拳脚相交时反震力更强。 使用后增加2点刚。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1002,
+            "name": "精锻骨",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1042,
+            "name": "黄酒",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 精锻骨 × 1、红花 × 1、枸杞 × 1、黄酒 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从竹海迷宫副本宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由灵素弟子、贪狼贼-赫连霸、赫连霸掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10136,
+      "name": "瘴疠丸",
+      "traditionalName": "瘴癘丸",
+      "description": "内力附带山林瘴疠之气，中者经脉微麻，内息运转稍滞。",
+      "usageDescription": "使用后永久增加2点毒。",
+      "category": "内劲",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10136.png",
+      "iconSourceName": "yaopin_24",
+      "effect": {
+        "attributeCode": 85,
+        "attribute": "毒",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "内力附带山林瘴疠之气，中者经脉微麻，内息运转稍滞。 使用后增加2点毒。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、红花 × 1、甘草 × 1、晨露 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从鹤羽飘香宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由徐中鹤、绝幽客掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10117,
+      "name": "烈阳丹",
+      "traditionalName": "烈陽丹",
+      "description": "酒液入腹如吞烈火，内力随之变得狂猛暴烈，攻势如燎原之势。",
+      "usageDescription": "使用后永久增加3点阳。",
+      "category": "内劲",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10117.png",
+      "iconSourceName": "yaopin_52",
+      "effect": {
+        "attributeCode": 81,
+        "attribute": "阳",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "酒液入腹如吞烈火，内力随之变得狂猛暴烈，攻势如燎原之势。 使用后增加3点阳。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1004,
+            "name": "虎骨",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1042,
+            "name": "黄酒",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 虎骨 × 1、三七 × 1、红花 × 1、黄酒 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从逍遥宫宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由地劫掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10122,
+      "name": "玄阴丹",
+      "traditionalName": "玄陰丹",
+      "description": "内力渐转幽深，如月下寒潭，绵长阴柔，伤人于无形之中。",
+      "usageDescription": "使用后永久增加3点阴。",
+      "category": "内劲",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10122.png",
+      "iconSourceName": "yaopin_55",
+      "effect": {
+        "attributeCode": 82,
+        "attribute": "阴",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "内力渐转幽深，如月下寒潭，绵长阴柔，伤人于无形之中。 使用后增加3点阴。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、沉香 × 1、茯苓 × 1、板蓝根 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从苍鹰探秘宝箱中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10127,
+      "name": "百柔丹",
+      "traditionalName": "百柔丹",
+      "description": "内力运转如春蚕吐丝，百转千回，无孔不入，专破横练硬功。",
+      "usageDescription": "使用后永久增加3点柔。",
+      "category": "内劲",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10127.png",
+      "iconSourceName": "yaopin_58",
+      "effect": {
+        "attributeCode": 83,
+        "attribute": "柔",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "内力运转如春蚕吐丝，百转千回，无孔不入，专破横练硬功。 使用后增加3点柔。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1005,
+            "name": "血兰芝",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 血兰芝 × 1、沉香 × 1、茯苓 × 1、板蓝根 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由极乐宫主-薛三娘、石田二郎掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10132,
+      "name": "金刚丹",
+      "traditionalName": "金剛丹",
+      "description": "肌骨坚如铁石，寻常刀剑劈砍仅留白痕，力发千钧而不伤自身。",
+      "usageDescription": "使用后永久增加3点刚。",
+      "category": "内劲",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10132.png",
+      "iconSourceName": "yaopin_61",
+      "effect": {
+        "attributeCode": 84,
+        "attribute": "刚",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "肌骨坚如铁石，寻常刀剑劈砍仅留白痕，力发千钧而不伤自身。 使用后增加3点刚。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1004,
+            "name": "虎骨",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1045,
+            "name": "犀角粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 虎骨 × 1、三七 × 1、黄精 × 1、犀角粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由瀚海遗迹敌人-枪BOSS鬼枪、燕九掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10137,
+      "name": "五毒丹",
+      "traditionalName": "五毒丹",
+      "description": "融五毒精华于内力，阴狠毒辣，伤人经脉，如百虫钻心蚀骨。",
+      "usageDescription": "使用后永久增加3点毒。",
+      "category": "内劲",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10137.png",
+      "iconSourceName": "yaopin_64",
+      "effect": {
+        "attributeCode": 85,
+        "attribute": "毒",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "融五毒精华于内力，阴狠毒辣，伤人经脉，如百虫钻心蚀骨。 使用后增加3点毒。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、三七 × 1、红花 × 1、板蓝根 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从葬花追凶宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由孙不二掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10118,
+      "name": "九阳圣丹",
+      "traditionalName": "九陽聖丹",
+      "description": "内力化为煌煌大日，中正平和却又磅礴无边，诸邪难侵。",
+      "usageDescription": "使用后永久增加5点阳。",
+      "category": "内劲",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10118.png",
+      "iconSourceName": "yaopin_53",
+      "effect": {
+        "attributeCode": 81,
+        "attribute": "阳",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "内力化为煌煌大日，中正平和却又磅礴无边，诸邪难侵。 使用后增加5点阳。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、血竭 × 1、黄精 × 1、陈年雪水 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由林放掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10123,
+      "name": "幽月凝华丹",
+      "traditionalName": "幽月凝華丹",
+      "description": "如引太阴月华灌体，内力精纯至极，阴寒属性功法威力倍增。",
+      "usageDescription": "使用后永久增加5点阴。",
+      "category": "内劲",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10123.png",
+      "iconSourceName": "yaopin_56",
+      "effect": {
+        "attributeCode": 82,
+        "attribute": "阴",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "如引太阴月华灌体，内力精纯至极，阴寒属性功法威力倍增。 使用后增加5点阴。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1009,
+            "name": "九曲玄参",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 九曲玄参 × 1、首乌 × 1、黄精 × 1、陈年雪水 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由朴藏机掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10128,
+      "name": "若水丹",
+      "traditionalName": "若水丹",
+      "description": "内力臻至上善若水之境，至柔至善，无隙可寻，绵绵不绝。",
+      "usageDescription": "使用后永久增加5点柔。",
+      "category": "内劲",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10128.png",
+      "iconSourceName": "yaopin_59",
+      "effect": {
+        "attributeCode": 83,
+        "attribute": "柔",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "内力臻至上善若水之境，至柔至善，无隙可寻，绵绵不绝。 使用后增加5点柔。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、黄精 × 1、首乌 × 1、陈年雪水 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从雪域寻援宝箱中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10133,
+      "name": "不破金身丹",
+      "traditionalName": "不破金身丹",
+      "description": "肉身防御臻至极致，罡气自生，水火难侵，几近金刚不坏。",
+      "usageDescription": "使用后永久增加5点刚。",
+      "category": "内劲",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10133.png",
+      "iconSourceName": "yaopin_62",
+      "effect": {
+        "attributeCode": 84,
+        "attribute": "刚",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "肉身防御臻至极致，罡气自生，水火难侵，几近金刚不坏。 使用后增加5点刚。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、血竭 × 1、首乌 × 1、灵龟甲粉 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由赫连霸-贪狼最终战掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10138,
+      "name": "鸩羽丹",
+      "traditionalName": "鴆羽丹",
+      "description": "毒性内敛于无形，掌风过处，中人于无觉，断人经脉于无声。",
+      "usageDescription": "使用后永久增加5点毒。",
+      "category": "内劲",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10138.png",
+      "iconSourceName": "yaopin_65",
+      "effect": {
+        "attributeCode": 85,
+        "attribute": "毒",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "毒性内敛于无形，掌风过处，中人于无觉，断人经脉于无声。 使用后增加5点毒。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1009,
+            "name": "九曲玄参",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 九曲玄参 × 1、血竭 × 1、首乌 × 1、孔雀胆 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由徐中鹤-鹤羽寨大模型掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10031,
+      "name": "猛力丹",
+      "traditionalName": "猛力丹",
+      "description": "激发身体潜能，短时间内增加少量攻击力，适合初学者使用。",
+      "usageDescription": "使用后可在60秒内短暂提升6点攻击。",
+      "category": "属性",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10031.png",
+      "iconSourceName": "yaopin_30",
+      "effect": {
+        "attributeCode": 21,
+        "attribute": "攻击",
+        "value": 6,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身6点攻击力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1002,
+            "name": "精锻骨",
+            "count": 1
+          },
+          {
+            "id": 1004,
+            "name": "虎骨",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 精锻骨 × 1、虎骨 × 1、三七 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 374 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 374 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 748 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从潇湘剑雨宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10041,
+      "name": "铁骨丹",
+      "traditionalName": "鐵骨丹",
+      "description": "强化筋骨，提升抗击打能力，适合初习外功者使用。",
+      "usageDescription": "使用后可在60秒内短暂提升20点防御。",
+      "category": "属性",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10041.png",
+      "iconSourceName": "yaopin_33",
+      "effect": {
+        "attributeCode": 22,
+        "attribute": "防御",
+        "value": 20,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身20点防御力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1002,
+            "name": "精锻骨",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1055,
+            "name": "护脉草",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 精锻骨 × 1、茯苓 × 1、甘草 × 1、护脉草 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 660 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10051,
+      "name": "精准丹",
+      "traditionalName": "精准丹",
+      "description": "提升出手精准度，小幅增加暴击概率。",
+      "usageDescription": "使用后可在60秒内短暂提升8点暴击。",
+      "category": "属性",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10051.png",
+      "iconSourceName": "yaopin_67",
+      "effect": {
+        "attributeCode": 25,
+        "attribute": "暴击",
+        "value": 8,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身8点暴击。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、三七 × 1、红花 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 176 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 176 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 352 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10061,
+      "name": "重击丹",
+      "traditionalName": "重擊丹",
+      "description": "增强攻击力道，小幅提升暴击伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升20点暴击伤害。",
+      "category": "属性",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10061.png",
+      "iconSourceName": "yaopin_72",
+      "effect": {
+        "attributeCode": 26,
+        "attribute": "暴击伤害",
+        "value": 20,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身20点暴击伤害。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1002,
+            "name": "精锻骨",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 精锻骨 × 1、枸杞 × 1、甘草 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 132 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 132 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 264 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10071,
+      "name": "强攻丹",
+      "traditionalName": "強攻丹",
+      "description": "增强攻击力度，小幅提升总伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升10点增伤。",
+      "category": "属性",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10071.png",
+      "iconSourceName": "yaopin_77",
+      "effect": {
+        "attributeCode": 37,
+        "attribute": "增伤",
+        "value": 10,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身10点增伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、红花 × 1、甘草 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 132 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 132 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 264 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10081,
+      "name": "卸力丹",
+      "traditionalName": "卸力丹",
+      "description": "学会卸力技巧，小幅减少受到伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升10点减伤。",
+      "category": "属性",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10081.png",
+      "iconSourceName": "yaopin_82",
+      "effect": {
+        "attributeCode": 31,
+        "attribute": "减伤",
+        "value": 10,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身10点减伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 茯苓 × 1、甘草 × 1、晨露 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 88 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 88 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 176 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10032,
+      "name": "狂暴丹",
+      "traditionalName": "狂暴丹",
+      "description": "以狂暴之力灌注体内，使攻击力得到中等提升，但使用后会有轻微虚弱副作用。",
+      "usageDescription": "使用后可在60秒内短暂提升12点攻击。",
+      "category": "属性",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10032.png",
+      "iconSourceName": "yaopin_31",
+      "effect": {
+        "attributeCode": 21,
+        "attribute": "攻击",
+        "value": 12,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身12点攻击力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1051,
+            "name": "铁骨花",
+            "count": 1
+          },
+          {
+            "id": 1004,
+            "name": "虎骨",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 铁骨花 × 1、虎骨 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 726 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,452 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从血炎追踪宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10042,
+      "name": "护身丹",
+      "traditionalName": "護身丹",
+      "description": "增强皮肉韧性，能抵御寻常刀剑劈砍，防护效果显著。",
+      "usageDescription": "使用后可在60秒内短暂提升50点防御。",
+      "category": "属性",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10042.png",
+      "iconSourceName": "yaopin_34",
+      "effect": {
+        "attributeCode": 22,
+        "attribute": "防御",
+        "value": 50,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身50点防御力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1061,
+            "name": "石龟甲",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 石龟甲 × 1、黄精 × 1、红花 × 1、三七 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 605 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从竹海迷宫副本宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10052,
+      "name": "要害丹",
+      "traditionalName": "要害丹",
+      "description": "增强对敌人要害的洞察力，中幅提升暴击率。",
+      "usageDescription": "使用后可在60秒内短暂提升15点暴击。",
+      "category": "属性",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10052.png",
+      "iconSourceName": "yaopin_68",
+      "effect": {
+        "attributeCode": 25,
+        "attribute": "暴击",
+        "value": 15,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身15点暴击。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1081,
+            "name": "鹰眼果",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 鹰眼果 × 1、沉香 × 1、黄精 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 583 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,166 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从竹海迷宫副本宝箱、血炎追踪宝箱、连环坞副本低级区宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10062,
+      "name": "猛击丹",
+      "traditionalName": "猛擊丹",
+      "description": "强化攻击威力，中幅提升暴击伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升30点暴击伤害。",
+      "category": "属性",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10062.png",
+      "iconSourceName": "yaopin_73",
+      "effect": {
+        "attributeCode": 26,
+        "attribute": "暴击伤害",
+        "value": 30,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身30点暴击伤害。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1101,
+            "name": "熊胆粉",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 熊胆粉 × 1、黄精 × 1、三七 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 528 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,056 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从连环坞副本中级区宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10072,
+      "name": "猛攻丹",
+      "traditionalName": "猛攻丹",
+      "description": "激发攻击潜能，中幅提升总伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升20点增伤。",
+      "category": "属性",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10072.png",
+      "iconSourceName": "yaopin_78",
+      "effect": {
+        "attributeCode": 37,
+        "attribute": "增伤",
+        "value": 20,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身20点增伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1004,
+            "name": "虎骨",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 虎骨 × 1、三七 × 1、枸杞 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 374 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 748 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从连环坞副本高级区宝箱、鹤羽飘香宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10082,
+      "name": "化劲丹",
+      "traditionalName": "化勁丹",
+      "description": "掌握化劲法门，中幅减少受到伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升20点减伤。",
+      "category": "属性",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10082.png",
+      "iconSourceName": "yaopin_83",
+      "effect": {
+        "attributeCode": 31,
+        "attribute": "减伤",
+        "value": 20,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身20点减伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1121,
+            "name": "柔骨草",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 柔骨草 × 1、黄精 × 1、红花 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 462 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 924 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10033,
+      "name": "雷霆丹",
+      "traditionalName": "雷霆丹",
+      "description": "引动雷霆之力，大幅提升攻击力，出手时有雷光相伴，威力惊人。",
+      "usageDescription": "使用后可在60秒内短暂提升20点攻击。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10033.png",
+      "iconSourceName": "yaopin_32",
+      "effect": {
+        "attributeCode": 21,
+        "attribute": "攻击",
+        "value": 20,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身20点攻击力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1053,
+            "name": "金鳞蟒骨",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 金鳞蟒骨 × 1、血竭 × 1、孔雀胆 × 1、首乌 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,782 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,564 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从苍鹰探秘宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10043,
+      "name": "金钟丹",
+      "traditionalName": "金鐘丹",
+      "description": "激发体内护体罡气，如披金钟罩体，能抵御重击。",
+      "usageDescription": "使用后可在60秒内短暂提升100点防御。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10043.png",
+      "iconSourceName": "yaopin_35",
+      "effect": {
+        "attributeCode": 22,
+        "attribute": "防御",
+        "value": 100,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身100点防御力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1062,
+            "name": "铁杉木皮",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 铁杉木皮 × 1、沉香 × 1、血竭 × 1、板蓝根 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,056 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 2,112 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从断龙脊宝箱、连环坞中坞宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10053,
+      "name": "破绽丹",
+      "traditionalName": "破綻丹",
+      "description": "能敏锐发现敌人破绽，大幅提升暴击概率。",
+      "usageDescription": "使用后可在60秒内短暂提升25点暴击。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10053.png",
+      "iconSourceName": "yaopin_69",
+      "effect": {
+        "attributeCode": 25,
+        "attribute": "暴击",
+        "value": 25,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身25点暴击。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1082,
+            "name": "灵犀草",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 灵犀草 × 1、血竭 × 1、板蓝根 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 990 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,980 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10063,
+      "name": "致命丹",
+      "traditionalName": "致命丹",
+      "description": "攻击更具致命性，大幅提升暴击伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升50点暴击伤害。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10063.png",
+      "iconSourceName": "yaopin_74",
+      "effect": {
+        "attributeCode": 26,
+        "attribute": "暴击伤害",
+        "value": 50,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身50点暴击伤害。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1102,
+            "name": "狼王齿",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 狼王齿 × 1、血竭 × 1、沉香 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 968 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,936 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,980 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10073,
+      "name": "狂攻丹",
+      "traditionalName": "狂攻丹",
+      "description": "进入狂攻状态，大幅提升总伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升30点增伤。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10073.png",
+      "iconSourceName": "yaopin_79",
+      "effect": {
+        "attributeCode": 37,
+        "attribute": "增伤",
+        "value": 30,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身30点增伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1005,
+            "name": "血兰芝",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 血兰芝 × 1、血竭 × 1、板蓝根 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 495 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 990 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从五毒宫宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10083,
+      "name": "御气丹",
+      "traditionalName": "禦氣丹",
+      "description": "真气护体，大幅减少受到伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升30点减伤。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10083.png",
+      "iconSourceName": "yaopin_84",
+      "effect": {
+        "attributeCode": 31,
+        "attribute": "减伤",
+        "value": 30,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身30点减伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1122,
+            "name": "护体花",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 护体花 × 1、沉香 × 1、血竭 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,826 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从极乐宫宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10091,
+      "name": "蛮力丹",
+      "traditionalName": "蠻力丹",
+      "description": "服用后丹田生暖流，能于瞬息间凝聚气力，令拳脚势大力沉。",
+      "usageDescription": "使用后永久增加2点武。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10091.png",
+      "iconSourceName": "yaopin_36",
+      "effect": {
+        "attributeCode": 51,
+        "attribute": "武",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "服用后丹田生暖流，能于瞬息间凝聚气力，令拳脚势大力沉。 使用后增加2点武。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1002,
+            "name": "精锻骨",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1042,
+            "name": "黄酒",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 精锻骨 × 1、红花 × 1、枸杞 × 1、黄酒 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由真本三郎、竹海迷宫 · 灵素假弟子剑、黑衣精英掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10096,
+      "name": "清心丹",
+      "traditionalName": "清心丹",
+      "description": "服后灵台一片清明，心中杂念如尘般拂去，思绪变得异常专注。",
+      "usageDescription": "使用后永久增加2点意。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10096.png",
+      "iconSourceName": "yaopin_39",
+      "effect": {
+        "attributeCode": 55,
+        "attribute": "意",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "服后灵台一片清明，心中杂念如尘般拂去，思绪变得异常专注。 使用后增加2点意。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、茯苓 × 1、甘草 × 1、晨露 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从连环坞下坞宝箱、连环坞副本高级区宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由剑痴、剑痴谢孤鸿掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10101,
+      "name": "益体丹",
+      "traditionalName": "益體丹",
+      "description": "一股温和暖流滋养五脏，驱散疲惫，是为武者打熬根基的入门之选。",
+      "usageDescription": "使用后永久增加2点体。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10101.png",
+      "iconSourceName": "yaopin_42",
+      "effect": {
+        "attributeCode": 53,
+        "attribute": "体",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "一股温和暖流滋养五脏，驱散疲惫，是为武者打熬根基的入门之选。 使用后增加2点体。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1043,
+            "name": "蜂蜜",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、枸杞 × 1、茯苓 × 1、蜂蜜 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从霸王一枪宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由竹海迷宫 · 灵素假弟子剑、黑衣精英掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10106,
+      "name": "疾行丸",
+      "traditionalName": "疾行丸",
+      "description": "身轻如燕，足下生风，奔走冲刺之速可得小幅提升。",
+      "usageDescription": "使用后永久增加2点敏。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10106.png",
+      "iconSourceName": "yaopin_45",
+      "effect": {
+        "attributeCode": 52,
+        "attribute": "敏",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "身轻如燕，足下生风，奔走冲刺之速可得小幅提升。 使用后增加2点敏。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、红花 × 1、甘草 × 1、晨露 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由徐中鹤、松本一郎、连环坞 · 刀掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10111,
+      "name": "凝神丸",
+      "traditionalName": "凝神丸",
+      "description": "心神迅速安定，耳清目明，对周遭风吹草动的感知变得敏锐。",
+      "usageDescription": "使用后永久增加2点念。",
+      "category": "属性",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10111.png",
+      "iconSourceName": "yaopin_48",
+      "effect": {
+        "attributeCode": 54,
+        "attribute": "念",
+        "value": 2,
+        "durationSeconds": 0,
+        "description": "心神迅速安定，耳清目明，对周遭风吹草动的感知变得敏锐。 使用后增加2点念。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 3,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、茯苓 × 1、甘草 × 1、晨露 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从再探剑阁宝箱、毒沙帮副本宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由灵素弟子、紫砂帮 · 丹房偷点、紫砂帮 · 商堂偷点、紫砂帮 · 木场偷点、紫砂帮 · 矿区偷点等 10 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10034,
+      "name": "龙炎丹",
+      "traditionalName": "龍炎丹",
+      "description": "以龙族血脉为引，激发体内真火，攻击时带有龙炎灼烧效果，极大提升攻击力。",
+      "usageDescription": "使用后可在60秒内短暂提升30点攻击。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10034.png",
+      "iconSourceName": "yaopin_25",
+      "effect": {
+        "attributeCode": 21,
+        "attribute": "攻击",
+        "value": 30,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身30点攻击力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1125,
+            "name": "天龙骨",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 天龙骨 × 1、血竭 × 1、孔雀胆 × 1、首乌 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 2,321 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 4,642 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从血域钥匙宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10044,
+      "name": "铁布衫丹",
+      "traditionalName": "鐵布衫丹",
+      "description": "强化全身防御，如同穿戴铁布衫，刀剑难伤。",
+      "usageDescription": "使用后可在60秒内短暂提升180点防御。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10044.png",
+      "iconSourceName": "yaopin_27",
+      "effect": {
+        "attributeCode": 22,
+        "attribute": "防御",
+        "value": 180,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身180点防御力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1063,
+            "name": "石钟乳",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 石钟乳 × 1、玉髓 × 1、首乌 × 1、灵龟甲粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,716 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,432 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从缥缈峰雪宫宝箱、血域钥匙宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10054,
+      "name": "必中丹",
+      "traditionalName": "必中丹",
+      "description": "出手必中要害，极大提升暴击率。",
+      "usageDescription": "使用后可在60秒内短暂提升38点暴击。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10054.png",
+      "iconSourceName": "yaopin_70",
+      "effect": {
+        "attributeCode": 25,
+        "attribute": "暴击",
+        "value": 38,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身38点暴击。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1083,
+            "name": "心眼藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 心眼藤 × 1、玉髓 × 1、首乌 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,661 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,980 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从缥缈峰雪宫宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10064,
+      "name": "绝杀丹",
+      "traditionalName": "絕殺丹",
+      "description": "出手即为绝杀，极大提升暴击伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升80点暴击伤害。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10064.png",
+      "iconSourceName": "yaopin_75",
+      "effect": {
+        "attributeCode": 26,
+        "attribute": "暴击伤害",
+        "value": 80,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身80点暴击伤害。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1103,
+            "name": "断魂草",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 断魂草 × 1、首乌 × 1、灵龟甲粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,606 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,212 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10074,
+      "name": "霸攻丹",
+      "traditionalName": "霸攻丹",
+      "description": "攻击霸道无比，极大提升总伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升50点增伤。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10074.png",
+      "iconSourceName": "yaopin_80",
+      "effect": {
+        "attributeCode": 37,
+        "attribute": "增伤",
+        "value": 50,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身50点增伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、首乌 × 1、玉髓 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 781 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,562 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从沙漠瀚海城宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10084,
+      "name": "无伤丹",
+      "traditionalName": "無傷丹",
+      "description": "近乎无伤之境，极大减少受到伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升50点减伤。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10084.png",
+      "iconSourceName": "yaopin_85",
+      "effect": {
+        "attributeCode": 31,
+        "attribute": "减伤",
+        "value": 50,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身50点减伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1123,
+            "name": "不破根",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 不破根 × 1、玉髓 × 1、灵龟甲粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,661 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,322 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从沙漠瀚海城宝箱、葬花追凶宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10092,
+      "name": "虎骨通筋丹",
+      "traditionalName": "虎骨通筋丹",
+      "description": "药力如虎啸，可激发筋骨深处潜能，出手时劲风扑面，刚猛无俦。",
+      "usageDescription": "使用后永久增加3点武。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10092.png",
+      "iconSourceName": "yaopin_37",
+      "effect": {
+        "attributeCode": 51,
+        "attribute": "武",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "药力如虎啸，可激发筋骨深处潜能，出手时劲风扑面，刚猛无俦。 使用后增加3点武。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1004,
+            "name": "虎骨",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1045,
+            "name": "犀角粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 虎骨 × 1、三七 × 1、黄精 × 1、犀角粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从鹤羽飘香隐藏采集物中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由林放掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10097,
+      "name": "通窍丹",
+      "traditionalName": "通竅丹",
+      "description": "如开天窗，心神豁然开朗，过往武学难题在此刻迎刃而解。",
+      "usageDescription": "使用后永久增加3点意。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10097.png",
+      "iconSourceName": "yaopin_40",
+      "effect": {
+        "attributeCode": 55,
+        "attribute": "意",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "如开天窗，心神豁然开朗，过往武学难题在此刻迎刃而解。 使用后增加3点意。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、沉香 × 1、三七 × 1、板蓝根 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从瀚海遗迹宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由天罪掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10102,
+      "name": "血体丹",
+      "traditionalName": "血體丹",
+      "description": "药力化开如洪流，气血随之奔涌鼓荡，体魄在澎湃生机中显著强健。",
+      "usageDescription": "使用后永久增加3点体。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10102.png",
+      "iconSourceName": "yaopin_43",
+      "effect": {
+        "attributeCode": 53,
+        "attribute": "体",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "药力化开如洪流，气血随之奔涌鼓荡，体魄在澎湃生机中显著强健。 使用后增加3点体。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1005,
+            "name": "血兰芝",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1045,
+            "name": "犀角粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 血兰芝 × 1、黄精 × 1、三七 × 1、犀角粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从断龙脊宝箱、葬花海宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由五毒何溪凤掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10107,
+      "name": "幻身丹",
+      "traditionalName": "幻身丹",
+      "description": "药效发作时，身体仿佛失去重量，趋避闪转间尽显飘逸灵动。",
+      "usageDescription": "使用后永久增加3点敏。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10107.png",
+      "iconSourceName": "yaopin_46",
+      "effect": {
+        "attributeCode": 52,
+        "attribute": "敏",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "药效发作时，身体仿佛失去重量，趋避闪转间尽显飘逸灵动。 使用后增加3点敏。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、沉香 × 1、茯苓 × 1、板蓝根 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从星宿海宝箱、缥缈峰雪宫宝箱中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10112,
+      "name": "通灵丹",
+      "traditionalName": "通靈丹",
+      "description": "双目如鹰，数十丈外纤毫毕现，黑暗中视物能力亦得增强。",
+      "usageDescription": "使用后永久增加3点念。",
+      "category": "属性",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10112.png",
+      "iconSourceName": "yaopin_49",
+      "effect": {
+        "attributeCode": 54,
+        "attribute": "念",
+        "value": 3,
+        "durationSeconds": 0,
+        "description": "双目如鹰，数十丈外纤毫毕现，黑暗中视物能力亦得增强。 使用后增加3点念。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 6,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1045,
+            "name": "犀角粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、枸杞 × 1、红花 × 1、犀角粉 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由崇黑虎、薛万嗔掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10035,
+      "name": "破天丹",
+      "traditionalName": "破天丹",
+      "description": "蕴含神兽之力，攻击力提升至极致，有破天灭地之威，但炼制极为困难。",
+      "usageDescription": "使用后可在60秒内短暂提升46点攻击。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10035.png",
+      "iconSourceName": "yaopin_26",
+      "effect": {
+        "attributeCode": 21,
+        "attribute": "攻击",
+        "value": 46,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身46点攻击力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1054,
+            "name": "玄阳精",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 玄阳精 × 1、孔雀胆 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 5,126 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从云霞山庄宝箱、雪域宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10045,
+      "name": "金刚不坏丹",
+      "traditionalName": "金剛不壞丹",
+      "description": "激发全身潜能，短时间内达到金刚不坏之境，防御力极致提升。",
+      "usageDescription": "使用后可在60秒内短暂提升300点防御。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10045.png",
+      "iconSourceName": "yaopin_28",
+      "effect": {
+        "attributeCode": 22,
+        "attribute": "防御",
+        "value": 300,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身300点防御力。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1064,
+            "name": "乌藤根",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          },
+          {
+            "id": 1065,
+            "name": "地龙甲",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 乌藤根 × 1、凤血藤 × 1、蛟龙涎 × 1、地龙甲 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 5,346 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从雪域寻援宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10055,
+      "name": "天眼丹",
+      "traditionalName": "天眼丹",
+      "description": "开启武道天眼，洞察万物弱点，极致提升暴击率。",
+      "usageDescription": "使用后可在60秒内短暂提升54点暴击。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10055.png",
+      "iconSourceName": "yaopin_71",
+      "effect": {
+        "attributeCode": 25,
+        "attribute": "暴击",
+        "value": 54,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身54点暴击。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1084,
+            "name": "通明花",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 通明花 × 1、凤血藤 × 1、孔雀胆 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,980 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从鹤羽寨宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10065,
+      "name": "灭魂丹",
+      "traditionalName": "滅魂丹",
+      "description": "攻击直击魂魄，极致提升暴击伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升120点暴击伤害。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10065.png",
+      "iconSourceName": "yaopin_76",
+      "effect": {
+        "attributeCode": 26,
+        "attribute": "暴击伤害",
+        "value": 120,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身120点暴击伤害。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1104,
+            "name": "夺魄花",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 夺魄花 × 1、蛟龙涎 × 1、凤血藤 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 4,906 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从雪域寻援宝箱、鹤羽寨宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10075,
+      "name": "神攻丹",
+      "traditionalName": "神攻丹",
+      "description": "攻击如神助，极致提升总伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升80点增伤。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10075.png",
+      "iconSourceName": "yaopin_81",
+      "effect": {
+        "attributeCode": 37,
+        "attribute": "增伤",
+        "value": 80,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身80点增伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1010,
+            "name": "龙涎果",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙涎果 × 1、凤血藤 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,586 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从悔悟崖宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10085,
+      "name": "不灭丹",
+      "traditionalName": "不滅丹",
+      "description": "达到不灭境界，极致减少受到伤害。",
+      "usageDescription": "使用后可在60秒内短暂提升80点减伤。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10085.png",
+      "iconSourceName": "yaopin_86",
+      "effect": {
+        "attributeCode": 31,
+        "attribute": "减伤",
+        "value": 80,
+        "durationSeconds": 60,
+        "description": "60秒内提升自身80点减伤。"
+      },
+      "useCooldownSeconds": 90,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1124,
+            "name": "永生叶",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 永生叶 × 1、凤血藤 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 4,796 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10093,
+      "name": "熊胆霸王丸",
+      "traditionalName": "熊膽霸王丸",
+      "description": "一股霸烈药力贯通四肢百骸，似有巨熊之力加身，开碑裂石只在等闲。",
+      "usageDescription": "使用后永久增加5点武。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10093.png",
+      "iconSourceName": "yaopin_38",
+      "effect": {
+        "attributeCode": 51,
+        "attribute": "武",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "一股霸烈药力贯通四肢百骸，似有巨熊之力加身，开碑裂石只在等闲。 使用后增加5点武。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、血竭 × 1、首乌 × 1、陈年雪水 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由了相掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10098,
+      "name": "菩提悟心丹",
+      "traditionalName": "菩提悟心丹",
+      "description": "仿若顿悟，神识于冥冥中触及天道玄机，妙法自现，智慧丛生。",
+      "usageDescription": "使用后永久增加5点意。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10098.png",
+      "iconSourceName": "yaopin_41",
+      "effect": {
+        "attributeCode": 55,
+        "attribute": "意",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "仿若顿悟，神识于冥冥中触及天道玄机，妙法自现，智慧丛生。 使用后增加5点意。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1008,
+            "name": "千年灵芝",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 千年灵芝 × 1、首乌 × 1、黄精 × 1、灵龟甲粉 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由凌素衣掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10103,
+      "name": "易筋壮骨丹",
+      "traditionalName": "易筋壯骨丹",
+      "description": "深入骨髓的药力如匠人锻铁，重塑筋络骨骼，成就铜皮铁骨之基。",
+      "usageDescription": "使用后永久增加5点体。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10103.png",
+      "iconSourceName": "yaopin_44",
+      "effect": {
+        "attributeCode": 53,
+        "attribute": "体",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "深入骨髓的药力如匠人锻铁，重塑筋络骨骼，成就铜皮铁骨之基。 使用后增加5点体。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、血竭 × 1、首乌 × 1、灵龟甲粉 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从沙漠瀚海城隐藏采集物中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10108,
+      "name": "九转飘渺丹",
+      "traditionalName": "九轉飄渺丹",
+      "description": "气贯涌泉，身若浮萍，纵是踏足雪地亦难留痕，轻功臻至化境。",
+      "usageDescription": "使用后永久增加5点敏。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10108.png",
+      "iconSourceName": "yaopin_47",
+      "effect": {
+        "attributeCode": 52,
+        "attribute": "敏",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "气贯涌泉，身若浮萍，纵是踏足雪地亦难留痕，轻功臻至化境。 使用后增加5点敏。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、黄精 × 1、首乌 × 1、陈年雪水 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从雪域宝箱中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10113,
+      "name": "天心通丹",
+      "traditionalName": "天心通丹",
+      "description": "神识向外延展，能捕捉到常人所不及的细微声响与气息流动。",
+      "usageDescription": "使用后永久增加5点念。",
+      "category": "属性",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10113.png",
+      "iconSourceName": "yaopin_50",
+      "effect": {
+        "attributeCode": 54,
+        "attribute": "念",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "神识向外延展，能捕捉到常人所不及的细微声响与气息流动。 使用后增加5点念。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 5,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1009,
+            "name": "九曲玄参",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 九曲玄参 × 1、首乌 × 1、沉香 × 1、灵龟甲粉 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从雪域寻援宝箱中获得。"
+        }
+      ]
+    },
+    {
+      "id": 10001,
+      "name": "止血散",
+      "traditionalName": "止血散",
+      "description": "药粉外敷，可迅速收敛伤口，止血生肌，是行走江湖的必备之物。",
+      "usageDescription": "使用后恢复150生命。",
+      "category": "恢复",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10001.png",
+      "iconSourceName": "yaopin_03",
+      "effect": {
+        "attributeCode": 1,
+        "attribute": "生命",
+        "value": 150,
+        "durationSeconds": 0,
+        "description": "药粉外敷，可迅速收敛伤口，止血生肌，是行走江湖的必备之物。 使用后恢复150气血。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1043,
+            "name": "蜂蜜",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、红花 × 1、甘草 × 1、蜂蜜 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 143 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 143 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 286 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10011,
+      "name": "养气丹",
+      "traditionalName": "養氣丹",
+      "description": "温养经脉，如溪流汇入丹田，缓慢而稳定地恢复消耗的内力。",
+      "usageDescription": "使用后恢复100真气。",
+      "category": "恢复",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10011.png",
+      "iconSourceName": "yaopin_09",
+      "effect": {
+        "attributeCode": 3,
+        "attribute": "真气",
+        "value": 100,
+        "durationSeconds": 0,
+        "description": "温养经脉，如溪流汇入丹田，缓慢而稳定地恢复消耗的内力。 使用后恢复100真气。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1021,
+            "name": "甘草",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、茯苓 × 1、甘草 × 1、晨露 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 143 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 143 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 286 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 86 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10021,
+      "name": "提气丸",
+      "traditionalName": "提氣丸",
+      "description": "驱散身体与精神的疲惫，短时间内让人重新变得神采奕奕。",
+      "usageDescription": "使用后恢复200气势。",
+      "category": "恢复",
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/danyao/10021.png",
+      "iconSourceName": "yaopin_13",
+      "effect": {
+        "attributeCode": 5,
+        "attribute": "气势",
+        "value": 200,
+        "durationSeconds": 0,
+        "description": "驱散身体与精神的疲惫，短时间内让人重新变得神采奕奕。 使用后恢复200气力。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 30,
+        "materials": [
+          {
+            "id": 1003,
+            "name": "凝神草",
+            "count": 1
+          },
+          {
+            "id": 1022,
+            "name": "枸杞",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1041,
+            "name": "晨露",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 凝神草 × 1、枸杞 × 1、茯苓 × 1、晨露 × 1，另需 30 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 143 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 143 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 286 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由付青、再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿等 77 类敌人掉落。"
+        },
+        {
+          "type": "event",
+          "title": "副本或战斗奖励",
+          "detail": "该丹药还存在未绑定到具体场景对象的战利品记录，可由对应阶段的副本或战斗奖励获得。"
+        }
+      ]
+    },
+    {
+      "id": 10002,
+      "name": "活血丹",
+      "traditionalName": "活血丹",
+      "description": "内服后药力化开瘀阻，促进气血再生，对内伤瘀血有良效。",
+      "usageDescription": "使用后恢复320生命。",
+      "category": "恢复",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10002.png",
+      "iconSourceName": "yaopin_04",
+      "effect": {
+        "attributeCode": 1,
+        "attribute": "生命",
+        "value": 320,
+        "durationSeconds": 0,
+        "description": "内服后药力化开瘀阻，促进气血再生，对内伤瘀血有良效。 使用后恢复320气血。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1005,
+            "name": "血兰芝",
+            "count": 1
+          },
+          {
+            "id": 1025,
+            "name": "三七",
+            "count": 1
+          },
+          {
+            "id": 1023,
+            "name": "红花",
+            "count": 1
+          },
+          {
+            "id": 1045,
+            "name": "犀角粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 血兰芝 × 1、三七 × 1、红花 × 1、犀角粉 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 407 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 407 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 407 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 814 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从再探剑阁宝箱、毒沙帮副本宝箱、潇湘剑雨宝箱、竹海迷宫副本宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10012,
+      "name": "回气丹",
+      "traditionalName": "回氣丹",
+      "description": "药力化作一股清流，能较快地补充内力，是战斗中的常见补给。",
+      "usageDescription": "使用后恢复200真气。",
+      "category": "恢复",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10012.png",
+      "iconSourceName": "yaopin_66",
+      "effect": {
+        "attributeCode": 3,
+        "attribute": "真气",
+        "value": 200,
+        "durationSeconds": 0,
+        "description": "药力化作一股清流，能较快地补充内力，是战斗中的常见补给。 使用后恢复200真气。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1006,
+            "name": "地脉菖蒲",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1044,
+            "name": "板蓝根",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地脉菖蒲 × 1、沉香 × 1、茯苓 × 1、板蓝根 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 407 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 407 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 407 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 814 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10022,
+      "name": "益气丸",
+      "traditionalName": "益氣丸",
+      "description": "从本源上补充体力消耗，效果温和而持久，适合长久奔波。",
+      "usageDescription": "使用后恢复400气势。",
+      "category": "恢复",
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/danyao/10022.png",
+      "iconSourceName": "yaopin_16",
+      "effect": {
+        "attributeCode": 5,
+        "attribute": "气势",
+        "value": 400,
+        "durationSeconds": 0,
+        "description": "从本源上补充体力消耗，效果温和而持久，适合长久奔波。 使用后恢复400气力。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 60,
+        "materials": [
+          {
+            "id": 1001,
+            "name": "人参",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1024,
+            "name": "茯苓",
+            "count": 1
+          },
+          {
+            "id": 1043,
+            "name": "蜂蜜",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 人参 × 1、黄精 × 1、茯苓 × 1、蜂蜜 × 1，另需 60 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 220 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 220 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 220 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 440 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由再探剑阁-山匪许威、冷雪、剑痴、剑痴谢孤鸿、呼延旧部 · 刀兵-苍狼盟等 83 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10003,
+      "name": "生肌续骨膏",
+      "traditionalName": "生肌續骨膏",
+      "description": "膏药外敷，可深入筋骨，刺激断骨再生，有肉白骨之奇效。",
+      "usageDescription": "使用后恢复680生命。",
+      "category": "恢复",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10003.png",
+      "iconSourceName": "yaopin_05",
+      "effect": {
+        "attributeCode": 1,
+        "attribute": "生命",
+        "value": 680,
+        "durationSeconds": 0,
+        "description": "膏药外敷，可深入筋骨，刺激断骨再生，有肉白骨之奇效。 使用后恢复680气血。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1007,
+            "name": "百年雪莲",
+            "count": 1
+          },
+          {
+            "id": 1028,
+            "name": "血竭",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 百年雪莲 × 1、血竭 × 1、首乌 × 1、灵龟甲粉 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 957 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 957 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 957 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,914 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从苍鹰探秘宝箱、连环坞下坞宝箱、霸王一枪宝箱、鹤羽飘香宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10013,
+      "name": "凝真丹",
+      "traditionalName": "凝真丹",
+      "description": "不仅快速回气，更能提纯内力，使真气更为凝实，威力倍增。",
+      "usageDescription": "使用后恢复300真气。",
+      "category": "恢复",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10013.png",
+      "iconSourceName": "yaopin_10",
+      "effect": {
+        "attributeCode": 3,
+        "attribute": "真气",
+        "value": 300,
+        "durationSeconds": 0,
+        "description": "不仅快速回气，更能提纯内力，使真气更为凝实，威力倍增。 使用后恢复300真气。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1009,
+            "name": "九曲玄参",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 九曲玄参 × 1、首乌 × 1、沉香 × 1、陈年雪水 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,826 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 286 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从苍鹰探秘宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10023,
+      "name": "虎豹精力丹",
+      "traditionalName": "虎豹精力丹",
+      "description": "服后倦意一扫而空，精力澎湃如虎豹，可连续激战数个时辰。",
+      "usageDescription": "使用后恢复700气势。",
+      "category": "恢复",
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/danyao/10023.png",
+      "iconSourceName": "yaopin_19",
+      "effect": {
+        "attributeCode": 5,
+        "attribute": "气势",
+        "value": 700,
+        "durationSeconds": 0,
+        "description": "服后倦意一扫而空，精力澎湃如虎豹，可连续激战数个时辰。 使用后恢复700气力。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 120,
+        "materials": [
+          {
+            "id": 1008,
+            "name": "千年灵芝",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1029,
+            "name": "首乌",
+            "count": 1
+          },
+          {
+            "id": 1047,
+            "name": "灵龟甲粉",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 千年灵芝 × 1、黄精 × 1、首乌 × 1、灵龟甲粉 × 1，另需 120 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "天鉴府 · 行脚商人",
+          "detail": "向行脚商人购买（交易），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "苍影阁 · 燕衔芦",
+          "detail": "向燕衔芦购买（商店），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 913 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 1,826 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、五毒何溪凤、五毒弟子、五毒弟子-剑、五毒弟子-拳等 145 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10004,
+      "name": "血莲再生丹",
+      "traditionalName": "血蓮再生丹",
+      "description": "无论多重的内外伤，服下后磅礴生机便能强行激发，吊命回生。",
+      "usageDescription": "使用后恢复1000生命。",
+      "category": "恢复",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10004.png",
+      "iconSourceName": "yaopin_07",
+      "effect": {
+        "attributeCode": 1,
+        "attribute": "生命",
+        "value": 1000,
+        "durationSeconds": 0,
+        "description": "无论多重的内外伤，服下后磅礴生机便能强行激发，吊命回生。 使用后恢复1000气血。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1010,
+            "name": "龙涎果",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙涎果 × 1、凤血藤 × 1、玉髓 × 1、孔雀胆 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,881 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,762 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从星宿海宝箱、武林汇聚宝箱、瀚海遗迹宝箱、瓮中捉鳖宝箱、血域钥匙宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10014,
+      "name": "太极元丹",
+      "traditionalName": "太極元丹",
+      "description": "阴阳二气在丹田形成气旋，内力恢复如长河奔涌，源源不绝。",
+      "usageDescription": "使用后恢复400真气。",
+      "category": "恢复",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10014.png",
+      "iconSourceName": "yaopin_11",
+      "effect": {
+        "attributeCode": 3,
+        "attribute": "真气",
+        "value": 400,
+        "durationSeconds": 0,
+        "description": "阴阳二气在丹田形成气旋，内力恢复如长河奔涌，源源不绝。 使用后恢复400真气。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1011,
+            "name": "地心火莲",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1048,
+            "name": "孔雀胆",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地心火莲 × 1、凤血藤 × 1、玉髓 × 1、孔雀胆 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,881 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 286 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,762 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从血域钥匙宝箱、连环坞内坞宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10024,
+      "name": "五气朝元丹",
+      "traditionalName": "五氣朝元丹",
+      "description": "五脏之气循环往复，生生不息，体力恢复速度快得超乎想象。",
+      "usageDescription": "使用后恢复1100气势。",
+      "category": "恢复",
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/danyao/10024.png",
+      "iconSourceName": "yaopin_20",
+      "effect": {
+        "attributeCode": 5,
+        "attribute": "气势",
+        "value": 1100,
+        "durationSeconds": 0,
+        "description": "五脏之气循环往复，生生不息，体力恢复速度快得超乎想象。 使用后恢复1100气力。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 210,
+        "materials": [
+          {
+            "id": 1011,
+            "name": "地心火莲",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 地心火莲 × 1、凤血藤 × 1、玉髓 × 1、蛟龙涎 × 1，另需 210 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "灵素谷 · 李书竹",
+          "detail": "向李书竹购买（商店），花费 1,881 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 3,762 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丁纯丘、丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀等 196 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10005,
+      "name": "九转还魂丹",
+      "traditionalName": "九轉還魂丹",
+      "description": "传说中之神丹，能于阎王手中夺人，只要魂魄未散，便可重塑生机。",
+      "usageDescription": "使用后恢复1750生命。",
+      "category": "恢复",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10005.png",
+      "iconSourceName": "yaopin_08",
+      "effect": {
+        "attributeCode": 1,
+        "attribute": "生命",
+        "value": 1750,
+        "durationSeconds": 0,
+        "description": "传说中之神丹，能于阎王手中夺人，只要魂魄未散，便可重塑生机。 使用后恢复1750气血。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1012,
+            "name": "不死草",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 不死草 × 1、凤血藤 × 1、玉髓 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 5,126 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从云霞山庄宝箱、移花宫宝箱、逍遥宫宝箱、镇狱司宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 115 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10015,
+      "name": "乾坤一气丹",
+      "traditionalName": "乾坤一氣丹",
+      "description": "纳乾坤一气于己身，内力瞬间充盈至巅峰，更有冲击玄关之机。",
+      "usageDescription": "使用后恢复500真气。",
+      "category": "恢复",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10015.png",
+      "iconSourceName": "yaopin_12",
+      "effect": {
+        "attributeCode": 3,
+        "attribute": "真气",
+        "value": 500,
+        "durationSeconds": 0,
+        "description": "纳乾坤一气于己身，内力瞬间充盈至巅峰，更有冲击玄关之机。 使用后恢复500真气。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1013,
+            "name": "龙元",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙元 × 1、凤血藤 × 1、玉髓 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 286 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从贪狼寨宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10025,
+      "name": "生生造化丹",
+      "traditionalName": "生生造化丹",
+      "description": "夺天地造化，不仅瞬间补满状态，更有易经洗髓之无上妙用。",
+      "usageDescription": "使用后恢复1500气势。",
+      "category": "恢复",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10025.png",
+      "iconSourceName": "yaopin_21",
+      "effect": {
+        "attributeCode": 5,
+        "attribute": "气势",
+        "value": 1500,
+        "durationSeconds": 0,
+        "description": "夺天地造化，不仅瞬间补满状态，更有易经洗髓之无上妙用。 使用后恢复1500气力。"
+      },
+      "useCooldownSeconds": 9,
+      "isPermanent": false,
+      "isSpecial": false,
+      "useLimit": null,
+      "maximumGain": null,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1013,
+            "name": "龙元",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1030,
+            "name": "玉髓",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙元 × 1、凤血藤 × 1、玉髓 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "shop",
+          "title": "行商",
+          "detail": "向行商购买（交易），花费 5,126 铜钱。"
+        },
+        {
+          "type": "chest",
+          "title": "宝箱或场景收集",
+          "detail": "可从悔悟崖宝箱中获得。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由丐帮连环烙阵燕九模板、了相、云王机关人、云王机关人-刀、云王机关人-剑等 114 类敌人掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10501,
+      "name": "风行丹",
+      "traditionalName": "風行丹",
+      "description": "服下后身轻如絮，步履生风，可大幅提升速度，抢占先机。",
+      "usageDescription": "使用后永久增加50点速度。",
+      "category": "功能",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10501.png",
+      "iconSourceName": "yao_dan_01",
+      "effect": {
+        "attributeCode": 28,
+        "attribute": "速度",
+        "value": 50,
+        "durationSeconds": 0,
+        "description": "服下后身轻如絮，步履生风，可大幅提升速度，抢占先机。 使用后增加50点速度。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 50,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1010,
+            "name": "龙涎果",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1045,
+            "name": "犀角粉",
+            "count": 2
+          },
+          {
+            "id": 1026,
+            "name": "沉香",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙涎果 × 1、凤血藤 × 1、犀角粉 × 2、沉香 × 1，另需 330 铜钱。"
+        },
+        {
+          "type": "drop",
+          "title": "敌人掉落",
+          "detail": "可由剑痴、剑痴谢孤鸿掉落。"
+        }
+      ]
+    },
+    {
+      "id": 10502,
+      "name": "陨星破厄丹",
+      "traditionalName": "隕星破厄丹",
+      "description": "将全身精气神凝为一线，伤害有陨星坠地之威，乃决死之丹。",
+      "usageDescription": "使用后永久增加33点暴伤。",
+      "category": "功能",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10502.png",
+      "iconSourceName": "yao_dan_02",
+      "effect": {
+        "attributeCode": 26,
+        "attribute": "暴击伤害",
+        "value": 33,
+        "durationSeconds": 0,
+        "description": "将全身精气神凝为一线，伤害有陨星坠地之威，乃决死之丹。 使用后增加33点暴伤。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 1,
+      "maximumGain": 33,
+      "recipe": {
+        "costMoney": 330,
+        "materials": [
+          {
+            "id": 1013,
+            "name": "龙元",
+            "count": 1
+          },
+          {
+            "id": 1031,
+            "name": "凤血藤",
+            "count": 1
+          },
+          {
+            "id": 1046,
+            "name": "陈年雪水",
+            "count": 1
+          },
+          {
+            "id": 1027,
+            "name": "黄精",
+            "count": 1
+          },
+          {
+            "id": 1049,
+            "name": "蛟龙涎",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙元 × 1、凤血藤 × 1、陈年雪水 × 1、黄精 × 1、蛟龙涎 × 1，另需 330 铜钱。"
+        }
+      ]
+    },
+    {
+      "id": 10504,
+      "name": "混元无极丹",
+      "traditionalName": "混元無極丹",
+      "description": "汇聚先天元灵精炼，药力入体滋养全幅经脉脉络。",
+      "usageDescription": "使用后永久增加5点经脉点数。",
+      "category": "功能",
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/danyao/10504.png",
+      "iconSourceName": "yaopin_79",
+      "effect": {
+        "attributeCode": 110,
+        "attribute": "经脉点数",
+        "value": 5,
+        "durationSeconds": 0,
+        "description": "汇聚先天元灵精炼，药力入体滋养全幅经脉脉络。 使用后永久增加5点经脉点数。"
+      },
+      "useCooldownSeconds": 15,
+      "isPermanent": true,
+      "isSpecial": true,
+      "useLimit": 2,
+      "maximumGain": 10,
+      "recipe": {
+        "costMoney": 1000,
+        "materials": [
+          {
+            "id": 1013,
+            "name": "龙元",
+            "count": 3
+          },
+          {
+            "id": 1124,
+            "name": "永生叶",
+            "count": 3
+          },
+          {
+            "id": 1104,
+            "name": "夺魄花",
+            "count": 3
+          },
+          {
+            "id": 1084,
+            "name": "通明花",
+            "count": 3
+          },
+          {
+            "id": 1054,
+            "name": "玄阳精",
+            "count": 3
+          },
+          {
+            "id": 1064,
+            "name": "乌藤根",
+            "count": 3
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "alchemy",
+          "title": "苍影阁 · 燕衔芦炼制",
+          "detail": "消耗 龙元 × 3、永生叶 × 3、夺魄花 × 3、通明花 × 3、玄阳精 × 3、乌藤根 × 3，另需 1,000 铜钱。"
+        }
+      ]
+    }
+  ]
+}

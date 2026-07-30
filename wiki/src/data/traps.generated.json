@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T05:22:27.972645+00:00",
+  "gameVersion": "2026-07-28-1101",
+  "sources": {
+    "databaseTables": [
+      "dazaoprototype.json",
+      "item_base.json",
+      "item_equip.json",
+      "spelleffect.json",
+      "spellprotype.json",
+      "stringlang.json",
+      "xiuxi_graph.json",
+      "xiuxi_node.json"
+    ],
+    "iconBundle": "defaultpackage_assets_buildresources_prefab_uisprite_ui_item.bundle"
+  },
+  "counts": {
+    "entries": 10,
+    "qualities": {
+      "1": 1,
+      "2": 2,
+      "3": 4,
+      "4": 2,
+      "5": 1
+    },
+    "effectTags": {
+      "中毒": 2,
+      "伤害": 10,
+      "冻伤": 1,
+      "冻结": 1,
+      "减速": 1,
+      "击飞": 2,
+      "流血": 1,
+      "灼烧": 1,
+      "眩晕": 1,
+      "雷击": 2
+    }
+  },
+  "entries": [
+    {
+      "id": 30501,
+      "name": "困兽夹",
+      "traditionalName": "困獸夾",
+      "description": "本为猎户捕兽之具，因杀力而常做陷阱使用。布设后待敌踏入即骤然合闭，钢齿穿肉造成重创，且附流血之效，令敌气血不断流失，终至力竭而亡。持续6秒，对踩在上面的敌人造成伤害，并附加流血效果。",
+      "effectSummary": "持续6秒，对踩在上面的敌人造成伤害，并附加流血效果。",
+      "effectTags": [
+        "伤害",
+        "流血"
+      ],
+      "quality": 1,
+      "qualityLabel": "普通",
+      "icon": "/game/traps/30501.png",
+      "iconSourceName": "trap_30501",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 6,
+        "triggerMode": "单次触发"
+      },
+      "unlock": {
+        "nodeId": 9100001,
+        "points": 50,
+        "prerequisites": []
+      },
+      "recipe": {
+        "costMoney": 100,
+        "materials": [
+          {
+            "id": 1201,
+            "name": "精铁",
+            "count": 3
+          },
+          {
+            "id": 1421,
+            "name": "粗皮",
+            "count": 1
+          },
+          {
+            "id": 1241,
+            "name": "铁砂",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活困兽夹修习节点后，可在打造界面消耗材料与 100 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30502,
+      "name": "棘地刺",
+      "traditionalName": "棘地刺",
+      "description": "本为军中拒马之变，后经山匪绿林改良，熔铁成刺埋于土中，布设后如丛棘横生。每秒反复穿胫，造成连番挫伤足以缓其速。中者行速骤滞，难进难退，任人宰割。布置尖刺持续6秒，每1秒对踩在上面的敌人造成伤害，并附加减速效果。",
+      "effectSummary": "布置尖刺持续6秒，每1秒对踩在上面的敌人造成伤害，并附加减速效果。",
+      "effectTags": [
+        "伤害",
+        "减速"
+      ],
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/traps/30502.png",
+      "iconSourceName": "trap_30502",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 1,
+        "triggerMode": "持续检测"
+      },
+      "unlock": {
+        "nodeId": 9100002,
+        "points": 250,
+        "prerequisites": [
+          {
+            "nodeId": 9100001,
+            "itemId": 30501,
+            "name": "困兽夹"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 200,
+        "materials": [
+          {
+            "id": 1202,
+            "name": "黑铁",
+            "count": 1
+          },
+          {
+            "id": 1222,
+            "name": "青石",
+            "count": 1
+          },
+          {
+            "id": 1422,
+            "name": "韧皮",
+            "count": 1
+          },
+          {
+            "id": 1241,
+            "name": "铁砂",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活棘地刺修习节点后，可在打造界面消耗材料与 200 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30504,
+      "name": "地爆雷",
+      "traditionalName": "地爆雷",
+      "description": "本为军中破阵之具，后经江湖人士改良，以木桶为壳，内藏硝石焰硝。布设后待敌踏入即轰然引爆，难有招架之机。布置地爆雷持续6秒，敌人触发后，范围性爆炸击飞敌人。",
+      "effectSummary": "布置地爆雷持续6秒，敌人触发后，范围性爆炸击飞敌人。",
+      "effectTags": [
+        "伤害",
+        "击飞"
+      ],
+      "quality": 2,
+      "qualityLabel": "精良",
+      "icon": "/game/traps/30504.png",
+      "iconSourceName": "trap_30504",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 6,
+        "triggerMode": "单次触发"
+      },
+      "unlock": {
+        "nodeId": 9100004,
+        "points": 250,
+        "prerequisites": [
+          {
+            "nodeId": 9100001,
+            "itemId": 30501,
+            "name": "困兽夹"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 200,
+        "materials": [
+          {
+            "id": 1203,
+            "name": "百炼钢",
+            "count": 1
+          },
+          {
+            "id": 1242,
+            "name": "铜渣",
+            "count": 1
+          },
+          {
+            "id": 1221,
+            "name": "白石",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活地爆雷修习节点后，可在打造界面消耗材料与 200 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30503,
+      "name": "毒棘刺",
+      "traditionalName": "毒棘刺",
+      "description": "本为山泽异草所化，后经五毒教以玄铁仿形铸制，内蕴蚀骨毒囊。毒刺破土而出，每秒反复贯刺，且渗剧毒入体。中者身发青黑，气血逆流徐徐待毙。布置毒刺持续6秒，每1秒对踩在上面的敌人造成伤害，并附加中毒效果。",
+      "effectSummary": "布置毒刺持续6秒，每1秒对踩在上面的敌人造成伤害，并附加中毒效果。",
+      "effectTags": [
+        "伤害",
+        "中毒"
+      ],
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/traps/30503.png",
+      "iconSourceName": "trap_30503",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 1,
+        "triggerMode": "持续检测"
+      },
+      "unlock": {
+        "nodeId": 9100003,
+        "points": 1250,
+        "prerequisites": [
+          {
+            "nodeId": 9100002,
+            "itemId": 30502,
+            "name": "棘地刺"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 300,
+        "materials": [
+          {
+            "id": 1202,
+            "name": "黑铁",
+            "count": 1
+          },
+          {
+            "id": 1247,
+            "name": "血玉",
+            "count": 1
+          },
+          {
+            "id": 1425,
+            "name": "鳄皮",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活毒棘刺修习节点后，可在打造界面消耗材料与 300 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30505,
+      "name": "毒爆雷",
+      "traditionalName": "毒爆雷",
+      "description": "以阴毒淬铸雷体，暗藏腐骨之毒。布设后静候六秒，踏之则炸出毒瘴之地，令敌持续中毒；即便无人触碰，时限一到亦自行爆开，留毒域困敌。布置毒爆雷持续6秒，触发后炸开留下6秒腐毒地面，对经过敌人造成中毒。",
+      "effectSummary": "布置毒爆雷持续6秒，触发后炸开留下6秒腐毒地面，对经过敌人造成中毒。",
+      "effectTags": [
+        "伤害",
+        "中毒"
+      ],
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/traps/30505.png",
+      "iconSourceName": "trap_30505",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 6,
+        "triggerMode": "单次触发"
+      },
+      "unlock": {
+        "nodeId": 9100005,
+        "points": 1250,
+        "prerequisites": [
+          {
+            "nodeId": 9100004,
+            "itemId": 30504,
+            "name": "地爆雷"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 300,
+        "materials": [
+          {
+            "id": 1203,
+            "name": "百炼钢",
+            "count": 1
+          },
+          {
+            "id": 1247,
+            "name": "血玉",
+            "count": 1
+          },
+          {
+            "id": 1426,
+            "name": "犀皮",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活毒爆雷修习节点后，可在打造界面消耗材料与 300 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30506,
+      "name": "炎爆雷",
+      "traditionalName": "炎爆雷",
+      "description": "此雷蕴雷霆烈焰之威，布于战场静待六秒。敌触便炸作火海，灼烧八方；纵无人触发，六秒后亦自绽火光，留焰灼敌。布置炎爆雷持续6秒，触发后炸开留下6秒火焰地面，对经过敌人造成灼烧伤害。",
+      "effectSummary": "布置炎爆雷持续6秒，触发后炸开留下6秒火焰地面，对经过敌人造成灼烧伤害。",
+      "effectTags": [
+        "伤害",
+        "灼烧"
+      ],
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/traps/30506.png",
+      "iconSourceName": "trap_30506",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 6,
+        "triggerMode": "单次触发"
+      },
+      "unlock": {
+        "nodeId": 9100006,
+        "points": 1250,
+        "prerequisites": [
+          {
+            "nodeId": 9100004,
+            "itemId": 30504,
+            "name": "地爆雷"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 300,
+        "materials": [
+          {
+            "id": 1203,
+            "name": "百炼钢",
+            "count": 1
+          },
+          {
+            "id": 1245,
+            "name": "炎铁",
+            "count": 1
+          },
+          {
+            "id": 1243,
+            "name": "钢锭",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活炎爆雷修习节点后，可在打造界面消耗材料与 300 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30507,
+      "name": "冰爆雷",
+      "traditionalName": "冰爆雷",
+      "description": "以冰髓精制，布设静候六秒。触发瞬间冰雾狂涌，冻结敌身并炸开寒冰之域，持续六秒，踏之者皆遭冻伤。无人触发亦会自行爆开。布置冰爆雷持续6秒，触发后炸开冻结敌人并留下6秒寒冰地面，对敌人造成冻伤。",
+      "effectSummary": "布置冰爆雷持续6秒，触发后炸开冻结敌人并留下6秒寒冰地面，对敌人造成冻伤。",
+      "effectTags": [
+        "伤害",
+        "冻结",
+        "冻伤"
+      ],
+      "quality": 3,
+      "qualityLabel": "稀有",
+      "icon": "/game/traps/30507.png",
+      "iconSourceName": "trap_30507",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 6,
+        "triggerMode": "单次触发"
+      },
+      "unlock": {
+        "nodeId": 9100007,
+        "points": 1250,
+        "prerequisites": [
+          {
+            "nodeId": 9100004,
+            "itemId": 30504,
+            "name": "地爆雷"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 300,
+        "materials": [
+          {
+            "id": 1203,
+            "name": "百炼钢",
+            "count": 1
+          },
+          {
+            "id": 1244,
+            "name": "寒铜",
+            "count": 1
+          },
+          {
+            "id": 1204,
+            "name": "寒铁",
+            "count": 1
+          },
+          {
+            "id": 1423,
+            "name": "牛皮",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活冰爆雷修习节点后，可在打造界面消耗材料与 300 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30508,
+      "name": "迷迭雾",
+      "traditionalName": "迷迭霧",
+      "description": "此器以奇花迷迭炼入玉瓶，布设后香雾弥漫六秒。凡触雾之敌，立遭眩晕失神，同时受迷香侵体之伤，神智昏聩，任人制御。布置玉瓶释放雾气持续6秒，触碰到雾气的敌人会被眩晕并受到伤害。",
+      "effectSummary": "布置玉瓶释放雾气持续6秒，触碰到雾气的敌人会被眩晕并受到伤害。",
+      "effectTags": [
+        "伤害",
+        "眩晕"
+      ],
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/traps/30508.png",
+      "iconSourceName": "trap_30508",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 1,
+        "triggerMode": "持续检测"
+      },
+      "unlock": {
+        "nodeId": 9100008,
+        "points": 2250,
+        "prerequisites": []
+      },
+      "recipe": {
+        "costMoney": 500,
+        "materials": [
+          {
+            "id": 1226,
+            "name": "水晶心",
+            "count": 1
+          },
+          {
+            "id": 1225,
+            "name": "墨玉璧",
+            "count": 1
+          },
+          {
+            "id": 1486,
+            "name": "软金纱",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活迷迭雾修习节点后，可在打造界面消耗材料与 500 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30509,
+      "name": "引雷针",
+      "traditionalName": "引雷針",
+      "description": "引九天雷气锻铸，布于地面存续六秒。敌人踏足即引天雷轰下，击飞其身。布置引雷针持续6秒，敌人触发后落雷造成伤害。",
+      "effectSummary": "布置引雷针持续6秒，敌人触发后落雷造成伤害。",
+      "effectTags": [
+        "伤害",
+        "击飞",
+        "雷击"
+      ],
+      "quality": 4,
+      "qualityLabel": "珍奇",
+      "icon": "/game/traps/30509.png",
+      "iconSourceName": "trap_30509",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 1,
+        "triggerMode": "持续检测"
+      },
+      "unlock": {
+        "nodeId": 9100009,
+        "points": 2250,
+        "prerequisites": []
+      },
+      "recipe": {
+        "costMoney": 500,
+        "materials": [
+          {
+            "id": 1205,
+            "name": "陨铜",
+            "count": 1
+          },
+          {
+            "id": 1405,
+            "name": "银丝",
+            "count": 1
+          },
+          {
+            "id": 1424,
+            "name": "硬皮革",
+            "count": 1
+          },
+          {
+            "id": 1223,
+            "name": "黄玉符",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活引雷针修习节点后，可在打造界面消耗材料与 500 铜钱制作。"
+        }
+      ]
+    },
+    {
+      "id": 30510,
+      "name": "电击匣",
+      "traditionalName": "電擊匣",
+      "description": "以雷纹玄铁锻就，布设后存续六秒，每息探敌一次。敌人踏之则引动闪电链伤，电光游走，最多连及五人，群敌皆受雷殛，阵型溃散。布置电击板持续6秒，每秒检测触发1次，敌人触发受到闪电链伤害，最多链接5个敌人。",
+      "effectSummary": "布置电击板持续6秒，每秒检测触发1次，敌人触发受到闪电链伤害，最多链接5个敌人。",
+      "effectTags": [
+        "伤害",
+        "雷击"
+      ],
+      "quality": 5,
+      "qualityLabel": "绝世",
+      "icon": "/game/traps/30510.png",
+      "iconSourceName": "trap_30510",
+      "useCooldownSeconds": 10,
+      "stackLimit": 99,
+      "effect": {
+        "durationSeconds": 6,
+        "triggerIntervalSeconds": 1,
+        "triggerMode": "持续检测"
+      },
+      "unlock": {
+        "nodeId": 9100010,
+        "points": 3750,
+        "prerequisites": [
+          {
+            "nodeId": 9100009,
+            "itemId": 30509,
+            "name": "引雷针"
+          }
+        ]
+      },
+      "recipe": {
+        "costMoney": 800,
+        "materials": [
+          {
+            "id": 1206,
+            "name": "龙鳞金",
+            "count": 1
+          },
+          {
+            "id": 1405,
+            "name": "银丝",
+            "count": 1
+          }
+        ]
+      },
+      "acquisitionSources": [
+        {
+          "type": "crafting",
+          "title": "打造制作",
+          "detail": "激活电击匣修习节点后，可在打造界面消耗材料与 800 铜钱制作。"
+        }
+      ]
+    }
+  ]
+}

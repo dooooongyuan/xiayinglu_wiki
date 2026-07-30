@@ -1,0 +1,119 @@
+---
+import { Activity, FlaskConical, HeartPulse, Search, Sparkles, Waves } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DanyaoCard from '../../../components/DanyaoCard.astro';
+import { danyaoAttributes, danyaoCategories, danyaoData, danyaoEntries, danyaoQualities, danyaoQualityLabels } from '../../../data/danyao';
+
+const categoryIcons = { 内劲: Waves, 属性: Activity, 恢复: HeartPulse, 功能: Sparkles };
+---
+
+<BaseLayout title="丹药图鉴" description={`侠影录当前版本已整理 ${danyaoData.counts.entries} 种丹药，包含恢复、临时增益与永久属性培养。`}>
+  <main class="danyao-index" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/entries/#systems">百科目录</a></li><li>›</li><li aria-current="page">丹药</li></ol>
+    <header class="index-header">
+      <div>
+        <p class="eyebrow">游戏数据图鉴 · {danyaoData.gameVersion}</p>
+        <h1 class="page-heading" data-pagefind-meta="title">丹药图鉴</h1>
+        <p class="page-lead">查询丹药品质、实际效果、炼制材料与获取方式；永久丹同时标明单次收益、服用上限和最大累计增益。</p>
+      </div>
+      <div class="coverage"><FlaskConical size={23} /><strong>{danyaoData.counts.entries}</strong><span>种丹药</span><small>{danyaoData.counts.permanent} 种可永久加点</small></div>
+    </header>
+
+    <div class="catalog-tabs" role="tablist" aria-label="丹药大类" data-pagefind-ignore>
+      {danyaoCategories.map((category, index) => {
+        const Icon = categoryIcons[category];
+        return <button class:list={{ active: index === 0 }} type="button" role="tab" aria-selected={index === 0} data-category={category}><Icon size={18} /><span>{category}</span><small>{danyaoData.counts.categories[category]}</small></button>;
+      })}
+    </div>
+
+    <div class="filters" data-pagefind-ignore>
+      <label class="query-control"><Search size={18} /><span class="sr-only">筛选丹药</span><input id="danyao-query" type="search" placeholder="搜索名称、介绍或效果" autocomplete="off" /></label>
+      <label class="select-control"><span>品质</span><select id="danyao-quality"><option value="">全部</option>{danyaoQualities.map((quality) => <option value={quality}>{danyaoQualityLabels[quality]}</option>)}</select></label>
+      <label class="select-control effect-control"><span>效果</span><select id="danyao-attribute"><option value="">全部效果</option>{danyaoAttributes.map((attribute) => <option value={attribute}>{attribute}<Fragment set:html={danyaoData.counts.attributes[attribute] ? ` · ${danyaoData.counts.attributes[attribute]}` : ''} /></option>)}</select></label>
+      <label class="permanent-control"><input id="danyao-permanent" type="checkbox" /><span>仅看永久丹</span></label>
+      <span class="result-count">{danyaoData.counts.categories['内劲']} 条结果</span>
+    </div>
+
+    <div class="danyao-grid" data-pagefind-ignore>
+      {danyaoEntries.map((entry) => <div class="filter-item" hidden={entry.category !== '内劲'} data-search={[entry.name, entry.traditionalName, entry.description, entry.usageDescription, entry.category, entry.effect.attribute].join(' ')} data-category={entry.category} data-quality={entry.quality} data-attribute={entry.effect.attribute} data-permanent={String(entry.isPermanent)}><DanyaoCard entry={entry} /></div>)}
+    </div>
+    <div class="empty-state" hidden>没有符合条件的丹药。</div>
+  </main>
+</BaseLayout>
+
+<script>
+  const queryInput = document.querySelector<HTMLInputElement>('#danyao-query');
+  const qualitySelect = document.querySelector<HTMLSelectElement>('#danyao-quality');
+  const attributeSelect = document.querySelector<HTMLSelectElement>('#danyao-attribute');
+  const permanentInput = document.querySelector<HTMLInputElement>('#danyao-permanent');
+  const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.catalog-tabs button[data-category]')];
+  const items = [...document.querySelectorAll<HTMLElement>('.filter-item')];
+  const resultCount = document.querySelector<HTMLElement>('.result-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+  let activeCategory = '内劲';
+
+  function applyFilters() {
+    const query = queryInput?.value.trim().toLocaleLowerCase('zh-CN') || '';
+    const quality = qualitySelect?.value || '';
+    const attribute = attributeSelect?.value || '';
+    const permanentOnly = permanentInput?.checked || false;
+    let visible = 0;
+    items.forEach((item) => {
+      const search = item.dataset.search?.toLocaleLowerCase('zh-CN') || '';
+      const matches = item.dataset.category === activeCategory
+        && (!query || search.includes(query))
+        && (!quality || item.dataset.quality === quality)
+        && (!attribute || item.dataset.attribute === attribute)
+        && (!permanentOnly || item.dataset.permanent === 'true');
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = `${visible} 条结果`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  categoryButtons.forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.category || '内劲';
+    categoryButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-selected', String(active));
+    });
+    if (attributeSelect) attributeSelect.value = '';
+    applyFilters();
+  }));
+  [queryInput, qualitySelect, attributeSelect, permanentInput].forEach((control) => control?.addEventListener('input', applyFilters));
+</script>
+
+<style>
+  .danyao-index { width: min(100%, 1480px); margin: 0 auto; padding: 28px 36px 64px; }
+  .index-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 24px; }
+  .page-lead { max-width: 760px; }
+  .coverage { min-width: 188px; display: grid; grid-template-columns: 29px auto 1fr; align-items: baseline; gap: 0 7px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); }
+  .coverage > :global(svg) { grid-row: 1 / 3; align-self: center; color: var(--accent); }
+  .coverage strong { font-size: 1.45rem; line-height: 1; }
+  .coverage span { font-size: .82rem; }
+  .coverage small { grid-column: 2 / 4; margin-top: 4px; color: var(--text-soft); font-size: .7rem; }
+  .catalog-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--line-strong); }
+  .catalog-tabs button { min-height: 54px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 0 14px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--text-soft); cursor: pointer; }
+  .catalog-tabs button.active { border-bottom-color: var(--accent); color: var(--text); }
+  .catalog-tabs button span { font-weight: 750; }
+  .catalog-tabs button small { color: inherit; font-size: .68rem; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .query-control, .select-control, .permanent-control { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .query-control { min-width: 260px; flex: 1; }
+  .select-control > span { color: var(--text-soft); font-size: .72rem; }
+  .effect-control { min-width: 166px; }
+  .permanent-control { cursor: pointer; color: var(--text-soft); font-size: .75rem; }
+  .permanent-control input { accent-color: var(--accent); }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  .query-control input { width: 100%; }
+  select { cursor: pointer; }
+  .result-count { margin-left: auto; color: var(--text-soft); font-size: .78rem; }
+  .danyao-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+  .filter-item[hidden] { display: none; }
+  .empty-state { margin-top: 18px; }
+  @media (max-width: 1280px) { .danyao-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .danyao-index { padding: 22px 16px 52px; } .index-header { display: block; } .coverage { width: max-content; margin-top: 18px; } .query-control { flex-basis: 100%; } .select-control { flex: 1; } .permanent-control { flex: 1 0 auto; } .result-count { width: 100%; margin: 0; } }
+  @media (max-width: 620px) { .danyao-grid { grid-template-columns: 1fr; } .catalog-tabs button { min-width: 0; min-height: 50px; flex-direction: column; gap: 0; padding-inline: 4px; font-size: .82rem; } .catalog-tabs button > :global(svg) { display: none; } .effect-control { min-width: 0; } }
+</style>

@@ -1,0 +1,283 @@
+---
+import { Bookmark, Coins, Flame, Gem, Hammer, Layers, Printer, Sparkles, SquarePen, WandSparkles } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DetailToc from '../../../components/DetailToc.astro';
+import ZhuwenCard from '../../../components/ZhuwenCard.astro';
+import { zhuwenEntries, zhuwenKindLabel } from '../../../data/zhuwen';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  return zhuwenEntries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const bookmarkSlug = `zhuwen-${entry.slug}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订铸纹：${entry.name}`)}` : '/about/#contribute';
+const related = zhuwenEntries
+  .filter((item) => item.slug !== entry.slug && item.kind === entry.kind)
+  .sort((left, right) => Number(left.direction !== entry.direction) - Number(right.direction !== entry.direction) || Math.abs(left.quality - entry.quality) - Math.abs(right.quality - entry.quality))
+  .slice(0, 3);
+const totalMaterials = entry.kind === 'fixed'
+  ? new Set(entry.stages.flatMap((stage) => stage.materials.map((material) => material.id))).size
+  : entry.recipe.materials.length;
+const topCost = entry.kind === 'fixed' ? entry.stages.at(-1)?.costMoney || 0 : entry.recipe.costMoney;
+const tocItems = [
+  { id: 'overview', label: '铸纹说明' },
+  ...(entry.kind === 'fixed' ? [{ id: 'stages', label: '阶段成长' }] : []),
+  ...(entry.kind !== 'fixed' && entry.candidateCount ? [{ id: 'candidates', label: '随机词条' }] : []),
+  ...(entry.kind === 'companion' ? [{ id: 'unlock', label: '修习解锁' }] : []),
+  { id: 'recipe', label: '制作配方' },
+  { id: 'usage', label: entry.kind === 'companion' ? '使用方式' : '镶嵌方式' },
+  { id: 'properties', label: '属性一览' },
+];
+---
+
+<BaseLayout title={`${entry.name} · 铸纹图鉴`} description={entry.description} image={entry.icon}>
+  <article class="zhuwen-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name} data-quality={entry.quality}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/wiki/zhuwen/">铸纹图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+
+    <header class="entry-header">
+      <div class="hero-icon"><img src={entry.icon} alt="" width="256" height="256" decoding="async" fetchpriority="high" /></div>
+      <div class="header-copy">
+        <div class="entry-meta"><span>{zhuwenKindLabel(entry)}</span><span class="quality-label">{entry.qualityLabel}</span><span>{entry.applicableParts.join(' · ')}</span></div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        <p class="description">{entry.description}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag quality-tag">{entry.qualityLabel}</span><span class="tag">{entry.direction}</span>{entry.applicableParts.map((part) => <span class="tag">{part}</span>)}</div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏铸纹"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印铸纹"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="铸纹摘要">
+      <div><Layers size={19} /><span><small>适用部位</small><strong>{entry.applicableParts.join(' / ')}</strong></span></div>
+      {entry.kind === 'fixed'
+        ? <div><Sparkles size={19} /><span><small>成长阶段</small><strong>{entry.stageCount} 阶</strong></span></div>
+        : entry.kind === 'random'
+          ? <div><WandSparkles size={19} /><span><small>候选词条</small><strong>{entry.candidateCount} 条</strong></span></div>
+          : <div><Flame size={19} /><span><small>提供火候</small><strong>{entry.heatValue}</strong></span></div>}
+      <div><Coins size={19} /><span><small>{entry.kind === 'fixed' ? '最高阶铜钱' : '制作铜钱'}</small><strong>{topCost.toLocaleString('zh-CN')}</strong></span></div>
+      <div><Gem size={19} /><span><small>配方材料</small><strong>{totalMaterials} 种</strong></span></div>
+    </section>
+
+    <div class="detail-layout">
+      <main class="detail-main">
+        <section id="overview">
+          <h2>铸纹说明</h2>
+          <div class="overview-copy"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /><div><p>{entry.description}</p><strong>{entry.kind === 'companion' ? `${entry.companionType} · 火候 ${entry.heatValue}` : `可用于${entry.applicableParts.join('、')}`}</strong></div></div>
+        </section>
+
+        {entry.kind === 'fixed' && <section id="stages">
+          <div class="section-heading"><div><h2>阶段成长</h2><p>每一阶都是独立制作配方；数值越高，所需材料和铜钱也会提升。</p></div><span>{entry.valueRange}</span></div>
+          <div class="stage-table">
+            <div class="stage-head"><span>阶段与效果</span><span>制作材料</span><span>铜钱</span></div>
+            {entry.stages.map((stage) => <article data-quality={stage.quality}>
+              <div class="stage-effect"><b>{stage.stage}</b><span><small>第 {stage.stage} 阶</small><strong>+{stage.value}</strong></span></div>
+              <div class="stage-materials">{stage.materials.map((material) => <a href={`/wiki/cailiao/${material.id}/`}>{material.name}<b>×{material.count}</b></a>)}</div>
+              <div class="stage-cost"><small>{stage.qualityLabel}</small><strong>{stage.costMoney.toLocaleString('zh-CN')}</strong></div>
+            </article>)}
+          </div>
+        </section>}
+
+        {entry.kind !== 'fixed' && entry.candidateCount > 0 && <section id="candidates">
+          <div class="section-heading"><div><h2>随机词条</h2><p>{entry.kind === 'random' ? '神武铸纹包含通用效果与指定武学的技能强化，以下均为当前品质可能出现的实际范围。' : '带“灵”字的附身材料会从以下词条中随机生成 1 条，并优先附加到制作出的宝物上。'}</p></div><span>{entry.candidateCount} 条候选</span></div>
+          {entry.genericCandidates.length > 0 && <div class="candidate-block">
+            <h3>{entry.kind === 'random' ? '通用效果' : '宝物随机池'} <small>{entry.genericCandidates.length}</small></h3>
+            <div class="candidate-grid">{entry.genericCandidates.map((candidate) => <article data-quality={candidate.quality}><div><strong>{candidate.name}</strong><small>{candidate.description}</small></div><b>{candidate.value}</b></article>)}</div>
+          </div>}
+          {entry.spellGroups.length > 0 && <div class="spell-pool">
+            <div class="spell-heading"><h3>武学技能强化</h3><span>{entry.spellGroups.length} 项武学</span></div>
+            {entry.spellGroups.map((group) => <details>
+              <summary><span><strong>{group.spellName}</strong><small>技能 {group.spellId}</small></span><b>{group.candidates.length} 种效果</b></summary>
+              <div class="candidate-grid spell-candidates">{group.candidates.map((candidate) => <article data-quality={candidate.quality}><div><strong>{candidate.name}</strong><small>{candidate.description}</small></div><b>{candidate.value}</b></article>)}</div>
+            </details>)}
+          </div>}
+        </section>}
+
+        {entry.kind === 'companion' && <section id="unlock">
+          <div class="section-heading"><div><h2>修习解锁</h2><p>激活天工修习中的对应节点后，配方才会开放。</p></div><span>{entry.unlock.points.toLocaleString('zh-CN')} 修习点</span></div>
+          <div class="unlock-panel"><div class="node-mark"><Sparkles size={22} /></div><div><small>{entry.companionType}修习</small><strong>{entry.unlock.nodeName || entry.name}</strong><p>消耗 {entry.unlock.points.toLocaleString('zh-CN')} 修习点激活。</p></div></div>
+        </section>}
+
+        <section id="recipe">
+          <div class="section-heading"><div><h2>制作配方</h2><p>{entry.kind === 'fixed' ? '所有阶段配方已在阶段成长表中逐项列出，以下汇总最高阶段。' : '以下数量均为制作一份目标物品的材料消耗。'}</p></div><span>天工制作</span></div>
+          {entry.kind === 'fixed'
+            ? <div class="recipe-box">
+                <div class="recipe-summary"><Hammer size={20} /><span><small>第 {entry.stages.at(-1)?.stage} 阶制作费用</small><strong>{topCost.toLocaleString('zh-CN')} 铜钱</strong></span></div>
+                <div class="material-grid">{entry.stages.at(-1)?.materials.map((material) => <a href={`/wiki/cailiao/${material.id}/`}><span><strong>{material.name}</strong><small>材料详情</small></span><b>× {material.count}</b></a>)}</div>
+              </div>
+            : <div class="recipe-box">
+                <div class="recipe-summary"><Hammer size={20} /><span><small>制作费用</small><strong>{entry.recipe.costMoney.toLocaleString('zh-CN')} 铜钱</strong></span></div>
+                <div class="material-grid">{entry.recipe.materials.map((material) => <a href={`/wiki/cailiao/${material.id}/`}><span><strong>{material.name}</strong><small>材料详情</small></span><b>× {material.count}</b></a>)}</div>
+              </div>}
+        </section>
+
+        <section id="usage">
+          <div class="section-heading"><div><h2>{entry.kind === 'companion' ? '使用方式' : '镶嵌方式'}</h2><p>{entry.kind === 'companion' ? '附身材料用于制作宝物，不作为普通装备铸纹直接镶嵌。' : '铸纹制作完成后，由天工商人镶嵌到对应部位。'}</p></div><span>{entry.applicableParts.join(' · ')}</span></div>
+          <div class="usage-flow">
+            <div><Hammer size={20} /><span><small>第一步</small><strong>天工制作</strong></span></div>
+            <i>›</i>
+            {entry.kind === 'companion'
+              ? <div><Flame size={20} /><span><small>第二步</small><strong>加入{entry.companionType === '傀儡材料' ? '傀儡' : '武魄'}宝物制作</strong></span></div>
+              : <div><Gem size={20} /><span><small>第二步</small><strong>天工商人镶嵌</strong></span></div>}
+            <i>›</i>
+            <div><Layers size={20} /><span><small>生效对象</small><strong>{entry.applicableParts.join(' / ')}</strong></span></div>
+          </div>
+        </section>
+
+        <section id="properties">
+          <h2>属性一览</h2>
+          <dl class="property-table">
+            <div><dt>名称</dt><dd>{entry.name}</dd></div>
+            <div><dt>分类</dt><dd>{zhuwenKindLabel(entry)}</dd></div>
+            <div><dt>品质</dt><dd class="quality-value">{entry.qualityLabel}</dd></div>
+            <div><dt>适用部位</dt><dd>{entry.applicableParts.join('、')}</dd></div>
+            <div><dt>属性方向</dt><dd>{entry.direction}</dd></div>
+            <div><dt>{entry.kind === 'fixed' ? '阶段数量' : entry.kind === 'random' ? '候选数量' : '火候值'}</dt><dd>{entry.kind === 'fixed' ? `${entry.stageCount} 阶` : entry.kind === 'random' ? `${entry.candidateCount} 条` : entry.heatValue}</dd></div>
+          </dl>
+        </section>
+      </main>
+      <DetailToc items={tocItems} />
+    </div>
+
+    {related.length > 0 && <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同类铸纹</h2><a href="/wiki/zhuwen/">返回图鉴</a></div><div class="related-grid">{related.map((item) => <ZhuwenCard entry={item} />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .zhuwen-page { width: min(100%, 1260px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 138px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .hero-icon { width: 138px; aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--quality-color); background: #111412; }
+  .hero-icon img { width: 100%; height: 100%; padding: 12px; object-fit: contain; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .quality-label, .quality-value { color: var(--quality-color); }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.35rem, 4vw, 3.35rem); font-weight: 400; line-height: 1.12; }
+  .description { max-width: 760px; margin: 10px 0 12px; color: var(--text-soft); line-height: 1.75; }
+  .quality-tag { border-color: color-mix(in srgb, var(--quality-color) 55%, var(--line)); background: color-mix(in srgb, var(--quality-color) 8%, var(--surface)); color: var(--quality-color); }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .88rem; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 42px; margin-top: 34px; }
+  .detail-main section + section { margin-top: 40px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .overview-copy { min-height: 116px; display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 18px; padding: 14px 18px; border: 1px solid var(--line); background: var(--surface); }
+  .overview-copy img { width: 82px; aspect-ratio: 1; padding: 7px; object-fit: contain; background: #111412; }
+  .overview-copy p { margin: 0; color: var(--text-soft); line-height: 1.75; }
+  .overview-copy strong { display: block; margin-top: 7px; color: var(--quality-color); font-size: .78rem; }
+  .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 13px; }
+  .section-heading h2 { margin-bottom: 4px; }
+  .section-heading p { margin: 0; color: var(--text-soft); font-size: .78rem; }
+  .section-heading > span { flex: 0 0 auto; padding: 4px 8px; border: 1px solid var(--line); color: var(--accent); font-size: .7rem; font-weight: 750; }
+  .stage-table { border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .stage-head, .stage-table article { display: grid; grid-template-columns: minmax(170px, .75fr) minmax(300px, 1.5fr) 92px; }
+  .stage-head { background: var(--surface-muted); color: var(--text-soft); font-size: .68rem; font-weight: 700; }
+  .stage-head span { padding: 8px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stage-table article { background: var(--surface); }
+  .stage-effect, .stage-materials, .stage-cost { min-width: 0; padding: 10px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stage-effect { display: flex; align-items: center; gap: 10px; }
+  .stage-effect > b { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--quality-color); color: var(--quality-color); }
+  .stage-effect small, .stage-effect strong { display: block; }
+  .stage-effect small { color: var(--text-soft); font-size: .64rem; }
+  .stage-effect strong { color: var(--quality-color); font-size: .9rem; }
+  .stage-materials { display: flex; flex-wrap: wrap; align-content: center; gap: 5px 12px; }
+  .stage-materials a { color: var(--text); font-size: .7rem; text-decoration: none; }
+  .stage-materials a:hover { color: var(--accent); }
+  .stage-materials a b { margin-left: 3px; color: var(--gold); }
+  .stage-cost { display: flex; flex-direction: column; justify-content: center; text-align: right; }
+  .stage-cost small { color: var(--quality-color); font-size: .62rem; }
+  .stage-cost strong { font-size: .78rem; }
+  .candidate-block h3, .spell-heading h3 { margin: 0; font-size: .94rem; }
+  .candidate-block h3 small { margin-left: 5px; color: var(--text-soft); font-size: .64rem; }
+  .candidate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 9px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .candidate-grid article { min-width: 0; min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 11px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .candidate-grid strong, .candidate-grid small { display: block; }
+  .candidate-grid strong { font-size: .8rem; }
+  .candidate-grid small { margin-top: 2px; color: var(--text-soft); font-size: .63rem; line-height: 1.45; }
+  .candidate-grid article > b { flex: 0 0 auto; color: var(--quality-color); font-size: .72rem; }
+  .spell-pool { margin-top: 26px; }
+  .spell-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .spell-heading span { color: var(--text-soft); font-size: .68rem; }
+  .spell-pool details { border: 1px solid var(--line); background: var(--surface); }
+  .spell-pool details + details { border-top: 0; }
+  .spell-pool summary { min-height: 50px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 9px 13px; cursor: pointer; }
+  .spell-pool summary:hover { background: var(--surface-muted); }
+  .spell-pool summary strong, .spell-pool summary small { display: block; }
+  .spell-pool summary strong { font-size: .82rem; }
+  .spell-pool summary small { color: var(--text-soft); font-size: .61rem; }
+  .spell-pool summary > b { color: var(--accent); font-size: .67rem; }
+  .spell-candidates { margin-top: 0; border-right: 0; border-bottom: 0; border-left: 0; }
+  .unlock-panel { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 14px; align-items: center; padding: 15px; border-left: 3px solid var(--quality-color); background: var(--surface); }
+  .node-mark { width: 50px; height: 50px; display: grid; place-items: center; border: 1px solid var(--quality-color); color: var(--quality-color); transform: rotate(45deg); }
+  .node-mark > :global(svg) { transform: rotate(-45deg); }
+  .unlock-panel small, .unlock-panel strong { display: block; }
+  .unlock-panel small { color: var(--text-soft); font-size: .66rem; }
+  .unlock-panel strong { margin-top: 2px; }
+  .unlock-panel p { margin: 3px 0 0; color: var(--text-soft); font-size: .76rem; }
+  .recipe-box { border: 1px solid var(--line); }
+  .recipe-summary { display: flex; align-items: center; gap: 11px; padding: 11px 13px; border-bottom: 1px solid var(--line); background: var(--surface-muted); }
+  .recipe-summary > :global(svg) { color: var(--accent); }
+  .recipe-summary small, .recipe-summary strong { display: block; }
+  .recipe-summary small { color: var(--text-soft); font-size: .66rem; }
+  .recipe-summary strong { font-size: .84rem; }
+  .material-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .material-grid a { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; }
+  .material-grid a:nth-child(even) { border-right: 0; }
+  .material-grid a:hover { background: var(--surface-muted); }
+  .material-grid strong, .material-grid small { display: block; }
+  .material-grid strong { font-size: .82rem; }
+  .material-grid small { color: var(--text-soft); font-size: .62rem; }
+  .material-grid b { color: var(--gold); font-size: .75rem; }
+  .usage-flow { display: grid; grid-template-columns: 1fr 20px 1.35fr 20px 1fr; align-items: stretch; }
+  .usage-flow > div { min-width: 0; display: flex; align-items: center; gap: 10px; padding: 13px; border: 1px solid var(--line); background: var(--surface); }
+  .usage-flow > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .usage-flow i { display: grid; place-items: center; color: var(--text-soft); font-style: normal; }
+  .usage-flow small, .usage-flow strong { display: block; }
+  .usage-flow small { color: var(--text-soft); font-size: .62rem; }
+  .usage-flow strong { font-size: .77rem; }
+  .property-table { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .property-table div { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .property-table dt { color: var(--text-soft); font-size: .7rem; }
+  .property-table dd { margin: 0; text-align: right; font-size: .8rem; font-weight: 750; }
+  .related { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .related .section-heading a { color: var(--accent); font-size: .78rem; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+  @media (max-width: 1040px) { .entry-header { grid-template-columns: 118px minmax(0, 1fr); } .hero-icon { width: 118px; } .entry-actions { grid-column: 1 / -1; justify-content: flex-start; } .detail-layout { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .zhuwen-page { padding: 22px 16px 52px; } .core-stats { grid-template-columns: repeat(2, 1fr); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .stage-head { display: none; } .stage-table article { grid-template-columns: 150px minmax(0, 1fr) 80px; } .candidate-grid { grid-template-columns: 1fr; } .usage-flow { grid-template-columns: 1fr; gap: 7px; } .usage-flow i { transform: rotate(90deg); } .property-table { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .entry-header { grid-template-columns: 84px minmax(0, 1fr); gap: 14px; } .hero-icon { width: 84px; } h1 { font-size: 2.15rem; } .entry-actions .button:not(.icon-button) { flex: 1; } .overview-copy { grid-template-columns: 70px 1fr; gap: 11px; padding: 11px; } .overview-copy img { width: 64px; } .section-heading { display: block; } .section-heading > span { display: inline-block; margin-top: 7px; } .stage-table { border: 0; } .stage-table article { grid-template-columns: 1fr 82px; margin-bottom: 8px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); } .stage-materials { grid-column: 1 / -1; grid-row: 2; } .material-grid { grid-template-columns: 1fr; } .material-grid a { border-right: 0; } }
+  @media (max-width: 360px) { .core-stats { grid-template-columns: 1fr; } .core-stats > div + div { border-top: 1px solid var(--line); border-left: 0; } .overview-copy { display: block; } .overview-copy img { margin-bottom: 10px; } }
+  @media print { .entry-actions, .related, .spell-pool details:not([open]) { display: none; } }
+</style>

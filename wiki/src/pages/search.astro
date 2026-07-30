@@ -1,0 +1,123 @@
+---
+import { Search } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { searchEntries } from '../data/search';
+
+const localSearchEntries = searchEntries.map((entry) => ({
+  title: entry.title,
+  url: entry.href,
+  excerpt: `${entry.kindLabel} · ${entry.subtitle}。${entry.summary}`,
+  aliases: entry.aliases,
+  search: [entry.title, entry.subtitle, entry.summary, ...entry.tags, ...entry.aliases].join(' ').toLocaleLowerCase('zh-CN'),
+}));
+---
+
+<BaseLayout title="搜索" description="搜索侠影录 Wiki 的条目正文、标签与资料来源。" noindex>
+  <div class="page-wrap search-page" data-local-search={JSON.stringify(localSearchEntries)}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li aria-current="page">搜索</li></ol>
+    <header><p class="eyebrow">全文检索</p><h1 class="page-heading">搜索百科</h1></header>
+    <form class="search-form" role="search"><Search size={21} /><label class="sr-only" for="full-search">搜索词</label><input id="full-search" type="search" placeholder="搜索武学、装备、人物、丹药、材料或陷阱" autocomplete="off" /><button class="button primary" type="submit">搜索</button></form>
+    <p class="search-status" aria-live="polite">输入关键词开始搜索</p>
+    <ol class="search-results"></ol>
+  </div>
+</BaseLayout>
+
+<script>
+  type PagefindData = { url: string; excerpt?: string; meta: { title?: string } };
+  type PagefindResult = { data: () => Promise<PagefindData> };
+  type PagefindApi = {
+    init: () => Promise<void>;
+    search: (query: string) => Promise<{ results: PagefindResult[] }>;
+  };
+  type LocalSearchEntry = { title: string; url: string; excerpt: string; aliases: string[]; search: string };
+
+  const form = document.querySelector<HTMLFormElement>('.search-form');
+  const input = document.querySelector<HTMLInputElement>('#full-search');
+  const status = document.querySelector<HTMLElement>('.search-status');
+  const results = document.querySelector<HTMLOListElement>('.search-results');
+  const searchPage = document.querySelector<HTMLElement>('.search-page');
+  const localEntries = JSON.parse(searchPage?.dataset.localSearch || '[]') as LocalSearchEntry[];
+
+  function escapeHtml(value = ''): string {
+    const entities: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' };
+    return value.replace(/[&<>'"]/g, (character) => entities[character] || character);
+  }
+
+  async function runSearch(query: string) {
+    if (!query || !status || !results) return;
+    status.textContent = '正在搜索…';
+    results.innerHTML = '';
+    const normalized = query.toLocaleLowerCase('zh-CN');
+    const localMatches = localEntries
+      .map((entry, index) => {
+        const title = entry.title.toLocaleLowerCase('zh-CN');
+        const aliases = entry.aliases.map((alias) => alias.toLocaleLowerCase('zh-CN'));
+        const rank = title === normalized ? 0 : aliases.includes(normalized) ? 1 : title.startsWith(normalized) ? 2 : aliases.some((alias) => alias.startsWith(normalized)) ? 3 : 4;
+        return { entry, index, rank };
+      })
+      .filter((result) => result.entry.search.includes(normalized))
+      .sort((left, right) => left.rank - right.rank || left.index - right.index)
+      .map((result) => result.entry);
+
+    const renderResults = (items: Array<{ url: string; title: string; excerpt: string }>, suffix = '') => {
+      status.textContent = `找到 ${items.length} 个结果${suffix}`;
+      results.innerHTML = items.map((item) => `<li><a href="${escapeHtml(item.url)}"><strong>${escapeHtml(item.title)}</strong><span>${item.excerpt}</span></a></li>`).join('');
+    };
+
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+      renderResults(
+        localMatches.slice(0, 30).map((entry) => ({ url: entry.url, title: entry.title, excerpt: escapeHtml(entry.excerpt) })),
+        '（本地索引）',
+      );
+      return;
+    }
+
+    try {
+      const importPagefind = new Function('return import("/pagefind/pagefind.js")') as () => Promise<PagefindApi>;
+      const pagefind = await importPagefind();
+      await pagefind.init();
+      const response = await pagefind.search(query);
+      const data = await Promise.all(response.results.slice(0, 30).map((result: PagefindResult) => result.data()));
+      const localUrls = new Set(localMatches.map((entry) => entry.url));
+      const merged = [
+        ...localMatches.map((entry) => ({ url: entry.url, title: entry.title, excerpt: escapeHtml(entry.excerpt) })),
+        ...data.filter((item) => !localUrls.has(item.url)).map((item) => ({ url: item.url, title: item.meta.title || '未命名条目', excerpt: item.excerpt || '' })),
+      ].slice(0, 30);
+      renderResults(merged);
+    } catch (error) {
+      renderResults(
+        localMatches.slice(0, 30).map((entry) => ({ url: entry.url, title: entry.title, excerpt: escapeHtml(entry.excerpt) })),
+        '（本地索引）',
+      );
+    }
+  }
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const query = input?.value.trim();
+    if (!query) return;
+    const url = new URL(location.href);
+    url.searchParams.set('q', query);
+    history.replaceState({}, '', url);
+    runSearch(query);
+  });
+
+  const initialQuery = new URLSearchParams(location.search).get('q') || '';
+  if (input) input.value = initialQuery;
+  if (initialQuery) runSearch(initialQuery);
+  requestAnimationFrame(() => input?.focus());
+</script>
+
+<style>
+  .search-page { max-width: 900px; }
+  .search-form { height: 58px; display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 0 8px 0 18px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); box-shadow: var(--shadow); }
+  input { min-width: 0; flex: 1; height: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 1rem; }
+  .search-status { margin: 18px 0 10px; color: var(--text-soft); font-size: .84rem; }
+  .search-results { margin: 0; padding: 0; list-style: none; }
+  :global(.search-results li) { border-top: 1px solid var(--line); }
+  :global(.search-results a) { display: block; padding: 18px 4px; color: var(--text); text-decoration: none; }
+  :global(.search-results a:hover strong) { color: var(--accent); }
+  :global(.search-results strong) { display: block; font-size: 1.05rem; }
+  :global(.search-results span) { display: block; margin-top: 6px; color: var(--text-soft); font-size: .86rem; }
+  :global(.search-results mark) { background: var(--gold-soft); color: var(--text); }
+</style>

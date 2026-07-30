@@ -1,0 +1,49 @@
+---
+import { ArrowUpRight, Clock3, Sparkles, GitBranch, CircleDot } from '@lucide/astro';
+import type { WuxueEntry } from '../data/wuxue';
+import { wuxueHref, wuxueQualityLabels } from '../data/wuxue';
+
+interface Props { entry: WuxueEntry; }
+const { entry } = Astro.props;
+---
+
+<article class="wuxue-card" data-category={entry.category} data-style={entry.style} data-quality={entry.quality}>
+  <a class="card-link" href={wuxueHref(entry)} aria-label={`查看武学：${entry.name}`}><span class="sr-only">查看{entry.name}</span></a>
+  <img class="wuxue-icon" src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" />
+  <div class="card-copy">
+    <div class="card-meta"><span>{entry.category === '功法' ? `功法 · ${entry.style}` : '心法'}</span><span class="quality-badge">{wuxueQualityLabels[entry.quality]}</span></div>
+    <div class="card-title"><h3>{entry.name}</h3><ArrowUpRight size={17} /></div>
+    {entry.manualName && entry.manualName !== entry.name && <span class="manual-alias">秘籍：{entry.manualName}</span>}
+    <p>{entry.description}</p>
+    <dl>
+      {entry.category === '功法' ? (
+        <><div><Clock3 size={14} /><dt>冷却</dt><dd>{entry.cooldownSeconds} 秒</dd></div><div><Sparkles size={14} /><dt>真气</dt><dd>{entry.mpCost}</dd></div></>
+      ) : (
+        <><div><CircleDot size={14} /><dt>修习起点</dt><dd>{entry.activationPoints}</dd></div><div><GitBranch size={14} /><dt>成长节点</dt><dd>{entry.trainingNodes.length}</dd></div></>
+      )}
+      {entry.affinity && <div><span class="affinity-dot"></span><dt>倾向</dt><dd>{entry.affinity}</dd></div>}
+    </dl>
+  </div>
+</article>
+
+<style>
+  .wuxue-card { position: relative; min-width: 0; min-height: 172px; display: grid; grid-template-columns: 112px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+  .wuxue-card:hover { transform: translateY(-2px); border-color: var(--quality-color, var(--line-strong)); box-shadow: var(--shadow); }
+  .card-link { position: absolute; z-index: 2; inset: 0; }
+  .card-link:focus-visible { outline-offset: -3px; }
+  .wuxue-icon { width: 100%; height: 100%; min-height: 172px; padding: 6px; border-right: 3px solid var(--quality-color, var(--line-strong)); object-fit: contain; background: #111412; }
+  .card-copy { min-width: 0; padding: 14px 15px 12px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--accent); font-size: .7rem; font-weight: 750; }
+  .quality-badge { padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 62%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--quality-color) 9%, transparent); color: var(--quality-color); white-space: nowrap; }
+  .card-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-top: 5px; }
+  h3 { margin: 0; font-size: 1.08rem; line-height: 1.35; }
+  .manual-alias { display: block; margin-top: 2px; color: var(--gold); font-size: .68rem; }
+  .manual-alias + p { margin-top: 3px; }
+  p { display: -webkit-box; margin: 6px 0 10px; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; color: var(--text-soft); font-size: .78rem; line-height: 1.55; }
+  dl { display: flex; flex-wrap: wrap; gap: 5px 11px; margin: 0; color: var(--text-soft); font-size: .68rem; }
+  dl div { display: flex; align-items: center; gap: 4px; }
+  dt, dd { margin: 0; }
+  dd { color: var(--text); font-weight: 650; }
+  .affinity-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  @media (max-width: 480px) { .wuxue-card { grid-template-columns: 92px 1fr; } .wuxue-icon { min-height: 174px; padding: 5px; } .card-copy { padding-inline: 12px; } }
+</style>

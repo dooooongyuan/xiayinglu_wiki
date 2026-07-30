@@ -1,0 +1,96 @@
+---
+import { Menu, Search, Sun, Moon } from '@lucide/astro';
+import { site } from '../data/site';
+---
+
+<header class="site-header">
+  <div class="header-start">
+    <button class="header-icon nav-toggle" type="button" aria-label="打开导航" aria-controls="site-sidebar" aria-expanded="false">
+      <Menu size={20} />
+    </button>
+    <a class="brand" href="/" aria-label={site.name}>
+      <img src="/game/optimized/wiki-logo-header.webp" alt="侠影录" width="184" height="118" decoding="async" />
+      <span>Wiki</span>
+    </a>
+  </div>
+
+  <button class="search-trigger" type="button" aria-label="搜索百科">
+    <Search size={18} />
+    <span>搜索武学、装备、人物、丹药、材料或陷阱</span>
+  </button>
+
+  <div class="header-end">
+    <button class="header-icon theme-toggle" type="button" aria-label="切换配色">
+      <Sun class="sun" size={19} />
+      <Moon class="moon" size={19} />
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-h);
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(240px, 540px) 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 0 18px;
+    border-bottom: 1px solid #303532;
+    background: var(--surface-strong);
+    color: #eef1ee;
+  }
+
+  .header-start, .header-end { display: flex; align-items: center; gap: 12px; }
+  .header-end { justify-content: flex-end; }
+  .nav-toggle { display: none; }
+
+  .brand { display: flex; align-items: center; gap: 7px; color: #fff; text-decoration: none; }
+  .brand:hover { color: #fff; }
+  .brand img { width: 92px; height: 44px; object-fit: contain; }
+  .brand span { color: #c6b27e; font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+
+  .search-trigger {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 13px;
+    border: 1px solid #49504c;
+    border-radius: 5px;
+    background: #292e2b;
+    color: #bdc5bf;
+    cursor: pointer;
+  }
+
+  .search-trigger:hover { border-color: #737d76; color: #fff; }
+  .header-icon { width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: transparent; color: #cbd1cd; cursor: pointer; }
+  .header-icon:hover { color: #fff; }
+  .moon, :global(:root[data-theme='dark']) .sun { display: none; }
+  :global(:root[data-theme='dark']) .moon { display: block; }
+
+  @media (max-width: 920px) {
+    .site-header { grid-template-columns: auto 1fr auto; gap: 10px; padding-inline: 10px; }
+    .nav-toggle { display: grid; }
+    .header-start { gap: 4px; }
+    .brand img { width: 76px; }
+    .brand span { display: none; }
+    .search-trigger { justify-self: stretch; max-width: 520px; }
+  }
+
+  @media (max-width: 560px) {
+    .brand img { width: 58px; height: 36px; }
+    .search-trigger span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  }
+
+  @media (max-width: 360px) {
+    .brand { display: none; }
+    .site-header { grid-template-columns: 38px minmax(0, 1fr) 38px; gap: 5px; padding-inline: 6px; }
+    .header-start { width: 38px; }
+    .search-trigger { min-width: 0; padding-inline: 10px; }
+  }
+</style>

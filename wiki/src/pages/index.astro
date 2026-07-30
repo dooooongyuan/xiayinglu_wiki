@@ -1,0 +1,53 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryCard from '../components/EntryCard.astro';
+import { entries } from '../data/wiki';
+import gameIndex from '../data/game-index.json';
+
+const featuredSlugs = ['wuxue', 'zhuangbei', 'danyao', 'cailiao'];
+const featured = featuredSlugs.map((slug) => entries.find((entry) => entry.slug === slug)).filter((entry) => entry !== undefined);
+---
+
+<BaseLayout>
+  <div class="home" data-pagefind-body>
+    <section class="home-intro">
+      <div class="intro-copy">
+        <p class="eyebrow">游戏资料快照 · {gameIndex.yooAsset.packageVersion}</p>
+        <h1>查资料，直接进江湖。</h1>
+        <p>玩法机制、人物线索与版本考据统一收录。页面内容以游戏资源和实机核对为准，未确认信息会明确标记。</p>
+        <div class="intro-actions">
+          <button class="button primary search-trigger" type="button">搜索百科</button>
+          <a class="button" href="/entries/">浏览百科目录 <ArrowRight size={17} /></a>
+        </div>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <img class="intro-logo" src="/game/optimized/wiki-logo-hero.webp" alt="" width="900" height="578" decoding="async" fetchpriority="high" />
+      </div>
+    </section>
+
+    <section class="entry-section">
+      <div class="section-heading"><h2>从这里开始</h2><a href="/entries/">百科目录</a></div>
+      <div class="entry-grid">{featured.map((entry) => <EntryCard entry={entry} />)}</div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .home { width: min(100%, 1460px); margin: 0 auto; padding: 20px 36px 44px; }
+  .home-intro { min-height: 280px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr); overflow: hidden; border: 1px solid #3d423f; border-radius: 6px; background: #151817 url('/game/optimized/wiki-hero-background.webp') center/100% 100% no-repeat; color: #f1f3f1; }
+  .intro-copy { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 26px 40px; }
+  .intro-copy h1 { max-width: 650px; margin: 0; font-family: var(--font-display); font-size: clamp(2.5rem, 3.6vw, 3.35rem); font-weight: 400; line-height: 1.05; }
+  .intro-copy > p:not(.eyebrow) { max-width: 620px; margin: 12px 0 0; color: #b7c0ba; font-size: .94rem; }
+  .intro-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .intro-actions .button:not(.primary) { border-color: #69726c; background: #252a27; color: #eef2ef; }
+  .intro-art { position: relative; min-height: 200px; overflow: hidden; }
+  .intro-art::before { position: absolute; inset: 0; background: rgb(7 9 8 / 18%); content: ''; }
+  .intro-logo { position: absolute; right: 2%; bottom: 2%; width: min(98%, 650px); height: 90%; object-fit: contain; opacity: .96; filter: drop-shadow(0 16px 30px rgb(0 0 0 / 35%)); }
+  .entry-section .section-heading { margin-top: 24px; margin-bottom: 12px; }
+  .entry-section .section-heading h2 { font-size: 1.42rem; }
+  .entry-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 1080px) { .home-intro { grid-template-columns: 1fr .68fr; } .intro-copy { padding: 36px; } }
+  @media (max-width: 760px) { .home { padding: 18px 16px 42px; } .home-intro { min-height: 420px; display: block; position: relative; background-position: center; background-size: auto 100%; } .intro-copy { min-height: 420px; justify-content: flex-end; padding: 28px; } .intro-art { position: absolute; inset: 0; min-height: 0; } .intro-logo { top: 5%; right: 8%; bottom: auto; width: 84%; height: 48%; } .intro-copy h1 { font-size: 2.8rem; } .entry-section .section-heading { margin-top: 28px; } .entry-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 360px) { .home-intro, .intro-copy { min-height: 560px; } .intro-copy { justify-content: flex-start; padding: 208px 26px 26px; } .intro-logo { top: 18px; right: 6%; width: 88%; height: 176px; } .intro-copy h1 { font-size: 2.45rem; line-height: 1.1; } .intro-copy > p:not(.eyebrow) { margin-top: 12px; font-size: .9rem; } .intro-actions { margin-top: 18px; } }
+</style>

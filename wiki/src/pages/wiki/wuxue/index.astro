@@ -1,0 +1,132 @@
+---
+import { ListFilter, Search, Swords } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import WuxueCard from '../../../components/WuxueCard.astro';
+import { wuxueAffinities, wuxueData, wuxueEntries, wuxueQualities, wuxueQualityLabels, wuxueStyles } from '../../../data/wuxue';
+---
+
+<BaseLayout title="武学图鉴" description={`侠影录当前版本已解析的 ${wuxueData.counts.categories['功法']} 门功法与 ${wuxueData.counts.categories['心法']} 门心法。`}>
+  <main class="wuxue-index" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/entries/#systems">百科目录</a></li><li>›</li><li aria-current="page">武学</li></ol>
+    <header class="index-header">
+      <div>
+        <p class="eyebrow">游戏数据图鉴 · {wuxueData.gameVersion}</p>
+        <h1 class="page-heading" data-pagefind-meta="title">武学图鉴</h1>
+        <p class="page-lead">武学分为功法与心法。功法按剑诀、枪芒、拳罡、刀势整理；心法作为独立修习体系收录。</p>
+      </div>
+      <div class="coverage"><Swords size={22} /><strong>{wuxueData.counts.entries}</strong><span>门武学</span><small>{wuxueData.counts.categories['功法']} 功法 · {wuxueData.counts.categories['心法']} 心法</small></div>
+    </header>
+
+    <div class="catalog-tabs" role="tablist" aria-label="武学大类" data-pagefind-ignore>
+      <button class="active" type="button" role="tab" aria-selected="true" data-category="功法"><span>功法</span><small>{wuxueData.counts.categories['功法']}</small></button>
+      <button type="button" role="tab" aria-selected="false" data-category="心法"><span>心法</span><small>{wuxueData.counts.categories['心法']}</small></button>
+    </div>
+
+    <div class="filters" data-pagefind-ignore>
+      <label class="query-control"><Search size={18} /><span class="sr-only">筛选武学</span><input id="wuxue-query" type="search" placeholder="搜索名称、描述或属性" autocomplete="off" /></label>
+      <div class="style-control" role="group" aria-label="功法分类">
+        <button class="active" type="button" data-style="">全部</button>
+        {wuxueStyles.map((style) => <button type="button" data-style={style}>{style}<span>{wuxueData.counts.styles[style]}</span></button>)}
+      </div>
+      <div class="affinity-control" role="group" aria-label="属性倾向">
+        <button class="active" type="button" data-affinity="">全部属性</button>
+        {wuxueAffinities.map((affinity) => <button type="button" data-affinity={affinity}>{affinity}</button>)}
+      </div>
+      <label class="select-control"><ListFilter size={17} /><span class="sr-only">品质</span><select id="wuxue-quality"><option value="">全部品质</option>{wuxueQualities.map((quality) => <option value={quality}>{wuxueQualityLabels[quality]}</option>)}</select></label>
+      <span class="result-count">{wuxueData.counts.categories['功法']} 条结果</span>
+    </div>
+
+    <div class="wuxue-grid" data-pagefind-ignore>
+      {wuxueEntries.map((entry) => <div class="filter-item" hidden={entry.category !== '功法'} data-search={[entry.name, entry.traditionalName, entry.dataName, entry.manualName, entry.manualTraditionalName, entry.description, entry.category, entry.style, entry.affinity].filter(Boolean).join(' ')} data-category={entry.category} data-style={entry.style} data-affinity={entry.affinity || ''} data-quality={entry.quality}><WuxueCard entry={entry} /></div>)}
+    </div>
+    <div class="empty-state" hidden>没有符合条件的武学。</div>
+  </main>
+</BaseLayout>
+
+<script>
+  const queryInput = document.querySelector<HTMLInputElement>('#wuxue-query');
+  const qualitySelect = document.querySelector<HTMLSelectElement>('#wuxue-quality');
+  const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.catalog-tabs button[data-category]')];
+  const styleButtons = [...document.querySelectorAll<HTMLButtonElement>('.style-control button[data-style]')];
+  const affinityButtons = [...document.querySelectorAll<HTMLButtonElement>('.affinity-control button[data-affinity]')];
+  const styleControl = document.querySelector<HTMLElement>('.style-control');
+  const items = [...document.querySelectorAll<HTMLElement>('.filter-item')];
+  const resultCount = document.querySelector<HTMLElement>('.result-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+  let activeCategory = '功法';
+  let activeStyle = '';
+  let activeAffinity = '';
+
+  function applyFilters() {
+    const query = queryInput?.value.trim().toLocaleLowerCase('zh-CN') || '';
+    const quality = qualitySelect?.value || '';
+    let visible = 0;
+    items.forEach((item) => {
+      const search = item.dataset.search?.toLocaleLowerCase('zh-CN') || '';
+      const matches = item.dataset.category === activeCategory && (!query || search.includes(query)) && (!activeStyle || item.dataset.style === activeStyle) && (!activeAffinity || item.dataset.affinity === activeAffinity) && (!quality || item.dataset.quality === quality);
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = `${visible} 条结果`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  categoryButtons.forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.category || '功法';
+    activeStyle = '';
+    categoryButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-selected', String(active));
+    });
+    styleButtons.forEach((item) => item.classList.toggle('active', item.dataset.style === ''));
+    if (styleControl) styleControl.hidden = activeCategory !== '功法';
+    applyFilters();
+  }));
+  styleButtons.forEach((button) => button.addEventListener('click', () => {
+    activeStyle = button.dataset.style || '';
+    styleButtons.forEach((item) => item.classList.toggle('active', item === button));
+    applyFilters();
+  }));
+  affinityButtons.forEach((button) => button.addEventListener('click', () => {
+    activeAffinity = button.dataset.affinity || '';
+    affinityButtons.forEach((item) => item.classList.toggle('active', item === button));
+    applyFilters();
+  }));
+  [queryInput, qualitySelect].forEach((control) => control?.addEventListener('input', applyFilters));
+</script>
+
+<style>
+  .wuxue-index { width: min(100%, 1460px); margin: 0 auto; padding: 28px 36px 64px; }
+  .index-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 24px; }
+  .coverage { min-width: 185px; display: grid; grid-template-columns: 28px auto 1fr; align-items: baseline; gap: 0 7px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); }
+  .coverage > :global(svg) { grid-row: 1 / 3; align-self: center; color: var(--accent); }
+  .coverage strong { font-size: 1.45rem; line-height: 1; }
+  .coverage span { font-size: .82rem; }
+  .coverage small { grid-column: 2 / 4; margin-top: 4px; color: var(--text-soft); font-size: .7rem; }
+  .catalog-tabs { display: flex; border-bottom: 1px solid var(--line-strong); }
+  .catalog-tabs button { min-width: 180px; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 9px; padding: 0 24px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--text-soft); cursor: pointer; }
+  .catalog-tabs button.active { border-bottom-color: var(--accent); color: var(--text); }
+  .catalog-tabs button span { font-size: 1.02rem; font-weight: 750; }
+  .catalog-tabs button small { min-width: 24px; color: inherit; font-size: .7rem; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .query-control, .select-control { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .query-control { min-width: 260px; flex: 1; }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  input { width: 100%; }
+  select { cursor: pointer; }
+  .style-control, .affinity-control { display: flex; min-height: 40px; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; }
+  .style-control button, .affinity-control button { display: flex; align-items: center; justify-content: center; gap: 5px; min-width: 42px; padding: 0 10px; border: 0; background: var(--bg); color: var(--text-soft); cursor: pointer; }
+  .affinity-control button:first-child { min-width: 72px; white-space: nowrap; }
+  .style-control button + button, .affinity-control button + button { border-left: 1px solid var(--line); }
+  .style-control button.active, .affinity-control button.active { background: var(--surface-strong); color: #fff; }
+  .style-control span { font-size: .68rem; opacity: .72; }
+  .style-control[hidden] { display: none; }
+  .result-count { margin-left: auto; color: var(--text-soft); font-size: .78rem; }
+  .wuxue-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+  .filter-item[hidden] { display: none; }
+  .empty-state { margin-top: 18px; }
+  @media (max-width: 1240px) { .wuxue-grid { grid-template-columns: repeat(2, 1fr); } .style-control { order: 3; width: 100%; } .affinity-control { order: 4; flex: 1; } .style-control button, .affinity-control button { flex: 1; } }
+  @media (max-width: 760px) { .wuxue-index { padding: 22px 16px 52px; } .index-header { display: block; } .coverage { width: max-content; margin-top: 18px; } .catalog-tabs button { min-width: 0; flex: 1; } .query-control { flex-basis: 100%; } .select-control { flex: 1; } .result-count { width: 100%; margin: 0; } }
+  @media (max-width: 620px) { .wuxue-grid { grid-template-columns: 1fr; } .style-control { display: grid; grid-template-columns: repeat(3, 1fr); height: auto; } .affinity-control { width: 100%; } .style-control button, .affinity-control button { min-height: 38px; } .affinity-control button:first-child { flex: 1.5; } .style-control button + button, .affinity-control button + button { border-left: 1px solid var(--line); } }
+</style>

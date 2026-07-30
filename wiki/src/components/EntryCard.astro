@@ -1,0 +1,48 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import type { WikiEntry } from '../data/wiki';
+import { kindLabels, verificationLabels } from '../data/wiki';
+
+interface Props { entry: WikiEntry; compact?: boolean; href?: string; }
+const { entry, compact = false, href: customHref } = Astro.props;
+const href = customHref || (entry.kind === 'research' ? `/research/${entry.slug}/` : `/wiki/${entry.slug}/`);
+---
+
+<article class:list={['entry-card', { compact, 'has-image': Boolean(entry.image) && !compact }]} data-kind={entry.kind} data-tags={entry.tags.join(' ')}>
+  <a class="card-link" href={href} aria-label={`查看${entry.title}`}><span class="sr-only">查看{entry.title}</span></a>
+  {entry.image && !compact && <div class="card-image"><img src={entry.image} alt="" width="320" height="564" loading="lazy" decoding="async" /></div>}
+  <div class="card-body">
+    <div class="card-meta">
+      <span>{kindLabels[entry.kind]}</span>
+      <span class="status" data-status={entry.verification}>{verificationLabels[entry.verification]}</span>
+    </div>
+    <div class="card-title-row"><h3>{entry.title}</h3><ArrowUpRight size={17} /></div>
+    <p>{entry.summary}</p>
+    <ul class="tag-list">{entry.tags.slice(0, 3).map((tag) => <li class="tag">{tag}</li>)}</ul>
+  </div>
+</article>
+
+<style>
+  .entry-card { position: relative; min-width: 0; display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); box-shadow: 0 1px 1px rgb(20 24 22 / 4%); transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+  .entry-card.has-image { display: grid; grid-template-columns: 112px 1fr; }
+  .entry-card:not(.compact) { min-height: 176px; }
+  .entry-card.has-image:not(.compact) { grid-template-columns: 132px 1fr; }
+  .entry-card:hover { transform: translateY(-2px); border-color: var(--line-strong); box-shadow: var(--shadow); }
+  .entry-card.compact { display: block; }
+  .card-link { position: absolute; z-index: 2; inset: 0; }
+  .card-link:focus-visible { outline-offset: -3px; }
+  .card-image { min-height: 192px; background: #121413; }
+  .card-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; }
+  .card-body { min-width: 0; padding: 16px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--accent); font-size: .72rem; font-weight: 750; }
+  .card-title-row { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; }
+  h3 { margin: 0; font-size: 1.12rem; line-height: 1.35; }
+  p { margin: 7px 0 13px; color: var(--text-soft); font-size: .86rem; line-height: 1.62; }
+  .entry-card:not(.compact) .card-body { padding: 17px 20px; }
+  .entry-card:not(.compact) .card-meta { font-size: .76rem; }
+  .entry-card:not(.compact) h3 { font-size: 1.24rem; }
+  .entry-card:not(.compact) p { margin-top: 8px; font-size: .92rem; line-height: 1.58; }
+  .compact .card-body { padding: 15px; }
+  .compact p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  @media (max-width: 520px) { .entry-card.has-image, .entry-card.has-image:not(.compact) { grid-template-columns: 96px 1fr; } .card-body, .entry-card:not(.compact) .card-body { padding: 13px; } .card-image { min-height: 180px; } .entry-card:not(.compact) h3 { font-size: 1.12rem; } .entry-card:not(.compact) p { font-size: .86rem; } }
+</style>

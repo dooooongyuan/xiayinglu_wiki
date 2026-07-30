@@ -1,0 +1,11 @@
+---
+import ArticlePage from '../../components/ArticlePage.astro';
+import { entries } from '../../data/wiki';
+
+export function getStaticPaths() {
+  return entries.filter((entry) => entry.kind !== 'research' && !['wuxue', 'zhuangbei', 'danyao', 'cailiao', 'xianjing', 'zhuwen'].includes(entry.slug)).map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+---
+<ArticlePage entry={entry} />

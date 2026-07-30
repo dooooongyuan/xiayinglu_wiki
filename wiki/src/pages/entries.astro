@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryCard from '../components/EntryCard.astro';
+import { entries, type WikiEntry } from '../data/wiki';
+import { characterData } from '../data/characters';
+
+const characterDirectoryEntry = {
+  slug: 'characters',
+  title: '人物图鉴',
+  subtitle: '人物资料与关系图谱',
+  kind: 'character',
+  category: '人物',
+  summary: `收录 ${characterData.counts.entries} 位人物、${characterData.counts.portraits} 张立绘与 ${characterData.counts.relations} 条明确关系，支持筛选和交互图谱。`,
+  tags: ['人物图鉴', '关系图谱', 'NPC'],
+  verification: 'verified',
+  updated: '2026-07-29',
+  facts: [],
+  sections: [],
+  sources: [],
+  related: [],
+} satisfies WikiEntry;
+
+const directoryGroups = [
+  {
+    id: 'systems',
+    title: '玩法与成长',
+    description: '武学、装备与角色培养相关系统。',
+    slugs: ['wuxue', 'zhuangbei', 'danyao', 'xianjing', 'zhuwen'],
+  },
+  {
+    id: 'characters',
+    title: '人物资料',
+    description: '游戏中已从资料源确认的人物与 NPC。',
+    slugs: [],
+    extras: [characterDirectoryEntry],
+  },
+].map((group) => ({
+  ...group,
+  entries: [...group.slugs.map((slug) => entries.find((entry) => entry.slug === slug)).filter(Boolean), ...('extras' in group && group.extras ? group.extras : [])],
+}));
+---
+
+<BaseLayout title="百科目录" description="按主题浏览侠影录 Wiki 的上层百科目录。">
+  <div class="page-wrap" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li aria-current="page">百科目录</li></ol>
+    <header><p class="eyebrow">主题索引</p><h1 class="page-heading" data-pagefind-meta="title">百科目录</h1><p class="page-lead">先选择资料主题，再进入对应图鉴或条目。具体武学可在武学图鉴和全站搜索中查找。</p></header>
+
+    <div class="directory-groups">
+      {directoryGroups.map((group) => (
+        <section class="directory-group" id={group.id}>
+          <div class="group-heading"><div><h2>{group.title}</h2><p>{group.description}</p></div><span>{group.entries.length} 个入口</span></div>
+          <div class="entries-grid">{group.entries.map((entry) => entry && <EntryCard entry={entry} compact href={entry.slug === 'characters' ? '/characters/' : undefined} />)}</div>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  header { padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .directory-groups { margin-top: 8px; }
+  .directory-group { padding: 28px 0; scroll-margin-top: calc(var(--header-h) + 20px); }
+  .directory-group + .directory-group { border-top: 1px solid var(--line); }
+  .group-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 14px; }
+  .group-heading h2 { margin: 0; font-size: 1.3rem; }
+  .group-heading p { margin: 4px 0 0; color: var(--text-soft); font-size: .86rem; }
+  .group-heading > span { flex: 0 0 auto; padding-top: 4px; color: var(--text-soft); font-size: .76rem; }
+  .entries-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+  @media (max-width: 1040px) { .entries-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 650px) { .entries-grid { grid-template-columns: 1fr; } .directory-group { padding: 22px 0; } .group-heading { gap: 12px; } }
+</style>

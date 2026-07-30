@@ -1,0 +1,40 @@
+---
+import { CircleCheckBig, GitBranch, HardDrive, Server } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="关于与参与" description="侠影录 Wiki 的资料原则、维护流程与部署说明。">
+  <div class="page-wrap about" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li aria-current="page">关于与参与</li></ol>
+    <header><p class="eyebrow">维护说明</p><h1 class="page-heading" data-pagefind-meta="title">关于这座资料库</h1><p class="page-lead">这是 Git 管理的静态 Wiki。正文、游戏索引与发布产物彼此分离，便于审阅、回滚和迁移。</p></header>
+    <div class="principles">
+      <section><CircleCheckBig size={22} /><h2>先核对，再发布</h2><p>已确认、待补证和待编写三种状态会持续显示，不把推测写成事实。</p></section>
+      <section><HardDrive size={22} /><h2>游戏目录只读</h2><p>提取脚本只从安装目录读取；生成数据、图片和缓存都写入项目目录。</p></section>
+      <section><GitBranch size={22} /><h2>内容可追溯</h2><p>条目修订进入 Git 历史，来源区保留资源表、界面或实机证据。</p></section>
+      <section><Server size={22} /><h2>部署无绑定</h2><p>生产产物是纯静态文件，可部署到普通 Nginx、对象存储或 CDN。</p></section>
+    </div>
+    <section class="prose" id="contribute">
+      <h2>内容维护流程</h2>
+      <ol><li>在 <code>src/data/wiki.ts</code> 新建或修订条目。</li><li>给结论补充来源，并选择合适的核对状态。</li><li>运行 <code>npm.cmd run check</code> 检查类型与页面。</li><li>运行 <code>npm.cmd run build</code> 生成全文搜索索引。</li></ol>
+      <h2>游戏更新后</h2>
+      <p>先执行 <code>python scripts/index_game.py</code> 更新资源索引，再执行 <code>python scripts/extract_wiki_assets.py</code> 更新允许公开的 UI 素材与本地化表。两个脚本均可重复执行。</p>
+      <h2>服务器部署</h2>
+      <p>最简方式是将 <code>wiki/dist/</code> 上传到站点根目录。仓库同时提供 Docker 与 Nginx 配置，可直接构建为静态站镜像。</p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about { max-width: 1040px; }
+  .principles { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 28px; border: 1px solid var(--line); }
+  .principles section { min-height: 160px; padding: 22px; }
+  .principles section:nth-child(even) { border-left: 1px solid var(--line); }
+  .principles section:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .principles :global(svg) { color: var(--accent); }
+  .principles h2 { margin: 12px 0 5px; font-size: 1rem; }
+  .principles p { margin: 0; color: var(--text-soft); font-size: .84rem; }
+  .prose { max-width: 760px; margin-top: 42px; }
+  .prose h2 { margin: 34px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.3rem; }
+  code { padding: 2px 5px; background: var(--surface-muted); color: var(--teal); font-size: .84em; }
+  @media (max-width: 620px) { .principles { grid-template-columns: 1fr; } .principles section:nth-child(even) { border-left: 0; } .principles section + section { border-top: 1px solid var(--line); } }
+</style>

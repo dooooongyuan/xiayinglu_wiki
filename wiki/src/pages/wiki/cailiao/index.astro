@@ -1,0 +1,147 @@
+---
+import { Boxes, FlaskConical, Hammer, LayoutGrid, Search, Sparkles } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MaterialCard from '../../../components/MaterialCard.astro';
+import {
+  materialCategories,
+  materialEntries,
+  materialQualities,
+  materialQualityLabels,
+  materialSourceLabels,
+  materialSourceTypes,
+  materialsData,
+  materialUsageKinds,
+} from '../../../data/materials';
+
+const categoryIcons = { 药材: FlaskConical, 锻造主材: Hammer, 锻造辅材: Boxes, 铸纹材料: Sparkles };
+const availableSourceTypes = materialSourceTypes.filter((type) => materialsData.counts.sourceTypes[type]);
+---
+
+<BaseLayout title="材料图鉴" description={`侠影录当前版本已整理 ${materialsData.counts.entries} 种材料，包含药材、锻造材料与铸纹材料。`}>
+  <main class="materials-index" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/entries/#systems">百科目录</a></li><li>›</li><li aria-current="page">材料</li></ol>
+    <header class="index-header">
+      <div>
+        <p class="eyebrow">游戏数据图鉴 · {materialsData.gameVersion}</p>
+        <h1 class="page-heading" data-pagefind-meta="title">材料图鉴</h1>
+        <p class="page-lead">查询材料品质、说明、商人及地图来源，并反查可用于炼制的丹药、打造的装备和铸纹配方。</p>
+      </div>
+      <div class="coverage"><Boxes size={23} /><strong>{materialsData.counts.entries}</strong><span>种材料</span><small>{materialsData.counts.sourceTypes.shop || 0} 种可从商店购买</small></div>
+    </header>
+
+    <div class="catalog-tabs" role="tablist" aria-label="材料大类" data-pagefind-ignore>
+      <button class="active" type="button" role="tab" aria-selected="true" data-category=""><LayoutGrid size={18} /><span>全部</span><small>{materialsData.counts.entries}</small></button>
+      {materialCategories.map((category) => {
+        const Icon = categoryIcons[category];
+        return <button type="button" role="tab" aria-selected="false" data-category={category}><Icon size={18} /><span>{category}</span><small>{materialsData.counts.categories[category]}</small></button>;
+      })}
+    </div>
+
+    <div class="filters" data-pagefind-ignore>
+      <label class="query-control"><Search size={18} /><span class="sr-only">筛选材料</span><input id="material-query" type="search" placeholder="搜索名称、说明、来源或用途" autocomplete="off" /></label>
+      <label class="select-control"><span>品质</span><select id="material-quality"><option value="">全部品质</option>{materialQualities.map((quality) => <option value={quality}>{materialQualityLabels[quality]} · {materialsData.counts.qualities[String(quality)]}</option>)}</select></label>
+      <label class="select-control"><span>用途</span><select id="material-usage"><option value="">全部用途</option>{materialUsageKinds.map((kind) => <option value={kind}>{kind} · {materialsData.counts.usageKinds[kind]}</option>)}</select></label>
+      <label class="select-control"><span>来源</span><select id="material-source"><option value="">全部来源</option>{availableSourceTypes.map((type) => <option value={type}>{materialSourceLabels[type]} · {materialsData.counts.sourceTypes[type]}</option>)}</select></label>
+      <span class="result-count">{materialsData.counts.entries} 条结果</span>
+    </div>
+
+    <div class="materials-grid" data-pagefind-ignore>
+      {materialEntries.map((entry) => (
+        <div
+          class="filter-item"
+          data-search={[
+            entry.name,
+            entry.traditionalName,
+            entry.description,
+            entry.category,
+            entry.qualityLabel,
+            ...entry.usageKinds,
+            ...entry.usage.alchemy.map((target) => target.name),
+            ...entry.usage.forging.map((target) => target.name),
+            ...entry.acquisitionSources.flatMap((source) => [source.title, source.detail]),
+          ].join(' ')}
+          data-category={entry.category}
+          data-quality={entry.quality}
+          data-usage={`|${entry.usageKinds.join('|')}|`}
+          data-source={`|${entry.sourceTypes.join('|')}|`}
+        ><MaterialCard entry={entry} /></div>
+      ))}
+    </div>
+    <div class="empty-state" hidden>没有符合条件的材料。</div>
+  </main>
+</BaseLayout>
+
+<script>
+  const queryInput = document.querySelector<HTMLInputElement>('#material-query');
+  const qualitySelect = document.querySelector<HTMLSelectElement>('#material-quality');
+  const usageSelect = document.querySelector<HTMLSelectElement>('#material-usage');
+  const sourceSelect = document.querySelector<HTMLSelectElement>('#material-source');
+  const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.catalog-tabs button[data-category]')];
+  const items = [...document.querySelectorAll<HTMLElement>('.filter-item')];
+  const resultCount = document.querySelector<HTMLElement>('.result-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+  let activeCategory = '';
+
+  function applyFilters() {
+    const query = queryInput?.value.trim().toLocaleLowerCase('zh-CN') || '';
+    const quality = qualitySelect?.value || '';
+    const usage = usageSelect?.value || '';
+    const source = sourceSelect?.value || '';
+    let visible = 0;
+    items.forEach((item) => {
+      const search = item.dataset.search?.toLocaleLowerCase('zh-CN') || '';
+      const matches = (!activeCategory || item.dataset.category === activeCategory)
+        && (!query || search.includes(query))
+        && (!quality || item.dataset.quality === quality)
+        && (!usage || item.dataset.usage?.includes(`|${usage}|`))
+        && (!source || item.dataset.source?.includes(`|${source}|`));
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = `${visible} 条结果`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  categoryButtons.forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.category || '';
+    categoryButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-selected', String(active));
+    });
+    applyFilters();
+  }));
+  [queryInput, qualitySelect, usageSelect, sourceSelect].forEach((control) => control?.addEventListener('input', applyFilters));
+</script>
+
+<style>
+  .materials-index { width: min(100%, 1540px); margin: 0 auto; padding: 28px 36px 64px; }
+  .index-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 24px; }
+  .page-lead { max-width: 800px; }
+  .coverage { min-width: 200px; display: grid; grid-template-columns: 29px auto 1fr; align-items: baseline; gap: 0 7px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); }
+  .coverage > :global(svg) { grid-row: 1 / 3; align-self: center; color: var(--accent); }
+  .coverage strong { font-size: 1.45rem; line-height: 1; }
+  .coverage span { font-size: .82rem; }
+  .coverage small { grid-column: 2 / 4; margin-top: 4px; color: var(--text-soft); font-size: .7rem; }
+  .catalog-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--line-strong); }
+  .catalog-tabs button { min-height: 54px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 0 12px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--text-soft); cursor: pointer; }
+  .catalog-tabs button.active { border-bottom-color: var(--accent); color: var(--text); }
+  .catalog-tabs button span { font-weight: 750; }
+  .catalog-tabs button small { color: inherit; font-size: .68rem; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .query-control, .select-control { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .query-control { min-width: 270px; flex: 1; }
+  .select-control > span { color: var(--text-soft); font-size: .72rem; }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  .query-control input { width: 100%; }
+  select { cursor: pointer; }
+  .result-count { margin-left: auto; color: var(--text-soft); font-size: .78rem; }
+  .materials-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11px; margin-top: 16px; }
+  .filter-item[hidden] { display: none; }
+  .empty-state { margin-top: 18px; }
+  @media (max-width: 1380px) { .materials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 1040px) { .materials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .catalog-tabs button { padding-inline: 7px; } }
+  @media (max-width: 760px) { .materials-index { padding: 22px 16px 52px; } .index-header { display: block; } .coverage { width: max-content; margin-top: 18px; } .query-control { flex-basis: 100%; } .select-control { flex: 1; } .result-count { width: 100%; margin: 0; } .catalog-tabs button { min-width: 0; min-height: 50px; flex-direction: column; gap: 0; padding-inline: 3px; font-size: .77rem; } .catalog-tabs button > :global(svg) { display: none; } }
+  @media (max-width: 620px) { .materials-grid { grid-template-columns: 1fr; } .select-control { min-width: calc(50% - 5px); } }
+  @media (max-width: 390px) { .catalog-tabs button span { font-size: .7rem; } }
+</style>

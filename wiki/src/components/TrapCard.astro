@@ -1,0 +1,44 @@
+---
+import { ArrowUpRight, Coins, Network, TimerReset } from '@lucide/astro';
+import type { TrapEntry } from '../data/traps';
+import { trapHref } from '../data/traps';
+
+interface Props { entry: TrapEntry; }
+const { entry } = Astro.props;
+---
+
+<article class="trap-card" data-quality={entry.quality}>
+  <a class="card-link" href={trapHref(entry)} aria-label={`查看陷阱：${entry.name}`}><span class="sr-only">查看{entry.name}</span></a>
+  <div class="icon-frame"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /></div>
+  <div class="card-copy">
+    <div class="card-meta"><span>机关陷阱</span><span class="quality-badge">{entry.qualityLabel}</span></div>
+    <div class="card-title"><h3>{entry.name}</h3><ArrowUpRight size={17} /></div>
+    <p>{entry.effectSummary}</p>
+    <div class="effect-list">{entry.effectTags.map((tag) => <span>{tag}</span>)}</div>
+    <div class="card-foot">
+      <span><Network size={13} />{entry.unlock.points.toLocaleString('zh-CN')} 修习点</span>
+      <span><Coins size={13} />{entry.recipe.costMoney.toLocaleString('zh-CN')}</span>
+      <span><TimerReset size={13} />{entry.effect.durationSeconds} 秒</span>
+    </div>
+  </div>
+</article>
+
+<style>
+  .trap-card { position: relative; min-width: 0; min-height: 202px; display: grid; grid-template-columns: 108px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+  .trap-card:hover { transform: translateY(-2px); border-color: var(--quality-color); box-shadow: var(--shadow); }
+  .card-link { position: absolute; z-index: 2; inset: 0; }
+  .card-link:focus-visible { outline-offset: -3px; }
+  .icon-frame { display: grid; place-items: center; border-right: 3px solid var(--quality-color); background: #111412; }
+  .icon-frame img { width: 100%; max-height: 158px; padding: 11px; object-fit: contain; }
+  .card-copy { min-width: 0; display: flex; flex-direction: column; padding: 12px 13px 10px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--accent); font-size: .68rem; font-weight: 750; }
+  .quality-badge { flex: 0 0 auto; padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 58%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--quality-color) 8%, transparent); color: var(--quality-color); }
+  .card-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-top: 4px; }
+  h3 { margin: 0; font-size: 1.08rem; line-height: 1.35; }
+  p { display: -webkit-box; margin: 5px 0 8px; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; color: var(--text-soft); font-size: .73rem; line-height: 1.5; }
+  .effect-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+  .effect-list span { padding: 2px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 35%, var(--line)); border-radius: 3px; color: var(--quality-color); font-size: .62rem; }
+  .card-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 11px; margin-top: 8px; padding-top: 7px; border-top: 1px solid var(--line); color: var(--text-soft); font-size: .62rem; }
+  .card-foot span { display: inline-flex; align-items: center; gap: 4px; }
+  @media (max-width: 420px) { .trap-card { grid-template-columns: 92px minmax(0, 1fr); } .icon-frame img { padding: 8px; } .card-copy { padding-inline: 11px; } }
+</style>

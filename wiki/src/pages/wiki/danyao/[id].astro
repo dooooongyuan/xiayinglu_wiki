@@ -1,0 +1,223 @@
+---
+import { Bookmark, Clock3, FlaskConical, Infinity, MapPin, Plus, Printer, Repeat2, Sparkles, SquarePen } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DanyaoCard from '../../../components/DanyaoCard.astro';
+import DetailToc from '../../../components/DetailToc.astro';
+import { danyaoEntries } from '../../../data/danyao';
+import { materialById, materialHref } from '../../../data/materials';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  return danyaoEntries.map((entry) => ({ params: { id: String(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const durationText = entry.isPermanent ? '永久生效' : entry.effect.durationSeconds ? `${entry.effect.durationSeconds} 秒` : '立即生效';
+const limitText = entry.useLimit ? `最多 ${entry.useLimit} 次` : '无特殊上限';
+const relatedPool = danyaoEntries.filter((item) => item.id !== entry.id && item.category === entry.category && item.effect.attribute === entry.effect.attribute);
+const related = relatedPool.slice(0, 3);
+const bookmarkSlug = `danyao-${entry.id}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订丹药：${entry.name}`)}` : '/about/#contribute';
+const acquisitionTypeLabels = { alchemy: '燕衔芦炼制', shop: '商店购买', drop: '敌人掉落', chest: '宝箱获取', event: '副本奖励' } as const;
+const primarySource = entry.acquisitionSources[0];
+const recipeMaterials = entry.recipe.materials.map((material) => ({
+  ...material,
+  entry: materialById.get(material.id),
+}));
+const tocItems = [
+  ...(entry.isPermanent ? [{ id: 'permanent', label: '永久加点' }] : []),
+  { id: 'overview', label: '丹药说明' },
+  { id: 'effects', label: '效果参数' },
+  { id: 'recipe', label: '炼制配方' },
+  { id: 'acquisition', label: '获取方式' },
+];
+---
+
+<BaseLayout title={`${entry.name} · 丹药图鉴`} description={entry.description} image={entry.icon}>
+  <article class="danyao-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name} data-quality={entry.quality}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/wiki/danyao/">丹药图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+
+    <header class="entry-header">
+      <div class="hero-icon"><img src={entry.icon} alt="" width="256" height="256" decoding="async" fetchpriority="high" /></div>
+      <div class="header-copy">
+        <div class="entry-meta"><span>{entry.category}</span><span>{entry.effect.attribute}</span><span class="quality-label">{entry.qualityLabel}</span>{entry.isSpecial && <span class="special-label">特殊药品</span>}</div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        {entry.traditionalName && entry.traditionalName !== entry.name && <p class="traditional">繁体：{entry.traditionalName}</p>}
+        <p class="description">{entry.description}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag">{entry.category}</span><span class="tag">{entry.effect.attribute}</span><span class="tag quality-tag">{entry.qualityLabel}</span>{entry.isPermanent && <span class="tag permanent-tag">永久加点</span>}</div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏丹药"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印丹药"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="丹药摘要">
+      <div><Plus size={19} /><span><small>主要效果</small><strong>{entry.effect.attribute} +{entry.effect.value}</strong></span></div>
+      <div>{entry.isPermanent ? <Infinity size={19} /> : <Clock3 size={19} />}<span><small>生效方式</small><strong>{durationText}</strong></span></div>
+      <div><Repeat2 size={19} /><span><small>服用上限</small><strong>{limitText}</strong></span></div>
+      <div><MapPin size={19} /><span><small>主要来源</small><strong>{primarySource ? acquisitionTypeLabels[primarySource.type] : '待核实'}</strong></span></div>
+    </section>
+
+    {entry.isPermanent && <section id="permanent" class="permanent-summary">
+      <div class="permanent-heading"><Sparkles size={22} /><div><strong>永久属性丹</strong><span>服用后直接写入角色永久属性，并受到当前药品的独立服用次数限制。</span></div></div>
+      <dl>
+        <div><dt>每次服用</dt><dd>{entry.effect.attribute} +{entry.effect.value}</dd></div>
+        <div><dt>服用上限</dt><dd>{entry.useLimit} 次</dd></div>
+        <div><dt>最大累计</dt><dd>{entry.effect.attribute} +{entry.maximumGain}</dd></div>
+      </dl>
+    </section>}
+
+    <div class="detail-layout">
+      <main class="detail-main">
+        <section id="overview">
+          <h2>丹药说明</h2>
+          <p>{entry.description}</p>
+          <p class="effect-description">{entry.usageDescription}</p>
+        </section>
+
+        <section id="effects">
+          <h2>效果参数</h2>
+          <dl class="effect-table">
+            <div><dt>作用属性</dt><dd>{entry.effect.attribute}</dd></div>
+            <div><dt>单次效果</dt><dd>+{entry.effect.value}</dd></div>
+            <div><dt>持续时间</dt><dd>{durationText}</dd></div>
+            <div><dt>使用冷却</dt><dd>{entry.useCooldownSeconds} 秒</dd></div>
+            <div><dt>效果性质</dt><dd>{entry.isPermanent ? '永久属性' : entry.effect.durationSeconds ? '临时增益' : '即时恢复'}</dd></div>
+            <div><dt>品质</dt><dd class="quality-value">{entry.qualityLabel}</dd></div>
+          </dl>
+        </section>
+
+        <section id="recipe" class="recipe-section">
+          <div class="section-title"><div><h2>炼制配方</h2><p>在苍影阁燕衔芦使用以下材料炼制。</p></div><span>{entry.recipe.costMoney.toLocaleString('zh-CN')} 铜钱</span></div>
+          <div class="material-list">
+            {recipeMaterials.map((material) => material.entry ? (
+              <a href={materialHref(material.entry)} aria-label={`查看材料：${material.name}`}>
+                <FlaskConical size={18} />
+                <div><strong>{material.name}</strong><span>查看材料详情</span></div>
+                <b>× {material.count}</b>
+              </a>
+            ) : (
+              <article>
+                <FlaskConical size={18} />
+                <div><strong>{material.name}</strong><span>材料详情暂未收录</span></div>
+                <b>× {material.count}</b>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="acquisition" class="acquisition">
+          <h2>获取方式</h2>
+          <div class="acquisition-list">
+            {entry.acquisitionSources.map((source) => <article>
+              <span class:list={['source-type', `is-${source.type}`]}>{acquisitionTypeLabels[source.type]}</span>
+              <div><strong>{source.title}</strong><p>{source.detail}</p></div>
+            </article>)}
+          </div>
+        </section>
+      </main>
+      <DetailToc items={tocItems} />
+    </div>
+
+    {related.length > 0 && <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同效果丹药</h2><a href="/wiki/danyao/">返回图鉴</a></div><div class="related-grid">{related.map((item) => <DanyaoCard entry={item} />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .danyao-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 144px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .hero-icon { width: 144px; aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--quality-color); background: #111412; }
+  .hero-icon img { width: 100%; height: 100%; padding: 12px; object-fit: contain; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .quality-label, .quality-value { color: var(--quality-color); }
+  .special-label { color: var(--gold); }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; }
+  .traditional { margin: 2px 0 0; color: var(--gold); font-size: .76rem; }
+  .description { max-width: 770px; margin: 10px 0 12px; color: var(--text-soft); }
+  .quality-tag { border-color: color-mix(in srgb, var(--quality-color) 55%, var(--line)); background: color-mix(in srgb, var(--quality-color) 8%, var(--surface)); color: var(--quality-color); }
+  .permanent-tag { border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); color: var(--gold); }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .9rem; }
+  .permanent-summary { margin-top: 20px; border: 1px solid color-mix(in srgb, var(--gold) 42%, var(--line)); background: color-mix(in srgb, var(--gold) 6%, var(--surface)); }
+  .permanent-heading { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line)); }
+  .permanent-heading > :global(svg) { flex: 0 0 auto; color: var(--gold); }
+  .permanent-heading strong, .permanent-heading span { display: block; }
+  .permanent-heading span { margin-top: 2px; color: var(--text-soft); font-size: .76rem; }
+  .permanent-summary dl { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; }
+  .permanent-summary dl > div { padding: 12px 16px; }
+  .permanent-summary dl > div + div { border-left: 1px solid var(--line); }
+  .permanent-summary dt { color: var(--text-soft); font-size: .7rem; }
+  .permanent-summary dd { margin: 3px 0 0; color: var(--gold); font-weight: 800; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 42px; margin-top: 34px; }
+  .detail-main section + section { margin-top: 38px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .detail-main p { margin: 0; }
+  .effect-description { margin-top: 10px !important; color: var(--accent); font-weight: 700; }
+  .effect-table { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .effect-table div { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .effect-table dt { color: var(--text-soft); font-size: .75rem; }
+  .effect-table dd { margin: 0; font-weight: 800; }
+  .section-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 13px; }
+  .section-title h2 { margin-bottom: 5px; }
+  .section-title p { color: var(--text-soft); font-size: .8rem; }
+  .section-title > span { flex: 0 0 auto; margin-top: 4px; padding: 4px 8px; border: 1px solid var(--line); color: var(--gold); font-size: .74rem; font-weight: 750; }
+  .material-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .material-list > :is(a, article) { min-height: 64px; display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 10px; margin: 0; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .material-list > :is(a, article) > :global(svg) { color: var(--accent); }
+  .material-list a { color: var(--text); text-decoration: none; transition: background-color .16s ease, color .16s ease; }
+  .material-list a:hover { background: var(--surface-muted); }
+  .material-list a:hover strong { color: var(--accent); }
+  .material-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+  .material-list strong, .material-list span { display: block; }
+  .material-list strong { font-size: .86rem; }
+  .material-list span { color: var(--text-soft); font-size: .65rem; }
+  .material-list b { color: var(--gold); font-size: .8rem; }
+  .acquisition-list { border-top: 1px solid var(--line); }
+  .acquisition-list article { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .acquisition-list article > div > strong { display: block; font-size: .94rem; }
+  .acquisition-list article p { margin-top: 3px; color: var(--text-soft); font-size: .82rem; line-height: 1.65; }
+  .source-type { display: inline-flex; min-height: 25px; align-items: center; justify-content: center; padding: 3px 7px; border: 1px solid var(--line-strong); color: var(--text-soft); font-size: .68rem; font-weight: 700; }
+  .source-type.is-alchemy { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--accent); }
+  .source-type.is-shop { border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); color: var(--gold); }
+  .source-type.is-drop, .source-type.is-chest, .source-type.is-event { border-color: color-mix(in srgb, var(--teal) 55%, var(--line)); color: var(--teal); }
+  .related { margin-top: 52px; border-top: 1px solid var(--line); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 1080px) { .detail-layout { grid-template-columns: 1fr; gap: 20px; } }
+  @media (max-width: 980px) { .entry-header { grid-template-columns: 120px 1fr; } .hero-icon { width: 120px; } .entry-actions { grid-column: 1 / 3; justify-content: flex-start; } .core-stats { grid-template-columns: repeat(2, 1fr); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .danyao-page { padding: 22px 16px 52px; } .entry-header { grid-template-columns: 86px minmax(0, 1fr); gap: 14px; } .hero-icon { width: 86px; } h1 { font-size: 2.25rem; } .description { grid-column: 1 / 3; } .entry-actions { grid-column: 1 / 3; } .entry-actions .button:not(.icon-button) { flex: 1; } .core-stats { grid-template-columns: 1fr 1fr; } .core-stats > div { min-height: 68px; padding: 10px; } .permanent-summary dl { grid-template-columns: 1fr; } .permanent-summary dl > div + div { border-top: 1px solid var(--line); border-left: 0; } .effect-table { grid-template-columns: 1fr 1fr; } .material-list { grid-template-columns: 1fr; } .section-title { display: block; } .section-title > span { display: inline-block; margin-top: 9px; } .acquisition-list article { grid-template-columns: 82px minmax(0, 1fr); gap: 10px; } }
+</style>

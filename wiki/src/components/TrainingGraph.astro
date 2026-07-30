@@ -1,0 +1,362 @@
+---
+import type { WuxueTrainingGraph } from '../data/wuxue';
+
+interface Props {
+  graph: WuxueTrainingGraph;
+  icon: string;
+}
+
+const { graph, icon } = Astro.props;
+const xValues = graph.nodes.map((node) => node.x);
+const yValues = graph.nodes.map((node) => node.y);
+const minX = Math.min(...xValues);
+const maxX = Math.max(...xValues);
+const minY = Math.min(...yValues);
+const maxY = Math.max(...yValues);
+const xRange = Math.max(maxX - minX, 1);
+const yRange = Math.max(maxY - minY, 1);
+const positionedNodes = graph.nodes.map((node) => ({
+  ...node,
+  left: 12 + ((node.x - minX) / xRange) * 76,
+  top: 18 + ((maxY - node.y) / yRange) * 64,
+}));
+const nodeById = new Map(positionedNodes.map((node) => [node.id, node]));
+const edges = graph.edges.flatMap((edge) => {
+  const from = nodeById.get(edge.from);
+  const to = nodeById.get(edge.to);
+  if (!from || !to) return [];
+  const midpoint = {
+    x: from.left + (to.left - from.left) * 0.62,
+    y: from.top + (to.top - from.top) * 0.62,
+  };
+  return [{ ...edge, fromNode: from, toNode: to, midpoint }];
+});
+const nodeKind = (nodeType: number, isRoot: boolean) =>
+  isRoot ? '入门节点' : nodeType === 1 ? '关键节点' : '普通节点';
+---
+
+<div class="training-graph" data-training-graph>
+  <div class="graph-viewport" tabindex="0" aria-label="武学修习路线图">
+    <div class="graph-canvas">
+      <svg class="graph-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <marker id={`training-arrow-${graph.nodes[0]?.id}`} viewBox="0 0 6 6" refX="3" refY="3" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 z" fill="context-stroke"></path>
+          </marker>
+        </defs>
+        {edges.map((edge) => (
+          <g class="graph-edge" data-from={edge.from} data-to={edge.to}>
+            <line class="edge-base" x1={edge.fromNode.left} y1={edge.fromNode.top} x2={edge.toNode.left} y2={edge.toNode.top}></line>
+            <polyline
+              class="edge-flow"
+              points={`${edge.fromNode.left},${edge.fromNode.top} ${edge.midpoint.x},${edge.midpoint.y} ${edge.toNode.left},${edge.toNode.top}`}
+              marker-mid={`url(#training-arrow-${graph.nodes[0]?.id})`}
+            ></polyline>
+          </g>
+        ))}
+      </svg>
+
+      {positionedNodes.map((node) => (
+        <button
+          class:list={[
+            'training-node',
+            node.isRoot ? 'is-root' : node.nodeType === 1 ? 'is-major' : 'is-minor',
+          ]}
+          type="button"
+          style={`left: ${node.left}%; top: ${node.top}%;`}
+          data-node-id={node.id}
+          aria-controls={`training-detail-${node.id}`}
+          aria-pressed={node.isRoot ? 'true' : 'false'}
+          aria-label={`${nodeKind(node.nodeType, node.isRoot)}：${node.name}，需要 ${node.activationPoints} 点`}
+        >
+          {node.isRoot ? <img src={icon} alt="" width="256" height="256" loading="lazy" decoding="async" /> : node.nodeType === 1 ? <span class="node-glyph" aria-hidden="true">{node.name.charAt(0)}</span> : <span class="node-dot" aria-hidden="true"></span>}
+          <span class="node-tooltip" aria-hidden="true">{node.name}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="graph-legend" aria-label="节点图例">
+    <span><i class="legend-root"></i>入门</span>
+    <span><i class="legend-major"></i>关键节点</span>
+    <span><i class="legend-minor"></i>普通节点</span>
+  </div>
+
+  <div class="node-details" aria-live="polite">
+    {positionedNodes.map((node) => {
+      const prerequisites = edges
+        .filter((edge) => edge.to === node.id)
+        .map((edge) => edge.fromNode.name);
+      return (
+        <article class="node-detail" id={`training-detail-${node.id}`} data-node-detail={node.id} hidden={!node.isRoot}>
+          <div class="detail-heading">
+            <div>
+              <span>{nodeKind(node.nodeType, node.isRoot)}</span>
+              <h3>{node.name}</h3>
+            </div>
+            <strong>{node.activationPoints.toLocaleString('zh-CN')} 点</strong>
+          </div>
+          <p>{node.description}</p>
+          <dl>
+            <div><dt>修习消耗</dt><dd>{node.activationPoints.toLocaleString('zh-CN')} 点</dd></div>
+            <div><dt>直接前置</dt><dd>{prerequisites.length ? prerequisites.join('、') : '无'}</dd></div>
+          </dl>
+        </article>
+      );
+    })}
+  </div>
+
+  <noscript>
+    <style is:inline>
+      .training-graph .node-detail[hidden] { display: block !important; }
+    </style>
+  </noscript>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-training-graph]').forEach((graph) => {
+    if (graph.dataset.enhanced === 'true') return;
+    graph.dataset.enhanced = 'true';
+
+    const nodes = [...graph.querySelectorAll<HTMLButtonElement>('[data-node-id]')];
+    const details = [...graph.querySelectorAll<HTMLElement>('[data-node-detail]')];
+    const edges = [...graph.querySelectorAll<SVGGElement>('.graph-edge')];
+
+    const selectNode = (selected: HTMLButtonElement) => {
+      const selectedId = selected.dataset.nodeId;
+      if (!selectedId) return;
+
+      nodes.forEach((node) => {
+        node.setAttribute('aria-pressed', String(node === selected));
+        node.classList.remove('is-prerequisite');
+      });
+      details.forEach((detail) => {
+        detail.hidden = detail.dataset.nodeDetail !== selectedId;
+      });
+      edges.forEach((edge) => edge.classList.remove('is-path'));
+
+      const prerequisiteIds = new Set<string>();
+      const pending = [selectedId];
+      while (pending.length) {
+        const targetId = pending.pop();
+        edges.forEach((edge) => {
+          if (edge.dataset.to !== targetId || !edge.dataset.from) return;
+          edge.classList.add('is-path');
+          if (!prerequisiteIds.has(edge.dataset.from)) {
+            prerequisiteIds.add(edge.dataset.from);
+            pending.push(edge.dataset.from);
+          }
+        });
+      }
+      nodes.forEach((node) => {
+        if (node.dataset.nodeId && prerequisiteIds.has(node.dataset.nodeId)) {
+          node.classList.add('is-prerequisite');
+        }
+      });
+    };
+
+    nodes.forEach((node) => {
+      node.addEventListener('click', () => selectNode(node));
+      node.addEventListener('focus', () => selectNode(node));
+    });
+  });
+</script>
+
+<style>
+  .training-graph {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .graph-viewport {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: var(--line-strong) var(--surface-muted);
+  }
+
+  .graph-canvas {
+    position: relative;
+    width: 100%;
+    min-width: 620px;
+    height: 330px;
+    overflow: hidden;
+    background: var(--surface-muted);
+  }
+
+  .graph-canvas::before,
+  .graph-canvas::after {
+    position: absolute;
+    inset-block: 0;
+    width: 1px;
+    background: color-mix(in srgb, var(--line-strong), transparent 35%);
+    content: '';
+  }
+
+  .graph-canvas::before { left: 33.333%; }
+  .graph-canvas::after { left: 66.666%; }
+
+  .graph-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    color: var(--line-strong);
+  }
+
+  .graph-edge { color: var(--line-strong); }
+  .edge-base,
+  .edge-flow {
+    fill: none;
+    vector-effect: non-scaling-stroke;
+  }
+  .edge-base { stroke: color-mix(in srgb, var(--text), transparent 80%); stroke-width: 7; }
+  .edge-flow { stroke: currentColor; stroke-width: 2; transition: stroke .2s ease; }
+  .graph-edge.is-path { color: var(--accent); }
+  .graph-edge.is-path .edge-base { stroke: color-mix(in srgb, var(--accent), transparent 78%); }
+
+  .training-node {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    padding: 0;
+    border: 3px solid var(--surface);
+    border-radius: 50%;
+    background: var(--line-strong);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--text), transparent 62%), 0 3px 10px rgb(20 24 22 / 16%);
+    color: var(--surface);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+
+  .training-node.is-major {
+    width: 56px;
+    height: 56px;
+    border-width: 5px;
+    background: var(--surface-strong);
+  }
+
+  .training-node.is-root {
+    width: 84px;
+    height: 84px;
+    overflow: visible;
+    border-width: 5px;
+    background: #111412;
+  }
+
+  .training-node.is-root img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+
+  .node-glyph {
+    font-family: var(--font-display);
+    font-size: 1.38rem;
+    line-height: 1;
+  }
+
+  .node-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .training-node[aria-pressed='true'] {
+    border-color: #fff8de;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold), 0 0 0 8px color-mix(in srgb, var(--gold), transparent 72%), 0 7px 18px rgb(20 24 22 / 25%);
+  }
+
+  .training-node.is-prerequisite {
+    border-color: var(--accent-soft);
+    background: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent), 0 4px 12px rgb(20 24 22 / 18%);
+  }
+
+  .node-tooltip {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    min-width: max-content;
+    padding: 3px 7px;
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    font-size: .72rem;
+    font-weight: 700;
+    line-height: 1.4;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -3px);
+    transition: opacity .15s ease, transform .15s ease;
+  }
+
+  .training-node:hover .node-tooltip,
+  .training-node:focus-visible .node-tooltip,
+  .training-node[aria-pressed='true'] .node-tooltip {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+    padding: 9px 15px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    color: var(--text-soft);
+    font-size: .72rem;
+  }
+
+  .graph-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .graph-legend i { display: block; border-radius: 50%; background: var(--line-strong); }
+  .legend-root { width: 14px; height: 14px; box-shadow: 0 0 0 2px var(--gold); }
+  .legend-major { width: 12px; height: 12px; }
+  .legend-minor { width: 7px; height: 7px; }
+
+  .node-details { min-height: 170px; }
+  .node-detail { padding: 18px 20px 20px; }
+  .node-detail[hidden] { display: none; }
+  .detail-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+  .detail-heading span { display: block; color: var(--accent); font-size: .7rem; font-weight: 750; }
+  .detail-heading h3 { margin: 1px 0 0; font-size: 1.12rem; }
+  .detail-heading > strong { flex: none; color: var(--gold); font-size: .84rem; font-variant-numeric: tabular-nums; }
+  .node-detail > p { margin-top: 7px; }
+  .node-detail dl { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 15px 0 0; padding-top: 11px; border-top: 1px solid var(--line); }
+  .node-detail dl > div { display: flex; gap: 8px; }
+  .node-detail dt { color: var(--text-soft); font-size: .74rem; }
+  .node-detail dd { margin: 0; font-size: .74rem; font-weight: 650; }
+
+  @media (max-width: 720px) {
+    .graph-canvas { min-width: 560px; height: 290px; }
+    .training-node.is-root { width: 72px; height: 72px; }
+    .training-node.is-major { width: 50px; height: 50px; }
+    .graph-legend { padding-inline: 12px; }
+    .node-details { min-height: 190px; }
+    .node-detail { padding: 15px 14px 17px; }
+    .detail-heading { gap: 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .training-node,
+    .node-tooltip,
+    .edge-flow { transition: none; }
+  }
+</style>

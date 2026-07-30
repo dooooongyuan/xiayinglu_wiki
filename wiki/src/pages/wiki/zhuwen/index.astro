@@ -1,0 +1,193 @@
+---
+import { Coins, Gem, Search, SlidersHorizontal, Sparkles } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ZhuwenCard from '../../../components/ZhuwenCard.astro';
+import {
+  zhuwenData,
+  zhuwenDirections,
+  zhuwenEntries,
+  zhuwenParts,
+  zhuwenQualities,
+  zhuwenQualityLabels,
+} from '../../../data/zhuwen';
+
+const kindCounts = {
+  fixed: zhuwenData.counts.fixedSeries,
+  random: zhuwenData.counts.randomEntries,
+  companion: zhuwenData.counts.companionEntries,
+};
+
+function entrySearch(entry: (typeof zhuwenEntries)[number]) {
+  const recipeMaterials = entry.kind === 'fixed'
+    ? entry.stages.flatMap((stage) => stage.materials.map((material) => material.name))
+    : entry.recipe.materials.map((material) => material.name);
+  const candidates = entry.kind === 'fixed'
+    ? []
+    : [...entry.genericCandidates.map((candidate) => candidate.name), ...entry.spellGroups.map((group) => group.spellName)];
+  return [...new Set([entry.name, entry.shortName, entry.description, entry.direction, entry.qualityLabel, ...entry.applicableParts, ...recipeMaterials, ...candidates])].join(' ');
+}
+
+function entryCost(entry: (typeof zhuwenEntries)[number]) {
+  return entry.kind === 'fixed' ? entry.stages.at(-1)?.costMoney || 0 : entry.recipe.costMoney;
+}
+---
+
+<BaseLayout title="铸纹图鉴" description={`整理侠影录当前版本 ${zhuwenData.counts.recipes} 项铸纹制作配置，包含装备词条、神武铸纹与附身材料。`}>
+  <main class="zhuwen-index" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/entries/#systems">百科目录</a></li><li>›</li><li aria-current="page">铸纹</li></ol>
+    <header class="index-header">
+      <div>
+        <p class="eyebrow">天工制作 · {zhuwenData.gameVersion}</p>
+        <h1 class="page-heading" data-pagefind-meta="title">铸纹图鉴</h1>
+        <p class="page-lead">按词条系列查询装备铸纹的阶段成长与完整配方，也可查看神武随机池、傀儡傀纹和武魄魄纹。</p>
+      </div>
+      <div class="coverage"><Gem size={23} /><strong>{zhuwenData.counts.recipes}</strong><span>项制作配置</span><small>{zhuwenData.counts.fixedSeries} 个固定系列 · {zhuwenData.counts.companionEntries} 种附身材料</small></div>
+    </header>
+
+    <nav class="mode-tabs" aria-label="铸纹分类" data-pagefind-ignore>
+      <button class="active" type="button" data-mode="fixed"><span>装备铸纹</span><b>{kindCounts.fixed}</b><small>固定词条与阶段配方</small></button>
+      <button type="button" data-mode="random"><span>随机铸纹</span><b>{kindCounts.random}</b><small>神武技能强化池</small></button>
+      <button type="button" data-mode="companion"><span>附身材料</span><b>{kindCounts.companion}</b><small>傀儡傀纹与武魄魄纹</small></button>
+    </nav>
+
+    <div class="filters" data-pagefind-ignore>
+      <label class="query-control"><Search size={18} /><span class="sr-only">筛选铸纹</span><input id="zhuwen-query" type="search" placeholder="搜索词条、部位、材料或武学" autocomplete="off" /></label>
+      <label class="select-control"><span>部位</span><select id="zhuwen-part"><option value="">全部部位</option>{zhuwenParts.map((part) => <option value={part}>{part}</option>)}</select></label>
+      <label class="select-control"><Sparkles size={15} /><span>品质</span><select id="zhuwen-quality"><option value="">全部品质</option>{zhuwenQualities.map((quality) => <option value={quality}>{zhuwenQualityLabels[quality]}</option>)}</select></label>
+      <label class="select-control direction-control"><SlidersHorizontal size={15} /><span>方向</span><select id="zhuwen-direction"><option value="">全部方向</option>{zhuwenDirections.map((direction) => <option value={direction}>{direction}</option>)}</select></label>
+      <label class="select-control"><Coins size={15} /><span>排序</span><select id="zhuwen-sort"><option value="default">默认顺序</option><option value="quality">品质由低到高</option><option value="quality-desc">品质由高到低</option><option value="cost">制作成本</option><option value="name">名称</option></select></label>
+      <span class="result-count">{kindCounts.fixed} 条结果</span>
+    </div>
+
+    <div class="context-line" data-pagefind-ignore>
+      <strong class="context-title">装备铸纹</strong>
+      <span class="context-copy">同名词条已合并为一个系列，进入详情可逐阶比较数值和材料。</span>
+    </div>
+
+    <div class="zhuwen-grid" data-pagefind-ignore>
+      {zhuwenEntries.map((entry, index) => (
+        <div
+          class="filter-item"
+          data-index={index}
+          data-kind={entry.kind}
+          data-search={entrySearch(entry)}
+          data-parts={`|${entry.applicableParts.join('|')}|`}
+          data-quality={entry.quality}
+          data-direction={entry.direction}
+          data-cost={entryCost(entry)}
+          data-name={entry.name}
+          hidden={entry.kind !== 'fixed'}
+        ><ZhuwenCard entry={entry} /></div>
+      ))}
+    </div>
+    <div class="empty-state" hidden>没有符合条件的铸纹。</div>
+  </main>
+</BaseLayout>
+
+<script>
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('.mode-tabs button')];
+  const queryInput = document.querySelector<HTMLInputElement>('#zhuwen-query');
+  const partSelect = document.querySelector<HTMLSelectElement>('#zhuwen-part');
+  const qualitySelect = document.querySelector<HTMLSelectElement>('#zhuwen-quality');
+  const directionSelect = document.querySelector<HTMLSelectElement>('#zhuwen-direction');
+  const sortSelect = document.querySelector<HTMLSelectElement>('#zhuwen-sort');
+  const directionControl = document.querySelector<HTMLElement>('.direction-control');
+  const grid = document.querySelector<HTMLElement>('.zhuwen-grid');
+  const items = [...document.querySelectorAll<HTMLElement>('.filter-item')];
+  const resultCount = document.querySelector<HTMLElement>('.result-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+  const contextTitle = document.querySelector<HTMLElement>('.context-title');
+  const contextCopy = document.querySelector<HTMLElement>('.context-copy');
+  let activeMode = 'fixed';
+
+  const context = {
+    fixed: ['装备铸纹', '同名词条已合并为一个系列，进入详情可逐阶比较数值和材料。'],
+    random: ['随机铸纹', '神武铸纹会从通用效果与对应武学技能强化中生成结果。'],
+    companion: ['附身材料', '傀纹用于傀儡宝物，魄纹用于武魄宝物；带“灵”字的材料可优先附加随机词条。'],
+  } as const;
+
+  function applyFilters() {
+    const query = queryInput?.value.trim().toLocaleLowerCase('zh-CN') || '';
+    const part = partSelect?.value || '';
+    const quality = qualitySelect?.value || '';
+    const direction = directionSelect?.value || '';
+    let visible = 0;
+    items.forEach((item) => {
+      const search = item.dataset.search?.toLocaleLowerCase('zh-CN') || '';
+      const matches = item.dataset.kind === activeMode
+        && (!query || search.includes(query))
+        && (!part || item.dataset.parts?.includes(`|${part}|`))
+        && (!quality || item.dataset.quality === quality)
+        && (!direction || item.dataset.direction === direction);
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = `${visible} 条结果`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  function applySort() {
+    if (!grid) return;
+    const mode = sortSelect?.value || 'default';
+    const ordered = [...items].sort((left, right) => {
+      const original = Number(left.dataset.index) - Number(right.dataset.index);
+      if (mode === 'quality') return Number(left.dataset.quality) - Number(right.dataset.quality) || original;
+      if (mode === 'quality-desc') return Number(right.dataset.quality) - Number(left.dataset.quality) || original;
+      if (mode === 'cost') return Number(left.dataset.cost) - Number(right.dataset.cost) || original;
+      if (mode === 'name') return (left.dataset.name || '').localeCompare(right.dataset.name || '', 'zh-CN');
+      return original;
+    });
+    ordered.forEach((item) => grid.append(item));
+  }
+
+  tabs.forEach((tab) => tab.addEventListener('click', () => {
+    activeMode = tab.dataset.mode || 'fixed';
+    tabs.forEach((item) => item.classList.toggle('active', item === tab));
+    const [title, copy] = context[activeMode as keyof typeof context];
+    if (contextTitle) contextTitle.textContent = title;
+    if (contextCopy) contextCopy.textContent = copy;
+    if (directionControl) directionControl.hidden = activeMode !== 'fixed';
+    if (activeMode !== 'fixed' && directionSelect) directionSelect.value = '';
+    applyFilters();
+  }));
+  [queryInput, partSelect, qualitySelect, directionSelect].forEach((control) => control?.addEventListener('input', applyFilters));
+  sortSelect?.addEventListener('input', applySort);
+</script>
+
+<style>
+  .zhuwen-index { width: min(100%, 1460px); margin: 0 auto; padding: 28px 36px 64px; }
+  .index-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 24px; }
+  .page-lead { max-width: 800px; }
+  .coverage { min-width: 250px; display: grid; grid-template-columns: 29px auto 1fr; align-items: baseline; gap: 0 7px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); }
+  .coverage > :global(svg) { grid-row: 1 / 3; align-self: center; color: var(--accent); }
+  .coverage strong { font-size: 1.45rem; line-height: 1; }
+  .coverage span { font-size: .82rem; }
+  .coverage small { grid-column: 2 / 4; margin-top: 4px; color: var(--text-soft); font-size: .68rem; }
+  .mode-tabs { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--surface); }
+  .mode-tabs button { min-width: 0; min-height: 66px; display: grid; grid-template-columns: auto 1fr; align-content: center; gap: 1px 8px; padding: 10px 16px; border: 0; border-right: 1px solid var(--line); border-bottom: 3px solid transparent; background: transparent; color: var(--text); text-align: left; cursor: pointer; }
+  .mode-tabs button:last-child { border-right: 0; }
+  .mode-tabs button:hover { background: var(--surface-muted); }
+  .mode-tabs button.active { border-bottom-color: var(--accent); background: var(--surface-muted); }
+  .mode-tabs span { font-weight: 800; }
+  .mode-tabs b { justify-self: end; color: var(--accent); }
+  .mode-tabs small { grid-column: 1 / -1; color: var(--text-soft); font-size: .65rem; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 12px; padding: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .query-control, .select-control { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .query-control { min-width: 260px; flex: 1; }
+  .select-control[hidden] { display: none; }
+  .select-control > span { color: var(--text-soft); font-size: .72rem; }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  .query-control input { width: 100%; }
+  select { cursor: pointer; }
+  .result-count { margin-left: auto; color: var(--text-soft); font-size: .78rem; }
+  .context-line { display: flex; align-items: baseline; gap: 12px; margin: 18px 0 10px; }
+  .context-line strong { font-size: 1rem; }
+  .context-line span { color: var(--text-soft); font-size: .74rem; }
+  .zhuwen-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .filter-item[hidden] { display: none; }
+  .empty-state { margin-top: 18px; }
+  @media (max-width: 1180px) { .zhuwen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .zhuwen-index { padding: 22px 16px 52px; } .index-header { display: block; } .coverage { width: max-content; max-width: 100%; margin-top: 18px; } .mode-tabs button { padding-inline: 10px; } .mode-tabs small { display: none; } .query-control { flex-basis: 100%; } .select-control { flex: 1; } .result-count { width: 100%; margin: 0; } }
+  @media (max-width: 650px) { .zhuwen-grid { grid-template-columns: 1fr; } .select-control { min-width: calc(50% - 5px); } .context-line { display: block; } .context-line span { display: block; margin-top: 3px; } }
+  @media (max-width: 390px) { .mode-tabs button { grid-template-columns: 1fr; text-align: center; } .mode-tabs b { display: none; } }
+</style>

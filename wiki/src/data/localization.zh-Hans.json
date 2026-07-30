@@ -1,0 +1,1920 @@
+{
+  "schemaVersion": 1,
+  "locale": "zh-Hans",
+  "source": "F:\\SteamLibrary\\steamapps\\common\\侠影录\\xiayinglu_Data\\StreamingAssets\\aa\\StandaloneWindows64\\localization-string-tables-chinese(simplified)(zh-hans)_assets_all.bundle",
+  "tables": {
+    "UITexts": [
+      {
+        "id": 4400720016072704,
+        "key": "Login_XinDeWuLing",
+        "value": "新的武林"
+      },
+      {
+        "id": 4406594856050688,
+        "key": "Login_RenYiJian",
+        "value": "按任意键踏入江湖"
+      },
+      {
+        "id": 4406594944131072,
+        "key": "Login_JiXuYouXi",
+        "value": "继续游戏"
+      },
+      {
+        "id": 4406594952519680,
+        "key": "Login_JiuDeHuiYi",
+        "value": "旧的回忆"
+      },
+      {
+        "id": 4406594952519681,
+        "key": "Login_YouXiSheZhi",
+        "value": "游戏设置"
+      },
+      {
+        "id": 4406594952519682,
+        "key": "Login_ChuangYiGongFang",
+        "value": "创意工坊"
+      },
+      {
+        "id": 4406594956713984,
+        "key": "Login_TianJiBaoJian",
+        "value": "天机宝鉴"
+      },
+      {
+        "id": 4406594960908288,
+        "key": "Login_GanXianMingDan",
+        "value": "感谢名单"
+      },
+      {
+        "id": 4406594965102592,
+        "key": "Login_XingYuanDan",
+        "value": "心愿单"
+      },
+      {
+        "id": 4406594965102593,
+        "key": "Login_TuiChuYouXi",
+        "value": "退出游戏"
+      },
+      {
+        "id": 4406594969296896,
+        "key": "Login_TestVersionDisclaimer",
+        "value": "当前为测试版本，游戏仍在积极开发中，不代表最终品质与表现。存档结构与正式版本不一样，因此存档无法继承，还请见谅。"
+      },
+      {
+        "id": 4667545484288000,
+        "key": "Setting_BaoCunYouXi",
+        "value": "保存游戏"
+      },
+      {
+        "id": 4667545492676608,
+        "key": "Setting_DuQuCunDang",
+        "value": "读取存档"
+      },
+      {
+        "id": 4667545496870912,
+        "key": "Setting_TuiChuZhanDou",
+        "value": "退出战斗"
+      },
+      {
+        "id": 4667545496870913,
+        "key": "Setting_FanHuiBiaoTi",
+        "value": "返回标题"
+      },
+      {
+        "id": 4667545505259520,
+        "key": "Setting_TuiChuYouXi",
+        "value": "退出游戏"
+      },
+      {
+        "id": 4667545505259521,
+        "key": "Setting_TuXiangZhiLiang",
+        "value": "图像质量"
+      },
+      {
+        "id": 4667545509453824,
+        "key": "Setting_PingMuMoShi",
+        "value": "屏幕模式"
+      },
+      {
+        "id": 4667545513648128,
+        "key": "Setting_FenBianLv",
+        "value": "分辨率"
+      },
+      {
+        "id": 4667545513648129,
+        "key": "Setting_ZhengShuXianZhi",
+        "value": "帧数限制"
+      },
+      {
+        "id": 4667545513648130,
+        "key": "Setting_CuiZhiTongBu",
+        "value": "垂直同步"
+      },
+      {
+        "id": 4667545517842432,
+        "key": "Setting_LiangDu",
+        "value": "亮度"
+      },
+      {
+        "id": 4667545517842433,
+        "key": "Setting_BenPaoSheZhi",
+        "value": "奔跑设置"
+      },
+      {
+        "id": 4667545522036736,
+        "key": "Setting_ShouBingZhenDong",
+        "value": "手柄震动开关"
+      },
+      {
+        "id": 4667545526231040,
+        "key": "Setting_ShouBingZhenDongQiangDu",
+        "value": "手柄震动强度"
+      },
+      {
+        "id": 4667545530425344,
+        "key": "Setting_ZiDongShiQu",
+        "value": "自动拾取"
+      },
+      {
+        "id": 4667545534619648,
+        "key": "Setting_DiaoLuoWuTiMingZiXianShi",
+        "value": "掉落物体名字显示"
+      },
+      {
+        "id": 4667545538813952,
+        "key": "Setting_DiaoLuoWuTiMingZiXianShiDes",
+        "value": "点按CTRL键或手柄R3键可显示掉落物名字"
+      },
+      {
+        "id": 4667545538813953,
+        "key": "Setting_ZiTiDaXiao",
+        "value": "字体大小"
+      },
+      {
+        "id": 4667545543008256,
+        "key": "Setting_LuJingZhiYing",
+        "value": "任务目标路径指引"
+      },
+      {
+        "id": 4667545547202560,
+        "key": "Setting_PingMuZhenDong",
+        "value": "屏幕震动"
+      },
+      {
+        "id": 4667545547202561,
+        "key": "Setting_YuYanSheZhi",
+        "value": "语言"
+      },
+      {
+        "id": 4667545551396864,
+        "key": "Setting_QianJin",
+        "value": "前进"
+      },
+      {
+        "id": 4667545551396865,
+        "key": "Setting_SheZhi",
+        "value": "设置"
+      },
+      {
+        "id": 4667545559785472,
+        "key": "Setting_YiDong",
+        "value": "移动"
+      },
+      {
+        "id": 4667545559785473,
+        "key": "Setting_AnQiMiaoZhun",
+        "value": "暗器瞄准"
+      },
+      {
+        "id": 4667545563979776,
+        "key": "Setting_ZongYinLiang",
+        "value": "总音量"
+      },
+      {
+        "id": 4667545563979777,
+        "key": "Setting_GuaiWuGongJiTiShiYing",
+        "value": "怪物攻击提示音"
+      },
+      {
+        "id": 4670348814475264,
+        "key": "Shop_All",
+        "value": "全部"
+      },
+      {
+        "id": 4670348814475265,
+        "key": "Shop_Weapon",
+        "value": "武器"
+      },
+      {
+        "id": 4670348822863872,
+        "key": "Shop_AnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 4670348827058176,
+        "key": "Shop_FangJu",
+        "value": "防具"
+      },
+      {
+        "id": 4670348831252480,
+        "key": "Shop_ShouShi",
+        "value": "饰品"
+      },
+      {
+        "id": 4670348835446784,
+        "key": "Shop_BaoWu",
+        "value": "宝物"
+      },
+      {
+        "id": 4670348848029696,
+        "key": "Shop_DanYao",
+        "value": "丹药"
+      },
+      {
+        "id": 4670348856418304,
+        "key": "Shop_XianJing",
+        "value": "陷阱"
+      },
+      {
+        "id": 4670348864806912,
+        "key": "Shop_MiJi",
+        "value": "秘籍"
+      },
+      {
+        "id": 4670348869001216,
+        "key": "Shop_ZhuWen",
+        "value": "铸纹"
+      },
+      {
+        "id": 4670348873195520,
+        "key": "Shop_CaiLiao",
+        "value": "材料"
+      },
+      {
+        "id": 4670348881584128,
+        "key": "Shop_Quest",
+        "value": "任务"
+      },
+      {
+        "id": 4670348885778432,
+        "key": "Shop_BaoXiang",
+        "value": "宝箱"
+      },
+      {
+        "id": 4670348889972736,
+        "key": "Shop_Confirm",
+        "value": "确定"
+      },
+      {
+        "id": 4670348894167040,
+        "key": "Shop_Cancel",
+        "value": "取消"
+      },
+      {
+        "id": 4670348898361344,
+        "key": "Shop_ProvideRongLian",
+        "value": "提供熔炼值："
+      },
+      {
+        "id": 4670348898361345,
+        "key": "Shop_TotalPrice",
+        "value": "总金额"
+      },
+      {
+        "id": 4670348906749952,
+        "key": "Shop_Quantity",
+        "value": "数量"
+      },
+      {
+        "id": 4670348910944256,
+        "key": "Shop_TradeList",
+        "value": "交易列表"
+      },
+      {
+        "id": 4671246244536320,
+        "key": "GongXian_BenCiGongXian",
+        "value": "本次贡献"
+      },
+      {
+        "id": 4671246248730624,
+        "key": "GongXian_BenCiGongXianHuoDe",
+        "value": "本次贡献获得"
+      },
+      {
+        "id": 4671246261313536,
+        "key": "GongXian_Tip",
+        "value": "（贡献20个倭寇首级解锁门派商店）"
+      },
+      {
+        "id": 4672412869222400,
+        "key": "BattleMap_ChuanSong",
+        "value": "传送"
+      },
+      {
+        "id": 4672412881805312,
+        "key": "BattleMap_KuaiSuChuanSong",
+        "value": "快速传送"
+      },
+      {
+        "id": 4672412894388224,
+        "key": "BattleMap_Tip",
+        "value": "当前房间完成时，可选择已完成的房间进行快速传送"
+      },
+      {
+        "id": 4672988696829952,
+        "key": "Learn_JueSe",
+        "value": "角色"
+      },
+      {
+        "id": 4672988709412864,
+        "key": "Learn_XingNang",
+        "value": "行囊"
+      },
+      {
+        "id": 4672988713607168,
+        "key": "Learn_BeiZhan",
+        "value": "备战"
+      },
+      {
+        "id": 4672988730384384,
+        "key": "Learn_NeiJing",
+        "value": "经脉"
+      },
+      {
+        "id": 4672988742967296,
+        "key": "Learn_XiuXi",
+        "value": "修习"
+      },
+      {
+        "id": 4672988755550208,
+        "key": "Learn_JiHuang",
+        "value": "机簧"
+      },
+      {
+        "id": 4672988768133120,
+        "key": "Learn_Quest",
+        "value": "任务"
+      },
+      {
+        "id": 4672988776521728,
+        "key": "Learn_ChengJiu",
+        "value": "成就"
+      },
+      {
+        "id": 4672988780716032,
+        "key": "Learn_WaiGuan",
+        "value": "外观"
+      },
+      {
+        "id": 4672988784910336,
+        "key": "Learn_GouMai",
+        "value": "购买"
+      },
+      {
+        "id": 4672988793298944,
+        "key": "Learn_ChuShou",
+        "value": "出售"
+      },
+      {
+        "id": 4672988801687552,
+        "key": "Learn_GongXian",
+        "value": "贡献"
+      },
+      {
+        "id": 4672988810076160,
+        "key": "Learn_DiTu",
+        "value": "地图"
+      },
+      {
+        "id": 4672988818464768,
+        "key": "Learn_SheZhi",
+        "value": "设置"
+      },
+      {
+        "id": 4673896432295936,
+        "key": "YinDao_ZhuText",
+        "value": "注：已查看过的引导，可在\"设置-教程\"中重新查看"
+      },
+      {
+        "id": 4673896440684544,
+        "key": "YinDao_ChangAnQueDing",
+        "value": "长按     确定"
+      },
+      {
+        "id": 4674935638220800,
+        "key": "DaZaoKuiBao_Weapon",
+        "value": "武器"
+      },
+      {
+        "id": 4674935713718272,
+        "key": "DaZaoKuiBao_AnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 4674935722106880,
+        "key": "DaZaoKuiBao_FangJu",
+        "value": "防具"
+      },
+      {
+        "id": 4674935722106881,
+        "key": "DaZaoKuiBao_ShoShi",
+        "value": "饰品"
+      },
+      {
+        "id": 4674935726301184,
+        "key": "DaZaoKuiBao_XianJing",
+        "value": "陷阱"
+      },
+      {
+        "id": 4674935730495488,
+        "key": "DaZaoKuiBao_KuiLei",
+        "value": "傀儡"
+      },
+      {
+        "id": 4674935730495489,
+        "key": "DaZaoKuiBao_FuSheng",
+        "value": "附身"
+      },
+      {
+        "id": 4674935734689792,
+        "key": "DaZaoKuiBao_CaiLiaoXiaoHao",
+        "value": "材料消耗"
+      },
+      {
+        "id": 4674935734689793,
+        "key": "DaZaoKuiBao_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 4674935734689794,
+        "key": "DaZaoKuiBao_DaZao",
+        "value": "打造"
+      },
+      {
+        "id": 4674935743078400,
+        "key": "DaZaoKuiBao_PinZhiGaiLv",
+        "value": "品质概率"
+      },
+      {
+        "id": 4674935743078401,
+        "key": "DaZaoKuiBao_DangQianHuoHou",
+        "value": "当前火候值"
+      },
+      {
+        "id": 4674935743078402,
+        "key": "DaZaoKuiBao_HuoHouXuQiu",
+        "value": "火候需求"
+      },
+      {
+        "id": 4677317738651648,
+        "key": "ShowBaoXiang_Confirm",
+        "value": "确定"
+      },
+      {
+        "id": 4677986923077632,
+        "key": "ShowBaoXiang_Title",
+        "value": "获得物品"
+      },
+      {
+        "id": 4679486374174720,
+        "key": "Save_AutoSave",
+        "value": "自动存档"
+      },
+      {
+        "id": 4679486411923456,
+        "key": "Save_ManualSave",
+        "value": "手动存档"
+      },
+      {
+        "id": 4679486411923457,
+        "key": "Save_SaveTime",
+        "value": "存档时间："
+      },
+      {
+        "id": 4679486411923458,
+        "key": "Save_PlayTime",
+        "value": "游玩时长："
+      },
+      {
+        "id": 4679486416117760,
+        "key": "Save_Location",
+        "value": "所在地点："
+      },
+      {
+        "id": 4679486416117761,
+        "key": "Save_Level",
+        "value": "等级："
+      },
+      {
+        "id": 4679486416117762,
+        "key": "Save_QuestName",
+        "value": "任务名称："
+      },
+      {
+        "id": 4679486420312064,
+        "key": "Save_QuestTarget",
+        "value": "任务目标："
+      },
+      {
+        "id": 4679916462301184,
+        "key": "Save_F5F6Tip",
+        "value": "使用F5可快速存档，使用F6可快速读档"
+      },
+      {
+        "id": 4724607090188288,
+        "key": "NpcChat_AutoPlay",
+        "value": "自动播放"
+      },
+      {
+        "id": 4724607182462976,
+        "key": "NpcChat_AutoPlaying",
+        "value": "自动播放中..."
+      },
+      {
+        "id": 4724607182462977,
+        "key": "NpcChat_Skip",
+        "value": "跳过"
+      },
+      {
+        "id": 4724607186657280,
+        "key": "NpcChat_Next",
+        "value": "下一句"
+      },
+      {
+        "id": 4724607190851584,
+        "key": "NpcChat_Back",
+        "value": "回退"
+      },
+      {
+        "id": 4734889388695552,
+        "key": "MessageBox_QueDing",
+        "value": "确定"
+      },
+      {
+        "id": 4734889527107584,
+        "key": "MessageBox_SureKey",
+        "value": "F"
+      },
+      {
+        "id": 4734889531301888,
+        "key": "MessageBox_QuXiao",
+        "value": "取消"
+      },
+      {
+        "id": 4734889531301889,
+        "key": "MessageBox_CancelKey",
+        "value": "Esc"
+      },
+      {
+        "id": 4734889535496192,
+        "key": "MessageBox_TiShi",
+        "value": "提示"
+      },
+      {
+        "id": 4740941563846656,
+        "key": "Main_JueSe",
+        "value": "角色"
+      },
+      {
+        "id": 4740941605789696,
+        "key": "Main_CunDang",
+        "value": "存档"
+      },
+      {
+        "id": 4740941622566912,
+        "key": "Main_YuanXing",
+        "value": "世界"
+      },
+      {
+        "id": 4740941626761216,
+        "key": "Main_RenWu",
+        "value": "任务"
+      },
+      {
+        "id": 4740941626761217,
+        "key": "Main_DuiYou",
+        "value": "队友"
+      },
+      {
+        "id": 4740941630955520,
+        "key": "Main_ZhiYing_Click",
+        "value": "鼠标点击"
+      },
+      {
+        "id": 4740941630955521,
+        "key": "Main_ZhiYing_PathHint",
+        "value": "可进入路径提示。"
+      },
+      {
+        "id": 4740941635149824,
+        "key": "Main_ZhiYing_PressR3",
+        "value": "按下R3键"
+      },
+      {
+        "id": 4740941635149825,
+        "key": "Main_ZhiYing_PathHint_GP",
+        "value": "可进入路径提示。"
+      },
+      {
+        "id": 4742900991680512,
+        "key": "LeiTai_QingZiCanSai",
+        "value": "亲\n自\n参\n赛"
+      },
+      {
+        "id": 4742901062983680,
+        "key": "LeiTai_XuanZeTiShou",
+        "value": "选\n择\n替\n手"
+      },
+      {
+        "id": 4742901071372288,
+        "key": "LeiTai_BenQiDaJiang",
+        "value": "本期大奖："
+      },
+      {
+        "id": 4742901071372289,
+        "key": "LeiTai_BaoHan",
+        "value": "包含："
+      },
+      {
+        "id": 4742901075566592,
+        "key": "LeiTai_ZhenGuiCiTiao",
+        "value": "珍贵词条铸纹石"
+      },
+      {
+        "id": 4742901079760896,
+        "key": "LeiTai_GuiZe",
+        "value": "武林小会规则："
+      },
+      {
+        "id": 4742901079760897,
+        "key": "LeiTai_KaiShi",
+        "value": "开始"
+      },
+      {
+        "id": 4742901079760898,
+        "key": "LeiTai_LiChang",
+        "value": "离场"
+      },
+      {
+        "id": 4742901083955200,
+        "key": "LeiTai_GuiZeDetail",
+        "value": "1.每轮都是淘汰赛，胜者下一轮，败者离场，直到最终获胜\n2.加注时，对手会感受到挑衅，导致暴怒，属性增强，但最终奖励数量增加\n3.任何时候离场都默认为全权放弃\n4.点到为止"
+      },
+      {
+        "id": 4743084681224192,
+        "key": "LeiTai_Title",
+        "value": "武林小会"
+      },
+      {
+        "id": 4744273225342976,
+        "key": "GongPing_WuQi",
+        "value": "武器"
+      },
+      {
+        "id": 4744273275674624,
+        "key": "GongPing_QuanBu",
+        "value": "全部"
+      },
+      {
+        "id": 4744273275674625,
+        "key": "GongPing_WuQiToggle",
+        "value": "武器"
+      },
+      {
+        "id": 4744273275674626,
+        "key": "GongPing_AnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 4744273279868928,
+        "key": "GongPing_FangJu",
+        "value": "防具"
+      },
+      {
+        "id": 4744273279868929,
+        "key": "GongPing_ShouShi",
+        "value": "饰品"
+      },
+      {
+        "id": 4744273284063232,
+        "key": "GongPing_BaoWu",
+        "value": "宝物"
+      },
+      {
+        "id": 4744273284063233,
+        "key": "GongPing_DanYao",
+        "value": "丹药"
+      },
+      {
+        "id": 4744273288257536,
+        "key": "GongPing_XianJing",
+        "value": "陷阱"
+      },
+      {
+        "id": 4744273288257537,
+        "key": "GongPing_MiJi",
+        "value": "秘籍"
+      },
+      {
+        "id": 4744273292451840,
+        "key": "GongPing_ZhuWen",
+        "value": "铸纹"
+      },
+      {
+        "id": 4744273292451841,
+        "key": "GongPing_CaiLiao",
+        "value": "材料"
+      },
+      {
+        "id": 4744273296646144,
+        "key": "GongPing_RenWu",
+        "value": "任务"
+      },
+      {
+        "id": 4744273296646145,
+        "key": "GongPing_BaoXiang",
+        "value": "宝箱"
+      },
+      {
+        "id": 4744273300840448,
+        "key": "GongPing_JiaoYiShuLiang",
+        "value": "交易数量"
+      },
+      {
+        "id": 4745774903615488,
+        "key": "FuBen_JiangLiYuLan",
+        "value": "奖励预览"
+      },
+      {
+        "id": 4745774941364224,
+        "key": "FuBen_TuiJianDengJi",
+        "value": "推荐等级"
+      },
+      {
+        "id": 4745774941364225,
+        "key": "FuBen_DiaoLuoChanChu",
+        "value": "掉落·产出"
+      },
+      {
+        "id": 4747593000181760,
+        "key": "Bag_ToggleAll",
+        "value": "全部"
+      },
+      {
+        "id": 4747593025347584,
+        "key": "Bag_ToggleWeapon",
+        "value": "武器"
+      },
+      {
+        "id": 4747593025347585,
+        "key": "Bag_ToggleAnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 4747593025347586,
+        "key": "Bag_ToggleFangJu",
+        "value": "防具"
+      },
+      {
+        "id": 4747593029541888,
+        "key": "Bag_ToggleShouShi",
+        "value": "饰品"
+      },
+      {
+        "id": 4747593029541889,
+        "key": "Bag_ToggleBaoWu",
+        "value": "宝物"
+      },
+      {
+        "id": 4747593033736192,
+        "key": "Bag_ToggleDanYao",
+        "value": "丹药"
+      },
+      {
+        "id": 4747593033736193,
+        "key": "Bag_ToggleXianJing",
+        "value": "陷阱"
+      },
+      {
+        "id": 4747593033736194,
+        "key": "Bag_ToggleMiJi",
+        "value": "秘籍"
+      },
+      {
+        "id": 4747593037930496,
+        "key": "Bag_ToggleZhuZao",
+        "value": "铸纹"
+      },
+      {
+        "id": 4747593037930497,
+        "key": "Bag_ToggleCaiLiao",
+        "value": "材料"
+      },
+      {
+        "id": 4747593037930498,
+        "key": "Bag_ToggleQuest",
+        "value": "任务"
+      },
+      {
+        "id": 4747593046319104,
+        "key": "Bag_ToggleBaoXiang",
+        "value": "宝箱"
+      },
+      {
+        "id": 4747787322286080,
+        "key": "CommonTip_Saving",
+        "value": "自动存档中......"
+      },
+      {
+        "id": 4748130395381760,
+        "key": "Loading_JiangHuMiJi",
+        "value": "江湖秘籍"
+      },
+      {
+        "id": 4751892568629248,
+        "key": "Battle_Pao",
+        "value": "奔跑"
+      },
+      {
+        "id": 4751892916756480,
+        "key": "Battle_ShanBi",
+        "value": "闪避"
+      },
+      {
+        "id": 4751892916756481,
+        "key": "Battle_FangYu",
+        "value": "防御"
+      },
+      {
+        "id": 4751892920950784,
+        "key": "Battle_AnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 4751892920950785,
+        "key": "Battle_GongJi",
+        "value": "攻击"
+      },
+      {
+        "id": 4751892920950786,
+        "key": "Battle_XuLi",
+        "value": "蓄力"
+      },
+      {
+        "id": 4751892920950787,
+        "key": "Battle_TipGongJi",
+        "value": "鼠标左键点击控制攻击及其攻击方向"
+      },
+      {
+        "id": 4751892920950788,
+        "key": "Battle_TipGeDang",
+        "value": "鼠标右键格挡"
+      },
+      {
+        "id": 4751892929339392,
+        "key": "Battle_TipXuLi",
+        "value": "持续按压左键蓄力攻击"
+      },
+      {
+        "id": 4751892929339393,
+        "key": "Battle_TipDuoShan",
+        "value": "空格键释放躲闪"
+      },
+      {
+        "id": 4751892929339394,
+        "key": "Battle_TipKaoYan",
+        "value": "完成张三丰的考验"
+      },
+      {
+        "id": 4751892929339395,
+        "key": "Battle_LiangYiBu",
+        "value": "两仪步"
+      },
+      {
+        "id": 4751893013225472,
+        "key": "Battle_TabMuBiao",
+        "value": "Tab"
+      },
+      {
+        "id": 4751893017419776,
+        "key": "Battle_ShiJieSuan",
+        "value": "显示结算界面"
+      },
+      {
+        "id": 4751893017419777,
+        "key": "Battle_ZiDongFanHui",
+        "value": "自动返回"
+      },
+      {
+        "id": 4751893017419778,
+        "key": "Battle_ZaiCiTiaoZhan",
+        "value": "再次挑战"
+      },
+      {
+        "id": 4751893021614080,
+        "key": "Battle_TiaoZhengNanDu",
+        "value": "调整难度"
+      },
+      {
+        "id": 4751893025808384,
+        "key": "Battle_FanHuiCangYing",
+        "value": "返回苍影阁"
+      },
+      {
+        "id": 4751893030002688,
+        "key": "Battle_HaoShiLabel",
+        "value": "耗时"
+      },
+      {
+        "id": 4751893030002689,
+        "key": "Battle_XiaoHaoYaoPingLabel",
+        "value": "消耗药品"
+      },
+      {
+        "id": 4751893030002690,
+        "key": "Battle_HuoDeDaoJuLabel",
+        "value": "获得道具"
+      },
+      {
+        "id": 4751893034196992,
+        "key": "Battle_TipGamePad",
+        "value": "移动光标查看物品详情"
+      },
+      {
+        "id": 4751893034196993,
+        "key": "Battle_LiJiFanHui",
+        "value": "立即返回"
+      },
+      {
+        "id": 4751893034196994,
+        "key": "Battle_LeiTaiSliderTip",
+        "value": "拖动滑块，加快比武速度"
+      },
+      {
+        "id": 4755785058902016,
+        "key": "JiHuang_JieSuoXiaoHao",
+        "value": "解锁消耗"
+      },
+      {
+        "id": 4755785088262144,
+        "key": "JiHuang_ChangAnXiDe",
+        "value": "长按     习得"
+      },
+      {
+        "id": 4755785092456448,
+        "key": "JiHuang_DanFaXiaoHao",
+        "value": "单发消耗"
+      },
+      {
+        "id": 4755785092456449,
+        "key": "JiHuang_JiHuo",
+        "value": "激活"
+      },
+      {
+        "id": 4755785096650752,
+        "key": "JiHuang_ChongZhi",
+        "value": "重置"
+      },
+      {
+        "id": 4755785096650753,
+        "key": "JiHuang_Gong",
+        "value": "攻"
+      },
+      {
+        "id": 4755785100845056,
+        "key": "JiHuang_Yang",
+        "value": "阳"
+      },
+      {
+        "id": 4755785100845057,
+        "key": "JiHuang_Yin",
+        "value": "阴"
+      },
+      {
+        "id": 4755785100845058,
+        "key": "JiHuang_Rou",
+        "value": "柔"
+      },
+      {
+        "id": 4755785105039360,
+        "key": "JiHuang_Gang",
+        "value": "刚"
+      },
+      {
+        "id": 4755785109233664,
+        "key": "JiHuang_Du",
+        "value": "毒"
+      },
+      {
+        "id": 4755785109233665,
+        "key": "JiHuang_Wei",
+        "value": "威"
+      },
+      {
+        "id": 4763560929419264,
+        "key": "ZhuWen_XiaoHao",
+        "value": "铸纹消耗"
+      },
+      {
+        "id": 4763560996528128,
+        "key": "ZhuWen_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 4763560996528129,
+        "key": "ZhuWen_RongLian",
+        "value": "熔炼"
+      },
+      {
+        "id": 4763561000722432,
+        "key": "ZhuWen_DanJi",
+        "value": "单击"
+      },
+      {
+        "id": 4763561000722433,
+        "key": "ZhuWen_QieHuan",
+        "value": "切换"
+      },
+      {
+        "id": 4771669416632320,
+        "key": "LianDan_CaiLiaoXiaoHao",
+        "value": "材料消耗"
+      },
+      {
+        "id": 4771669433409536,
+        "key": "LianDan_HuoDe",
+        "value": "获得"
+      },
+      {
+        "id": 4771669433409537,
+        "key": "LianDan_XiaoHao",
+        "value": "消耗"
+      },
+      {
+        "id": 4771669433409538,
+        "key": "LianDan_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 4771669433409539,
+        "key": "LianDan_LianDan",
+        "value": "炼丹"
+      },
+      {
+        "id": 4771669441798144,
+        "key": "LianDan_JiHuangTip",
+        "value": "打造和炼丹时，获取机簧点数，点数可用于解锁新的暗器，陷阱和傀儡道具的制作配方。\n解锁的配方可在铁匠处打造制作。其中陷阱为消耗类道具。"
+      },
+      {
+        "id": 4771669441798145,
+        "key": "LianDan_DanJi",
+        "value": "单击"
+      },
+      {
+        "id": 4771669445992448,
+        "key": "LianDan_QieHuan",
+        "value": "切换"
+      },
+      {
+        "id": 4771669445992449,
+        "key": "LianDan_Title",
+        "value": "炼丹"
+      },
+      {
+        "id": 4773458291482624,
+        "key": "JueSe_Ti",
+        "value": "体"
+      },
+      {
+        "id": 4773458316648448,
+        "key": "JueSe_Wu",
+        "value": "武"
+      },
+      {
+        "id": 4773458316648449,
+        "key": "JueSe_Nian",
+        "value": "念"
+      },
+      {
+        "id": 4773458320842752,
+        "key": "JueSe_Yi",
+        "value": "意"
+      },
+      {
+        "id": 4773458320842753,
+        "key": "JueSe_Min",
+        "value": "敏"
+      },
+      {
+        "id": 4773458325037056,
+        "key": "JueSe_Yang",
+        "value": "阳"
+      },
+      {
+        "id": 4773458325037057,
+        "key": "JueSe_Yin",
+        "value": "阴"
+      },
+      {
+        "id": 4773458329231360,
+        "key": "JueSe_Rou",
+        "value": "柔"
+      },
+      {
+        "id": 4773458329231361,
+        "key": "JueSe_Gang",
+        "value": "刚"
+      },
+      {
+        "id": 4773458329231362,
+        "key": "JueSe_Du",
+        "value": "毒"
+      },
+      {
+        "id": 4773458333425664,
+        "key": "JueSe_WuQi",
+        "value": "武器"
+      },
+      {
+        "id": 4773458333425665,
+        "key": "JueSe_AnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 4773458337619968,
+        "key": "JueSe_FangJu",
+        "value": "防具"
+      },
+      {
+        "id": 4773458337619969,
+        "key": "JueSe_XieZi",
+        "value": "鞋子"
+      },
+      {
+        "id": 4773458337619970,
+        "key": "JueSe_ShiPin",
+        "value": "饰品"
+      },
+      {
+        "id": 4773458341814272,
+        "key": "JueSe_BaoWu",
+        "value": "宝物"
+      },
+      {
+        "id": 4773458346008576,
+        "key": "JueSe_DaoJu",
+        "value": "道具"
+      },
+      {
+        "id": 4773458350202880,
+        "key": "JueSe_DengJi",
+        "value": "等级."
+      },
+      {
+        "id": 4773458350202881,
+        "key": "JueSe_XiuWei",
+        "value": "修为"
+      },
+      {
+        "id": 4773458350202882,
+        "key": "JueSe_ShengMing",
+        "value": "生命"
+      },
+      {
+        "id": 4773458358591488,
+        "key": "JueSe_ZhenQi",
+        "value": "真气"
+      },
+      {
+        "id": 4773458358591489,
+        "key": "JueSe_QiShi",
+        "value": "气势"
+      },
+      {
+        "id": 4773458362785792,
+        "key": "JueSe_GongJi",
+        "value": "攻击"
+      },
+      {
+        "id": 4773458362785793,
+        "key": "JueSe_FangYu",
+        "value": "防御"
+      },
+      {
+        "id": 4773458366980096,
+        "key": "JueSe_BaoJi",
+        "value": "暴击"
+      },
+      {
+        "id": 4773458366980097,
+        "key": "JueSe_BaoKang",
+        "value": "暴抗"
+      },
+      {
+        "id": 4773458371174400,
+        "key": "JueSe_BaoShang",
+        "value": "暴伤"
+      },
+      {
+        "id": 4773458375368704,
+        "key": "JueSe_ZengShang",
+        "value": "增伤"
+      },
+      {
+        "id": 4773458375368705,
+        "key": "JueSe_MianShang",
+        "value": "免伤"
+      },
+      {
+        "id": 4773458379563008,
+        "key": "JueSe_SuDu",
+        "value": "速度"
+      },
+      {
+        "id": 4773458413117440,
+        "key": "JueSe_XinFa",
+        "value": "心法"
+      },
+      {
+        "id": 4773458413117441,
+        "key": "JueSe_JiNeng",
+        "value": "技能"
+      },
+      {
+        "id": 4773458413117442,
+        "key": "JueSe_ZhuangBei",
+        "value": "装备"
+      },
+      {
+        "id": 4773458417311744,
+        "key": "JueSe_JiNengMiaoShu",
+        "value": "技能描述"
+      },
+      {
+        "id": 4773458417311745,
+        "key": "JueSe_JiNengShuXing",
+        "value": "技能属性"
+      },
+      {
+        "id": 4773458417311746,
+        "key": "JueSe_QieCuo",
+        "value": "切磋"
+      },
+      {
+        "id": 4773458425700352,
+        "key": "JueSe_LiDui",
+        "value": "离队"
+      },
+      {
+        "id": 5142644322754560,
+        "key": "Setting_YingYue",
+        "value": "音乐"
+      },
+      {
+        "id": 5143339163738112,
+        "key": "Setting_YinXiao",
+        "value": "音效"
+      },
+      {
+        "id": 5143833940615168,
+        "key": "Setting_YuYing",
+        "value": "语音"
+      },
+      {
+        "id": 6268250080681984,
+        "key": "DaZao_Weapon",
+        "value": "武器"
+      },
+      {
+        "id": 6268250227482624,
+        "key": "DaZao_AnQi",
+        "value": "暗器"
+      },
+      {
+        "id": 6268250235871232,
+        "key": "DaZao_FangJu",
+        "value": "防具"
+      },
+      {
+        "id": 6268250244259840,
+        "key": "DaZao_ShoShi",
+        "value": "饰品"
+      },
+      {
+        "id": 6268250248454144,
+        "key": "DaZao_XianJing",
+        "value": "陷阱"
+      },
+      {
+        "id": 6268250252648448,
+        "key": "DaZao_CaiLiaoXiaoHao",
+        "value": "材料消耗"
+      },
+      {
+        "id": 6268250256842752,
+        "key": "DaZao_HuoDe",
+        "value": "获得"
+      },
+      {
+        "id": 6268250256842753,
+        "key": "DaZao_XiaoHao",
+        "value": "消耗"
+      },
+      {
+        "id": 6268250256842754,
+        "key": "DaZao_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 6268250261037056,
+        "key": "DaZao_DaZao",
+        "value": "打造"
+      },
+      {
+        "id": 6268250261037057,
+        "key": "DaZao_DanJi",
+        "value": "单击"
+      },
+      {
+        "id": 6268250265231360,
+        "key": "DaZao_QieHuan",
+        "value": "切换"
+      },
+      {
+        "id": 6268250265231361,
+        "key": "DaZao_Tip",
+        "value": "打造和炼丹时，获取机簧点数，点数可用于解锁新的暗器，陷阱和傀儡道具的制作配方。\n解锁的配方可在铁匠处打造制作。其中陷阱为消耗类道具。"
+      },
+      {
+        "id": 6268485506965504,
+        "key": "RongZhu_ShuXing",
+        "value": "属性"
+      },
+      {
+        "id": 6268485553102848,
+        "key": "RongZhu_EWai",
+        "value": "额外"
+      },
+      {
+        "id": 6268485557297152,
+        "key": "RongZhu_XiangQian",
+        "value": "镶嵌"
+      },
+      {
+        "id": 6268485569880064,
+        "key": "RongZhu_DanJi",
+        "value": "单击"
+      },
+      {
+        "id": 6268485574074368,
+        "key": "RongZhu_QueDing",
+        "value": "确定"
+      },
+      {
+        "id": 6268485574074369,
+        "key": "RongZhu_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 6268485574074370,
+        "key": "RongZhu_RongZhu",
+        "value": "熔铸"
+      },
+      {
+        "id": 6268485578268672,
+        "key": "RongZhu_Weapon",
+        "value": "武器"
+      },
+      {
+        "id": 6268485582462976,
+        "key": "RongZhu_FangJu",
+        "value": "防具"
+      },
+      {
+        "id": 6268485586657280,
+        "key": "RongZhu_ShoShi",
+        "value": "饰品"
+      },
+      {
+        "id": 6268485590851584,
+        "key": "RongZhu_TiShi",
+        "value": "提示"
+      },
+      {
+        "id": 6268485595045888,
+        "key": "RongZhu_SelectSameTier",
+        "value": "请选择同等阶的同一物品进行熔铸"
+      },
+      {
+        "id": 6268600871297024,
+        "key": "UIDaZao_DaZao",
+        "value": "打造"
+      },
+      {
+        "id": 6268600925822976,
+        "key": "UIDaZao_HeDuan",
+        "value": "合锻"
+      },
+      {
+        "id": 6342918737240064,
+        "key": "NeiJing_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 6342918884040704,
+        "key": "NeiJing_SanGong",
+        "value": "散功"
+      },
+      {
+        "id": 6342918888235008,
+        "key": "NeiJing_KeyR",
+        "value": "R"
+      },
+      {
+        "id": 6342918925983744,
+        "key": "NeiJing_Colon",
+        "value": ":"
+      },
+      {
+        "id": 6342918925983745,
+        "key": "NeiJing_DanJi",
+        "value": "单击"
+      },
+      {
+        "id": 6342918930178048,
+        "key": "NeiJing_JiHuo",
+        "value": "激活"
+      },
+      {
+        "id": 6342918930178049,
+        "key": "NeiJing_KeyF",
+        "value": "F"
+      },
+      {
+        "id": 6343088984039424,
+        "key": "Spell_SkillDesc",
+        "value": "技能描述"
+      },
+      {
+        "id": 6343089017593856,
+        "key": "Spell_SpecialEffect",
+        "value": "特殊效果"
+      },
+      {
+        "id": 6343089025982464,
+        "key": "Spell_SkillAttri",
+        "value": "技能属性"
+      },
+      {
+        "id": 6343089030176768,
+        "key": "Spell_Gong",
+        "value": "攻"
+      },
+      {
+        "id": 6343089030176769,
+        "key": "Spell_Wei",
+        "value": "威"
+      },
+      {
+        "id": 6343089034371072,
+        "key": "Spell_Yang",
+        "value": "阳"
+      },
+      {
+        "id": 6343089038565376,
+        "key": "Spell_Yin",
+        "value": "阴"
+      },
+      {
+        "id": 6343089042759680,
+        "key": "Spell_Rou",
+        "value": "柔"
+      },
+      {
+        "id": 6343089051148288,
+        "key": "Spell_Gang",
+        "value": "刚"
+      },
+      {
+        "id": 6343089055342592,
+        "key": "Spell_Du",
+        "value": "毒"
+      },
+      {
+        "id": 6343089059536896,
+        "key": "Spell_Cooldown",
+        "value": "冷却："
+      },
+      {
+        "id": 6343089059536897,
+        "key": "Spell_Cost",
+        "value": "消耗："
+      },
+      {
+        "id": 6343089063731200,
+        "key": "Spell_XinFa",
+        "value": "心法"
+      },
+      {
+        "id": 6343244156510208,
+        "key": "Key_F",
+        "value": "F"
+      },
+      {
+        "id": 6343244223619072,
+        "key": "Key_Esc",
+        "value": "Esc"
+      },
+      {
+        "id": 6343396745289728,
+        "key": "BeiZhan_XinFaEquip",
+        "value": "心法装配"
+      },
+      {
+        "id": 6343396791427072,
+        "key": "BeiZhan_SkillEquip",
+        "value": "技能装配"
+      },
+      {
+        "id": 6343396795621376,
+        "key": "Key_Q",
+        "value": "Q"
+      },
+      {
+        "id": 6343396799815680,
+        "key": "Symbol_Plus",
+        "value": "+"
+      },
+      {
+        "id": 6343396820787200,
+        "key": "BeiZhan_Skill",
+        "value": "技能"
+      },
+      {
+        "id": 6343396820787201,
+        "key": "BeiZhan_All",
+        "value": "全部"
+      },
+      {
+        "id": 6343753189826560,
+        "key": "Symbol_Unknown",
+        "value": "???"
+      },
+      {
+        "id": 6344173131931648,
+        "key": "Key_R",
+        "value": "R"
+      },
+      {
+        "id": 6344173131931649,
+        "key": "Key_Z",
+        "value": "Z"
+      },
+      {
+        "id": 6344173131931650,
+        "key": "Key_C",
+        "value": "C"
+      },
+      {
+        "id": 6344173131931651,
+        "key": "Key_G",
+        "value": "G"
+      },
+      {
+        "id": 6344173131931652,
+        "key": "Key_E",
+        "value": "E"
+      },
+      {
+        "id": 6344173131931653,
+        "key": "Common_ChangAn",
+        "value": "长按"
+      },
+      {
+        "id": 6344173131931654,
+        "key": "Common_DanJi",
+        "value": "单击"
+      },
+      {
+        "id": 6344173131931655,
+        "key": "Common_QueDing",
+        "value": "确定"
+      },
+      {
+        "id": 6344173131931656,
+        "key": "Common_QuXiao",
+        "value": "取消"
+      },
+      {
+        "id": 6344173131931657,
+        "key": "FenJie_FenJie",
+        "value": "分解"
+      },
+      {
+        "id": 6344173131931658,
+        "key": "FuBen_EnterBattle",
+        "value": "进入战场"
+      },
+      {
+        "id": 6344173131931659,
+        "key": "FuBen_Boss",
+        "value": "首领："
+      },
+      {
+        "id": 6344173131931660,
+        "key": "FuZhuang_Title",
+        "value": "角色换装"
+      },
+      {
+        "id": 6344173131931661,
+        "key": "Common_StayTuned",
+        "value": "敬请期待"
+      },
+      {
+        "id": 6487519682895872,
+        "key": "Attr_HP",
+        "value": "生命"
+      },
+      {
+        "id": 6487519682895873,
+        "key": "FenJie_ZhuWen",
+        "value": "铸纹"
+      },
+      {
+        "id": 10174872440406016,
+        "key": "FuBenSelect_KeBaiFang",
+        "value": "可进行门派拜访！"
+      },
+      {
+        "id": 11200492096061440,
+        "key": "shezhizhuyi",
+        "value": "注意：切换字体文本后需要重新加载地图或者读取存档方可完整显示正确字体文本。"
+      },
+      {
+        "id": 11290298809065472,
+        "key": "ChengJiu_Desc",
+        "value": "在江湖中结识，战斗击败侠客，获得成就。"
+      },
+      {
+        "id": 11573895799668736,
+        "key": "XuanShang_ShangYin",
+        "value": "赏银"
+      },
+      {
+        "id": 11620180216938496,
+        "key": "New Entry",
+        "value": "跳过"
+      },
+      {
+        "id": 11628710481108992,
+        "key": "ItemDetail_ChanchuLaiyuan",
+        "value": "产出来源"
+      },
+      {
+        "id": 11628710514663424,
+        "key": "ItemDetail_DanfaXiaohao",
+        "value": "单发消耗"
+      },
+      {
+        "id": 11628710514663425,
+        "key": "ItemDetail_Dian",
+        "value": "·"
+      },
+      {
+        "id": 11628710514663426,
+        "key": "ItemDetail_ZhuangtianShijian",
+        "value": "装填时间"
+      },
+      {
+        "id": 11628710514663427,
+        "key": "ItemDetail_AnqiTip",
+        "value": "打造装备和炼丹时，可获取机簧点数。机簧界面中消耗点数，解锁新道具或强化属性。"
+      },
+      {
+        "id": 11628710514663428,
+        "key": "ItemDetail_JinengMiaoshu",
+        "value": "技能描述"
+      },
+      {
+        "id": 11628710514663429,
+        "key": "ItemDetail_JinengShuxing",
+        "value": "技能属性"
+      },
+      {
+        "id": 11628710514663430,
+        "key": "ItemDetail_Shuxing",
+        "value": "属性"
+      },
+      {
+        "id": 11628710514663431,
+        "key": "ItemDetail_Ewai",
+        "value": "额外"
+      },
+      {
+        "id": 11628710514663432,
+        "key": "ItemDetail_Xiangqian",
+        "value": "镶嵌"
+      },
+      {
+        "id": 14190930614452224,
+        "key": "Setting_GuangBiaoDaXiao",
+        "value": "鼠标大小"
+      },
+      {
+        "id": 14195108556472320,
+        "key": "UISaveFile_ShanChu",
+        "value": "删除"
+      },
+      {
+        "id": 14498450436423680,
+        "key": "SettingView_GuangBiaoYangShi",
+        "value": "鼠标样式"
+      },
+      {
+        "id": 14927987353591808,
+        "key": "DuZhuo_ZhunBeiJieDuan",
+        "value": "准备阶段"
+      },
+      {
+        "id": 14927987504586752,
+        "key": "DuZhuo_QingTouChou",
+        "value": "请投筹"
+      },
+      {
+        "id": 14927987508781056,
+        "key": "DuZhuo_RuJuXiaShi",
+        "value": "入局侠士"
+      },
+      {
+        "id": 14927987508781057,
+        "key": "DuZhuo_JinQian",
+        "value": "金钱:"
+      },
+      {
+        "id": 14927987512975360,
+        "key": "DuZhuo_YiXuanBeiShu",
+        "value": "已选倍数："
+      },
+      {
+        "id": 14927987512975361,
+        "key": "DuZhuo_KeNengYingDe",
+        "value": "可能赢得："
+      },
+      {
+        "id": 14927987517169664,
+        "key": "DuZhuo_WanFaTip",
+        "value": "玩法：\n1、选中想要猜选的选项\n2、下方滑块选择本次参与的金额\n3、点击下注等待结果\n4、过程中退出，视作弃权，不返还押金"
+      },
+      {
+        "id": 14927987517169665,
+        "key": "DuZhuo_BenLunJieSuan",
+        "value": "本轮结算"
+      },
+      {
+        "id": 14927987517169666,
+        "key": "DuZhuo_KaiJiangJieGuo",
+        "value": "开奖结果"
+      },
+      {
+        "id": 14947309157359616,
+        "key": "DuZhuo_NPC_ChenXiuCai",
+        "value": "陈秀才"
+      },
+      {
+        "id": 14947309262217216,
+        "key": "DuZhuo_NPC_LiPoPo",
+        "value": "李婆婆"
+      },
+      {
+        "id": 14947309270605824,
+        "key": "DuZhuo_NPC_LiuLaoSan",
+        "value": "刘老三"
+      },
+      {
+        "id": 14947309270605825,
+        "key": "DuZhuo_NPC_QianWanGuan",
+        "value": "钱万贯"
+      },
+      {
+        "id": 14947309274800128,
+        "key": "DuZhuo_NPC_SuErNiang",
+        "value": "苏二娘"
+      },
+      {
+        "id": 14947309278994432,
+        "key": "DuZhuo_NPC_ZhaoYiDao",
+        "value": "赵一刀"
+      },
+      {
+        "id": 14947309283188736,
+        "key": "DuZhuo_NPC_ZhuRouZhang",
+        "value": "猪肉张"
+      },
+      {
+        "id": 17445744422952960,
+        "key": "Main_NanDu",
+        "value": "难度"
+      },
+      {
+        "id": 17458067057418240,
+        "key": "UIJueSe_DuiYou",
+        "value": "队友"
+      },
+      {
+        "id": 17795683183239168,
+        "key": "UIRongZhu_YinDao_Tip",
+        "value": "只能同等品阶的同种装备合二为一。\r\n1.词条数量:两者的额外词条数量不同时，50%概率选择任意侧的条数作为基准。\r\n2.词条保留:合锻前可在两者词条中，选一条进行锁定保留，剩下词条随机保留。\r\n3.镶嵌铸纹返还:已镶嵌铸纹会返还背包。"
+      },
+      {
+        "id": 17868567155056640,
+        "key": "YinDao_YanShi",
+        "value": "演示"
+      },
+      {
+        "id": 18870433605386240,
+        "key": "ShangDian_KuaiSuJiaoYi",
+        "value": "快速交易"
+      },
+      {
+        "id": 18870943913771008,
+        "key": "ShangDian_FangRuLieBiao",
+        "value": "放入列表"
+      },
+      {
+        "id": 18879148807061504,
+        "key": "KEY_R",
+        "value": "R"
+      },
+      {
+        "id": 19166411428364288,
+        "key": "Login_YuYanQieHuan",
+        "value": "语言切换"
+      },
+      {
+        "id": 19249405738360832,
+        "key": "ChengJiu_XiaKeDesc",
+        "value": "江湖履历，尽览于此。"
+      },
+      {
+        "id": 19249405864189952,
+        "key": "ChengJiu_WuXueDesc",
+        "value": "武学一览，功道存册。"
+      },
+      {
+        "id": 19249405868384256,
+        "key": "ChengJiu_YanShi",
+        "value": "演示"
+      },
+      {
+        "id": 20337144982413312,
+        "key": "ChengJiu_LingQu",
+        "value": "领取"
+      },
+      {
+        "id": 20363219760480256,
+        "key": "ShangDian_KuaiSuJiaoYi1",
+        "value": "快速贡献"
+      },
+      {
+        "id": 21107058529804288,
+        "key": "ChengJiu_RewardTitle",
+        "value": "成就奖励"
+      },
+      {
+        "id": 21107058605301760,
+        "key": "ChengJiu_YiLingQu",
+        "value": "已领取"
+      },
+      {
+        "id": 21169014406127616,
+        "key": "Setting_XiaoChuHongDian",
+        "value": "消除红点"
+      },
+      {
+        "id": 21733176672788480,
+        "key": "UIFenJie_YinDao_Tip",
+        "value": "镶嵌铸纹返还：镶嵌有铸纹的物品，分解后会返还铸纹"
+      },
+      {
+        "id": 22539072303136768,
+        "key": "duiyoushangzheng",
+        "value": "上\n阵"
+      },
+      {
+        "id": 22791453175439360,
+        "key": "Common_Lock",
+        "value": "未解锁"
+      },
+      {
+        "id": 25389751939792896,
+        "key": "Battle_RuHeBianQiang",
+        "value": "如何变强"
+      },
+      {
+        "id": 28318923930710016,
+        "key": "CangJingGe_Tip_Top",
+        "value": "心法小点激活属性，无需装备心法即可生效。"
+      }
+    ]
+  },
+  "entryCount": 382
+}

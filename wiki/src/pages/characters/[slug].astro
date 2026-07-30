@@ -1,0 +1,193 @@
+---
+import { Bookmark, MapPin, Network, Printer, SquarePen, UserRound, Users } from '@lucide/astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CharacterCard from '../../components/CharacterCard.astro';
+import DetailToc from '../../components/DetailToc.astro';
+import RelationshipGraph from '../../components/RelationshipGraph.astro';
+import {
+  characterBySlug,
+  characterEntries,
+  characterHref,
+  characterLevel,
+  relationsForCharacter,
+} from '../../data/characters';
+import { site } from '../../data/site';
+import { characterPortraitDetail, characterPortraitThumbnail } from '../../data/images';
+
+export function getStaticPaths() {
+  return characterEntries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const relations = relationsForCharacter(entry.slug);
+const relationSlugs = new Set(relations.flatMap((relation) => [relation.source, relation.target]));
+const relationEntries = characterEntries.filter((item) => relationSlugs.has(item.slug));
+const relatedPeople = relations.map((relation) => {
+  const otherSlug = relation.source === entry.slug ? relation.target : relation.source;
+  return { relation, other: characterBySlug.get(otherSlug)! };
+});
+const sameFaction = entry.faction === '未标明' ? [] : characterEntries
+  .filter((item) => item.slug !== entry.slug && item.faction === entry.faction)
+  .sort((left, right) => right.relationCount - left.relationCount)
+  .slice(0, 3);
+const bookmarkSlug = `character-${entry.slug}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订人物：${entry.name}`)}` : '/about/#contribute';
+const tocItems = [
+  { id: 'overview', label: '人物介绍' },
+  { id: 'identity', label: '身份与势力' },
+  ...(entry.locations.length ? [{ id: 'locations', label: '出现地点' }] : []),
+  ...(relations.length ? [{ id: 'relationships', label: '人物关系' }, { id: 'relationship-map', label: '局部关系图' }] : []),
+];
+---
+
+<BaseLayout title={`${entry.name} · 人物图鉴`} description={entry.description} image={characterPortraitDetail(entry.portrait) || '/game/optimized/wiki-logo-hero.webp'}>
+  <article class="character-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/characters/">人物图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+    <header class="entry-header">
+      <div class="hero-portrait">{entry.portrait ? <img src={characterPortraitDetail(entry.portrait)} alt={`${entry.name}立绘`} width="480" height="720" decoding="async" fetchpriority="high" /> : <span>{entry.name.slice(0, 1)}</span>}</div>
+      <div class="header-copy">
+        <div class="entry-meta"><span>{entry.role}</span><span>{entry.gender}</span><span>{entry.faction}</span></div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        {entry.traditionalName && <p class="alias">繁体：{entry.traditionalName}</p>}
+        <p class="description">{entry.description}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag">{entry.role}</span><span class="tag">{entry.gender}</span>{entry.faction !== '未标明' && <span class="tag">{entry.faction}</span>}{entry.locations.slice(0, 3).map((location) => <span class="tag">{location}</span>)}</div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏人物"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印人物"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="人物摘要">
+      <div><Users size={19} /><span><small>身份势力</small><strong>{entry.faction}</strong></span></div>
+      <div><UserRound size={19} /><span><small>人物类型</small><strong>{entry.role}</strong></span></div>
+      <div><MapPin size={19} /><span><small>出现地点</small><strong>{entry.locations.length ? `${entry.locations.length} 处` : '未标明'}</strong></span></div>
+      <div><Network size={19} /><span><small>明确关系</small><strong>{relations.length} 条</strong></span></div>
+    </section>
+
+    <div class="detail-layout">
+      <main class="detail-main">
+        <section id="overview">
+          <h2>人物介绍</h2>
+          <div class="overview-copy">{entry.portrait ? <img src={characterPortraitThumbnail(entry.portrait)} alt="" width="252" height="428" loading="lazy" decoding="async" /> : <span>{entry.name.slice(0, 1)}</span>}<p>{entry.description}</p></div>
+        </section>
+
+        <section id="identity">
+          <h2>身份与势力</h2>
+          <dl class="property-table">
+            <div><dt>姓名</dt><dd>{entry.name}</dd></div>
+            <div><dt>人物类型</dt><dd>{entry.role}</dd></div>
+            <div><dt>性别</dt><dd>{entry.gender}</dd></div>
+            <div><dt>所属势力</dt><dd>{entry.faction}</dd></div>
+            <div><dt>出现等级</dt><dd>{characterLevel(entry)}</dd></div>
+          </dl>
+        </section>
+
+        {entry.locations.length > 0 && <section id="locations">
+          <div class="section-heading"><div><h2>出现地点</h2><p>同名人物在不同剧情阶段和地图中的出现位置已合并。</p></div><span>{entry.locations.length} 处</span></div>
+          <div class="location-grid">{entry.locations.map((location) => <div><MapPin size={17} /><span>{location}</span></div>)}</div>
+        </section>}
+
+        {relations.length > 0 && <section id="relationships">
+          <div class="section-heading"><div><h2>人物关系</h2><p>仅列出剧情对白和人物介绍中能够明确确认的关系。</p></div><span>{relations.length} 条</span></div>
+          <div class="relation-list">{relatedPeople.map(({ relation, other }) => <a href={characterHref(other)}>
+            <div class="relation-avatar">{other.portrait ? <img src={characterPortraitThumbnail(other.portrait)} alt="" width="252" height="428" loading="lazy" decoding="async" /> : <span>{other.name.slice(0, 1)}</span>}</div>
+            <div><strong>{other.name}</strong><small>{other.faction}</small></div><b data-type={relation.type}>{relation.label}</b>
+          </a>)}</div>
+        </section>}
+
+        {relations.length > 0 && <section id="relationship-map">
+          <div class="section-heading"><div><h2>局部关系图</h2><p>显示{entry.name}与直接关联人物，可拖拽节点查看。</p></div><a href="/characters/#relations">打开完整图谱</a></div>
+          <RelationshipGraph entries={relationEntries} relations={relations} compact focusSlug={entry.slug} />
+        </section>}
+      </main>
+      <DetailToc items={tocItems} />
+    </div>
+
+    {sameFaction.length > 0 && <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同势力人物</h2><a href="/characters/">返回图鉴</a></div><div class="related-grid">{sameFaction.map((item) => <CharacterCard entry={item} />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .character-page { width: min(100%, 1280px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 25px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .hero-portrait { width: 180px; height: 230px; display: flex; align-items: flex-end; justify-content: center; border: 1px solid var(--line-strong); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 6%, var(--surface-muted)), var(--surface-muted)); overflow: hidden; }
+  .hero-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+  .hero-portrait > span { align-self: center; width: 90px; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--surface); color: var(--accent); font-family: var(--font-display); font-size: 3rem; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 750; }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.12; }
+  .alias { margin: 2px 0 0; color: var(--text-soft); font-size: .7rem; }
+  .description { max-width: 760px; margin: 10px 0 13px; color: var(--text-soft); line-height: 1.75; }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .88rem; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 42px; margin-top: 34px; }
+  .detail-main section + section { margin-top: 42px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .overview-copy { min-height: 144px; display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: center; gap: 20px; padding: 16px 19px; border: 1px solid var(--line); background: var(--surface); }
+  .overview-copy img { width: 112px; height: 130px; object-fit: contain; object-position: center bottom; background: var(--surface-muted); }
+  .overview-copy > span { width: 82px; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: var(--surface-muted); color: var(--accent); font-family: var(--font-display); font-size: 2.4rem; }
+  .overview-copy p { margin: 0; line-height: 1.85; }
+  .property-table { margin: 0; border: 1px solid var(--line); background: var(--surface); }
+  .property-table div { display: grid; grid-template-columns: 145px minmax(0, 1fr); }
+  .property-table div + div { border-top: 1px solid var(--line); }
+  .property-table dt, .property-table dd { margin: 0; padding: 11px 14px; font-size: .78rem; }
+  .property-table dt { border-right: 1px solid var(--line); background: var(--surface-muted); color: var(--text-soft); }
+  .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 12px; }
+  .section-heading h2 { margin-bottom: 0; }
+  .section-heading p { margin: 5px 0 0; color: var(--text-soft); font-size: .74rem; }
+  .section-heading > span, .section-heading > a { color: var(--accent); font-size: .72rem; font-weight: 750; }
+  .location-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); background: var(--surface); }
+  .location-grid div { min-height: 52px; display: flex; align-items: center; gap: 9px; padding: 10px 13px; }
+  .location-grid div + div { border-left: 1px solid var(--line); }
+  .location-grid :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .location-grid span { font-size: .76rem; }
+  .relation-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .relation-list > a { min-width: 0; display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 64px; padding: 6px 10px 6px 6px; border: 1px solid var(--line); background: var(--surface); color: var(--text); text-decoration: none; }
+  .relation-list > a:hover { border-color: var(--accent); }
+  .relation-avatar { width: 52px; height: 52px; display: flex; align-items: flex-end; justify-content: center; background: var(--surface-muted); overflow: hidden; }
+  .relation-avatar img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+  .relation-avatar span { align-self: center; color: var(--accent); font-family: var(--font-display); font-size: 1.5rem; }
+  .relation-list strong, .relation-list small { display: block; }
+  .relation-list strong { font-size: .83rem; }
+  .relation-list small { margin-top: 2px; color: var(--text-soft); font-size: .64rem; }
+  .relation-list b { padding: 4px 6px; color: var(--accent); font-size: .64rem; white-space: nowrap; }
+  .related { margin-top: 52px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+  @media (max-width: 1080px) { .detail-layout { grid-template-columns: 1fr; gap: 18px; } .detail-main { grid-row: 2; } .entry-header { grid-template-columns: 160px minmax(0, 1fr); } .hero-portrait { width: 160px; height: 210px; } .entry-actions { grid-column: 2; justify-content: flex-start; } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .character-page { padding: 22px 16px 54px; } .entry-header { grid-template-columns: 118px minmax(0, 1fr); gap: 17px; } .hero-portrait { width: 118px; height: 162px; } h1 { font-size: 2.35rem; } .description { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; } .entry-actions { grid-column: 1 / -1; } .core-stats { grid-template-columns: repeat(2, 1fr); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .location-grid { grid-template-columns: 1fr; } .location-grid div + div { border-top: 1px solid var(--line); border-left: 0; } .relation-list { grid-template-columns: 1fr; } }
+  @media (max-width: 500px) { .entry-header { grid-template-columns: 92px minmax(0, 1fr); } .hero-portrait { width: 92px; height: 132px; } h1 { font-size: 2rem; } .entry-meta { gap: 5px 9px; font-size: .66rem; } .description { font-size: .76rem; } .overview-copy { grid-template-columns: 1fr; } .overview-copy img { display: none; } .overview-copy > span { display: none; } .property-table div { grid-template-columns: 112px minmax(0, 1fr); } }
+</style>

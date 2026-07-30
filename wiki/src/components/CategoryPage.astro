@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryCard from './EntryCard.astro';
+import type { EntryKind } from '../data/wiki';
+import { entries } from '../data/wiki';
+
+interface Props { title: string; description: string; kinds: EntryKind[]; }
+const { title, description, kinds } = Astro.props;
+const selected = entries.filter((entry) => kinds.includes(entry.kind));
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="page-wrap" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li aria-current="page">{title}</li></ol>
+    <header><p class="eyebrow">分类索引</p><h1 class="page-heading" data-pagefind-meta="title">{title}</h1><p class="page-lead">{description}</p></header>
+    <div class="category-count"><strong>{selected.length}</strong><span>个已建条目</span></div>
+    <div class="category-grid">{selected.map((entry) => <EntryCard entry={entry} compact />)}</div>
+  </div>
+</BaseLayout>
+
+<style>
+  header { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+  .category-count { display: flex; align-items: baseline; gap: 8px; margin: 22px 0 14px; }
+  .category-count strong { font-size: 1.45rem; }
+  .category-count span { color: var(--text-soft); font-size: .8rem; }
+  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 1040px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .category-grid { grid-template-columns: 1fr; } }
+</style>

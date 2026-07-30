@@ -1,0 +1,8 @@
+---
+import { Search } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="条目不存在" noindex>
+  <div class="not-found"><span>404</span><h1>这页还没有收录</h1><p>链接可能已经调整，也可能是尚未建立的条目。</p><div><button class="button primary search-trigger" type="button"><Search size={17} />搜索百科</button><a class="button" href="/entries/">浏览全部条目</a></div></div>
+</BaseLayout>
+<style>.not-found { min-height: calc(100vh - var(--header-h)); display: grid; place-content: center; justify-items: center; padding: 28px; text-align: center; }.not-found > span { color: var(--accent); font-family: var(--font-display); font-size: 6rem; line-height: 1; }.not-found h1 { margin: 10px 0 0; font-family: var(--font-display); font-size: 2.2rem; font-weight: 400; }.not-found p { margin: 8px 0 22px; color: var(--text-soft); }.not-found div { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; }</style>

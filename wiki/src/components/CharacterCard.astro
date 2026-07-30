@@ -1,0 +1,53 @@
+---
+import { MapPin, Network, Users } from '@lucide/astro';
+import type { CharacterEntry } from '../data/characters';
+import { characterHref, characterLevel } from '../data/characters';
+import { characterPortraitThumbnail } from '../data/images';
+
+interface Props { entry: CharacterEntry; }
+const { entry } = Astro.props;
+const location = entry.locations[0] || '地点未标明';
+---
+
+<a class="character-card" href={characterHref(entry)} data-role={entry.role}>
+  <div class="portrait-wrap">
+    {entry.portrait
+      ? <img src={characterPortraitThumbnail(entry.portrait)} alt={`${entry.name}立绘`} width="252" height="428" loading="lazy" decoding="async" />
+      : <span class="portrait-fallback" aria-hidden="true">{entry.name.slice(0, 1)}</span>}
+    <span class="role-label">{entry.role}</span>
+  </div>
+  <div class="card-copy">
+    <div class="title-row"><h2>{entry.name}</h2>{entry.gender !== '未知' && <span>{entry.gender}</span>}</div>
+    <p>{entry.description}</p>
+    <dl>
+      <div><Users size={14} /><dt>身份</dt><dd>{entry.faction}</dd></div>
+      <div><MapPin size={14} /><dt>地点</dt><dd>{location}</dd></div>
+      {entry.relationCount > 0
+        ? <div><Network size={14} /><dt>关系</dt><dd>{entry.relationCount} 条</dd></div>
+        : entry.levelMin > 0 && <div><dt>等级</dt><dd>{characterLevel(entry)}</dd></div>}
+    </dl>
+  </div>
+</a>
+
+<style>
+  .character-card { min-height: 214px; display: grid; grid-template-columns: 126px minmax(0, 1fr); border: 1px solid var(--line); background: var(--surface); color: var(--text); text-decoration: none; overflow: hidden; transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+  .character-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .portrait-wrap { position: relative; min-height: 214px; display: flex; align-items: flex-end; justify-content: center; background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, var(--surface-muted)), var(--surface-muted)); overflow: hidden; }
+  .portrait-wrap::after { position: absolute; inset: auto 0 0; height: 44%; background: linear-gradient(transparent, rgb(18 20 19 / 32%)); content: ''; pointer-events: none; }
+  img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; transition: transform .2s ease; }
+  .character-card:hover img { transform: scale(1.025); }
+  .portrait-fallback { align-self: center; width: 72px; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--surface); color: var(--accent); font-family: var(--font-display); font-size: 2.35rem; }
+  .role-label { position: absolute; z-index: 1; right: 7px; bottom: 7px; padding: 3px 7px; border: 1px solid rgb(255 255 255 / 30%); background: rgb(20 24 22 / 78%); color: #fff; font-size: .61rem; }
+  .card-copy { min-width: 0; display: flex; flex-direction: column; padding: 15px 16px 13px; }
+  .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  h2 { margin: 0; font-family: var(--font-display); font-size: 1.48rem; font-weight: 400; line-height: 1.2; }
+  .title-row span { color: var(--text-soft); font-size: .68rem; }
+  p { display: -webkit-box; margin: 8px 0 13px; color: var(--text-soft); font-size: .75rem; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+  dl { display: grid; gap: 5px; margin: auto 0 0; }
+  dl div { min-width: 0; display: grid; grid-template-columns: 15px 30px minmax(0, 1fr); align-items: center; gap: 4px; }
+  dl :global(svg) { color: var(--accent); }
+  dt, dd { margin: 0; font-size: .67rem; }
+  dt { color: var(--text-soft); }
+  dd { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+  @media (max-width: 520px) { .character-card { grid-template-columns: 104px minmax(0, 1fr); min-height: 190px; } .portrait-wrap { min-height: 190px; } .card-copy { padding: 13px; } }
+</style>

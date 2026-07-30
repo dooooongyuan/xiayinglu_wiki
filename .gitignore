@@ -1,0 +1,15 @@
+wiki/node_modules/
+wiki/dist/
+wiki/.astro/
+wiki/.pagefind/
+wiki/.wrangler/
+logs/*.log
+logs/*.tmp
+logs/qa/
+logs/bundle-index.json
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.dev.vars

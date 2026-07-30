@@ -1,0 +1,149 @@
+---
+import { Bookmark, SquarePen, Link2, Printer, ShieldCheck } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryCard from './EntryCard.astro';
+import type { WikiEntry } from '../data/wiki';
+import { entryBySlug, getBacklinks, verificationLabels } from '../data/wiki';
+import { site } from '../data/site';
+
+interface Props { entry: WikiEntry; }
+const { entry } = Astro.props;
+const related = entry.related.map((slug) => entryBySlug.get(slug)).filter(Boolean) as WikiEntry[];
+const backlinks = getBacklinks(entry.slug);
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订：${entry.title}`)}` : '/about/#contribute';
+const parent = entry.kind === 'research'
+  ? { href: '/research/', label: '考据库' }
+  : entry.kind === 'character'
+    ? { href: '/characters/', label: '人物' }
+    : { href: '/entries/#systems', label: '百科目录' };
+---
+
+<BaseLayout title={entry.title} description={entry.summary} image={entry.image}>
+  <article class="article-page" data-pagefind-body data-entry-slug={entry.slug} data-entry-title={entry.title}>
+    <ol class="breadcrumbs">
+      <li><a href="/">首页</a></li><li>›</li>
+      <li><a href={parent.href}>{parent.label}</a></li><li>›</li>
+      <li aria-current="page">{entry.title}</li>
+    </ol>
+
+    <header class="article-header">
+      <div>
+        <div class="article-meta"><span class="status" data-status={entry.verification}>{verificationLabels[entry.verification]}</span><span>核对日期 {entry.updated}</span></div>
+        <h1 data-pagefind-meta="title">{entry.title}</h1>
+        <p class="subtitle">{entry.subtitle}</p>
+        <p class="summary">{entry.summary}</p>
+        <ul class="tag-list" data-pagefind-filter="tag">{entry.tags.map((tag) => <li class="tag">{tag}</li>)}</ul>
+      </div>
+      <div class="article-actions">
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏条目"><Bookmark size={18} /><span class="sr-only">收藏条目</span></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印条目"><Printer size={18} /><span class="sr-only">打印条目</span></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <div class="article-layout">
+      <div class="article-content">
+        <nav class="mobile-toc" aria-label="本页目录">
+          <details><summary>本页目录</summary><ol>{entry.sections.map((section) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}</ol></details>
+        </nav>
+
+        {entry.sections.map((section) => section.spoiler ? (
+          <details class="spoiler" id={section.id}><summary>{section.title}</summary><div>{section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}</div></details>
+        ) : (
+          <section id={section.id}>
+            <h2>{section.title}<a class="heading-anchor" href={`#${section.id}`} aria-label={`链接到${section.title}`}><Link2 size={16} /></a></h2>
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
+          </section>
+        ))}
+
+        <section id="sources" class="sources">
+          <h2>资料来源 <ShieldCheck size={19} /></h2>
+          <ol>{entry.sources.map((source) => <li><strong>{source.label}</strong><span>{source.detail}</span>{source.path && <code>{source.path}</code>}</li>)}</ol>
+        </section>
+
+        {backlinks.length > 0 && <section id="backlinks"><h2>反向链接</h2><ul>{backlinks.map((backlink) => <li><a href={`${backlink.kind === 'research' ? '/research' : '/wiki'}/${backlink.slug}/`}>{backlink.title}</a>提到了本条目</li>)}</ul></section>}
+      </div>
+
+      <aside class="article-rail">
+        {entry.image && <figure class="infobox-art"><img src={entry.image} alt={`${entry.title}游戏资料图`} width="320" height="564" loading="lazy" decoding="async" /></figure>}
+        <dl class="infobox">{entry.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
+        <nav class="desktop-toc" aria-label="本页目录"><strong>本页目录</strong><ol>{entry.sections.map((section) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}<li><a href="#sources">资料来源</a></li></ol></nav>
+      </aside>
+    </div>
+
+    {related.length > 0 && <section class="related"><div class="section-heading"><h2>相关条目</h2></div><div class="related-grid">{related.map((item) => <EntryCard entry={item} compact />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector('[data-entry-slug]');
+  if (article instanceof HTMLElement) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => print());
+</script>
+
+<style>
+  .article-page { width: min(100%, 1180px); margin: 0 auto; padding: 28px 36px 70px; }
+  .article-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .article-meta { display: flex; gap: 12px; color: var(--text-soft); font-size: .76rem; }
+  h1 { margin: 7px 0 0; font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 400; line-height: 1.15; }
+  .subtitle { margin: 4px 0 0; color: var(--gold); font-size: 1.05rem; font-weight: 650; }
+  .summary { max-width: 760px; margin: 14px 0; color: var(--text-soft); font-size: 1rem; }
+  .article-actions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 54px; margin-top: 26px; }
+  .article-content { min-width: 0; }
+  .article-content section { scroll-margin-top: calc(var(--header-h) + 24px); }
+  .article-content section + section { margin-top: 38px; }
+  .article-content h2 { display: flex; align-items: center; gap: 9px; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.35rem; line-height: 1.4; }
+  .heading-anchor { color: var(--line-strong); opacity: 0; }
+  h2:hover .heading-anchor, .heading-anchor:focus-visible { opacity: 1; }
+  .article-content p { margin: 0 0 12px; }
+  .article-content ul { padding-left: 1.25rem; }
+  .article-content li + li { margin-top: 5px; }
+  .article-rail { min-width: 0; }
+  .infobox-art { margin: 0; max-height: 420px; overflow: hidden; border: 1px solid var(--line); border-bottom: 0; background: #111; }
+  .infobox-art img { width: 100%; max-height: 420px; object-fit: cover; object-position: center 16%; }
+  .infobox { margin: 0; border: 1px solid var(--line); background: var(--surface); }
+  .infobox div { display: grid; grid-template-columns: 92px 1fr; gap: 10px; padding: 10px 12px; }
+  .infobox div + div { border-top: 1px solid var(--line); }
+  .infobox dt { color: var(--text-soft); font-size: .76rem; font-weight: 650; }
+  .infobox dd { margin: 0; font-size: .8rem; }
+  .desktop-toc { position: sticky; top: calc(var(--header-h) + 22px); margin-top: 20px; padding: 14px; border-left: 2px solid var(--line-strong); }
+  .desktop-toc strong { font-size: .78rem; }
+  .desktop-toc ol { margin: 8px 0 0; padding-left: 1.15rem; color: var(--text-soft); font-size: .78rem; }
+  .desktop-toc a { color: inherit; text-decoration: none; }
+  .desktop-toc a:hover { color: var(--accent); }
+  .mobile-toc { display: none; }
+  .sources { padding: 20px; border: 1px solid var(--line); background: var(--surface-muted); }
+  .sources h2 { border: 0; }
+  .sources ol { margin-bottom: 0; }
+  .sources strong, .sources span, .sources code { display: block; }
+  .sources span { color: var(--text-soft); font-size: .82rem; }
+  .sources code { max-width: 100%; margin-top: 5px; overflow-wrap: anywhere; color: var(--teal); font-size: .72rem; }
+  .related { margin-top: 52px; padding-top: 4px; border-top: 1px solid var(--line); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 980px) { .article-layout { grid-template-columns: minmax(0, 1fr) 260px; gap: 32px; } .related-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .article-page { padding: 22px 18px 56px; } .article-header { display: block; } .article-actions { margin-top: 18px; } .article-layout { display: block; } .article-rail { display: grid; grid-template-columns: minmax(120px, .7fr) minmax(0, 1.3fr); margin: 24px 0 30px; } .infobox-art { max-height: 360px; border-bottom: 1px solid var(--line); border-right: 0; } .infobox-art img { height: 100%; max-height: 360px; } .desktop-toc { display: none; } .mobile-toc { display: block; margin-bottom: 24px; border: 1px solid var(--line); background: var(--surface); } .mobile-toc summary { padding: 10px 13px; cursor: pointer; font-weight: 650; } .mobile-toc ol { margin: 0; padding: 0 36px 12px; font-size: .82rem; } }
+  @media (max-width: 520px) { .article-rail { display: block; } .infobox-art { max-height: 300px; border-right: 1px solid var(--line); border-bottom: 0; } .infobox-art img { width: 100%; height: 300px; } .related-grid { grid-template-columns: 1fr; } .article-actions .button:last-child { flex: 1; } }
+</style>

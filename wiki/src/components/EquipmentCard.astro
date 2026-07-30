@@ -1,0 +1,60 @@
+---
+import { ArrowUpRight, CircleDot, Layers, Sparkles } from '@lucide/astro';
+import type { EquipmentEntry } from '../data/equipment';
+import { equipmentHref } from '../data/equipment';
+
+interface Props { entry: EquipmentEntry; }
+const { entry } = Astro.props;
+const qualityTone = entry.qualityMode === 'random' ? 'random' : entry.quality;
+const tiered = ['武器', '防具', '饰品'].includes(entry.category);
+const intrinsicCount = entry.intrinsicAttributes.length;
+const affixSummary = intrinsicCount
+  ? `专属 ${intrinsicCount} 条`
+  : entry.extraAttributes.mode === 'none'
+    ? '无额外词条'
+  : entry.extraAttributes.mode === 'fixed'
+    ? `${entry.extraAttributes.candidateCount} 条固定词条`
+    : `${entry.extraAttributes.candidateCount} 种候选 · 最多 ${entry.extraAttributes.slotMax} 条`;
+---
+
+<article class="equipment-card" data-quality={qualityTone}>
+  <a class="card-link" href={equipmentHref(entry)} aria-label={`查看装备：${entry.name}`}><span class="sr-only">查看{entry.name}</span></a>
+  <div class="icon-frame"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /></div>
+  <div class="card-copy">
+    <div class="card-meta"><span>{entry.category} · {entry.subtype}</span><span class="quality-badge">{entry.qualityLabel}</span></div>
+    <div class="card-title"><h3>{entry.name}</h3><ArrowUpRight size={17} /></div>
+    <p>{entry.description}</p>
+    <dl class="attribute-summary">
+      {entry.fixedAttributes.slice(0, 3).map((attribute) => <div><dt>{attribute.name}</dt><dd>+{attribute.value}</dd></div>)}
+      {!entry.fixedAttributes.length && <div><dt>固定属性</dt><dd>无</dd></div>}
+    </dl>
+    <div class="card-foot">
+      {tiered ? <span><Layers size={14} />{entry.tierLabel}</span> : <span><Layers size={14} />{entry.subtype}</span>}
+      <span><Sparkles size={14} />{affixSummary}</span>
+      {tiered && <span class="socket-summary"><CircleDot size={14} />孔位：{entry.socketConfig.summary}</span>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .equipment-card { position: relative; min-width: 0; min-height: 194px; display: grid; grid-template-columns: 108px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+  .equipment-card:hover { transform: translateY(-2px); border-color: var(--quality-color, var(--line-strong)); box-shadow: var(--shadow); }
+  .card-link { position: absolute; z-index: 2; inset: 0; }
+  .card-link:focus-visible { outline-offset: -3px; }
+  .icon-frame { display: grid; place-items: center; border-right: 3px solid var(--quality-color, var(--line-strong)); background: #111412; }
+  .icon-frame img { width: 100%; max-height: 156px; padding: 14px; object-fit: contain; image-rendering: auto; }
+  .card-copy { min-width: 0; display: flex; flex-direction: column; padding: 13px 14px 11px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--accent); font-size: .68rem; font-weight: 750; }
+  .quality-badge { flex: 0 0 auto; padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--quality-color) 58%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--quality-color) 8%, transparent); color: var(--quality-color); }
+  .card-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-top: 4px; }
+  h3 { margin: 0; font-size: 1.08rem; line-height: 1.35; }
+  p { display: -webkit-box; margin: 5px 0 8px; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; color: var(--text-soft); font-size: .76rem; line-height: 1.5; }
+  .attribute-summary { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; font-size: .68rem; }
+  .attribute-summary div { display: flex; gap: 4px; }
+  dt { color: var(--text-soft); }
+  dd { margin: 0; font-weight: 700; }
+  .card-foot { display: flex; flex-wrap: wrap; gap: 5px 12px; margin-top: auto; padding-top: 9px; border-top: 1px solid var(--line); color: var(--text-soft); font-size: .66rem; }
+  .card-foot span { display: inline-flex; align-items: center; gap: 4px; }
+  .socket-summary { flex-basis: 100%; color: var(--text); }
+  @media (max-width: 480px) { .equipment-card { grid-template-columns: 94px minmax(0, 1fr); } .icon-frame img { padding: 10px; } .card-copy { padding-inline: 12px; } }
+</style>

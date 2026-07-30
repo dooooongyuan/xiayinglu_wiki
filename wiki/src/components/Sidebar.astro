@@ -1,0 +1,91 @@
+---
+import { House, Library, BookOpenText, Shield, Users, Clock3, Pill, Boxes, Target, Gem, Puzzle, Newspaper } from '@lucide/astro';
+const path = Astro.url.pathname;
+const navGroups = [
+  {
+    label: '浏览',
+    items: [
+      { href: '/', label: '首页', icon: House },
+      { href: '/entries/', label: '百科目录', icon: Library },
+    ],
+  },
+  {
+    label: '专题',
+    items: [
+      { href: '/wiki/wuxue/', label: '武学图鉴', icon: BookOpenText },
+      { href: '/wiki/zhuangbei/', label: '装备图鉴', icon: Shield },
+      { href: '/wiki/danyao/', label: '丹药图鉴', icon: Pill },
+      { href: '/wiki/cailiao/', label: '材料图鉴', icon: Boxes },
+      { href: '/wiki/xianjing/', label: '陷阱图鉴', icon: Target },
+      { href: '/wiki/zhuwen/', label: '铸纹图鉴', icon: Gem },
+      { href: '/characters/', label: '人物图鉴', icon: Users },
+    ],
+  },
+  {
+    label: '资讯',
+    items: [
+      { href: '/updates/', label: '游戏更新公告', icon: Newspaper },
+    ],
+  },
+  {
+    label: '工具',
+    items: [
+      { href: '/mods/', label: 'MOD', icon: Puzzle },
+      { href: '/recent/', label: '最近浏览', icon: Clock3 },
+    ],
+  },
+];
+---
+
+<aside class="site-sidebar" id="site-sidebar">
+  <nav aria-label="主导航">
+    {navGroups.map((group, index) => (
+      <div class:list={['nav-group', { secondary: index > 0 }]}>
+        <p class="nav-label">{group.label}</p>
+        <ul>
+          {group.items.map(({ href, label, icon: Icon }) => (
+            <li><a href={href} class:list={{ active: href === '/' ? path === '/' : path.startsWith(href) }}><Icon size={18} /><span>{label}</span></a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+  </nav>
+
+</aside>
+<button class="nav-scrim" type="button" aria-label="关闭导航"></button>
+
+<style>
+  .site-sidebar {
+    position: fixed;
+    z-index: 40;
+    top: var(--header-h);
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar-w);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 14px 16px;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    overflow-y: auto;
+  }
+
+  .nav-label { margin: 0 9px 7px; color: var(--text-soft); font-size: .7rem; font-weight: 800; text-transform: uppercase; }
+  .nav-group.secondary { margin-top: 24px; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  li + li { margin-top: 3px; }
+  li a { min-height: 42px; display: flex; align-items: center; gap: 11px; padding: 8px 10px; border-radius: 5px; color: var(--text-soft); font-size: .9rem; font-weight: 600; text-decoration: none; }
+  li a:hover { background: var(--surface-muted); color: var(--text); }
+  li a.active { background: var(--accent-soft); color: var(--accent); }
+  .nav-scrim { display: none; }
+
+  @media (max-width: 920px) {
+    .site-sidebar { z-index: 80; top: var(--header-h); transform: translateX(-102%); transition: transform .2s ease; box-shadow: var(--shadow); }
+    :global(body.nav-open) .site-sidebar { transform: translateX(0); }
+    .nav-scrim { position: fixed; z-index: 70; inset: var(--header-h) 0 0; border: 0; background: rgb(0 0 0 / 48%); }
+    :global(body.nav-open) .nav-scrim { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { .site-sidebar { transition: none; } }
+</style>

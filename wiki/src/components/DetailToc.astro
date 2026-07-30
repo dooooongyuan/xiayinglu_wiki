@@ -1,0 +1,88 @@
+---
+import { List } from '@lucide/astro';
+
+interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<aside class="detail-toc" data-detail-toc data-pagefind-ignore aria-label="本页目录">
+  <div class="toc-title"><List size={16} /><span>本页目录</span></div>
+  <nav>
+    {items.map((item, index) => <a class:list={{ active: index === 0 }} href={`#${item.id}`} data-toc-link={item.id}>{item.label}</a>)}
+  </nav>
+</aside>
+
+<details class="detail-toc-mobile" data-pagefind-ignore>
+  <summary><List size={16} />本页目录</summary>
+  <nav>
+    {items.map((item) => <a href={`#${item.id}`}>{item.label}</a>)}
+  </nav>
+</details>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-detail-toc]').forEach((toc) => {
+    const links = [...toc.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+    const sections = links
+      .map((link) => document.getElementById(link.dataset.tocLink || ''))
+      .filter((section): section is HTMLElement => Boolean(section));
+    if (!sections.length) return;
+
+    const setActive = (id: string) => {
+      links.forEach((link) => {
+        const active = link.dataset.tocLink === id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (visible?.target.id) setActive(visible.target.id);
+    }, { rootMargin: '-18% 0px -68% 0px', threshold: [0, 1] });
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>
+
+<style>
+  .detail-toc {
+    position: sticky;
+    top: 82px;
+    align-self: start;
+    border-left: 1px solid var(--line);
+    padding: 2px 0 4px 18px;
+  }
+  .toc-title { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; color: var(--text-soft); font-size: .7rem; font-weight: 750; }
+  .toc-title :global(svg) { color: var(--accent); }
+  nav { display: grid; gap: 1px; }
+  a { position: relative; padding: 6px 8px; color: var(--text-soft); font-size: .76rem; line-height: 1.35; text-decoration: none; transition: color .15s ease, background .15s ease; }
+  a::before { position: absolute; top: 7px; bottom: 7px; left: -19px; width: 2px; background: transparent; content: ''; }
+  a:hover { background: var(--surface-muted); color: var(--text); }
+  a.active { color: var(--accent); font-weight: 750; }
+  a.active::before { background: var(--accent); }
+  .detail-toc-mobile { display: none; border: 1px solid var(--line); background: var(--surface); }
+  .detail-toc-mobile summary { display: flex; align-items: center; gap: 8px; padding: 10px 12px; color: var(--text-soft); cursor: pointer; font-size: .76rem; font-weight: 750; list-style: none; }
+  .detail-toc-mobile summary::-webkit-details-marker { display: none; }
+  .detail-toc-mobile summary :global(svg) { color: var(--accent); }
+  .detail-toc-mobile nav { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 7px 8px; border-top: 1px solid var(--line); }
+  .detail-toc-mobile a { padding: 8px; }
+  .detail-toc-mobile a::before { display: none; }
+  :global(.detail-main section[id]) { scroll-margin-top: 92px; }
+  @media (max-width: 1080px) {
+    .detail-toc { display: none; }
+    .detail-toc-mobile { display: block; grid-row: 1; }
+  }
+  @media (max-width: 480px) { .detail-toc-mobile nav { grid-template-columns: 1fr; } }
+  @media print { .detail-toc, .detail-toc-mobile { display: none; } }
+</style>

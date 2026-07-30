@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "file": "/game/category-danyao.png",
+      "sourcePathId": 6286644621508397270,
+      "sourceName": "丹药",
+      "width": 488,
+      "height": 860
+    },
+    {
+      "file": "/game/category-qita.png",
+      "sourcePathId": 6236116366830885663,
+      "sourceName": "其他",
+      "width": 488,
+      "height": 860
+    },
+    {
+      "file": "/game/category-wuxue.png",
+      "sourcePathId": 4504271544747551660,
+      "sourceName": "武学",
+      "width": 488,
+      "height": 860
+    },
+    {
+      "file": "/game/category-zhuangbei.png",
+      "sourcePathId": -3916738839717996089,
+      "sourceName": "装备",
+      "width": 488,
+      "height": 860
+    },
+    {
+      "file": "/game/wiki-background.jpg",
+      "sourcePathId": 7148510507295874923,
+      "sourceName": "底板",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "file": "/game/wiki-logo.png",
+      "sourcePathId": -7985025590841280237,
+      "sourceName": "侠影录",
+      "width": 1140,
+      "height": 732
+    }
+  ],
+  "localizationEntries": 382
+}

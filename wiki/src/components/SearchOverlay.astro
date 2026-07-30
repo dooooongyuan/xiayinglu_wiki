@@ -1,0 +1,135 @@
+---
+import { Search, X, ArrowRight } from '@lucide/astro';
+---
+
+<dialog class="search-dialog" aria-labelledby="search-title">
+  <div class="search-head">
+    <Search size={20} />
+    <h2 id="search-title" class="sr-only">搜索百科</h2>
+    <input type="search" placeholder="搜索武学、装备、人物、丹药、材料或陷阱" autocomplete="off" />
+    <button type="button" class="search-close" aria-label="关闭搜索"><X size={20} /></button>
+  </div>
+  <div class="search-body">
+    <p class="search-hint">输入关键词开始搜索</p>
+    <ul class="quick-results" aria-live="polite"></ul>
+    <a class="all-results" href="/search/">打开完整搜索 <ArrowRight size={16} /></a>
+  </div>
+</dialog>
+
+<script>
+  interface QuickSearchEntry {
+    title: string;
+    subtitle: string;
+    summary: string;
+    tags: string[];
+    aliases: string[];
+    kindLabel: string;
+    href: string;
+  }
+
+  const dialog = document.querySelector<HTMLDialogElement>('.search-dialog');
+  const input = dialog?.querySelector<HTMLInputElement>('input');
+  const list = dialog?.querySelector<HTMLElement>('.quick-results');
+  const hint = dialog?.querySelector<HTMLElement>('.search-hint');
+  let searchEntries: QuickSearchEntry[] = [];
+  let searchRequest: Promise<QuickSearchEntry[]> | undefined;
+
+  function loadSearchEntries() {
+    if (searchEntries.length) return Promise.resolve(searchEntries);
+    searchRequest ??= fetch('/search-quick.json')
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json() as Promise<QuickSearchEntry[]>;
+      })
+      .then((entries) => (searchEntries = entries));
+    return searchRequest;
+  }
+
+  async function openSearch() {
+    if (!dialog) return;
+    dialog.showModal();
+    requestAnimationFrame(() => input?.focus());
+    if (!searchEntries.length && hint) {
+      hint.hidden = false;
+      hint.textContent = '正在载入搜索索引…';
+    }
+    try {
+      await loadSearchEntries();
+      renderResults(input?.value || '');
+    } catch (error) {
+      console.error('快速搜索索引载入失败', error);
+      if (hint) hint.textContent = '快速搜索暂时不可用，请打开完整搜索';
+    }
+  }
+
+  function closeSearch() { dialog?.close(); }
+
+  function escapeHtml(value: string) {
+    const entities: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' };
+    return value.replace(/[&<>'"]/g, (character) => entities[character]);
+  }
+
+  function renderResults(query: string) {
+    if (!list || !hint) return;
+    const normalized = query.trim().toLocaleLowerCase('zh-CN');
+    if (!normalized) {
+      list.innerHTML = '';
+      hint.hidden = false;
+      hint.textContent = '输入关键词开始搜索';
+      return;
+    }
+    const results = searchEntries
+      .map((entry, index) => {
+        const title = entry.title.toLocaleLowerCase('zh-CN');
+        const aliases = entry.aliases.map((alias) => alias.toLocaleLowerCase('zh-CN'));
+        const searchText = [entry.title, entry.subtitle, entry.summary, ...entry.tags, ...entry.aliases].join(' ').toLocaleLowerCase('zh-CN');
+        const rank = title === normalized ? 0 : aliases.includes(normalized) ? 1 : title.startsWith(normalized) ? 2 : aliases.some((alias) => alias.startsWith(normalized)) ? 3 : 4;
+        return { entry, index, rank, matches: searchText.includes(normalized) };
+      })
+      .filter((result) => result.matches)
+      .sort((left, right) => left.rank - right.rank || left.index - right.index)
+      .slice(0, 6)
+      .map((result) => result.entry);
+    hint.hidden = results.length > 0;
+    hint.textContent = results.length ? '' : '没有找到匹配条目';
+    list.innerHTML = results.map((entry) => `<li><a href="${entry.href}"><span><strong>${escapeHtml(entry.title)}</strong><small>${escapeHtml(entry.kindLabel)} · ${escapeHtml(entry.subtitle)}</small></span><span aria-hidden="true">→</span></a></li>`).join('');
+  }
+
+  document.querySelectorAll('.search-trigger').forEach((button) => button.addEventListener('click', openSearch));
+  dialog?.querySelector('.search-close')?.addEventListener('click', closeSearch);
+  dialog?.addEventListener('click', (event) => { if (event.target === dialog) closeSearch(); });
+  input?.addEventListener('input', async () => {
+    try {
+      await loadSearchEntries();
+      renderResults(input.value);
+    } catch {
+      // openSearch already exposes a user-facing fallback.
+    }
+  });
+  input?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && input.value.trim()) window.location.href = `/search/?q=${encodeURIComponent(input.value.trim())}`;
+  });
+  document.addEventListener('keydown', (event) => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); openSearch(); }
+    if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) { event.preventDefault(); openSearch(); }
+  });
+</script>
+
+<style>
+  .search-dialog { width: min(680px, calc(100% - 28px)); max-height: min(680px, calc(100dvh - 40px)); margin: 10vh auto auto; padding: 0; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface); color: var(--text); box-shadow: 0 24px 80px rgb(0 0 0 / 32%); }
+  .search-dialog::backdrop { background: rgb(10 12 11 / 64%); backdrop-filter: blur(3px); }
+  .search-head { height: 60px; display: flex; align-items: center; gap: 12px; padding: 0 14px 0 18px; border-bottom: 1px solid var(--line); }
+  input { min-width: 0; flex: 1; height: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 1rem; }
+  input::placeholder { color: var(--text-soft); }
+  .search-close { width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: transparent; color: var(--text-soft); cursor: pointer; }
+  .search-body { padding: 12px; }
+  .search-hint { margin: 24px 12px; color: var(--text-soft); text-align: center; }
+  .quick-results { margin: 0; padding: 0; list-style: none; }
+  :global(.quick-results li + li) { border-top: 1px solid var(--line); }
+  :global(.quick-results a) { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px; border-radius: 4px; color: var(--text); text-decoration: none; }
+  :global(.quick-results a:hover) { background: var(--surface-muted); }
+  :global(.quick-results strong), :global(.quick-results small) { display: block; }
+  :global(.quick-results strong) { font-size: .94rem; }
+  :global(.quick-results small) { margin-top: 2px; color: var(--text-soft); font-size: .76rem; }
+  .all-results { min-height: 42px; display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 8px; border-top: 1px solid var(--line); font-size: .84rem; text-decoration: none; }
+</style>

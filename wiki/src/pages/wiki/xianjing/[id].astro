@@ -1,0 +1,213 @@
+---
+import { Bookmark, Coins, Hammer, Hourglass, Network, Package, PackageOpen, Printer, Sparkles, SquarePen, Workflow } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DetailToc from '../../../components/DetailToc.astro';
+import TrapCard from '../../../components/TrapCard.astro';
+import { trapEntries } from '../../../data/traps';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  return trapEntries.map((entry) => ({ params: { id: String(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const bookmarkSlug = `xianjing-${entry.id}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订陷阱：${entry.name}`)}` : '/about/#contribute';
+const related = trapEntries
+  .filter((item) => item.id !== entry.id)
+  .sort((left, right) => Math.abs(left.quality - entry.quality) - Math.abs(right.quality - entry.quality) || left.id - right.id)
+  .slice(0, 3);
+const tocItems = [
+  { id: 'overview', label: '陷阱说明' },
+  { id: 'effect', label: '实际效果' },
+  { id: 'unlock', label: '修习解锁' },
+  { id: 'recipe', label: '制作配方' },
+  { id: 'acquisition', label: '获取方式' },
+  { id: 'properties', label: '使用参数' },
+];
+---
+
+<BaseLayout title={`${entry.name} · 陷阱图鉴`} description={entry.effectSummary} image={entry.icon}>
+  <article class="trap-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name} data-quality={entry.quality}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/wiki/xianjing/">陷阱图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+
+    <header class="entry-header">
+      <div class="hero-icon"><img src={entry.icon} alt="" width="256" height="256" decoding="async" fetchpriority="high" /></div>
+      <div class="header-copy">
+        <div class="entry-meta"><span>机关陷阱</span><span class="quality-label">{entry.qualityLabel}</span><span>物品 {entry.id}</span></div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        {entry.traditionalName && entry.traditionalName !== entry.name && <p class="traditional">繁体：{entry.traditionalName}</p>}
+        <p class="description">{entry.effectSummary}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag quality-tag">{entry.qualityLabel}</span>{entry.effectTags.map((tag) => <span class="tag">{tag}</span>)}</div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏陷阱"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印陷阱"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="陷阱摘要">
+      <div><Hourglass size={19} /><span><small>布设持续</small><strong>{entry.effect.durationSeconds} 秒</strong></span></div>
+      <div><Network size={19} /><span><small>解锁消耗</small><strong>{entry.unlock.points.toLocaleString('zh-CN')} 修习点</strong></span></div>
+      <div><Coins size={19} /><span><small>制作铜钱</small><strong>{entry.recipe.costMoney.toLocaleString('zh-CN')}</strong></span></div>
+      <div><Package size={19} /><span><small>单格堆叠</small><strong>{entry.stackLimit}</strong></span></div>
+    </section>
+
+    <div class="detail-layout">
+      <main class="detail-main">
+        <section id="overview">
+          <h2>陷阱说明</h2>
+          <div class="overview-copy"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /><p>{entry.description}</p></div>
+        </section>
+
+        <section id="effect">
+          <div class="section-heading"><div><h2>实际效果</h2><p>效果说明采用游戏物品描述中的明确表述。</p></div><span>{entry.effectTags.join(' · ')}</span></div>
+          <div class="effect-panel">
+            <Sparkles size={22} />
+            <div><strong>{entry.effectSummary}</strong><div class="effect-tags">{entry.effectTags.map((tag) => <span>{tag}</span>)}</div></div>
+          </div>
+        </section>
+
+        <section id="unlock">
+          <div class="section-heading"><div><h2>修习解锁</h2><p>需要先激活对应修习节点，配方才会在打造界面解锁。</p></div><span>节点 {entry.unlock.nodeId}</span></div>
+          <div class="unlock-flow">
+            {entry.unlock.prerequisites.length > 0 ? entry.unlock.prerequisites.map((prerequisite) => (
+              <><a href={`/wiki/xianjing/${prerequisite.itemId}/`}><small>前置陷阱</small><strong>{prerequisite.name}</strong></a><Workflow size={20} /></>
+            )) : <div class="root-node"><small>路线位置</small><strong>起始节点</strong></div>}
+            <div class="current-node"><small>激活 {entry.name}</small><strong>{entry.unlock.points.toLocaleString('zh-CN')} 修习点</strong></div>
+          </div>
+        </section>
+
+        <section id="recipe">
+          <div class="section-heading"><div><h2>制作配方</h2><p>以下数量均为制作一份陷阱的材料消耗。</p></div><span>{entry.recipe.materials.length} 种材料</span></div>
+          <div class="recipe-summary"><Hammer size={19} /><span><small>制作费用</small><strong>{entry.recipe.costMoney.toLocaleString('zh-CN')} 铜钱</strong></span></div>
+          <div class="material-grid">{entry.recipe.materials.map((material) => (
+            <a href={`/wiki/cailiao/${material.id}/`}><span><strong>{material.name}</strong><small>材料 {material.id}</small></span><b>× {material.count}</b></a>
+          ))}</div>
+        </section>
+
+        <section id="acquisition">
+          <div class="section-heading"><div><h2>获取方式</h2><p>当前版本的陷阱成品均通过打造获得。</p></div><span>打造制作</span></div>
+          <div class="source-row"><div class="source-icon"><Hammer size={20} /></div><div><span>已确认来源</span><strong>{entry.acquisitionSources[0].title}</strong><p>{entry.acquisitionSources[0].detail}</p></div></div>
+          <p class="source-note"><PackageOpen size={16} />当前商店与敌人掉落中未发现该陷阱成品记录；材料本身仍可通过各自的材料详情页反查来源。</p>
+        </section>
+
+        <section id="properties">
+          <h2>使用参数</h2>
+          <dl class="property-table">
+            <div><dt>陷阱名称</dt><dd>{entry.name}</dd></div>
+            <div><dt>品质</dt><dd class="quality-value">{entry.qualityLabel}</dd></div>
+            <div><dt>布设持续</dt><dd>{entry.effect.durationSeconds} 秒</dd></div>
+            <div><dt>触发方式</dt><dd>{entry.effect.triggerMode}</dd></div>
+            <div><dt>使用冷却</dt><dd>{entry.useCooldownSeconds} 秒</dd></div>
+            <div><dt>单格堆叠</dt><dd>{entry.stackLimit}</dd></div>
+          </dl>
+        </section>
+      </main>
+      <DetailToc items={tocItems} />
+    </div>
+
+    {related.length > 0 && <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同类陷阱</h2><a href="/wiki/xianjing/">返回图鉴</a></div><div class="related-grid">{related.map((item) => <TrapCard entry={item} />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .trap-page { width: min(100%, 1260px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 144px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .hero-icon { width: 144px; aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--quality-color); background: #111412; }
+  .hero-icon img { width: 100%; height: 100%; padding: 11px; object-fit: contain; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .quality-label, .quality-value { color: var(--quality-color); }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; }
+  .traditional { margin: 2px 0 0; color: var(--gold); font-size: .76rem; }
+  .description { max-width: 760px; margin: 10px 0 12px; color: var(--text-soft); }
+  .quality-tag { border-color: color-mix(in srgb, var(--quality-color) 55%, var(--line)); background: color-mix(in srgb, var(--quality-color) 8%, var(--surface)); color: var(--quality-color); }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .9rem; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 42px; margin-top: 34px; }
+  .detail-main section + section { margin-top: 40px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .overview-copy { min-height: 128px; display: grid; grid-template-columns: 106px minmax(0, 1fr); align-items: center; gap: 20px; padding: 14px 18px; border: 1px solid var(--line); background: var(--surface); }
+  .overview-copy img { width: 90px; aspect-ratio: 1; padding: 7px; object-fit: contain; background: #111412; }
+  .overview-copy p { margin: 0; color: var(--text-soft); line-height: 1.8; }
+  .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 13px; }
+  .section-heading h2 { margin-bottom: 4px; }
+  .section-heading p { margin: 0; color: var(--text-soft); font-size: .78rem; }
+  .section-heading > span { flex: 0 0 auto; padding: 4px 8px; border: 1px solid var(--line); color: var(--accent); font-size: .7rem; font-weight: 750; }
+  .effect-panel { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 13px; padding: 17px; border-left: 3px solid var(--quality-color); background: var(--surface); }
+  .effect-panel > :global(svg) { color: var(--quality-color); }
+  .effect-panel strong { line-height: 1.7; }
+  .effect-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .effect-tags span { padding: 3px 7px; border: 1px solid color-mix(in srgb, var(--quality-color) 40%, var(--line)); color: var(--quality-color); font-size: .68rem; }
+  .unlock-flow { display: flex; align-items: stretch; gap: 10px; }
+  .unlock-flow > :global(svg) { flex: 0 0 auto; align-self: center; color: var(--text-soft); }
+  .unlock-flow a, .root-node, .current-node { min-width: 170px; display: flex; flex-direction: column; justify-content: center; padding: 13px 15px; border: 1px solid var(--line); background: var(--surface); color: var(--text); text-decoration: none; }
+  .unlock-flow a:hover { border-color: var(--accent); }
+  .current-node { flex: 1; border-color: var(--quality-color); background: color-mix(in srgb, var(--quality-color) 6%, var(--surface)); }
+  .unlock-flow small { color: var(--text-soft); font-size: .68rem; }
+  .unlock-flow strong { margin-top: 3px; font-size: .88rem; }
+  .recipe-summary { display: flex; align-items: center; gap: 11px; padding: 11px 13px; border: 1px solid var(--line); border-bottom: 0; background: var(--surface-muted); }
+  .recipe-summary > :global(svg) { color: var(--accent); }
+  .recipe-summary small, .recipe-summary strong { display: block; }
+  .recipe-summary small { color: var(--text-soft); font-size: .66rem; }
+  .recipe-summary strong { font-size: .84rem; }
+  .material-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .material-grid a { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); color: var(--text); text-decoration: none; }
+  .material-grid a:hover { background: var(--surface-muted); }
+  .material-grid strong, .material-grid small { display: block; }
+  .material-grid strong { font-size: .83rem; }
+  .material-grid small { margin-top: 2px; color: var(--text-soft); font-size: .62rem; }
+  .material-grid b { color: var(--gold); font-size: .76rem; }
+  .source-row { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 13px; padding: 14px; border: 1px solid var(--line); background: var(--surface); }
+  .source-icon { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line)); color: var(--accent); }
+  .source-row span, .source-row strong { display: block; }
+  .source-row span { color: var(--text-soft); font-size: .65rem; }
+  .source-row strong { margin-top: 1px; font-size: .9rem; }
+  .source-row p { margin: 4px 0 0; color: var(--text-soft); font-size: .78rem; }
+  .source-note { display: flex; align-items: flex-start; gap: 7px; margin: 9px 0 0; color: var(--text-soft); font-size: .72rem; }
+  .source-note > :global(svg) { flex: 0 0 auto; margin-top: 1px; }
+  .property-table { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .property-table div { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .property-table dt { color: var(--text-soft); font-size: .7rem; }
+  .property-table dd { margin: 0; text-align: right; font-size: .82rem; font-weight: 750; }
+  .related { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .related .section-heading a { color: var(--accent); font-size: .78rem; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+  @media (max-width: 1000px) { .entry-header { grid-template-columns: 124px minmax(0, 1fr); } .hero-icon { width: 124px; } .entry-actions { grid-column: 1 / -1; justify-content: flex-start; } .detail-layout { grid-template-columns: 1fr; } .detail-layout > :global(.detail-toc) { display: none; } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .trap-page { padding: 22px 16px 52px; } .core-stats { grid-template-columns: repeat(2, 1fr); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .unlock-flow { flex-wrap: wrap; } .unlock-flow > :global(svg) { transform: rotate(90deg); } .unlock-flow a, .root-node, .current-node { min-width: calc(100% - 38px); flex: 1; } .material-grid, .property-table { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .entry-header { grid-template-columns: 86px minmax(0, 1fr); gap: 15px; } .hero-icon { width: 86px; } h1 { font-size: 2.2rem; } .description { grid-column: 1 / -1; } .entry-actions .button:not(.icon-button) { flex: 1; } .overview-copy { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 11px; } .overview-copy img { width: 66px; } .section-heading { display: block; } .section-heading > span { display: inline-block; margin-top: 7px; } }
+</style>

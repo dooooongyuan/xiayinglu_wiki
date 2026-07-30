@@ -1,0 +1,316 @@
+---
+import { Bookmark, CircleDot, Layers, MapPin, Printer, ShieldCheck, SquarePen, Tags } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DetailToc from '../../../components/DetailToc.astro';
+import EquipmentCard from '../../../components/EquipmentCard.astro';
+import { qualityLabels, equipmentEntries } from '../../../data/equipment';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  return equipmentEntries.map((entry) => ({ params: { id: String(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const qualityTone = entry.qualityMode === 'random' ? 'random' : entry.quality;
+const tiered = ['武器', '防具', '饰品'].includes(entry.category);
+const intrinsicAffixes = entry.intrinsicAttributes;
+const powerBreakdown = Object.values(entry.combatPower);
+const affinityPowers = powerBreakdown.filter((power) => power.label !== '攻击');
+const powerSummary = affinityPowers.length
+  ? `伤害同时受攻击与${affinityPowers.map((power) => power.label).join('、')}影响。图示为配置中的相对权重，不等同于最终伤害占比。`
+  : '该暗器主要受攻击属性影响。图示为配置中的相对权重，不等同于最终伤害占比。';
+const affixSummary = entry.extraAttributes.mode === 'none'
+  ? '无额外词条'
+  : entry.extraAttributes.mode === 'fixed'
+    ? `${entry.extraAttributes.candidateCount} 条固定词条`
+    : `最多 ${entry.extraAttributes.slotMax} 条 · ${entry.extraAttributes.candidateCount} 种候选`;
+const relatedPool = equipmentEntries.filter((item) => item.id !== entry.id && item.category === entry.category && item.subtype === entry.subtype);
+const related = relatedPool.slice(0, 3);
+const bookmarkSlug = `equipment-${entry.id}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订装备：${entry.name}`)}` : '/about/#contribute';
+const slots = Array.from({ length: entry.extraAttributes.slotMax }, (_, index) => index + 1);
+const affixQualities = [1, 2, 3, 4, 5] as const;
+const candidatesByQuality = Object.fromEntries(affixQualities.map((quality) => [quality, entry.extraAttributes.candidates.filter((candidate) => candidate.quality === quality)]));
+const availableAffixQualities = affixQualities.filter((quality) => candidatesByQuality[quality].length !== 0);
+const slotOptions = slots.map((number) => ({ number, active: number <= entry.extraAttributes.slotMax }));
+const hasPowerBreakdown = powerBreakdown.length !== 0;
+const hasRelated = related.length !== 0;
+const socketCounts = [...new Set(entry.socketConfig.rules.flatMap((rule) => rule.outcomes.map((outcome) => outcome.count)))].sort((a, b) => a - b);
+const acquisitionTypeLabels = { initial: '初始携带', forge: '天工打造', combine: '装备合成', shop: '商店购买', contribution: '贡献兑换', drop: '敌人掉落', chest: '宝箱获取', event: '副本奖励', unknown: '未发现来源' } as const;
+const primarySource = entry.acquisitionSources[0];
+const primarySourceLabel = primarySource ? acquisitionTypeLabels[primarySource.type] : '未发现来源';
+const tocItems = [
+  { id: 'overview', label: '装备介绍' },
+  { id: 'fixed-attributes', label: '固定属性' },
+  ...(entry.category === '暗器' && hasPowerBreakdown ? [{ id: 'damage', label: '伤害倾向' }] : []),
+  ...(entry.extraAttributes.mode !== 'none' ? [{ id: 'extra-attributes', label: '额外属性' }] : []),
+  ...(tiered ? [{ id: 'sockets', label: '镶嵌孔位' }] : []),
+  ...(entry.category === '宝物' && intrinsicAffixes.length ? [{ id: 'intrinsic-effects', label: '专属效果' }] : []),
+  { id: 'acquisition', label: '获取方式' },
+];
+---
+
+<BaseLayout title={`${entry.name} · 装备图鉴`} description={entry.description} image={entry.icon}>
+  <article class="equipment-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name} data-quality={qualityTone}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/wiki/zhuangbei/">装备图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+
+    <header class="entry-header">
+      <div class="hero-icon"><img src={entry.icon} alt="" width="256" height="256" decoding="async" fetchpriority="high" /></div>
+      <div class="header-copy">
+        <div class="entry-meta"><span>{entry.category}</span><span>{entry.subtype}</span><span class="quality-label">{entry.qualityLabel}</span>{tiered && <span>{entry.tierLabel}</span>}</div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        <p class="description">{entry.description}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag">{entry.category}</span><span class="tag">{entry.subtype}</span>{tiered && <span class="tag">{entry.tierLabel}</span>}<span class="tag quality-tag">{entry.qualityLabel}</span></div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏装备"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印装备"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="装备摘要">
+      <div><ShieldCheck size={19} /><span><small>装备分类</small><strong>{entry.category}</strong></span></div>
+      <div><Tags size={19} /><span><small>具体类型</small><strong>{entry.subtype}</strong></span></div>
+      <div><Layers size={19} /><span><small>{tiered ? '装备阶级' : '品质'}</small><strong>{tiered ? entry.tierLabel : entry.qualityLabel}</strong></span></div>
+      <div><MapPin size={19} /><span><small>主要来源</small><strong>{primarySourceLabel}</strong></span></div>
+    </section>
+
+    <div class="detail-layout">
+      <main class="detail-main">
+        <section id="overview">
+          <h2>装备介绍</h2>
+          <p>{entry.description}</p>
+        </section>
+
+        <section id="fixed-attributes">
+          <h2>固定属性</h2>
+          {entry.fixedAttributes.length ? <dl class="fixed-attributes">{entry.fixedAttributes.map((attribute) => <div><dt>{attribute.name}</dt><dd>{attribute.value}</dd></div>)}</dl> : <p class="section-empty">这件装备没有独立的固定属性配置。</p>}
+        </section>
+
+        {entry.category === '暗器' && hasPowerBreakdown && <section id="damage">
+          <h2>伤害倾向</h2>
+          <p>{powerSummary}</p>
+          <div class="power-list">{powerBreakdown.map((power) => <div class="power-row"><span>{power.label}</span><div><i style={`width: ${power.share}%`}></i></div><strong>{power.share}%</strong></div>)}</div>
+        </section>}
+
+        {entry.category === '宝物' && intrinsicAffixes.length > 0 && <section id="intrinsic-effects" class="intrinsic-section">
+          <div class="section-title"><div><h2>专属效果</h2><p>由宝物模板固定提供；当前版本每件宝物配置一条专属效果。</p></div><span>{intrinsicAffixes.length} 条必定出现</span></div>
+          <div class="fixed-affixes">{intrinsicAffixes.map((candidate) => <article data-quality={candidate.quality}><span class="affix-quality">{candidate.qualityLabel}</span><div><h3>{candidate.name}</h3><p>{candidate.description}</p></div><strong>{candidate.value}</strong></article>)}</div>
+        </section>}
+
+        {entry.extraAttributes.mode !== 'none' && <section id="extra-attributes" class="extra-section">
+          <div class="section-title"><div><h2>额外属性</h2><p>{entry.extraAttributes.mode === 'random' ? `${entry.extraAttributes.slotMax} 个词条位置共享 ${entry.extraAttributes.candidateCount} 种完整候选。` : '以下词条随装备固定出现。'}</p></div><span>{affixSummary}</span></div>
+
+          {entry.extraAttributes.mode === 'fixed' && <div class="fixed-affixes">{entry.extraAttributes.candidates.map((candidate) => <article data-quality={candidate.quality}><span class="affix-quality">{candidate.qualityLabel}</span><div><h3>{candidate.name}</h3><p>{candidate.description}</p></div><strong>{candidate.value}</strong></article>)}</div>}
+
+          {entry.extraAttributes.mode === 'random' && <div class="random-affixes">
+            <div class="slot-track" aria-label="额外属性槽位" style={`--affix-slot-count: ${entry.extraAttributes.slotMax}`}>
+              {slotOptions.map((slot) => <div class={slot.active ? '' : 'inactive'}><span>{String(slot.number).padStart(2, '0')}</span><strong>词条槽位 {slot.number}</strong><small>{slot.active ? `${entry.extraAttributes.candidateCount} 种候选` : '当前不启用'}</small></div>)}
+            </div>
+
+            <div class="combination-builder" data-pagefind-ignore>
+              <div class="builder-heading"><div><h3>{entry.extraAttributes.slotMax} 条词条组合</h3><p>每个位置均提供这件装备的完整候选池，组合结果不代表实际出现概率。</p></div><span>{entry.extraAttributes.candidateCount} 种候选 / 槽</span></div>
+              <div class="combination-selects">
+                {slotOptions.map((slot) => <label><span>槽位 {slot.number}</span><select class="affix-select" disabled={!slot.active}><option value="">未选择</option>{availableAffixQualities.map((quality) => <optgroup label={qualityLabels[quality]}>{candidatesByQuality[quality].map((candidate) => <option value={candidate.id} data-name={candidate.name} data-description={candidate.description}>{candidate.name} · {candidate.value}</option>)}</optgroup>)}</select></label>)}
+              </div>
+              <div class="combination-preview"><span>当前组合</span><p>尚未选择词条。</p></div>
+            </div>
+
+            <div class="candidate-heading"><h3>完整候选池</h3><div class="candidate-filters" role="group" aria-label="按品质筛选词条" data-pagefind-ignore><button class="active" type="button" data-affix-quality="">全部</button>{availableAffixQualities.map((quality) => <button type="button" data-affix-quality={quality}>{qualityLabels[quality]}</button>)}</div></div>
+            <div class="candidate-table">
+              <div class="table-head"><span>词条</span><span>数值范围</span><span>效果</span><span>品质</span></div>
+              {entry.extraAttributes.candidates.map((candidate) => <div class="candidate-row" data-affix-row data-affix-quality={candidate.quality}><strong>{candidate.name}</strong><span class="candidate-value">{candidate.value}</span><span>{candidate.description}</span><span class="candidate-quality" data-quality={candidate.quality}>{candidate.qualityLabel}</span></div>)}
+            </div>
+          </div>}
+        </section>}
+
+        {tiered && <section id="sockets" class="socket-section">
+          <div class="section-title"><div><h2>镶嵌孔位</h2><p>每个孔位可以镶嵌一条铸纹；孔位数量在装备生成时确定。</p></div><span>{entry.socketConfig.summary}</span></div>
+          {entry.socketConfig.supported ? <>
+            <div class="socket-track" aria-label={`最多 ${entry.socketConfig.maximum} 个镶嵌孔位`}>
+              {Array.from({ length: entry.socketConfig.maximum }, (_, index) => <div><CircleDot size={22} /><span>孔位 {index + 1}</span></div>)}
+            </div>
+            <div class="socket-probability" role="table" aria-label="孔位数量随机概率" style={`--socket-columns: ${socketCounts.length}`}>
+              <div class="socket-row socket-head" role="row">
+                <span role="columnheader">成品品质</span>
+                {socketCounts.map((count) => <span role="columnheader">{count} 孔</span>)}
+              </div>
+              {entry.socketConfig.rules.map((rule) => <div class="socket-row" role="row">
+                <strong role="rowheader">{rule.qualityLabel}</strong>
+                {socketCounts.map((count) => {
+                  const probability = rule.outcomes.find((outcome) => outcome.count === count)?.probability ?? 0;
+                  return <span role="cell" class={probability ? 'has-chance' : ''}>{probability}%</span>;
+                })}
+              </div>)}
+            </div>
+            {entry.qualityMode === 'random' && <p class="socket-note">表格按最终生成品质分别计算；装备品质本身的出现概率未混入孔位概率。</p>}
+          </> : <div class="no-sockets"><CircleDot size={24} /><p>这件装备固定为 0 孔，不能镶嵌铸纹。</p></div>}
+        </section>}
+
+        <section id="acquisition" class="acquisition">
+          <h2>获取方式</h2>
+          <div class="acquisition-list">
+            {entry.acquisitionSources.map((source) => <article>
+              <span class:list={['source-type', `is-${source.type}`]}>{acquisitionTypeLabels[source.type]}</span>
+              <div><strong>{source.title}</strong><p>{source.detail}</p></div>
+            </article>)}
+          </div>
+        </section>
+      </main>
+      <DetailToc items={tocItems} />
+    </div>
+
+    {hasRelated && <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同类装备</h2><a href="/wiki/zhuangbei/">返回图鉴</a></div><div class="related-grid">{related.map((item) => <EquipmentCard entry={item} />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+
+  const affixSelects = [...document.querySelectorAll<HTMLSelectElement>('.affix-select')];
+  const combinationPreview = document.querySelector<HTMLElement>('.combination-preview p');
+  const updateCombination = () => {
+    const selected = affixSelects.map((select) => select.selectedOptions[0]).filter((option) => option?.value);
+    if (combinationPreview) combinationPreview.textContent = selected.length ? selected.map((option, index) => `${index + 1}. ${option.dataset.name}：${option.dataset.description}`).join('；') : '尚未选择词条。';
+  };
+  affixSelects.forEach((select) => select.addEventListener('change', updateCombination));
+
+  const qualityButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-affix-quality]')];
+  const candidateRows = [...document.querySelectorAll<HTMLElement>('[data-affix-row]')];
+  qualityButtons.forEach((button) => button.addEventListener('click', () => {
+    const quality = button.dataset.affixQuality || '';
+    qualityButtons.forEach((item) => item.classList.toggle('active', item === button));
+    candidateRows.forEach((row) => { row.hidden = Boolean(quality && row.dataset.affixQuality !== quality); });
+  }));
+</script>
+
+<style>
+  .equipment-page { width: min(100%, 1260px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 144px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .hero-icon { width: 144px; aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--quality-color, var(--line-strong)); background: #111412; }
+  .hero-icon img { width: 100%; height: 100%; padding: 12px; object-fit: contain; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .quality-label { color: var(--quality-color); }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; }
+  .description { max-width: 780px; margin: 10px 0 12px; color: var(--text-soft); }
+  .quality-tag { border-color: color-mix(in srgb, var(--quality-color) 55%, var(--line)); background: color-mix(in srgb, var(--quality-color) 8%, var(--surface)); color: var(--quality-color); }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .9rem; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 42px; margin-top: 34px; }
+  .detail-main section + section { margin-top: 38px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .detail-main p { margin: 0; }
+  .section-empty { color: var(--text-soft); }
+  .fixed-attributes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .fixed-attributes div { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .fixed-attributes dt { color: var(--text-soft); font-size: .78rem; }
+  .fixed-attributes dd { margin: 0; font-size: 1.03rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .acquisition-list { border-top: 1px solid var(--line); }
+  .acquisition-list article { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .acquisition-list article > div > strong { display: block; font-size: .94rem; }
+  .acquisition-list article p { margin-top: 3px; color: var(--text-soft); font-size: .82rem; line-height: 1.65; }
+  .source-type { display: inline-flex; min-height: 25px; align-items: center; justify-content: center; padding: 3px 7px; border: 1px solid var(--line-strong); color: var(--text-soft); font-size: .7rem; font-weight: 700; }
+  .source-type.is-forge, .source-type.is-combine { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--accent); }
+  .source-type.is-shop, .source-type.is-contribution { border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); color: var(--gold); }
+  .source-type.is-drop, .source-type.is-chest, .source-type.is-event { border-color: color-mix(in srgb, var(--teal) 55%, var(--line)); color: var(--teal); }
+  .source-type.is-unknown { border-color: color-mix(in srgb, #a84d43 65%, var(--line)); color: #a84d43; }
+  .socket-track { display: flex; gap: 12px; margin-bottom: 14px; }
+  .socket-track > div { min-width: 96px; min-height: 70px; display: grid; place-items: center; align-content: center; gap: 5px; border: 1px solid var(--line); background: var(--surface); color: var(--accent); }
+  .socket-track span { color: var(--text-soft); font-size: .7rem; }
+  .socket-probability { width: 100%; border-top: 1px solid var(--line); border-left: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+  .socket-row { display: grid; grid-template-columns: minmax(130px, 1.35fr) repeat(var(--socket-columns, 3), minmax(72px, 1fr)); }
+  .socket-row > * { min-width: 0; padding: 10px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+  .socket-row > :first-child { text-align: left; }
+  .socket-head { background: var(--surface-muted); color: var(--text-soft); font-size: .7rem; font-weight: 750; }
+  .socket-row:not(.socket-head) { background: var(--surface); font-size: .8rem; }
+  .socket-row .has-chance { color: var(--accent); font-weight: 800; }
+  .socket-note { margin-top: 9px !important; color: var(--text-soft); font-size: .72rem; }
+  .no-sockets { display: flex; align-items: center; gap: 10px; padding: 18px 0; border-top: 1px solid var(--line); color: var(--text-soft); }
+  .power-list { margin-top: 14px; }
+  .power-row { display: grid; grid-template-columns: 58px minmax(80px, 1fr) 48px; align-items: center; gap: 12px; min-height: 34px; }
+  .power-row > div { height: 8px; overflow: hidden; background: var(--surface-muted); }
+  .power-row i { display: block; height: 100%; background: var(--accent); }
+  .power-row strong { text-align: right; font-size: .8rem; }
+  .section-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 14px; }
+  .section-title h2 { margin-bottom: 5px; }
+  .section-title p { color: var(--text-soft); font-size: .82rem; }
+  .section-title > span { flex: 0 0 auto; margin-top: 4px; padding: 4px 8px; border: 1px solid var(--line); color: var(--text-soft); font-size: .72rem; }
+  .fixed-affixes { border-top: 1px solid var(--line); }
+  .fixed-affixes article { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 14px; align-items: center; min-height: 72px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .affix-quality { color: var(--quality-color); font-size: .72rem; font-weight: 750; }
+  .fixed-affixes h3, .fixed-affixes p { margin: 0; }
+  .fixed-affixes h3 { font-size: .92rem; }
+  .fixed-affixes p { color: var(--text-soft); font-size: .78rem; }
+  .fixed-affixes > article > strong { color: var(--quality-color); font-variant-numeric: tabular-nums; }
+  .slot-track { display: grid; grid-template-columns: repeat(var(--affix-slot-count, 1), minmax(0, 1fr)); border: 1px solid var(--line); background: var(--surface); }
+  .slot-track > div { position: relative; min-height: 84px; padding: 12px 12px 10px 42px; }
+  .slot-track > div + div { border-left: 1px solid var(--line); }
+  .slot-track > div::before { position: absolute; top: 0; right: 0; left: 0; height: 3px; background: var(--quality-color, var(--accent)); content: ''; }
+  .slot-track > div > span { position: absolute; top: 13px; left: 12px; color: var(--line-strong); font: 800 .72rem/1 var(--font-sans); }
+  .slot-track strong, .slot-track small { display: block; }
+  .slot-track strong { font-size: .82rem; }
+  .slot-track small { margin-top: 5px; color: var(--text-soft); font-size: .68rem; }
+  .slot-track .inactive { opacity: .45; }
+  .combination-builder { margin-top: 16px; border: 1px solid var(--line); background: var(--surface); }
+  .builder-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 13px 15px; border-bottom: 1px solid var(--line); }
+  .builder-heading h3, .builder-heading p { margin: 0; }
+  .builder-heading h3 { font-size: .96rem; }
+  .builder-heading p { margin-top: 2px; color: var(--text-soft); font-size: .72rem; }
+  .builder-heading > span { color: var(--text-soft); font-size: .7rem; white-space: nowrap; }
+  .combination-selects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 14px; }
+  .combination-selects label > span { display: block; margin-bottom: 4px; color: var(--text-soft); font-size: .7rem; }
+  .combination-selects select { width: 100%; min-height: 40px; padding: 0 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--text); }
+  .combination-preview { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; padding: 12px 14px; border-top: 1px solid var(--line); font-size: .76rem; }
+  .combination-preview > span { color: var(--text-soft); }
+  .candidate-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 30px; }
+  .candidate-heading h3 { margin: 0; font-size: 1rem; }
+  .candidate-filters { display: flex; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; }
+  .candidate-filters button { min-height: 34px; padding: 0 10px; border: 0; background: var(--surface); color: var(--text-soft); font-size: .72rem; cursor: pointer; }
+  .candidate-filters button + button { border-left: 1px solid var(--line); }
+  .candidate-filters button.active { background: var(--surface-strong); color: #fff; }
+  .candidate-table { margin-top: 9px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .table-head, .candidate-row { display: grid; grid-template-columns: 120px 100px minmax(0, 1fr) 68px; }
+  .table-head { background: var(--surface-muted); color: var(--text-soft); font-size: .7rem; font-weight: 750; }
+  .table-head span, .candidate-row > * { min-width: 0; padding: 8px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .candidate-row { background: var(--surface); font-size: .76rem; }
+  .candidate-row[hidden] { display: none; }
+  .candidate-row strong { font-size: .8rem; }
+  .candidate-value { font-variant-numeric: tabular-nums; font-weight: 750; }
+  .candidate-quality { color: var(--quality-color); font-weight: 750; }
+  .related { margin-top: 52px; border-top: 1px solid var(--line); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 1080px) { .detail-layout { grid-template-columns: 1fr; gap: 20px; } }
+  @media (max-width: 980px) { .entry-header { grid-template-columns: 120px 1fr; } .hero-icon { width: 120px; } .entry-actions { grid-column: 1 / 3; justify-content: flex-start; } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .equipment-page { padding: 22px 16px 54px; } .entry-header { grid-template-columns: 88px 1fr; gap: 15px; } .hero-icon { width: 88px; } .hero-icon img { padding: 7px; } h1 { font-size: 2.4rem; } .description, .tag-list { grid-column: 1 / 3; } .entry-actions .button:last-child { flex: 1; } .core-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .acquisition-list article { grid-template-columns: 80px minmax(0, 1fr); gap: 11px; } .fixed-attributes { grid-template-columns: repeat(2, minmax(0, 1fr)); } .slot-track { grid-template-columns: repeat(2, minmax(0, 1fr)); } .slot-track > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .slot-track > div:nth-child(4) { border-top: 1px solid var(--line); } .combination-selects { grid-template-columns: 1fr; } .candidate-heading { display: block; } .candidate-filters { margin-top: 10px; } .table-head { display: none; } .candidate-row { grid-template-columns: 1fr auto; } .candidate-row > :nth-child(3) { grid-column: 1 / 3; } .candidate-row > * { padding-block: 7px; } }
+  @media (max-width: 430px) { .section-title, .builder-heading { display: block; } .section-title > span, .builder-heading > span { display: inline-block; margin-top: 8px; } .fixed-attributes { grid-template-columns: 1fr; } .fixed-affixes article { grid-template-columns: 56px minmax(0, 1fr); } .fixed-affixes > article > strong { grid-column: 2; } .candidate-filters { display: grid; grid-template-columns: repeat(3, 1fr); } .candidate-filters button { border-bottom: 1px solid var(--line); } .combination-preview { grid-template-columns: 1fr; gap: 3px; } }
+</style>

@@ -1,0 +1,78 @@
+---
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import SearchOverlay from '../components/SearchOverlay.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  image = '/game/optimized/wiki-logo-hero.webp',
+  noindex = false,
+} = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#202423" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('xy-wiki-theme');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <Header />
+      <Sidebar />
+      <main class="site-main" id="main-content">
+        <slot />
+      </main>
+      <SearchOverlay />
+    </div>
+    <script>
+      const body = document.body;
+      const navToggle = document.querySelector('.nav-toggle');
+      const navScrim = document.querySelector('.nav-scrim');
+      const closeNav = () => { body.classList.remove('nav-open'); navToggle?.setAttribute('aria-expanded', 'false'); };
+      navToggle?.addEventListener('click', () => {
+        const open = body.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+      navScrim?.addEventListener('click', closeNav);
+      addEventListener('resize', () => { if (innerWidth > 920) closeNav(); });
+
+      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('xy-wiki-theme', next);
+      });
+    </script>
+  </body>
+</html>

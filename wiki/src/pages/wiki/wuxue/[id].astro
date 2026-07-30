@@ -1,0 +1,158 @@
+---
+import { BookOpen, Bookmark, CircleDot, Clock3, MapPin, Printer, ShieldCheck, Sparkles, SquarePen } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DetailToc from '../../../components/DetailToc.astro';
+import TrainingGraph from '../../../components/TrainingGraph.astro';
+import WuxueCard from '../../../components/WuxueCard.astro';
+import { site } from '../../../data/site';
+import { wuxueEntries, wuxueQualityLabels } from '../../../data/wuxue';
+
+export function getStaticPaths() {
+  return wuxueEntries.map((entry) => ({ params: { id: String(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const qualityLabel = wuxueQualityLabels[entry.quality];
+const acquisitionTypeLabels = { initial: '初始自带', shop: '商店购买', drop: '敌人掉落', chest: '宝箱获取', quest: '剧情奖励', event: '玩法奖励', explore: '场景探索', unavailable: '当前不可获取', unknown: '待核实' } as const;
+const primarySource = entry.acquisitionSources[0];
+const primarySourceLabel = primarySource ? acquisitionTypeLabels[primarySource.type] : '待核实';
+const sameStyle = wuxueEntries.filter((item) => item.style === entry.style);
+const styleIndex = sameStyle.findIndex((item) => item.id === entry.id);
+const related = [1, 2, 3].map((offset) => sameStyle[(styleIndex + offset) % sameStyle.length]);
+const bookmarkSlug = `wuxue-${entry.id}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订武学：${entry.name}`)}` : '/about/#contribute';
+const tocItems = [
+  { id: 'overview', label: entry.category === '心法' ? '心法效果' : '功法说明' },
+  { id: 'training', label: '修习节点' },
+  { id: 'acquisition', label: entry.category === '功法' ? '功法来源' : '获取方式' },
+];
+---
+
+<BaseLayout title={`${entry.name} · ${entry.category}`} description={entry.description} image={entry.icon}>
+  <article class="wuxue-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name} data-quality={entry.quality}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/wiki/wuxue/">武学图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+
+    <header class="entry-header">
+      <img src={entry.icon} alt="" width="256" height="256" decoding="async" fetchpriority="high" />
+      <div class="header-copy">
+        <div class="entry-meta"><span>{entry.category}</span>{entry.category === '功法' && <span>{entry.style}</span>}<span class="quality-label">{qualityLabel}</span></div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        {entry.traditionalName && entry.traditionalName !== entry.name && <p class="traditional">繁体：{entry.traditionalName}</p>}
+        {entry.manualName && entry.manualName !== entry.name && <p class="manual-name">秘籍：{entry.manualName}</p>}
+        <p class="description">{entry.description}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag">{entry.category}</span>{entry.category === '功法' && <span class="tag">{entry.style}</span>}<span class="tag quality-tag">{qualityLabel}</span>{entry.affinity && <span class="tag">{entry.affinity}偏向</span>}</div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏武学"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印武学"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="武学摘要">
+      {entry.category === '功法' ? (
+        <><div><Clock3 size={19} /><span><small>冷却</small><strong>{entry.cooldownSeconds} 秒</strong></span></div><div><Sparkles size={19} /><span><small>真气消耗</small><strong>{entry.mpCost}</strong></span></div><div><CircleDot size={19} /><span><small>修习节点</small><strong>{entry.trainingGraph.nodes.length} 个</strong></span></div><div><MapPin size={19} /><span><small>主要来源</small><strong>{primarySourceLabel}</strong></span></div></>
+      ) : (
+        <><div><ShieldCheck size={19} /><span><small>品质</small><strong class="quality-value">{qualityLabel}</strong></span></div><div><CircleDot size={19} /><span><small>入门点数</small><strong>{entry.activationPoints}</strong></span></div><div><BookOpen size={19} /><span><small>属性倾向</small><strong>{entry.affinity}</strong></span></div><div><MapPin size={19} /><span><small>主要来源</small><strong>{primarySourceLabel}</strong></span></div></>
+      )}
+    </section>
+
+    <div class="detail-layout">
+      <div class="detail-main">
+        <section id="overview">
+          <h2>{entry.category === '心法' ? '心法效果' : '功法说明'}</h2>
+          <p>{entry.description}</p>
+        </section>
+        <section id="training">
+          <h2>修习节点</h2>
+          <TrainingGraph graph={entry.trainingGraph} icon={entry.icon} />
+        </section>
+        <section id="acquisition" class="acquisition">
+          <h2>{entry.category === '功法' ? '功法来源' : '获取方式'}</h2>
+          {entry.manualName && <p class="manual-source">对应秘籍：<strong>{entry.manualName}</strong></p>}
+          <div class="acquisition-list">
+            {entry.acquisitionSources.map((source) => <article>
+              <span class:list={['source-type', `is-${source.type}`]}>{acquisitionTypeLabels[source.type]}</span>
+              <div><strong>{source.title}</strong><p>{source.detail}</p></div>
+            </article>)}
+          </div>
+        </section>
+      </div>
+      <DetailToc items={tocItems} />
+    </div>
+
+    <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同类武学</h2><a href="/wiki/wuxue/">返回图鉴</a></div><div class="related-grid">{related.map((item) => <WuxueCard entry={item} />)}</div></section>
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .wuxue-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 148px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .entry-header > img { width: 148px; aspect-ratio: 1; padding: 12px; object-fit: contain; border: 2px solid var(--quality-color, #353b37); background: #111412; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .quality-label, .quality-value { color: var(--quality-color); }
+  .quality-tag { border-color: color-mix(in srgb, var(--quality-color) 55%, var(--line)); background: color-mix(in srgb, var(--quality-color) 9%, var(--surface)); color: var(--quality-color); }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 400; line-height: 1.1; }
+  .traditional { margin: 1px 0 0; color: var(--gold); font-size: .78rem; }
+  .manual-name { margin: 2px 0 0; color: var(--gold); font-size: .78rem; }
+  .description { max-width: 760px; margin: 10px 0 12px; color: var(--text-soft); }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .94rem; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 940px) 180px; gap: 42px; margin-top: 32px; }
+  .detail-main { min-width: 0; }
+  .detail-main section { min-width: 0; }
+  .detail-main section + section { margin-top: 36px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .detail-main p { margin: 0; }
+  .manual-source { margin-bottom: 12px !important; color: var(--text-soft); font-size: .86rem; }
+  .manual-source strong { color: var(--text); }
+  .acquisition-list { border-top: 1px solid var(--line); }
+  .acquisition-list article { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .acquisition-list article > div > strong { display: block; font-size: .94rem; }
+  .acquisition-list article p { margin-top: 3px; color: var(--text-soft); font-size: .82rem; }
+  .source-type { display: inline-flex; min-height: 25px; align-items: center; justify-content: center; padding: 3px 7px; border: 1px solid var(--line-strong); color: var(--text-soft); font-size: .7rem; font-weight: 700; }
+  .source-type.is-shop { border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); color: var(--gold); }
+  .source-type.is-drop { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--accent); }
+  .source-type.is-chest { border-color: color-mix(in srgb, var(--teal) 55%, var(--line)); color: var(--teal); }
+  .source-type.is-initial { border-color: color-mix(in srgb, var(--text-soft) 55%, var(--line)); color: var(--text-soft); }
+  .source-type.is-quest, .source-type.is-event, .source-type.is-explore { border-color: color-mix(in srgb, var(--teal) 55%, var(--line)); color: var(--teal); }
+  .source-type.is-unavailable { border-color: color-mix(in srgb, #a84d43 65%, var(--line)); color: #a84d43; }
+  .related { margin-top: 52px; padding-top: 6px; border-top: 1px solid var(--line); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 1080px) { .detail-layout { grid-template-columns: 1fr; gap: 20px; } }
+  @media (max-width: 980px) { .entry-header { grid-template-columns: 120px 1fr; } .entry-header > img { width: 120px; } .entry-actions { grid-column: 1 / 3; justify-content: flex-start; } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .wuxue-page { padding: 22px 16px 54px; } .entry-header { grid-template-columns: 88px 1fr; gap: 15px; } .entry-header > img { width: 88px; padding: 7px; } h1 { font-size: 2.45rem; } .description, .tag-list { grid-column: 1 / 3; } .entry-actions .button:last-child { flex: 1; } .core-stats { grid-template-columns: repeat(2, 1fr); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .acquisition-list article { grid-template-columns: 76px minmax(0, 1fr); gap: 11px; } }
+</style>

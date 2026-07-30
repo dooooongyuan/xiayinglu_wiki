@@ -1,0 +1,204 @@
+---
+import { Bookmark, Boxes, Compass, FlaskConical, Hammer, MapPin, PackageOpen, Printer, Recycle, ShoppingBag, Sparkles, Sprout, SquarePen, Swords, Trophy } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DetailToc from '../../../components/DetailToc.astro';
+import MaterialCard from '../../../components/MaterialCard.astro';
+import { materialEntries, materialSourceLabels } from '../../../data/materials';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  return materialEntries.map((entry) => ({ params: { id: String(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const bookmarkSlug = `cailiao-${entry.id}`;
+const editUrl = site.repoUrl ? `${site.repoUrl.replace(/\/$/, '')}/issues/new?title=${encodeURIComponent(`修订材料：${entry.name}`)}` : '/about/#contribute';
+const related = materialEntries
+  .filter((item) => item.id !== entry.id && item.category === entry.category)
+  .sort((left, right) => Math.abs(left.quality - entry.quality) - Math.abs(right.quality - entry.quality) || left.id - right.id)
+  .slice(0, 3);
+const primarySource = entry.acquisitionSources[0];
+const totalUsageCount = entry.usage.alchemy.length + entry.usage.forging.length + entry.usage.inscription.recipeCount;
+const sourceIcons = { dismantle: Recycle, smelting: Sparkles, shop: ShoppingBag, gathering: Sprout, exploration: Compass, dungeon: MapPin, chest: PackageOpen, drop: Swords, reward: Trophy };
+const tocItems = [
+  { id: 'overview', label: '材料说明' },
+  { id: 'properties', label: '材料属性' },
+  { id: 'usage', label: '关联用途' },
+  { id: 'acquisition', label: '获取方式' },
+];
+---
+
+<BaseLayout title={`${entry.name} · 材料图鉴`} description={entry.description} image={entry.icon}>
+  <article class="material-page" data-pagefind-body data-entry-slug={bookmarkSlug} data-entry-title={entry.name} data-quality={entry.quality}>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/wiki/cailiao/">材料图鉴</a></li><li>›</li><li aria-current="page">{entry.name}</li></ol>
+
+    <header class="entry-header">
+      <div class="hero-icon"><img src={entry.icon} alt="" width="256" height="256" decoding="async" fetchpriority="high" /></div>
+      <div class="header-copy">
+        <div class="entry-meta"><span>{entry.category}</span><span class="quality-label">{entry.qualityLabel}</span><span>物品 {entry.id}</span></div>
+        <h1 data-pagefind-meta="title">{entry.name}</h1>
+        {entry.traditionalName && entry.traditionalName !== entry.name && <p class="traditional">繁体：{entry.traditionalName}</p>}
+        <p class="description">{entry.description}</p>
+        <div class="tag-list" data-pagefind-filter="tag"><span class="tag">{entry.category}</span><span class="tag quality-tag">{entry.qualityLabel}</span>{entry.usageKinds.map((kind) => <span class="tag">{kind}</span>)}</div>
+      </div>
+      <div class="entry-actions" data-pagefind-ignore>
+        <button class="button icon-button bookmark-button" type="button" aria-label="收藏材料"><Bookmark size={18} /></button>
+        <button class="button icon-button print-button" type="button" aria-label="打印材料"><Printer size={18} /></button>
+        {site.publicEditingEnabled && <a class="button" href={editUrl}><SquarePen size={17} />修订条目</a>}
+      </div>
+    </header>
+
+    <section class="core-stats" aria-label="材料摘要">
+      <div><Boxes size={19} /><span><small>材料分类</small><strong>{entry.category}</strong></span></div>
+      <div><Sparkles size={19} /><span><small>品质</small><strong class="quality-value">{entry.qualityLabel}</strong></span></div>
+      <div><Hammer size={19} /><span><small>已确认用途</small><strong>{totalUsageCount > 0 ? `${totalUsageCount} 项配置` : '待定位'}</strong></span></div>
+      <div><MapPin size={19} /><span><small>主要来源</small><strong>{primarySource ? materialSourceLabels[primarySource.type] : '当前版本未发现'}</strong></span></div>
+    </section>
+
+    <div class="detail-layout">
+      <main class="detail-main">
+        <section id="overview">
+          <h2>材料说明</h2>
+          <div class="overview-copy"><img src={entry.icon} alt="" width="256" height="256" loading="lazy" decoding="async" /><p>{entry.description}</p></div>
+        </section>
+
+        <section id="properties">
+          <h2>材料属性</h2>
+          <dl class="property-table">
+            <div><dt>材料名称</dt><dd>{entry.name}</dd></div>
+            <div><dt>材料分类</dt><dd>{entry.category}</dd></div>
+            <div><dt>品质</dt><dd class="quality-value">{entry.qualityLabel}</dd></div>
+            <div><dt>单格堆叠</dt><dd>{entry.stackLimit || '未限制'}</dd></div>
+            <div><dt>已确认来源</dt><dd>{entry.acquisitionSources.length} 项</dd></div>
+            <div><dt>用途方向</dt><dd>{entry.usageKinds.length > 0 ? entry.usageKinds.join('、') : '待定位'}</dd></div>
+          </dl>
+        </section>
+
+        <section id="usage">
+          <div class="section-heading"><div><h2>关联用途</h2><p>数量表示制作一份目标物品时消耗的材料数量。</p></div><span>{entry.usageKinds.length > 0 ? entry.usageKinds.join(' · ') : '用途待定位'}</span></div>
+          {entry.usage.alchemy.length > 0 && <div class="usage-group">
+            <h3><FlaskConical size={18} />炼丹配方 <small>{entry.usage.alchemy.length}</small></h3>
+            <div class="target-grid">{entry.usage.alchemy.map((target) => <a href={`/wiki/danyao/${target.id}/`}><span><strong>{target.name}</strong><small>丹药 {target.id}</small></span><b>× {target.count}</b></a>)}</div>
+          </div>}
+          {entry.usage.forging.length > 0 && <div class="usage-group">
+            <h3><Hammer size={18} />装备打造 <small>{entry.usage.forging.length}</small></h3>
+            <div class="target-grid">{entry.usage.forging.map((target) => target.hasDetail
+              ? <a href={`/wiki/${target.targetKind === '陷阱' ? 'xianjing' : 'zhuangbei'}/${target.id}/`}><span><strong>{target.name}</strong><small>{target.targetKind} {target.id}</small></span><b>× {target.count}</b></a>
+              : <article><span><strong>{target.name}</strong><small>{target.targetKind} {target.id}</small></span><b>× {target.count}</b></article>)}</div>
+          </div>}
+          {entry.usage.inscription.recipeCount > 0 && <div class="usage-group">
+            <h3><Sparkles size={18} />铸纹制作 <small>{entry.usage.inscription.recipeCount} 项配方</small></h3>
+            <div class="target-grid inscription-grid">{entry.usage.inscription.targets.map((target) => <a href={`/wiki/zhuwen/${target.slug}/`}><span><strong>{target.name}</strong><small>{target.recipeCount} 阶制作配方</small></span><b>{target.countMin === target.countMax ? `× ${target.countMin}` : `× ${target.countMin}–${target.countMax}`}</b></a>)}</div>
+          </div>}
+          {totalUsageCount === 0 && <div class="unverified-source"><Boxes size={20} /><div><strong>尚未定位到配方用途</strong><p>当前炼丹、打造和铸纹配置中没有引用该材料，暂不推断实际用途。</p></div></div>}
+        </section>
+
+        <section id="acquisition">
+          <div class="section-heading"><div><h2>获取方式</h2><p>整理当前版本中可确认的分解、购买、采集、探索和战斗获取方式。</p></div><span>{entry.acquisitionSources.length} 项来源</span></div>
+          {entry.acquisitionSources.length > 0 ? <div class="source-list">
+            {entry.acquisitionSources.map((source) => {
+              const Icon = sourceIcons[source.type];
+              return <article><div class:list={['source-icon', `is-${source.type}`]}><Icon size={19} /></div><div><span>{materialSourceLabels[source.type]}</span><strong>{source.title}</strong><p>{source.detail}</p></div></article>;
+            })}
+          </div> : <div class="unverified-source"><MapPin size={20} /><div><strong>当前版本未发现可用来源</strong><p>已检查购买、采集、场景探索、宝箱、敌人掉落和天工分解数据，均未发现该材料的获取记录；不将未启用内容标记为可获取。</p></div></div>}
+        </section>
+      </main>
+      <DetailToc items={tocItems} />
+    </div>
+
+    {related.length > 0 && <section class="related" data-pagefind-ignore><div class="section-heading"><h2>同类材料</h2><a href="/wiki/cailiao/">返回图鉴</a></div><div class="related-grid">{related.map((item) => <MaterialCard entry={item} />)}</div></section>}
+  </article>
+</BaseLayout>
+
+<script>
+  const article = document.querySelector<HTMLElement>('[data-entry-slug]');
+  if (article) {
+    const slug = article.dataset.entrySlug;
+    const title = article.dataset.entryTitle;
+    if (slug && title) {
+      type RecentItem = { slug: string; title: string; path: string; visitedAt: number };
+      const storedRecent = JSON.parse(localStorage.getItem('xy-wiki-recent') || '[]') as RecentItem[];
+      const recent = storedRecent.filter((item) => item.slug !== slug);
+      recent.unshift({ slug, title, path: location.pathname, visitedAt: Date.now() });
+      localStorage.setItem('xy-wiki-recent', JSON.stringify(recent.slice(0, 12)));
+      const bookmarks = JSON.parse(localStorage.getItem('xy-wiki-bookmarks') || '[]') as string[];
+      const button = document.querySelector('.bookmark-button');
+      const sync = () => button?.classList.toggle('active', bookmarks.includes(slug));
+      sync();
+      button?.addEventListener('click', () => {
+        const index = bookmarks.indexOf(slug);
+        if (index >= 0) bookmarks.splice(index, 1); else bookmarks.push(slug);
+        localStorage.setItem('xy-wiki-bookmarks', JSON.stringify(bookmarks));
+        sync();
+      });
+    }
+  }
+  document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .material-page { width: min(100%, 1260px); margin: 0 auto; padding: 28px 36px 68px; }
+  .entry-header { display: grid; grid-template-columns: 144px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .hero-icon { width: 144px; aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--quality-color); background: #111412; }
+  .hero-icon img { width: 100%; height: 100%; padding: 13px; object-fit: contain; }
+  .entry-meta { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .quality-label, .quality-value { color: var(--quality-color); }
+  h1 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; }
+  .traditional { margin: 2px 0 0; color: var(--gold); font-size: .76rem; }
+  .description { max-width: 760px; margin: 10px 0 12px; color: var(--text-soft); }
+  .quality-tag { border-color: color-mix(in srgb, var(--quality-color) 55%, var(--line)); background: color-mix(in srgb, var(--quality-color) 8%, var(--surface)); color: var(--quality-color); }
+  .entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .bookmark-button.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); }
+  .core-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .core-stats > div { min-height: 74px; display: flex; align-items: center; gap: 11px; padding: 12px 15px; }
+  .core-stats > div + div { border-left: 1px solid var(--line); }
+  .core-stats > div > :global(svg) { flex: 0 0 auto; color: var(--accent); }
+  .core-stats small, .core-stats strong { display: block; }
+  .core-stats small { color: var(--text-soft); font-size: .7rem; }
+  .core-stats strong { margin-top: 2px; font-size: .9rem; }
+  .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 42px; margin-top: 34px; }
+  .detail-main section + section { margin-top: 40px; }
+  .detail-main h2 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.28rem; }
+  .overview-copy { min-height: 118px; display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: center; gap: 20px; padding: 14px 18px; border: 1px solid var(--line); background: var(--surface); }
+  .overview-copy img { width: 88px; aspect-ratio: 1; padding: 8px; object-fit: contain; background: #111412; }
+  .overview-copy p { margin: 0; color: var(--text-soft); line-height: 1.8; }
+  .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 13px; }
+  .section-heading h2 { margin-bottom: 4px; }
+  .section-heading p { margin: 0; color: var(--text-soft); font-size: .78rem; }
+  .section-heading > span { flex: 0 0 auto; padding: 4px 8px; border: 1px solid var(--line); color: var(--accent); font-size: .7rem; font-weight: 750; }
+  .source-list { display: grid; gap: 8px; }
+  .source-list article { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; padding: 13px; border: 1px solid var(--line); background: var(--surface); }
+  .source-icon { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--teal) 45%, var(--line)); color: var(--teal); }
+  .source-icon.is-shop { border-color: color-mix(in srgb, var(--gold) 50%, var(--line)); color: var(--gold); }
+  .source-icon.is-gathering { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); color: var(--accent); }
+  .source-list article span, .source-list article strong { display: block; }
+  .source-list article span { color: var(--text-soft); font-size: .65rem; }
+  .source-list article strong { margin-top: 1px; font-size: .9rem; }
+  .source-list article p { margin: 4px 0 0; color: var(--text-soft); font-size: .78rem; line-height: 1.65; }
+  .unverified-source { display: flex; gap: 12px; padding: 15px; border: 1px dashed var(--line-strong); background: var(--surface-muted); }
+  .unverified-source > :global(svg) { flex: 0 0 auto; color: var(--text-soft); }
+  .unverified-source strong { font-size: .88rem; }
+  .unverified-source p { margin: 4px 0 0; color: var(--text-soft); font-size: .78rem; }
+  .usage-group + .usage-group { margin-top: 22px; }
+  .usage-group h3 { display: flex; align-items: center; gap: 7px; margin: 0 0 9px; font-size: .94rem; }
+  .usage-group h3 > :global(svg) { color: var(--accent); }
+  .usage-group h3 small { margin-left: auto; color: var(--text-soft); font-size: .65rem; font-weight: 600; }
+  .target-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .target-grid a, .target-grid article { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); color: var(--text); text-decoration: none; }
+  .target-grid a:hover { background: var(--surface-muted); }
+  .target-grid strong, .target-grid small { display: block; }
+  .target-grid strong { font-size: .82rem; }
+  .target-grid small { margin-top: 2px; color: var(--text-soft); font-size: .62rem; }
+  .target-grid b { flex: 0 0 auto; color: var(--gold); font-size: .75rem; }
+  .property-table { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .property-table div { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .property-table dt { color: var(--text-soft); font-size: .72rem; }
+  .property-table dd { margin: 0; text-align: right; font-size: .8rem; font-weight: 750; }
+  .related { margin-top: 52px; padding-top: 4px; border-top: 1px solid var(--line); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 1080px) { .detail-layout { grid-template-columns: 1fr; gap: 20px; } }
+  @media (max-width: 980px) { .entry-header { grid-template-columns: 120px 1fr; } .hero-icon { width: 120px; } .entry-actions { grid-column: 1 / 3; justify-content: flex-start; } .core-stats { grid-template-columns: repeat(2, 1fr); } .core-stats > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .core-stats > div:nth-child(4) { border-top: 1px solid var(--line); } .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .material-page { padding: 22px 16px 52px; } .entry-header { grid-template-columns: 86px minmax(0, 1fr); gap: 14px; } .hero-icon { width: 86px; } h1 { font-size: 2.25rem; } .entry-actions { grid-column: 1 / 3; } .entry-actions .button:not(.icon-button) { flex: 1; } .core-stats > div { min-height: 68px; padding: 10px; } .overview-copy { grid-template-columns: 74px 1fr; gap: 12px; padding: 12px; } .overview-copy img { width: 68px; } .section-heading { display: block; } .section-heading > span { display: inline-block; margin-top: 8px; } .target-grid, .property-table { grid-template-columns: 1fr; } }
+  @media (max-width: 380px) { .core-stats { grid-template-columns: 1fr; } .core-stats > div + div { border-top: 1px solid var(--line); border-left: 0; } .overview-copy { display: block; } .overview-copy img { margin-bottom: 10px; } }
+  @media print { .entry-actions, .related { display: none; } }
+</style>

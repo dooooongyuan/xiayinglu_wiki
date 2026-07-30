@@ -1,0 +1,141 @@
+---
+import { Gem, PackageSearch, Search, Shield, Sparkles, Swords, Target } from '@lucide/astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import EquipmentCard from '../../../components/EquipmentCard.astro';
+import { equipmentCategories, equipmentData, equipmentEntries, equipmentQualities, qualityLabels } from '../../../data/equipment';
+
+const categoryIcons = { 武器: Swords, 暗器: Target, 防具: Shield, 饰品: Gem, 宝物: Sparkles };
+const subtypesByCategory = Object.fromEntries(equipmentCategories.map((category) => [category, [...new Set(equipmentEntries.filter((entry) => entry.category === category).map((entry) => entry.subtype))]]));
+---
+
+<BaseLayout title="装备图鉴" description={`侠影录当前版本已整理 ${equipmentData.counts.entries} 件武器、暗器、防具、饰品与宝物。`}>
+  <main class="equipment-index" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li><a href="/entries/#systems">百科目录</a></li><li>›</li><li aria-current="page">装备</li></ol>
+    <header class="index-header">
+      <div>
+        <p class="eyebrow">游戏数据图鉴 · {equipmentData.gameVersion}</p>
+        <h1 class="page-heading" data-pagefind-meta="title">装备图鉴</h1>
+        <p class="page-lead">按部位、阶级与品质查询固定属性，并在详情中查看每件装备完整的额外属性候选池。</p>
+      </div>
+      <div class="coverage"><PackageSearch size={22} /><strong>{equipmentData.counts.entries}</strong><span>件装备</span><small>含一至七阶与无阶特殊装备</small></div>
+    </header>
+
+    <div class="catalog-tabs" role="tablist" aria-label="装备大类" data-pagefind-ignore>
+      {equipmentCategories.map((category, index) => {
+        const Icon = categoryIcons[category];
+        return <button class:list={{ active: index === 0 }} type="button" role="tab" aria-selected={index === 0} data-category={category}><Icon size={18} /><span>{category}</span><small>{equipmentData.counts.categories[category]}</small></button>;
+      })}
+    </div>
+
+    <div class="filters" data-pagefind-ignore>
+      <label class="query-control"><Search size={18} /><span class="sr-only">筛选装备</span><input id="equipment-query" type="search" placeholder="搜索名称、介绍或属性" autocomplete="off" /></label>
+      <label class="select-control tier-control"><span>阶级</span><select id="equipment-tier"><option value="">全部</option><option value="0">无阶</option>{[1, 2, 3, 4, 5, 6, 7].map((tier) => <option value={tier}>{tier} 阶</option>)}</select></label>
+      <label class="select-control"><span>品质</span><select id="equipment-quality"><option value="">全部</option><option value="random">品质随机</option>{equipmentQualities.map((quality) => <option value={quality}>{qualityLabels[quality]}</option>)}</select></label>
+      <span class="result-count">{equipmentData.counts.categories['武器']} 条结果</span>
+      <div class="subtype-controls">
+        {equipmentCategories.map((category) => <div class="subtype-control" data-for-category={category} hidden={category !== '武器'}><button class="active" type="button" data-subtype="">全部</button>{subtypesByCategory[category].map((subtype) => <button type="button" data-subtype={subtype}>{subtype}<span>{equipmentData.counts.subtypes[subtype]}</span></button>)}</div>)}
+      </div>
+    </div>
+
+    <div class="equipment-grid" data-pagefind-ignore>
+      {equipmentEntries.map((entry) => <div class="filter-item" hidden={entry.category !== '武器'} data-search={[entry.name, entry.description, entry.category, entry.subtype, ...entry.fixedAttributes.map((attribute) => attribute.name), ...entry.extraAttributes.candidates.map((candidate) => candidate.name)].join(' ')} data-category={entry.category} data-subtype={entry.subtype} data-tier={entry.level} data-quality={entry.qualityMode === 'random' ? 'random' : entry.quality}><EquipmentCard entry={entry} /></div>)}
+    </div>
+    <div class="empty-state" hidden>没有符合条件的装备。</div>
+  </main>
+</BaseLayout>
+
+<script>
+  const queryInput = document.querySelector<HTMLInputElement>('#equipment-query');
+  const tierSelect = document.querySelector<HTMLSelectElement>('#equipment-tier');
+  const qualitySelect = document.querySelector<HTMLSelectElement>('#equipment-quality');
+  const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.catalog-tabs button[data-category]')];
+  const subtypeControls = [...document.querySelectorAll<HTMLElement>('.subtype-control')];
+  const items = [...document.querySelectorAll<HTMLElement>('.filter-item')];
+  const resultCount = document.querySelector<HTMLElement>('.result-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+  const tierControl = document.querySelector<HTMLElement>('.tier-control');
+  let activeCategory = '武器';
+  let activeSubtype = '';
+
+  function applyFilters() {
+    const query = queryInput?.value.trim().toLocaleLowerCase('zh-CN') || '';
+    const tier = tierSelect?.value || '';
+    const quality = qualitySelect?.value || '';
+    let visible = 0;
+    items.forEach((item) => {
+      const search = item.dataset.search?.toLocaleLowerCase('zh-CN') || '';
+      const matches = item.dataset.category === activeCategory && (!activeSubtype || item.dataset.subtype === activeSubtype) && (!query || search.includes(query)) && (!tier || item.dataset.tier === tier) && (!quality || item.dataset.quality === quality);
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = `${visible} 条结果`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  function bindSubtypeButtons() {
+    subtypeControls.forEach((control) => control.querySelectorAll<HTMLButtonElement>('button[data-subtype]').forEach((button) => {
+      button.addEventListener('click', () => {
+        activeSubtype = button.dataset.subtype || '';
+        control.querySelectorAll('button').forEach((item) => item.classList.toggle('active', item === button));
+        applyFilters();
+      });
+    }));
+  }
+
+  categoryButtons.forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.category || '武器';
+    activeSubtype = '';
+    categoryButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-selected', String(active));
+    });
+    subtypeControls.forEach((control) => {
+      const active = control.dataset.forCategory === activeCategory;
+      control.hidden = !active;
+      control.querySelectorAll('button').forEach((item, index) => item.classList.toggle('active', index === 0));
+    });
+    const tiered = ['武器', '防具', '饰品'].includes(activeCategory);
+    if (tierControl) tierControl.hidden = !tiered;
+    if (!tiered && tierSelect) tierSelect.value = '';
+    applyFilters();
+  }));
+  bindSubtypeButtons();
+  [queryInput, tierSelect, qualitySelect].forEach((control) => control?.addEventListener('input', applyFilters));
+</script>
+
+<style>
+  .equipment-index { width: min(100%, 1480px); margin: 0 auto; padding: 28px 36px 64px; }
+  .index-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 24px; }
+  .coverage { min-width: 190px; display: grid; grid-template-columns: 28px auto 1fr; align-items: baseline; gap: 0 7px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); }
+  .coverage > :global(svg) { grid-row: 1 / 3; align-self: center; color: var(--accent); }
+  .coverage strong { font-size: 1.45rem; line-height: 1; }
+  .coverage span { font-size: .82rem; }
+  .coverage small { grid-column: 2 / 4; margin-top: 4px; color: var(--text-soft); font-size: .7rem; }
+  .catalog-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--line-strong); }
+  .catalog-tabs button { min-height: 54px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 0 14px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--text-soft); cursor: pointer; }
+  .catalog-tabs button.active { border-bottom-color: var(--accent); color: var(--text); }
+  .catalog-tabs button span { font-weight: 750; }
+  .catalog-tabs button small { color: inherit; font-size: .68rem; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .query-control, .select-control { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+  .query-control { min-width: 260px; flex: 1; }
+  .select-control > span { color: var(--text-soft); font-size: .72rem; }
+  input, select { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+  input { width: 100%; }
+  select { cursor: pointer; }
+  .result-count { margin-left: auto; color: var(--text-soft); font-size: .78rem; }
+  .subtype-controls { width: 100%; }
+  .subtype-control { display: flex; min-height: 38px; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; }
+  .subtype-control[hidden] { display: none; }
+  .subtype-control button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; border: 0; background: var(--bg); color: var(--text-soft); cursor: pointer; }
+  .subtype-control button + button { border-left: 1px solid var(--line); }
+  .subtype-control button.active { background: var(--surface-strong); color: #fff; }
+  .subtype-control span { font-size: .66rem; opacity: .72; }
+  .equipment-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+  .filter-item[hidden] { display: none; }
+  .empty-state { margin-top: 18px; }
+  @media (max-width: 1280px) { .equipment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .equipment-index { padding: 22px 16px 52px; } .index-header { display: block; } .coverage { width: max-content; margin-top: 18px; } .catalog-tabs button { min-width: 0; padding-inline: 4px; } .catalog-tabs button > :global(svg) { display: none; } .query-control { flex-basis: 100%; } .select-control { flex: 1; } .result-count { width: 100%; margin: 0; } }
+  @media (max-width: 620px) { .equipment-grid { grid-template-columns: 1fr; } .catalog-tabs button { min-height: 50px; flex-direction: column; gap: 0; font-size: .82rem; } .subtype-control { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: auto; } .subtype-control button { min-height: 38px; border-bottom: 1px solid var(--line); } }
+</style>

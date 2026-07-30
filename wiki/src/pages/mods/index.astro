@@ -1,0 +1,23 @@
+---
+import { Puzzle } from '@lucide/astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="MOD" description="侠影录 MOD 分类。" noindex>
+  <div class="page-wrap mods-page" data-pagefind-body>
+    <ol class="breadcrumbs"><li><a href="/">首页</a></li><li>›</li><li aria-current="page">MOD</li></ol>
+    <header><p class="eyebrow">社区扩展</p><h1 class="page-heading" data-pagefind-meta="title">MOD</h1></header>
+    <section class="designing" aria-labelledby="designing-title">
+      <Puzzle size={28} aria-hidden="true" />
+      <h2 id="designing-title">正在设计中~</h2>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .mods-page { max-width: 920px; }
+  .designing { min-height: 260px; display: grid; place-items: center; align-content: center; gap: 12px; margin-top: 30px; border: 1px dashed var(--line-strong); background: var(--surface); color: var(--text-soft); text-align: center; }
+  .designing :global(svg) { color: var(--accent); }
+  .designing h2 { margin: 0; color: var(--text); font-size: 1.2rem; }
+  @media (max-width: 560px) { .designing { min-height: 220px; margin-top: 24px; } }
+</style>
