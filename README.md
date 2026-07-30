@@ -137,6 +137,8 @@ npm.cmd run build
 npm.cmd run deploy:dry-run
 ```
 
+静态资源缓存由 `wiki/public/_headers` 控制：带内容哈希的 Astro 脚本和样式长期缓存，分片字体缓存 30 天，游戏图片缓存 7 天，Pagefind 搜索资源缓存 1 天。HTML 页面不设置长期浏览器缓存，保证条目和公告更新后可以及时显示。
+
 ## Steam 公告自动同步
 
 `.github/workflows/update-steam-news.yml` 每天约在北京时间 09:17 检查一次 Steam 官方公告，也可以在 GitHub Actions 页面手动运行。只有公告列表或正文发生变化时才会提交 `wiki/src/data/steam-news.generated.json`；该提交会继续触发 Cloudflare Workers Builds，将新公告发布到 Wiki。
