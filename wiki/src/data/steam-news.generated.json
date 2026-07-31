@@ -1,8 +1,455 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-07-30T08:57:21.082Z",
+  "fetchedAt": "2026-07-31T04:45:11.339Z",
   "items": [
+    {
+      "id": "1839676055885249",
+      "title": "1.1.8 版本更新公告 — 战斗体验与角色养成优化",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1839676055885249",
+      "publishedAt": "2026-07-30T13:31:32.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 战斗体验优化： 缩短角色释放技能的前后摇时间 优化四套武器动作模组的普通攻击、蓄力攻击与释放技能的手感与体验 优化操控“萧清雪”时的操作体验，现在“萧清雪”的普通攻击第三段可以被闪避打断 增加蓄力攻击满蓄力时的特效提示 为Boss战添加伤害计数面板 装备“无名心法”时使用蓄力攻击后冲刺，增加纵横剑气效果，目前版本仅针对“剑”…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "战斗体验优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "缩短角色释放技能的前后摇时间"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化四套武器动作模组的普通攻击、蓄力攻击与释放技能的手感与体验"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化操控“萧清雪”时的操作体验，现在“萧清雪”的普通攻击第三段可以被闪避打断"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增加蓄力攻击满蓄力时的特效提示"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "为Boss战添加伤害计数面板"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "装备“无名心法”时使用蓄力攻击后冲刺，增加纵横剑气效果，目前版本仅针对“剑”类武器生效，后续会继续进行优化与调整"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "角色养成优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增加 竹林探宝、金陵寻踪、百草深处、连云匪患、武林汇聚、旅途终点、边关告急 的副本掉落产出，现在可以产出更多与副本阶级匹配的材料"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增加机簧点获取渠道，现在铸纹、暗器、陷阱均可获得机簧点"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化武学点与金钱获取，现在武学点与金钱的获取不再会随着等级提升而衰减"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化合锻装备界面，放入装备后另一侧添加自动过滤，只能放入可以合锻的装备"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增打开存档选项，玩家可通过该选项打开系统内游戏存档位置"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增成就面板红点"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增解除切磋卡死选项，在切磋时陷入卡死可点击界面右上角按键解除"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复装备穿脱后词条冲突导致词条效果不生效的Bug"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "（以下Bug可能需要 根据不同设备做针对性优化， 如新版本仍出现类似问题 请加入bug群：729193406 ，由我们为您解决）"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复了再次挑战会卡死的Bug"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "操作手感优化"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "更多奇遇和内容"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类战斗和交互的反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": []
+    },
     {
       "id": "1839676055881984",
       "title": "1.1.7 版本更新公告 — 手柄操作优化",
@@ -4809,303 +5256,6 @@
         }
       ],
       "images": [],
-      "tags": []
-    },
-    {
-      "id": "1823825466498372",
-      "title": "噪点游戏代理发行！《侠影录》首次公开试玩今日开启",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1823825466498372",
-      "publishedAt": "2026-02-06T02:50:37.000Z",
-      "excerpt": "诸位大侠， 很高兴告诉大家，《侠影录》 将由【噪点游戏】代理发行！ 同时， 《侠影录》不限时试玩测试今日正式开启！以下是本次游戏测试详情： 本次测试可体验内容 本次游戏内容包括 3个主线地图、2个奇遇地图以及6个机制不同的BOSS。 四大武器系统： 剑、枪、拳、刀任你选择。 深度养成系统： 心法、经脉、锻造与炼药系统等你探索。 现在的《侠影录》尚需打磨，希望能通过这次测试，听听大家最真实的声音。…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "诸位大侠，"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "很高兴告诉大家，《侠影录》 将由【噪点游戏】代理发行！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "同时， 《侠影录》不限时试玩测试今日正式开启！以下是本次游戏测试详情："
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "本次测试可体验内容"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "本次游戏内容包括 3个主线地图、2个奇遇地图以及6个机制不同的BOSS。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "四大武器系统： 剑、枪、拳、刀任你选择。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "深度养成系统： 心法、经脉、锻造与炼药系统等你探索。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "现在的《侠影录》尚需打磨，希望能通过这次测试，听听大家最真实的声音。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "反馈问卷链接",
-              "href": "https://my.feishu.cn/share/base/form/shrcnblMwni4RPxYga8nZrlkXuh"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "测试须知"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "1. 本次测试持续多久？"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "本次测试为 不限时 开放。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "2. 测试数据是否保留？"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "由于目前仍处于开发早期阶段，系统架构仍在不断迭代，本次测试的数据 无法继承 至正式版本，还请诸位大侠海涵。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "3. 发现BUG或有意见反馈怎么办？"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "江湖路远，错漏难免。若你在游玩过程中感到不适，或是遇到了Bug，可以通过以下问卷反馈告诉我们："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "Bug问卷链接",
-              "href": "https://my.feishu.cn/share/base/form/shrcnP7uPqZG3Bisk61GIP5cvCf"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "你也可以加入官方交流群，与我们面对面交流："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群： 753637097"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "2026噪点游戏新品展销进行中…"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们也携手噪点游戏，正式加入本届噪点游戏新品展销活动。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "在这里，你将看到《侠影录》与众多武侠游戏一同亮相，共筑热血江湖。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "点击查看噪点游戏新品展销会："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://store.steampowered.com/publisher/zaogames/sale/ZAOGAMESLaunchShowcase2026",
-              "href": "https://store.steampowered.com/publisher/zaogames/sale/ZAOGAMESLaunchShowcase2026"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "《镇邪Ⅱ》免费试玩开放中"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "噪点游戏旗下的道士题材刷宝RPG游戏《镇邪Ⅱ》也开启了试玩，不妨一试。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "《镇邪Ⅱ》是一款国风志怪道士题材游戏，由灵煦工作室制作，为“镇邪”系列第二款买断制单机道士游戏。本作根据大量的民间故事改编，支持最多4人组队挑战。你将化身一位道门弟子，执符箓、炼尸傀、探幽墓，在妖魔横行的军阀乱世中，以道术揭开千年暗涌的真相。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果你想获得我们的一手资讯，请关注我们的社交平台："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            },
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群： 753637097"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            },
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=e24869c0a396&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=e24869c0a396&h_src=heyboxapp"
-            }
-          ]
-        }
-      ],
-      "images": [
-        "https://clan.fastly.steamstatic.com/images//45847359/8d0bf3b396bbe3dfb9a0f7e2fc083a0343002967.png",
-        "https://clan.fastly.steamstatic.com/images//45847359/0e934717a82d55672698ba6e36bdb7927b8b7268.png"
-      ],
       "tags": []
     }
   ]
