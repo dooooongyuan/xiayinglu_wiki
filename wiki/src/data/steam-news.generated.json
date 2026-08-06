@@ -1,7 +1,7 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-08-05T04:31:41.371Z",
+  "fetchedAt": "2026-08-06T04:32:47.322Z",
   "items": [
     {
       "id": "1839676055896508",
@@ -126,7 +126,7 @@
           "type": "item",
           "segments": [
             {
-              "text": "修复大力飞剑冷却期间，也能触发噬星诀效果的Bug"
+              "text": "修复大李飞剑冷却期间，也能触发噬星诀效果的Bug"
             }
           ]
         },
@@ -400,7 +400,11 @@
         }
       ],
       "images": [],
-      "tags": []
+      "tags": [
+        "mod_reviewed",
+        "ModAct_1526778620_1785820300_0",
+        "mod_require_rereview"
+      ]
     },
     {
       "id": "1839676055888004",
