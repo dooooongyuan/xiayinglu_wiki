@@ -1,8 +1,463 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-08-06T04:32:47.322Z",
+  "fetchedAt": "2026-08-07T04:04:20.341Z",
   "items": [
+    {
+      "id": "1840310314340936",
+      "title": "1.1.11 版本更新公告 — 地狱难度特殊掉落与铸纹效果优化",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1840310314340936",
+      "publishedAt": "2026-08-06T06:07:50.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 地狱难度特殊掉落： 增加地狱难度下BOSS “萧无极”、“朴藏机”、“赫连霸”的特殊掉落“劫余令” （后续版本更新可用于兑换特殊技能铸纹、时装） 铸纹效果优化： 优化“修罗”效果为攻击提升15%，防御下降30%，均基于角色基础数值，不计算Buff叠加后的数值 优化“背水”效果为攻击提升30%，防御下降60%，均基于角色基础数…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "地狱难度特殊掉落："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增加地狱难度下BOSS “萧无极”、“朴藏机”、“赫连霸”的特殊掉落“劫余令”"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "（后续版本更新可用于兑换特殊技能铸纹、时装）"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "铸纹效果优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“修罗”效果为攻击提升15%，防御下降30%，均基于角色基础数值，不计算Buff叠加后的数值"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“背水”效果为攻击提升30%，防御下降60%，均基于角色基础数值，不计算Buff叠加后的数值"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“硬攻”效果为攻击提升50%，不再计算暴击，均基于角色基础数值，不计算Buff叠加后的数值"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“盾甲”效果为伤害降低30%，防御力翻倍"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“嗜血”、“吸星”、“曝气” 词条，现在均显示生效上限为8%"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "“乾坤诀”触发“乾坤炎”的时间调整为2秒，并调整每层“乾坤炎”效果为：提升2%阳属性伤害"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复背水、硬功、盾甲铸纹效果在Buff改变属性时会叠加计算的Bug"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复属性计算时，由于BUFF效果导致数值修改后无限叠加的Bug"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复词条“技能威力”与“技能属性威力”重复计算无限叠加的Bug，现在多段伤害技能不再因段数而重复叠加威力"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复萧清雪学习秘籍后主角继承时，备战界面不显示技能的Bug"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复挑战BOSS死亡失败后再次挑战时，手柄模式A键无法使用导致无法再次挑战的Bug"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复背水BUFF攻击加成数值的Bug"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复对话加载视频时偶发性闪退的Bug"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复偶发性崩溃闪退的Bug（ 该修复后现有第三方Mod将无法使用 ）"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "扩充终局玩法内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增强枪系技能，提供额外的强化资源并调整现有技能的效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整地狱难度的开启条件，并为地狱难度提供特殊装备、宝物等额外产出"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": []
+    },
     {
       "id": "1839676055896508",
       "title": "1.1.10 版本更新公告 — 系统与界面便捷优化",
@@ -5621,223 +6076,6 @@
       "images": [
         "https://clan.fastly.steamstatic.com/images//45847359/45c99623c5d604bd9504fff0d1f8b2de68adc892.png"
       ],
-      "tags": []
-    },
-    {
-      "id": "1836506165569661",
-      "title": "《侠影录》Demo即将关闭！优化进行中",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1836506165569661",
-      "publishedAt": "2026-07-03T06:18:05.000Z",
-      "excerpt": "各位大侠， 自6月16日《侠影录》新品节Demo限时开启以来，我们收到了海量的宝贵反馈。 每一份试玩报告、每一条留言建议，都让我们倍感振奋，也更加坚定了打磨好这款作品的决心。 Demo将于今日18：00 关闭。…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "各位大侠，"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "自6月16日《侠影录》新品节Demo限时开启以来，我们收到了海量的宝贵反馈。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "每一份试玩报告、每一条留言建议，都让我们倍感振奋，也更加坚定了打磨好这款作品的决心。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "Demo将于今日18：00 关闭。"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "关于反馈"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "在本次测试中，许多大侠提到了小怪阶段的战斗体验问题，包括但不限于："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "小怪的 韧性、霸体 表现带来的挫败感；"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "敌人 AI的行为逻辑 ；"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "战斗操作 的流畅度与手感；优化蓄力体验"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "UI和操作问题"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "……"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "以上种种，我们都已一一记录，并已经修改，将在正式版中体现，敬请期待。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "正式发售信息再度确认"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "《侠影录》将于 2026年7月24日 ​ 以正式版的形式发售！"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "定价 ：58元"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "首发折扣 ：10% OFF，折后价 52.2元"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "届时，完整版的江湖将向各位敞开大门，更多精彩内容静待探索。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "再次感谢所有参与本次Demo测试的大侠们。你们的陪伴与反馈，是我们前行路上最珍贵的行囊。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们7月24日再见！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果你想获得我们的一手资讯，请关注我们的社交平台："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群： 753637097"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=e24869c0a396&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=e24869c0a396&h_src=heyboxapp"
-            }
-          ]
-        }
-      ],
-      "images": [],
       "tags": []
     }
   ]
