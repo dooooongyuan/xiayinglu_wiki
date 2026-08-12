@@ -1,8 +1,463 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-08-07T04:04:20.341Z",
+  "fetchedAt": "2026-08-12T03:30:40.863Z",
   "items": [
+    {
+      "id": "1840310314353193",
+      "title": "1.1.12 版本更新公告 — 新增时装与神秘人商店开放",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1840310314353193",
+      "publishedAt": "2026-08-11T05:34:04.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 新增时装： 为 【侠影录支持者包DLC】 免费添加了“墨染临川”、“玄龙吞日” 两套时装 （ 已经购买支持者包的玩家在更新后可以直接获得新时装，不需要额外购买 ） 为师门神秘人商店添加了地狱难度专属时装 “地狱修罗” 神秘人商店开放： 开放后山神秘商人处的特殊商店，可以通过“劫余令”兑换特殊道具，且可以兑换各种材料以及对应的…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "新增时装："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "为 【侠影录支持者包DLC】 免费添加了“墨染临川”、“玄龙吞日” 两套时装 （ 已经购买支持者包的玩家在更新后可以直接获得新时装，不需要额外购买 ）"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "为师门神秘人商店添加了地狱难度专属时装 “地狱修罗”"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "神秘人商店开放："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "开放后山神秘商人处的特殊商店，可以通过“劫余令”兑换特殊道具，且可以兑换各种材料以及对应的特殊技能铸纹"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增初始队友师妹“阮停桡”，并新增与之配套的奇遇任务"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增玩家角色套路保存功能，可以对装备页面与武学页面进行保存，备战时可自由切换"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "（切换时武学页面需与装备页面的武器类型相一致，不一致则无法释放对应技能）"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化Buff “血战”获得的全系伤害加成上限为30%"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“天魔解体”的效果为“持续时间内提升60%的阴属性伤害，周围释放一次范围攻击并附加已损失生命50%的真实伤害，同时获得已损失生命30%的护盾”"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "（所有基于伤害计算的加成，会受到所选难度的通用难度系数影响）"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“孤光剑影”的技能前后摇及影子爆炸范围"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“春风杨柳诀”小旋风的效果，增加0.5秒的触发冷却时间，并调整了技能威力"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复地狱难度下击败BOSS后再次挑战时，地狱难度专属心法不生效的BUG"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复“春风杨柳诀”触发的小旋风威力配置错误的BUG"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复从萧清雪切换回主角后，未学习的技能也能够装备的BUG"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整升级输入控制器，修复部分手柄无法进入游戏，或游戏崩溃的BUG"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整升级资源加载系统，修复特殊电脑配置导致的黑屏、闪退、卡死等问题"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "扩充终局玩法内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增强枪系技能，提供额外的强化资源并调整现有技能的效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整地狱难度的开启条件，并为地狱难度提供特殊装备、宝物等额外产出"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": []
+    },
     {
       "id": "1840310314340936",
       "title": "1.1.11 版本更新公告 — 地狱难度特殊掉落与铸纹效果优化",
@@ -5612,469 +6067,6 @@
       "images": [
         "https://clan.fastly.steamstatic.com/images//45847359/1eea93e6f32f51504a3e62b93abbc1a7d5b21af4.png",
         "https://clan.fastly.steamstatic.com/images//45847359/9ee2da8c38572c8c977f63ad146db35332340345.jpg"
-      ],
-      "tags": []
-    },
-    {
-      "id": "1839041357025553",
-      "title": "《侠影录》常见问题集中回复",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1839041357025553",
-      "publishedAt": "2026-07-23T03:00:00.000Z",
-      "excerpt": "各位大侠，久等了！ 《侠影录》即将于明日上午11点发售。值此之际，我们整理了一些近期集中收到的问题，为大侠们进行一个集中的反馈，希望能帮大家扫清前路，无往不利。 一、 发售信息 问：试玩版和正式版有什么区别？ 答：非常感谢各位大侠在试玩版留下的意见和建议，我们在正式版中根据这些反馈做了大量体验优化。如各位大侠在正式版游玩中仍然遇到了困难和不好的体验，欢迎随时留言告知，我们将会尽全力解决。…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "各位大侠，久等了！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "《侠影录》即将于明日上午11点发售。值此之际，我们整理了一些近期集中收到的问题，为大侠们进行一个集中的反馈，希望能帮大家扫清前路，无往不利。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "一、 发售信息"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：试玩版和正式版有什么区别？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：非常感谢各位大侠在试玩版留下的意见和建议，我们在正式版中根据这些反馈做了大量体验优化。如各位大侠在正式版游玩中仍然遇到了困难和不好的体验，欢迎随时留言告知，我们将会尽全力解决。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "正式版扩充了 完整的主线剧情、支线奇遇探索任务 以及 副本关卡"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "正式版可以体验 全部的武学功法、玩法系统 （天工、炼丹、锻造等），以及 更多的神兵利器与宝物 供玩家收集"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "正式版 新增成就系统 与对应 成就奖励"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "针对游戏可选的 不同难度做出了细化区分"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "优化了 敌人的AI逻辑"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "优化了 敌人的韧性与霸体机制"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "优化了 蓄力攻击的操作手感"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏准确的发售时间是？ 答： 北京时间7月24日上午11:00发售。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏的定价是多少？ 答： ￥58 ，首发折扣 10%off ，折扣后价格为 ￥52.2 ，持续两周。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏是EA（抢先体验版）还是正式发售？ 答：1.0正式发售。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏会在哪些平台上线？ 答：Steam"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏支持哪些语言？ 答：目前支持简体中文和繁体中文。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "二、 系统与适配"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏支持的系统？ 答：目前只支持Windows系统。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏支持SteamDeck吗？ 答：支持在SteamDeck上游玩，我们已经在积极申请SteamDeck兼容性认证，尽力为大侠们带来最好的体验；有任何相关建议请通过下方的问卷向我们反馈"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
-              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏支持手柄游玩么？ 答：支持手柄游玩。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏支持云存档吗？ 答：Steam支持云存档。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：Demo或Playtest的存档可以继承到正式版吗？ 答：由于playtest时间较早，版本底层差异较大，旧版本的存档无法继承至正式版；新品节Demo存档可以继承到正式版内；但由于数值调整，demo存档继承到正式版后可能会由于正式版平衡性调整后，计算公式更新产生些许数值变化。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "三、 游戏内容与玩法"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：通关游戏大概需要多久？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：目前游戏的流程设计约为40-45小时，如果各位专注于武学精进与世界探索，游戏时长将会大大增加"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏有多少种武器？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：游戏中共有剑、刀、枪、拳四种武器"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏有多少种武功？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：游戏中包含剑、刀、枪、拳、心法五大类型，阴、阳、刚、柔、毒五大属性合计超百种武学"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏有多少个关卡？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：游戏目前共开放八大主线章节，数十个副本供玩家探索"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：《侠影录》正式版支持创意工坊吗？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：为了保障版本体验，《侠影录》发售时不会第一时间支持官方创意工坊，待版本稳定后将会尽快开放。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：《侠影录》未来有哪些更新计划？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：未来计划加入更多的可供挑战副本、更多可供收集武器装备，在正式版稳定之后，我们会尽快开始着手创意工坊相关的开发工作。具体后续更新进度可以关注公告。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "四、 技术支持与反馈"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏存档文件在哪里？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：win+r 在运行框内输入： %USERPROFILE%/AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：游戏运行中闪退怎么办？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：请检查杀毒软件是否拦截了程序，建议将游戏目录加入白名单。如问题持续，请按照下一问中的Bug提交流程提交。"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：遇到Bug该如何反馈？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：可通过问卷表单提交："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
-              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "问：在哪里可以和其他玩家交流游戏？"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "答：欢迎加入官方游戏交流用的QQ群：1074840507。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "感谢各位大侠长久以来的支持 ， 让我们明日江湖相见！"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "想获得我们的一手资讯，请关注我们的社交平台："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            },
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群加群链接："
-            },
-            {
-              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
-              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            },
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
-            }
-          ]
-        }
-      ],
-      "images": [
-        "https://clan.fastly.steamstatic.com/images//45847359/45c99623c5d604bd9504fff0d1f8b2de68adc892.png"
       ],
       "tags": []
     }
