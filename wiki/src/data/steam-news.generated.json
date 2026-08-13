@@ -1,8 +1,321 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-08-12T03:30:40.863Z",
+  "fetchedAt": "2026-08-13T03:33:35.662Z",
   "items": [
+    {
+      "id": "1840944183773337",
+      "title": "1.1.13 版本更新公告 — 武林小会BUG修复",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1840944183773337",
+      "publishedAt": "2026-08-12T08:29:56.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 修复： 修复武林选择其他人替代主角出战，战斗结束后概率卡死的Bug 启动相关： 同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案： 游戏频繁黑屏 / 闪退 升级显卡驱动到最新版本 确保切换到独立显卡 已经是最新显卡驱动，独立显卡，依然闪退 若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复武林选择其他人替代主角出战，战斗结束后概率卡死的Bug"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "扩充终局玩法内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "增强枪系技能，提供额外的强化资源并调整现有技能的效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整地狱难度的开启条件，并为地狱难度提供特殊装备、宝物等额外产出"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": [
+        "patchnotes"
+      ]
+    },
     {
       "id": "1840310314353193",
       "title": "1.1.12 版本更新公告 — 新增时装与神秘人商店开放",
@@ -5748,326 +6061,6 @@
         }
       ],
       "images": [],
-      "tags": []
-    },
-    {
-      "id": "1839041357028326",
-      "title": "国风单机动作闯关游戏《侠影录》现已发售！",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1839041357028326",
-      "publishedAt": "2026-07-24T02:55:34.000Z",
-      "excerpt": "各位大侠，久等了！ 历经半年测试打磨、数十次版本迭代，《侠影录》终于在今日迎来正式版本。从最初的雏形到如今完整的江湖，这一路离不开各位的陪伴与反馈。每一条建议、每一个 bug 反馈、每一次吐槽，都在推着这款游戏往前走。 朽木工作室全体成员在此，向所有关注我们游戏的大侠致以诚挚的谢意。 点击查看发售版pv 正式版本不是终点，而是另一段旅程的起点。后续我们会持续更新内容、优化体验，这片江湖的故事，还远没有讲完。 愿各位大侠，江湖顺遂。…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "各位大侠，久等了！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "历经半年测试打磨、数十次版本迭代，《侠影录》终于在今日迎来正式版本。从最初的雏形到如今完整的江湖，这一路离不开各位的陪伴与反馈。每一条建议、每一个 bug 反馈、每一次吐槽，都在推着这款游戏往前走。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "朽木工作室全体成员在此，向所有关注我们游戏的大侠致以诚挚的谢意。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "点击查看发售版pv",
-              "href": "https://www.bilibili.com/video/BV1o7KU62Esh/"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "正式版本不是终点，而是另一段旅程的起点。后续我们会持续更新内容、优化体验，这片江湖的故事，还远没有讲完。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "愿各位大侠，江湖顺遂。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "游戏现已发售"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "即日起至8月6日，游戏首发九折。游戏本体折后52.2元。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们还携手《下一站江湖2》《逸剑风云决》《龙胤立志传》《刀剑江湖路》《中国式网游》打造了捆绑包。已经拥有这些游戏的玩家，可通过捆绑包享受 额外折上折优惠 。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "【下一站江湖2捆绑包】"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://store.steampowered.com/bundle/",
-              "href": "https://store.steampowered.com/bundle/"
-            },
-            {
-              "text": "81221"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "【风云决捆绑包】"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://store.steampowered.com/bundle/",
-              "href": "https://store.steampowered.com/bundle/"
-            },
-            {
-              "text": "81336"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "【龙胤捆绑包】"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://store.steampowered.com/bundle/",
-              "href": "https://store.steampowered.com/bundle/"
-            },
-            {
-              "text": "81221"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "【江湖路捆绑包】"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://store.steampowered.com/bundle/",
-              "href": "https://store.steampowered.com/bundle/"
-            },
-            {
-              "text": "81212"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果您愿意给予额外的支持，首发折扣期间，游戏本体+主角服装支持者包折后62.37元。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "【豪华版捆绑包url】"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "常见问题汇总"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们此前汇总了关于游戏的常见问题，可以点击下方链接查看。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "反馈与评价"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "体验游戏后，各位大侠体验游戏后有任何反馈和建议，可以通过"
-            },
-            {
-              "text": "加入QQ群",
-              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
-            },
-            {
-              "text": "或者"
-            },
-            {
-              "text": "点击这个问卷",
-              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
-            },
-            {
-              "text": "告诉我们，我们会第一时间查看并且优化。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果您游玩后喜欢《侠影录》，衷心希望您在Steam中为我们留下宝贵的评价，再次感谢每一位大侠的支持与鼓励。"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "想获得我们的一手资讯，请关注我们的社交平台："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            },
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群加群链接："
-            },
-            {
-              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
-              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            },
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们也正在参与2026东方侠影游戏周的活动。云集各类优秀武侠、仙侠等游戏的资讯。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如感兴趣，可以"
-            },
-            {
-              "text": "前往活动页面",
-              "href": "https://store.steampowered.com/sale/EasternMartialArtistsWeek2026"
-            },
-            {
-              "text": "了解更多。"
-            }
-          ]
-        }
-      ],
-      "images": [
-        "https://clan.fastly.steamstatic.com/images//45847359/1eea93e6f32f51504a3e62b93abbc1a7d5b21af4.png",
-        "https://clan.fastly.steamstatic.com/images//45847359/9ee2da8c38572c8c977f63ad146db35332340345.jpg"
-      ],
       "tags": []
     }
   ]
