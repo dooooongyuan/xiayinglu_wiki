@@ -1,8 +1,867 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-08-22T02:29:26.288Z",
+  "fetchedAt": "2026-08-28T12:48:36.356Z",
   "items": [
+    {
+      "id": "1842212951301963",
+      "title": "1.1.17 版本更新公告 — 阳剑阴剑套路优化",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1842212951301963",
+      "publishedAt": "2026-08-28T03:38:58.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 阳剑套路优化： 新增剑影分身攻击附加“炙阳剑气”效果，目标敌人每拥有一层“炙阳剑气”受到伤害增加1%，持续6秒，最多可以叠加20层 优化“少阳功”技能效果：提升三千剑来的攻击力，数值等同于角色阳属性*目标已拥有“炙阳剑气”层数 阴剑套路优化： 优化“御剑引”技能效果：剑气漩涡的伤害类型调整为背击伤害，且命中目标后附加“阴寒”…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "阳剑套路优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增剑影分身攻击附加“炙阳剑气”效果，目标敌人每拥有一层“炙阳剑气”受到伤害增加1%，持续6秒，最多可以叠加20层"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“少阳功”技能效果：提升三千剑来的攻击力，数值等同于角色阳属性*目标已拥有“炙阳剑气”层数"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "阴剑套路优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“御剑引”技能效果：剑气漩涡的伤害类型调整为背击伤害，且命中目标后附加“阴寒”效果，目标敌人每拥有一层“阴寒”受到伤害增加1%，持续6秒，最多可以叠加20层"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“玄清道”技能效果：调整飞剑伤害，降低“御剑引”1.5秒的冷却时间，且提升“天曝流星”等同于角色阴属性2倍*目标已拥有“阴寒”层数的攻击力"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“玄冥经”技能效果：“游龙剑诀”的最后一段可控制“御剑引”的飞剑锁定目标造成伤害，并附加破除霸体效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“游龙剑诀”技能效果：现在可以触发“玄清道”的飞剑效果"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "战斗优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "大幅降低Boss的格挡几率"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "取消了BOSS “杜烈” 的火焰技能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "替换了BOSS “石奎” 的万佛掌技能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化飞剑技能效果，额外附加角色攻击力40%的伤害，上限提升至30层，触发冷却时间为8秒"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增心法图鉴"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增图鉴掉落指引功能，现在可以在图鉴上查询秘籍的掉落位置"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化角色被击倒后的保护机制"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复破体心法配置与描述不符的Bug，修复后心法效果为：伤害提升8%、暴击率提升10%，持续3秒，效果触发的冷却时间5秒"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复4名队友上阵后，队友血条显示错误的Bug"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "扩充终局玩法内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "提供额外的强化资源并调整现有技能的效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整地狱难度的开启条件，并为地狱难度提供特殊装备、宝物等额外产出"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": []
+    },
+    {
+      "id": "1841579228668255",
+      "title": "1.1.16 版本更新公告 — 新增时装与地狱难度特殊BOSS调整",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1841579228668255",
+      "publishedAt": "2026-08-21T10:25:20.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 新增时装： 为 【侠影录支持者包DLC】 免费添加了时装 “龙骧虎贲” （ 已经购买支持者包的玩家在更新后可以直接获得新时装，不需要额外购买 ） 击败地狱难度BOSS“剑影”可获得特殊成就，及专属时装 “影杀无形” 其他优化： 调整地狱难度BOSS “剑影” 的难度，为其增加三项特殊机制 寒气：“剑影”的攻击会附加阴属性寒气…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "新增时装："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "为 【侠影录支持者包DLC】 免费添加了时装 “龙骧虎贲” （ 已经购买支持者包的玩家在更新后可以直接获得新时装，不需要额外购买 ）"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "击败地狱难度BOSS“剑影”可获得特殊成就，及专属时装 “影杀无形”"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整地狱难度BOSS “剑影” 的难度，为其增加三项特殊机制"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "寒气：“剑影”的攻击会附加阴属性寒气伤害，层数叠加后会施加冰冻效果"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "反制：“剑影”的攻击会概率破除玩家的霸体状态，并根据当前生命值比例采取特殊反制措施"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "狂暴：“剑影”生命值低于20%，会获得伤害提升20%的专属Buff"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“玄冥经”新增技能效果：可移动释放御剑引"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "提升可上场队友数量至4人"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增伤害数字显示开关选项"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复雷啸川、净尘等部分NPC在相关剧情结束后所在位置出现偏差的Bug"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "扩充终局玩法内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "提供额外的强化资源并调整现有技能的效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整地狱难度的开启条件，并为地狱难度提供特殊装备、宝物等额外产出"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": [
+        "mod_reviewed",
+        "ModAct_1434411615_1787308863_0",
+        "patchnotes",
+        "mod_require_rereview"
+      ]
+    },
     {
       "id": "1840944183788312",
       "title": "1.1.15 版本更新公告 — 主线任务BUG修复",
@@ -5565,445 +6424,6 @@
         "ModAct_487176015_1785140435_0",
         "mod_require_rereview"
       ]
-    },
-    {
-      "id": "1839041357033781",
-      "title": "1.1.2版本更新公告 — 第二次BOSS战难度优化与更新",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1839041357033781",
-      "publishedAt": "2026-07-26T13:30:36.000Z",
-      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！ 由于本次更新为临时性改动，后续版本中将对BOSS的AI战斗逻辑进行重构， 如果对新的boss调整体验不满意，可以通过以下方法继续游玩1.1.1版本，与当前1.1.2版本存档互通 在【库】里找到游戏，右键点击游戏名称，找到【属性】菜单，在【游戏版本与测试版】选项中选择名称为：v111的版本后进入游戏 以下是本次更新的主要内容： Boss难度调整： 降低各…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "各位大侠好，"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "由于本次更新为临时性改动，后续版本中将对BOSS的AI战斗逻辑进行重构，"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果对新的boss调整体验不满意，可以通过以下方法继续游玩1.1.1版本，与当前1.1.2版本存档互通"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "在【库】里找到游戏，右键点击游戏名称，找到【属性】菜单，在【游戏版本与测试版】选项中选择名称为：v111的版本后进入游戏"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "以下是本次更新的主要内容："
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "Boss难度调整："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "降低各BOSS的霸体状态持续时间"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "调整BOSS “孙不二” 的强度，延长BOSS招式的抬手时间与释放间隔"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "调整BOSS “冷青瓷” 的强度，延长BOSS招式的抬手时间与释放间隔"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "调整BOSS “黑衣人” 的强度，延长BOSS招式的抬手时间与释放间隔"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "对地狱难度下的BOSS数值作出专门调整，增加保护机制"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "部分其他BOSS的强度调整以及更多优化已经完成，详情请见"
-            },
-            {
-              "text": "1.1.1版本更新",
-              "href": "https://store.steampowered.com/news/app/3863760/view/672875385849907885"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "养成FAQ："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "除上述优化内容外，我们发现 角色养成系统缺少足够引导 ，导致许多大侠在进行角色养成时缺乏指引，我们会在未来对此做出专项优化，目前的游戏的主要养成方式如下："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "在门派购买或从副本中 掉落秘籍 ， 修炼秘籍 后装备可以使用新技能， 其中心法还会提供永久属性提升（无需装备）"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "主界面的经脉页面中， 消耗经脉点冲脉修行 获得属性提升与能力强化"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "副本中掉落的装备，在主界面的角色页面中可以 更换装备 ，也可以在NPC处进一步 强化锻造"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "打造可以获得 机簧点 ，用于制作并强化 暗器、傀儡 辅助战斗"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "可以在NPC处 炼制药品 ，部分高级药品服用还会获得永久属性提升"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "希望这些内容能够帮助各位大侠一路顺遂，无往不利"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "启动相关："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏频繁黑屏 / 闪退"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "升级显卡驱动到最新版本"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "确保切换到独立显卡"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "关闭云存档功能"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏无法正常启动"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "因云存档尚未同步，在其他电脑进行游戏后最新的自动存档崩溃且无法找回"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "可以进入存档位置 C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "删除最新存档，进入游戏即可加载更接近当前进度的自动存档"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406，由我们为您解决"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "未来更新重点："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "除此以外，我们还计划在未来版本更新中"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "对BOSS的AI进行重构，调整战斗逻辑"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "调整地狱难度的解锁方式，以及相应的奖励与成就"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "之前收集到的各类战斗和交互的反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "也可以通过问卷提交："
-            },
-            {
-              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
-              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "也欢迎关注我们的社交平台获取更新资讯"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            },
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群加群链接："
-            },
-            {
-              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
-              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            },
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
-            }
-          ]
-        }
-      ],
-      "images": [],
-      "tags": []
     }
   ]
 }
