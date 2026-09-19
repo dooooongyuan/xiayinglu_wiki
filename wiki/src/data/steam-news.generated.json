@@ -1,8 +1,423 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-09-07T06:09:19.011Z",
+  "fetchedAt": "2026-09-19T05:57:23.142Z",
   "items": [
+    {
+      "id": "1844115010494003",
+      "title": "1.1.19 版本更新公告 — 完美格挡与柔刀套路优化",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1844115010494003",
+      "publishedAt": "2026-09-18T07:25:13.000Z",
+      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 战斗优化： 新增完美格挡 ，现在使用格挡后0.2秒内受到距离角色2.5米范围内的近战攻击，将视为完美格挡，完美格挡不消耗角色气势并免疫本次伤害，打断敌人霸体状态，并削减敌人最大气势（降低比例为：普通敌人80%、精英敌人40%、Boss 20%），通过完美格挡削减敌人气势值至0后，敌人将触发气竭动作进入硬直 优化敌人起手招式前…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好，"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家对《侠影录》的支持与反馈，我们正持续优化大侠们的游戏体验！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下是本次更新的主要内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "战斗优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增完美格挡 ，现在使用格挡后0.2秒内受到距离角色2.5米范围内的近战攻击，将视为完美格挡，完美格挡不消耗角色气势并免疫本次伤害，打断敌人霸体状态，并削减敌人最大气势（降低比例为：普通敌人80%、精英敌人40%、Boss 20%），通过完美格挡削减敌人气势值至0后，敌人将触发气竭动作进入硬直"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化敌人起手招式前摇，降低所有敌人15%的起手与收招的速度"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "柔刀套路优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“千机刀法”技能效果：延长攻击距离，提高释放时的移动速度"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“影遁幻刀”技能效果：为生成的幻身增加持续时间显示，且进入隐身状态后释放的技能造成伤害必定暴击"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“生息”的效果，为每层“生息”提升最大气势*0.1的伤害"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化“滞慢”的效果，现在每层减速效果调整为8%，最大上限调整为6层"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化武学图集上武学获取途径的描述，并为修行界面添加了跳转指引"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "为打造界面新增打造词条库显示"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "破坏场景物体现在有概率随机掉落基础物品"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增技能伤害统计面板及伤害数字显示的开关设置"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增敌人buff特效显示的开关设置"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "修复："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "修复了神机山庄论武大会时，与敌人同归于尽会跳过剧情奖励的BUG"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "启动相关："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏频繁黑屏 / 闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "升级显卡驱动到最新版本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "确保切换到独立显卡"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "关闭云存档功能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏无法正常启动"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "进行游戏后最新的自动存档崩溃且无法找回"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "该问题由云存档未正确同步导致，可以加入我们的Bug群：729193406，由我们为您解决"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "游戏存档位置 ：C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406反馈"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "未来更新重点："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "除此以外，我们还计划在未来版本更新中"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "扩充终局玩法内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "提供额外的强化资源并调整现有技能的效果"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "之前收集到的各类反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": []
+    },
     {
       "id": "1842846814452016",
       "title": "1.1.18 版本更新公告 — 毒剑套路优化",
@@ -6007,445 +6422,6 @@
       "images": [],
       "tags": [
         "patchnotes"
-      ]
-    },
-    {
-      "id": "1839041357035831",
-      "title": "1.1.4版本更新公告 — 战斗手感全面升级",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1839041357035831",
-      "publishedAt": "2026-07-27T14:30:38.000Z",
-      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 战斗优化： 优化技能释放体验， 目前在角色进行普通攻击与使用技能的过程中，均可被其他技能中断以衔接新技能 优化闪避操作体验， 目前所有技能均可以被闪避中断 新增副本通关后 再次挑战选项 ，选择后可直接从当前副本Boss房间再次进行新挑战，为避免剧情卡死， 同一副本通关三次后即可解锁该功能 BOSS房间战斗中，在主角死亡后再次…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "各位大侠好，"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "以下是本次更新的主要内容："
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "战斗优化："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "优化技能释放体验， 目前在角色进行普通攻击与使用技能的过程中，均可被其他技能中断以衔接新技能"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "优化闪避操作体验， 目前所有技能均可以被闪避中断"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "新增副本通关后 再次挑战选项 ，选择后可直接从当前副本Boss房间再次进行新挑战，为避免剧情卡死， 同一副本通关三次后即可解锁该功能"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "BOSS房间战斗中，在主角死亡后再次挑战真气数量将回复为初始状态"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "缩短角色死亡后显示的等待时间"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "Boss调整："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "调整了所有Boss的霸体机制 ，目前BOSS仅在释放特定技能时进入霸体状态"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "BOSS “赫连霸” 的攻击欲望降低，增加技能释放的预警提示"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "其他优化："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "增加背包中武器、防具、铸纹的分类筛选"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "神兵武器词条插槽数量扩容至3个"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "修复："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "修复BOSS “求败”战胜奖励发放错误的BUG"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "修复了少量UI显示的BUG"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "启动相关："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏频繁黑屏 / 闪退"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "升级显卡驱动到最新版本"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "确保切换到独立显卡"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "关闭云存档功能"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏无法正常启动"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "因云存档尚未同步，在其他电脑进行游戏后最新的自动存档崩溃且无法找回"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "可以进入存档位置 C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "删除最新存档，进入游戏即可加载更接近当前进度的自动存档"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406，由我们为您解决"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "未来更新重点："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "除此以外，我们还计划在未来版本更新中"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "操作手感优化"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "Boss AI逻辑重构和机制优化"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "更多奇遇和内容"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "之前收集到的各类战斗和交互的反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "也可以通过问卷提交："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
-              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "也欢迎关注我们的社交平台获取更新资讯"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群加群链接："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
-              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
-            }
-          ]
-        }
-      ],
-      "images": [],
-      "tags": [
-        "mod_reviewed",
-        "ModAct_1894626024_1785167138_0",
-        "mod_require_rereview"
       ]
     }
   ]
