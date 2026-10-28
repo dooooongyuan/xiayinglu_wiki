@@ -1,7 +1,7 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-10-24T05:57:30.874Z",
+  "fetchedAt": "2026-10-28T06:53:20.591Z",
   "items": [
     {
       "id": "1847286114035750",
@@ -4668,11 +4668,7 @@
         }
       ],
       "images": [],
-      "tags": [
-        "mod_reviewed",
-        "ModAct_1526778620_1785820300_0",
-        "mod_require_rereview"
-      ]
+      "tags": []
     },
     {
       "id": "1839676055888004",
