@@ -1,8 +1,350 @@
 {
   "appId": 3863760,
   "storeUrl": "https://store.steampowered.com/news/app/3863760",
-  "fetchedAt": "2026-10-28T06:53:20.591Z",
+  "fetchedAt": "2026-11-06T07:57:26.395Z",
   "items": [
+    {
+      "id": "1848664643343998",
+      "title": "《侠影录》高难挑战玩法 “九天登神塔” 携全新折扣现已上线",
+      "url": "https://store.steampowered.com/news/app/3863760/view/1848664643343998",
+      "publishedAt": "2026-11-06T03:00:02.000Z",
+      "excerpt": "各位大侠好！ 首先感谢大家一直以来的支持与反馈，《侠影录》迎来了全新的内容更新！ 即日起至11月20日享受 八折优惠 ，游戏本体折后 46.4 元 我们还携手《逸剑风云决》《下一站江湖2》《墨境》《龙胤立志传》《中国式网游》《刀剑江湖路》《地府有点忙》打造了捆绑包，已经拥有这些游戏的玩家，可通过 点击此链接查看 捆绑包享受 额外折上折优惠 。…",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "各位大侠好！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "首先感谢大家一直以来的支持与反馈，《侠影录》迎来了全新的内容更新！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "即日起至11月20日享受 八折优惠 ，游戏本体折后 46.4 元"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们还携手《逸剑风云决》《下一站江湖2》《墨境》《龙胤立志传》《中国式网游》《刀剑江湖路》《地府有点忙》打造了捆绑包，已经拥有这些游戏的玩家，可通过"
+            },
+            {
+              "text": "点击此链接查看",
+              "href": "https://store.steampowered.com/bundlelist/3863760"
+            },
+            {
+              "text": "捆绑包享受 额外折上折优惠 。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "以下为本次更新的详细内容："
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "高难挑战：九天登神塔"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "主线通关后与后山“剑影”战斗胜利并对话，即可传送至九天登神塔区域，登神塔共十层，难度逐层攀升，每层通关后将掉落神器锻造与经脉强化所需的红色品质材料"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "九天登神塔内 BOSS 新增专属反制机制"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "神器锻造"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增神器装备，现在第七阶装备可升级为红色品质神器、防具与饰品，解锁专属武器外观；在登神塔中获取锻造材料后，可前往“锻痴林”处锻造、洗练神器"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增神器专属红色品级铸纹"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "经脉系统扩展"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增化神经脉，角色打通全部基础经脉后即可解锁化神经脉系统，可根据武器类型获得属性强化及相应的法相技能"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增满级后经脉点获取途径“化神经脉丹”，前往九天登神塔区域“百药老”处，消耗登神塔掉落素材炼制获得"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他新增内容"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增信件系统，在满足条件下将会收到来信，点击信件即可获得指引，前往对应的奇遇任务副本"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增 阮停桡、殷十娘、商红绡 3 名队友及配套任务"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增2套角色时装 “见影幽煌” 及 “沧澜游侠” ，可在九天登神塔商店解锁"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增大量支线任务"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "新增相关成就"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "其他优化"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化铸纹效果显示，为蓄积类铸纹新增Buff效果描述，镶嵌界面选中铸纹词条后，界面侧边会显示对应的Buff效果"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "优化所有敌人的攻击动作前摇"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "segments": [
+            {
+              "text": "调整BOSS “剑影” 的难度"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "heading",
+          "segments": [
+            {
+              "text": "借这次更新的机会，和大伙说说心里话："
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "自《侠影录》上线以来，我们收到了来自许多玩家的意见与反馈。这些意见有赞美，有鞭策，还有更多出乎我们意料之外的，没能在一开始发现的问题。每一个反馈我们都认真收集并记录下来，思考能做哪些方面的优化。从第一个版本迭代开始，我们共进行了二十个大大小小的更新，前后优化了战斗手感等数十个地方，同时新增了完美格挡，新的武学流派等多项内容。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "当然，我们也深知目前的版本还有不足之处。这次更新我们希望能够为新老玩家都带来更多的内容。为此，我们完善了并新增了游戏前期的剧情内容与引导，同时为已经通关的玩家提供了可供挑战的高难玩法”九天登神塔“，希望能为大家带来全新的体验。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "最后，我们想说，是大伙的支持，让《侠影录》逐渐打磨得越来越好。也正是因为大家的信任与陪伴，意见与鞭策，我们才能坚持至今。往后我们还会带来更多的内容更新，请继续和我们一起把《侠影录》做得更好。再次由衷地感谢屏幕前的每一位大侠！"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "朽木工作室"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "2026年11月6日"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也可以通过问卷提交："
+            },
+            {
+              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
+              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "segments": []
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "也欢迎关注我们的社交平台获取更新资讯"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "B站："
+            },
+            {
+              "text": "https://space.bilibili.com/399027475",
+              "href": "https://space.bilibili.com/399027475"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "官方QQ群加群链接："
+            },
+            {
+              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
+              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "segments": [
+            {
+              "text": "小黑盒："
+            },
+            {
+              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
+              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "tags": []
+    },
     {
       "id": "1847286114035750",
       "title": "九天塔起，神器问世——1.1.21版本更新内容前瞻",
@@ -5630,413 +5972,6 @@
           "segments": [
             {
               "text": "操作手感优化"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "更多奇遇和内容"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "之前收集到的各类战斗和交互的反馈我们也已经一一记下，这些问题可能需要花一些时间来处理，我们已经吸取建议并加急寻找优化方案，会在后续版本中尽快落实。"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如有其他反馈与建议请进入QQ群与我们联系：1074840507"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "也可以通过问卷提交："
-            },
-            {
-              "text": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr",
-              "href": "https://x9w7qu366w.feishu.cn/share/base/form/shrcnCXoK2rvg5xZA4IVzIwR6fr"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "我们会有专人对大侠们的反馈进行收集、整理，尽我们所能回应大侠们的期待"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "也欢迎关注我们的社交平台获取更新资讯"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "B站："
-            },
-            {
-              "text": "https://space.bilibili.com/399027475",
-              "href": "https://space.bilibili.com/399027475"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "官方QQ群加群链接："
-            },
-            {
-              "text": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1",
-              "href": "https://qun.qq.com/certify-share/s/VD9FNDPYBv?_nsp=1"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "小黑盒："
-            },
-            {
-              "text": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp",
-              "href": "https://www.xiaoheihe.cn/bbs/user_profile_share?user_id=5d6a6c87a92a&h_src=heyboxapp"
-            }
-          ]
-        }
-      ],
-      "images": [],
-      "tags": []
-    },
-    {
-      "id": "1839676055881984",
-      "title": "1.1.7 版本更新公告 — 手柄操作优化",
-      "url": "https://store.steampowered.com/news/app/3863760/view/1839676055881984",
-      "publishedAt": "2026-07-29T09:21:54.000Z",
-      "excerpt": "各位大侠好， 首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！ 以下是本次更新的主要内容： 手柄操作优化： 优化了指向性技能的手柄操作 新增在手柄操作模式下，背包界面物品分类切换的按键提示 新增在手柄操作模式下，击败BOSS后再次挑战的按键提示 新增在手柄操作模式下，副本结算界面的按键提示 Boss AI 优化： BOSS “呼延葬” 的霸体时间大幅度降低，技能释放的间隔时间延长 其他优化： Buff“飞剑”的触发…",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "各位大侠好，"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "首先感谢大家对《侠影录》的支持与反馈！我们正持续优化大侠们的游戏体验！"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "以下是本次更新的主要内容："
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "手柄操作优化："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "优化了指向性技能的手柄操作"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "新增在手柄操作模式下，背包界面物品分类切换的按键提示"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "新增在手柄操作模式下，击败BOSS后再次挑战的按键提示"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "新增在手柄操作模式下，副本结算界面的按键提示"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "Boss AI 优化："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "BOSS “呼延葬” 的霸体时间大幅度降低，技能释放的间隔时间延长"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "其他优化："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "Buff“飞剑”的触发条件更改，装备“背剑诀”时，使用蓄力攻击可直接触发飞剑效果"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "修复："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "修复剧情黑屏时无法正常跳过对话的Bug"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "（以下Bug可能需要 根据不同设备做针对性优化， 如新版本仍出现类似问题 请加入bug群：729193406 ，由我们为您解决）"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "修复了太华山副本中击败BOSS后黑屏卡死的Bug"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "修复传送至镇狱毒司地图加载错误的Bug"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "启动相关："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "同时，我们发现部分玩家在启动游戏时遇到了一些问题，在这里我们也准备了对应的解决方案："
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏频繁黑屏 / 闪退"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "升级显卡驱动到最新版本"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "确保切换到独立显卡"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "已经是最新显卡驱动，独立显卡，依然闪退"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "若使用手柄可以更新手柄驱动,或改为键鼠输入重新尝试下"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "关闭云存档功能"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏无法正常启动"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "由于Windows自己的安全中心默认拦截，需要在【智能应用控制】选项中将其关闭"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "游戏更新后出现了黑屏 / 闪退 / 游戏崩溃 / 无法启动 等问题"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "目前我们排查到因修改器/插件/mod导致的游戏崩溃和黑屏闪退，如大侠遇到类似情况，可尝试关闭修改器或删除mod，重新检查游戏完整性后再启动游戏"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "因云存档尚未同步，在其他电脑进行游戏后最新的自动存档崩溃且无法找回"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "可以进入存档位置 C:\\\\Users\\\\用户名\\\\AppData\\\\LocalLow\\\\yougou\\\\xiayinglu\\\\zhengshiban\\\\Avatar_0\\\\AutoSave"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "删除最新存档，进入游戏即可加载更接近当前进度的自动存档"
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "如果上述方案尝试后仍存在问题，可以加入我们的bug群：729193406，由我们为您解决"
-            }
-          ]
-        },
-        {
-          "type": "rule",
-          "segments": []
-        },
-        {
-          "type": "heading",
-          "segments": [
-            {
-              "text": "未来更新重点："
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "segments": [
-            {
-              "text": "除此以外，我们还计划在未来版本更新中"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "操作手感优化"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "segments": [
-            {
-              "text": "Boss AI逻辑重构和机制优化"
             }
           ]
         },
